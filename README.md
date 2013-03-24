@@ -1,3 +1,5 @@
+![Rails Girls London logo](https://raw.github.com/allolex/railsgirls-london/master/public/images/rails_girls_london_logo_ruby.png "Rails Girls London")
+
 # Rails Girls London
 
 This is the website and asset repository for Rails Girls London.
