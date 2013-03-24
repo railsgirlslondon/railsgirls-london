@@ -22,3 +22,10 @@ Rails Girls London is taking place 19-20 April 2013.
 We are [@railsgirls_ldn](https://twitter.com/railsgirls_ldn) on Twitter.
 
 Our Google+ page is here: [https://plus.google.com/b/104252944343767158344/](http://bit.ly/rgl-gplus)
+
+
+## Contributing to This Site
+
+Fork it and submit a pull request
+
+Documentation should use [Github-flavoured Markdown](https://help.github.com/articles/github-flavored-markdown), but with explicit links.
