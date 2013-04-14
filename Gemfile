@@ -6,7 +6,9 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
-group :test do
+gem 'haml-rails'
+
+group :test, :development do
   gem 'rspec-rails'
   gem 'capybara-webkit'
   gem 'shoulda-matchers'
