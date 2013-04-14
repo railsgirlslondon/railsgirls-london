@@ -6,7 +6,11 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
-group :test do
+gem 'haml-rails'
+gem 'simple_form'
+gem 'redcarpet'
+
+group :test, :development do
   gem 'rspec-rails'
   gem 'capybara-webkit'
   gem 'shoulda-matchers'
@@ -16,6 +20,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'bootstrap-sass'
 end
 
 gem 'jquery-rails'
