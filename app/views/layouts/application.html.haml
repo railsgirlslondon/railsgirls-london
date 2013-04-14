@@ -20,7 +20,10 @@
       .container
         .content
           .row
-            .span12
+            .span3
+              .affix-top
+                = render 'layouts/twitter_snippet'
+            .span9
               = render 'layouts/messages'
               = yield
           %footer
