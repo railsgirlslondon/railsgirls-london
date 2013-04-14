@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'redcarpet'
+gem 'devise'
 
 group :test, :development do
   gem 'rspec-rails'
