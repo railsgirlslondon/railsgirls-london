@@ -4,3 +4,29 @@ body
   padding-top: 60px
 
 @import "bootstrap-responsive"
+
+.navbar-inner
+  background-color: #d3360b
+
+  /* Gradients for modern browsers, replace as you see fit */
+  background-image: -moz-linear-gradient(top, #d3360b, #d3360b)
+  background-image: -ms-linear-gradient(top, #d3360b, #d3360b)
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#d3360b), to(#d3360b))
+  background-image: -webkit-linear-gradient(top, #d3360b, #d3360b)
+  background-image: -o-linear-gradient(top, #d3360b, #d3360b)
+  background-image: linear-gradient(top, #d3360b, #d3360b)
+  background-repeat: repeat-x
+
+  /* IE8-9 gradient filter */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d3360b', endColorstr='#d3360b', GradientType=0)
+
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle
+  background-color: #d3360b
+
+
+.navbar .brand
+  color: white
+  font-weight: bold
+  background-image: url('railsgirls-heart.png')
+  background-repeat: no-repeat
+  padding-left: 50px
