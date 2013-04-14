@@ -8,6 +8,7 @@ gem 'sqlite3'
 
 gem 'haml-rails'
 gem 'simple_form'
+gem 'redcarpet'
 
 group :test, :development do
   gem 'rspec-rails'
