@@ -63,6 +63,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fakeweb (1.3.0)
     ffi (1.5.0)
     haml (4.0.2)
       tilt
@@ -159,6 +160,7 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    vcr (2.4.0)
     warden (1.2.1)
       rack (>= 1.0)
     websocket (1.0.7)
@@ -173,6 +175,7 @@ DEPENDENCIES
   capybara-webkit
   coffee-rails (~> 3.2.1)
   devise
+  fakeweb
   haml-rails
   jquery-rails
   rails (= 3.2.13)
@@ -183,3 +186,4 @@ DEPENDENCIES
   simple_form
   sqlite3
   uglifier (>= 1.0.3)
+  vcr

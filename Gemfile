@@ -15,6 +15,8 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'capybara-webkit'
   gem 'shoulda-matchers'
+  gem 'vcr'
+  gem 'fakeweb'
 end
 
 group :assets do
