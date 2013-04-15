@@ -3,24 +3,26 @@ require 'spec_helper'
 describe Kippt::Clip do
 
   context "clips" do
-    let(:clips) { Kippt::Clip.all }
+    let(:clips) { VCR.use_cassette("kippt_clips") { Kippt::Clip.all } }
     let(:clip) { clips.first }
 
     it "retrieves clips from kippt" do
       clips.length.should == 2
     end
 
-    it "has a title" do
-      clip.title.should == "Git Immersion - Brought to you by Neo"
-    end
+    context "attributes" do
+      it "has a title" do
+        clip.title.should == "Git Immersion - Brought to you by Neo"
+      end
 
-    it "has a link" do
-      clip.link.should == "http://gitimmersion.com/"
-    end
+      it "has a link" do
+        clip.link.should == "http://gitimmersion.com/"
+      end
 
-    it "has a kippt url" do
-      clip.kippt_url.should == "/railsgirlslondon/learning-resources/clips/12818298"
-    end
+      it "has a kippt url" do
+        clip.kippt_url.should == "/railsgirlslondon/learning-resources/clips/12818298"
+      end
 
+    end
   end
 end
