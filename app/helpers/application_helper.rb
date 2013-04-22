@@ -12,4 +12,9 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def link_to_kippt link
+    link_to "kippt", "http://kippt.com#{link}"
+  end
+
 end
+

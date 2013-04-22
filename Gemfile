@@ -5,10 +5,11 @@ ruby '1.9.3'
 gem 'rails', '3.2.13'
 
 group :development do
-	gem 'sqlite3' 
+  gem 'sqlite3'
 end
+
 group :production do
-	gem 'pg'
+  gem 'pg'
 end
 
 gem 'haml-rails'
@@ -18,8 +19,10 @@ gem 'devise'
 
 group :test, :development do
   gem 'rspec-rails'
- # gem 'capybara-webkit'
+ #gem 'capybara-webkit'
   gem 'shoulda-matchers'
+  gem 'vcr'
+  gem 'fakeweb'
 end
 
 group :assets do
