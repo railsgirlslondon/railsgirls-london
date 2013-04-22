@@ -20,12 +20,12 @@
       .container
         .content
           .row
-            .span3
-              .affix-top
-                = render 'layouts/twitter_snippet'
-                = render 'layouts/kippt_resources'
             .span9
               = render 'layouts/messages'
               = yield
+            .span3
+              .affix-top
+                = render 'layouts/kippt_resources'
+                = render 'layouts/twitter_snippet'
           %footer
 
