@@ -4,7 +4,12 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.13'
 
-gem 'sqlite3'
+group :development do
+	gem 'sqlite3' 
+end
+group :production do
+	gem 'pg'
+end
 
 gem 'haml-rails'
 gem 'simple_form'
@@ -13,7 +18,7 @@ gem 'devise'
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'capybara-webkit'
+ # gem 'capybara-webkit'
   gem 'shoulda-matchers'
 end
 
