@@ -10,7 +10,7 @@ require 'vcr'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 VCR.config do |c|
-  c.cassette_library_dir = 'vcr_cassettes'
+  c.cassette_library_dir = 'spec/support/vcr_cassettes'
   c.hook_into :fakeweb
 end
 
