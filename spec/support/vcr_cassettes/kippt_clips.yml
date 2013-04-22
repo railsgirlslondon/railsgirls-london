@@ -25,7 +25,7 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 15 Apr 2013 08:45:33 GMT
+      - Mon, 22 Apr 2013 02:37:16 GMT
       server:
       - gunicorn/0.17.2
       vary:
@@ -61,5 +61,5 @@ http_interactions:
         "rubykoans.com", "created": 1365373329, "url": "http://rubykoans.com/", "notes":
         null, "list": "/api/lists/340149/", "resource_uri": "/api/clips/12818296/"}]}'
     http_version: '1.1'
-  recorded_at: Mon, 15 Apr 2013 08:45:33 GMT
+  recorded_at: Mon, 22 Apr 2013 02:37:40 GMT
 recorded_with: VCR 2.4.0
