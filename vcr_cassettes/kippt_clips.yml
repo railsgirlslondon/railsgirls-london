@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://kippt.com/api/clips
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      x-kippt-username:
+      - railsgirlslondon
+      x-kippt-api-token:
+      - b01e96fa40ffde86d642319fe3e0df2681358bfc
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json
+      date:
+      - Mon, 15 Apr 2013 08:45:33 GMT
+      server:
+      - gunicorn/0.17.2
+      vary:
+      - Cookie
+      transfer-encoding:
+      - chunked
+      connection:
+      - Close
+    body:
+      encoding: US-ASCII
+      string: ! '{"meta": {"next": null, "total_count": 2, "previous": null, "limit":
+        20, "offset": 0}, "objects": [{"via": null, "saves": {"count": 0, "data":
+        []}, "favicon_url": "https://www.google.com/s2/u/0/favicons?domain=gitimmersion.com",
+        "is_favorite": false, "likes": {"count": 0, "data": []}, "id": 12818298, "app_url":
+        "/railsgirlslondon/learning-resources/clips/12818298", "title": "Git Immersion
+        - Brought to you by Neo", "comments": {"count": 0, "data": []}, "type": "link",
+        "updated": 1365373360, "user": {"username": "railsgirlslondon", "bio": "",
+        "app_url": "/railsgirlslondon", "avatar_url": "https://d19weqihs4yh5u.cloudfront.net/avatars/4c1391a4-849d-46ef-96b6-db00585b5a10/160x160",
+        "twitter": "", "id": 61703, "github": "railsgirlslondon", "website_url": "",
+        "full_name": "Rails Girls London", "dribbble": "", "counts": {"follows": 0,
+        "followed_by": 0}, "is_pro": false, "resource_uri": "/api/users/61703/"},
+        "url_domain": "gitimmersion.com", "created": 1365373360, "url": "http://gitimmersion.com/",
+        "notes": null, "list": "/api/lists/340149/", "resource_uri": "/api/clips/12818298/"},
+        {"via": null, "saves": {"count": 0, "data": []}, "favicon_url": "https://www.google.com/s2/u/0/favicons?domain=rubykoans.com",
+        "is_favorite": false, "likes": {"count": 0, "data": []}, "id": 12818296, "app_url":
+        "/railsgirlslondon/learning-resources/clips/12818296", "title": "Learn Ruby
+        with the Neo Ruby Koans", "comments": {"count": 0, "data": []}, "type": "link",
+        "updated": 1365373329, "user": {"username": "railsgirlslondon", "bio": "",
+        "app_url": "/railsgirlslondon", "twitter": "", "counts": {"follows": 0, "followed_by":
+        0}, "github": "railsgirlslondon", "avatar_url": "https://d19weqihs4yh5u.cloudfront.net/avatars/4c1391a4-849d-46ef-96b6-db00585b5a10/160x160",
+        "is_pro": false, "full_name": "Rails Girls London", "dribbble": "", "id":
+        61703, "website_url": "", "resource_uri": "/api/users/61703/"}, "url_domain":
+        "rubykoans.com", "created": 1365373329, "url": "http://rubykoans.com/", "notes":
+        null, "list": "/api/lists/340149/", "resource_uri": "/api/clips/12818296/"}]}'
+    http_version: '1.1'
+  recorded_at: Mon, 15 Apr 2013 08:45:33 GMT
+recorded_with: VCR 2.4.0
