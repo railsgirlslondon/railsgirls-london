@@ -1,6 +1,3 @@
-require 'net/http'
-require 'json'
-
 class Kippt
 
   class Clip < Struct.new(:title, :link, :kippt_url) 
