@@ -4,9 +4,6 @@ require 'json'
 class Kippt
 
   class Clip < Struct.new(:title, :link, :kippt_url) 
-    def self.all
-      Kippt.get_clips
-    end
   end
 
   TOKEN = "b01e96fa40ffde86d642319fe3e0df2681358bfc"

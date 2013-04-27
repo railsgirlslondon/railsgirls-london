@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Kippt::Clip do
+describe Kippt do
 
   context "clips" do
-    let(:clips) { VCR.use_cassette("kippt_clips") { Kippt::Clip.all } }
+    let(:clips) { VCR.use_cassette("kippt_clips") { Kippt.get_clips } }
     let(:clip) { clips.first }
 
     it "retrieves clips from kippt" do
