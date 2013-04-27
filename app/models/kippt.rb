@@ -1,25 +1,25 @@
 class Kippt
-
   class Clip < Struct.new(:title, :link, :kippt_url) 
   end
 
-  TOKEN = "b01e96fa40ffde86d642319fe3e0df2681358bfc"
-  USERNAME = "railsgirlslondon"
-  KIPPT_HOST = "https://kippt.com/api"
+  class << self
+    def get_clips
+      kippt = new
+      data =  JSON.parse(kippt.get("clips").body)["objects"]
+      kippt.parse_clips(data)
+    end
 
-  HEADERS = {
-    "X-Kippt-Username" => USERNAME,
-    "X-Kippt-API-Token" => TOKEN
-  }
+    def configure
+      yield config
+    end
 
-  def initialize(host=KIPPT_HOST)
-    @host = host
+    def config
+      @_config ||= Config.new
+    end
   end
 
-  def self.get_clips
-    kippt = new
-    data =  JSON.parse(kippt.get("clips").body)["objects"]
-    kippt.parse_clips(data)
+  def initialize(host=Kippt.config.host)
+    @host = host
   end
 
   def parse_clips clips
@@ -30,12 +30,12 @@ class Kippt
 
   def get(path)
     request = Net::HTTP::Get.new(path)
-    http.get(full_path(path), HEADERS)
+    http.get(full_path(path), Kippt.config.headers)
   end
 
   private
   def full_path(path)
-    [KIPPT_HOST, path].compact.join('/')
+    [@host, path].compact.join('/')
   end
 
   def uri
@@ -44,13 +44,13 @@ class Kippt
 
   def http
     @http ||= begin
-                http = Net::HTTP.new(uri.host, uri.port)
-                if uri.port == 443
-                  http.use_ssl = true
-                  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-                end
-                http
-              end
+      http = Net::HTTP.new(uri.host, uri.port)
+      if uri.port == 443
+        http.use_ssl = true
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      end
+      http
+    end
   end
 
 
