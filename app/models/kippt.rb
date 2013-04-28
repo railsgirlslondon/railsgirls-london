@@ -4,6 +4,8 @@ class Kippt
 
   class << self
     def get_clips
+      return [] unless config.configured?
+
       kippt = new
       data =  JSON.parse(kippt.get("clips").body)["objects"]
       kippt.parse_clips(data)
@@ -14,7 +16,7 @@ class Kippt
     end
 
     def config
-      @_config ||= Config.new
+      @_config ||= KipptConfig.new
     end
   end
 
@@ -29,7 +31,6 @@ class Kippt
   end
 
   def get(path)
-    request = Net::HTTP::Get.new(path)
     http.get(full_path(path), Kippt.config.headers)
   end
 
