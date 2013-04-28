@@ -1,3 +1,5 @@
+require 'net/http'
+
 class Kippt
   class Clip < Struct.new(:title, :link, :kippt_url) 
   end
