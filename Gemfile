@@ -23,6 +23,8 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'vcr'
   gem 'fakeweb'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 end
 
 group :assets do

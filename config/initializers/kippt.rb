@@ -5,7 +5,7 @@ Kippt.configure do |config|
       config.username = yaml['username']
       config.token = yaml['token']
     rescue
-      puts "No kippt.yaml detected, Kippt will be disabled localy"
+      puts "No kippt.yaml detected, Kippt will be disabled locally"
     end
   else
     config.username = ENV['KIPPT_USERNAME']
