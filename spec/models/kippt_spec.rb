@@ -33,12 +33,14 @@ describe Kippt do
     end
 
     context "when unconfigured" do
+
       let(:clips) { Kippt.get_clips }
 
       before do
         Kippt.configure do |config|
           config.token = nil
         end
+        clips
       end
 
       it "returns doesn't request data from Kippt" do
