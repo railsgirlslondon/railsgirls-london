@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe Kippt do
 
+  before do
+   KipptConfig.any_instance.stub(:username).and_return('railsgirlslondon')
+   KipptConfig.any_instance.stub(:token).and_return('b01e96fa40ffde86d642319fe3e0df2681358bfc')
+  end
+
   context "clips" do
     let(:clips) { VCR.use_cassette("kippt_clips") { Kippt.get_clips } }
     let(:clip) { clips.first }
@@ -27,7 +32,7 @@ describe Kippt do
     end
 
     context "when unconfigured" do
-      let(:clips) { Kippt.get_clips } 
+      let(:clips) { Kippt.get_clips }
 
       before do
         Kippt.configure do |config|
@@ -36,7 +41,7 @@ describe Kippt do
       end
 
       it "returns doesn't request data from Kippt" do
-        Net::HTTP.any_instance.should_not_receive(:get)  
+        Net::HTTP.any_instance.should_not_receive(:get)
       end
 
       it "returns no clips" do
