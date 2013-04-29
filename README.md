@@ -26,7 +26,11 @@ Our Google+ page is here: [https://plus.google.com/b/104252944343767158344/](htt
 
 ## Contributing to This Site
 
-Fork it and submit a pull request
+1. Fork the repository
+2. Create your own branch _git checkout -b **mybranch**_
+3. Apply your changes
+4. Run `rake` to verify that the tests are passing
+5. Submit a pull request
 
 Documentation should use [Github-flavoured Markdown](https://help.github.com/articles/github-flavored-markdown), but with explicit links.
 
