@@ -1,0 +1,21 @@
+%h1 Listing host_cities
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @host_cities.each do |host_city|
+    %tr
+      %td= host_city.name
+      %td= host_city.description
+      %td= link_to 'Show', host_city
+      %td= link_to 'Edit', edit_host_city_path(host_city)
+      %td= link_to 'Destroy', host_city, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Host city', new_host_city_path

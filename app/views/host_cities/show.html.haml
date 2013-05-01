@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @host_city.name
+%p
+  %b Description:
+  = @host_city.description
+
+= link_to 'Edit', edit_host_city_path(@host_city)
+\|
+= link_to 'Back', host_cities_path
