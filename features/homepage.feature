@@ -5,9 +5,9 @@ Feature: RailsGirls Homepage
     When I navigate to "/"
     Then I can see "London" listed as a host city
 
-  @wip @cities
+  @cities
   Scenario: Visiting London
     When I navigate to "/"
-    And I click on "London"
+    And I click on "london"
     Then I can view "Rails Girls London"
 

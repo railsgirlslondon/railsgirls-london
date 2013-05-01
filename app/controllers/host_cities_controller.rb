@@ -10,7 +10,7 @@ class HostCitiesController < ApplicationController
   end
 
   def show
-    @host_city = HostCity.find(params[:id])
+    @host_city = HostCity.find_by_slug(params[:slug])
 
     respond_to do |format|
       format.html
