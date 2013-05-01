@@ -1,6 +1,5 @@
-
 .host-cities
   - @cities.each do |city|
     %ul
       %li
-        =link_to city.name, city
+        =link_to city.name, city_path(city.slug)
