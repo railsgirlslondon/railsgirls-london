@@ -16,5 +16,8 @@ module ApplicationHelper
     link_to "kippt", "http://kippt.com#{link}"
   end
 
-end
+  def brand_name
+    @host_city ? @host_city.name : "UK"
+  end
 
+end
