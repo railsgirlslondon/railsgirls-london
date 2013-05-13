@@ -4,7 +4,7 @@ class HostCitiesController < ApplicationController
     @host_city = HostCity.find_by_slug(params[:slug])
 
     respond_to do |format|
-      format.html
+      format.html { render layout: 'layouts/host_city_layout' }
       format.json { render json: @host_city }
     end
   end
