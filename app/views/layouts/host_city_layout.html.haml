@@ -4,7 +4,7 @@
     %meta{:charset => "utf-8"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
     %link{rel: 'shortcut icon', href: 'favicon.png'}
-    %title= content_for?(:title) ? yield(:title) : "Rails Girls UK"
+    %title= content_for?(:title) ? yield(:title) : "Rails Girls #{@host_city}"
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
     = stylesheet_link_tag "application", :media => "all"
@@ -20,8 +20,13 @@
       .container
         .content
           .row
-            .span12
+            .span9
               = render 'layouts/messages'
               = yield
+
+            .span3
+              .affix-top
+                = render 'layouts/fork_us'
+                = render 'layouts/twitter_snippet' if @host_city.twitter
           %footer
 
