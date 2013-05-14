@@ -20,6 +20,8 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem "factory_girl_rails"
+  gem 'launchy'
   gem 'vcr'
   gem 'fakeweb'
   gem 'cucumber-rails', require: false
