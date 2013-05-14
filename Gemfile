@@ -4,28 +4,27 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.13'
 
-group :development do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-end
-
 gem 'haml-rails'
 gem 'simple_form'
 gem 'redcarpet'
 gem 'devise'
 
+group :production do
+  gem 'pg'
+end
+
 group :test, :development do
+  gem 'sqlite3'
+end
+
+group :test do
   gem 'rspec-rails'
- #gem 'capybara-webkit'
   gem 'shoulda-matchers'
   gem "factory_girl_rails"
   gem 'launchy'
   gem 'vcr'
   gem 'fakeweb'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
 end
 
