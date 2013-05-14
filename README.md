@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/railsgirlslondon/railsgirls-london.png)](https://codeclimate.com/github/railsgirlslondon/railsgirls-london)
+
 ![Rails Girls London logo](https://raw.github.com/allolex/railsgirls-london/master/public/images/rails_girls_london_logo_ruby.png "Rails Girls London")
 
 # Rails Girls London
