@@ -1,6 +1,6 @@
 %h1.railsgify
   Rails Girls #{@host_city.name}
-  %small 19-20th April
+  %small= @host_city.events.first.dates unless @host_city.events.empty?
 
 %p
   .page-header

@@ -6,6 +6,7 @@ class HostCity < ActiveRecord::Base
 
   validate :validate_twitter_username
 
+  has_many :events
 
   def validate_twitter_username
     errors.add(:twitter, "It must begin with @") if twitter and !twitter.starts_with? "@"
