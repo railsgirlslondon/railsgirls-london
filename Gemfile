@@ -21,6 +21,8 @@ group :test, :development do
   gem 'rspec-rails'
  #gem 'capybara-webkit'
   gem 'shoulda-matchers'
+  gem "factory_girl_rails"
+  gem 'launchy'
   gem 'vcr'
   gem 'fakeweb'
   gem 'cucumber-rails'

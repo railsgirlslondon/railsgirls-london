@@ -1,3 +1,3 @@
-Then /^I can see an event "(.*?)"$/ do |properties|
-  find('.railsgify small').text.should have properties
+Then /^I can see the latest event date "(.*?)"$/ do |properties|
+  find('.railsgify small').text.should.eql? properties
 end
