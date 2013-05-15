@@ -1,47 +1,5 @@
-%h1.railsgify
-  Rails Girls London
-  %small 19-20th April
-
-%p
-  .page-header
-    %h4 Pictures from the event
-  %object.center{ width: "400", height: "300"}
-    %param{ name: "flashvars",
-           value: "offsite=true&lang=en-us&page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Drailsgirlslondon&page_show_back_url=%2Fsearch%2F%3Fq%3Drailsgirlslondon&method=flickr.photos.search&api_params_str=&api_text=railsgirlslondon&api_tag_mode=bool&api_media=all&api_sort=relevance&jump_to=&start_index=0" }
-    %param{ name: "movie",
-            value: "http://www.flickr.com/apps/slideshow/show.swf?v=124984" }
-    %param{ name: "allowFullScreen", value: "true"}
-    %embed{ type: "application/x-shockwave-flash",
-             src: "http://www.flickr.com/apps/slideshow/show.swf?v=124984",
-             allowFullScreen: "true", flashvars: "offsite=true&lang=en-us&page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Drailsgirlslondon&page_show_back_url=%2Fsearch%2F%3Fq%3Drailsgirlslondon&method=flickr.photos.search&api_params_str=&api_text=railsgirlslondon&api_tag_mode=bool&api_media=all&api_sort=relevance&jump_to=&start_index=0", width:"400", height:"300"}
-
-%p
-  .page-header
-    %h4 Lightning talks
-  %ul.unstyled
-    %li
-      =link_to "Don't be scared", "https://speakerdeck.com/mariakhait/dont-be-scared"
-      by
-      =link_to "Maria Khait", "http://twitter.com/mariakhait"
-    %li
-      =link_to "The command line is your friend", "https://gist.github.com/despo/5431226"
-      by
-      =link_to "Despo Pentara", "http://twitter.com/despo"
-    %li
-      =link_to "How to search like a developer", "https://speakerdeck.com/petermacrobert/how-to-search-like-a-developer"
-      by
-      =link_to "Peter MacRobert", "https://twitter.com/petermacrobert"
-    %li
-      =link_to "Introduction to version control", " https://speakerdeck.com/fcheung/introduction-to-version-control"
-      by
-      =link_to "Fred Cheung", "https://twitter.com/fglc2"
-
-%p
-  .page-header
-    %h4 Applications that the Rails Girls built
-
-  If you want your application to be included here,
-  =link_to "fork us on github", "https://github.com/railsgirlslondon/railsgirls-london"
-  add it, and send us a pull request or send us an
-  =mail_to "london@railsgirls.co.uk", "email"
-  with your twitter handle and application url!
+.host-cities
+  - @cities.each do |city|
+    %ul
+      %li
+        =link_to city.name, city_path(city.slug)
