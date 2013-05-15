@@ -24,6 +24,7 @@ group :test do
   gem 'fakeweb'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'coveralls', require: false
 end
 
 group :assets do
