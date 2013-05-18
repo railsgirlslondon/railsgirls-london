@@ -21,10 +21,10 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'vcr'
-  gem 'fakeweb'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'coveralls', require: false
+  gem 'webmock'
 end
 
 group :assets do
