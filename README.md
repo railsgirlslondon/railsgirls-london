@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/railsgirlslondon/railsgirls-london.png)](https://codeclimate.com/github/railsgirlslondon/railsgirls-london) [![Build Status](https://travis-ci.org/railsgirlslondon/railsgirls-london.png?branch=master)](https://travis-ci.org/railsgirlslondon/railsgirls-london) [![Coverage Status](https://coveralls.io/repos/railsgirlslondon/railsgirls-london/badge.png?branch=master)](https://coveralls.io/r/railsgirlslondon/railsgirls-london?branch=master)
+
 ![Rails Girls London logo](https://raw.github.com/allolex/railsgirls-london/master/public/images/rails_girls_london_logo_ruby.png "Rails Girls London")
 
 # Rails Girls London
