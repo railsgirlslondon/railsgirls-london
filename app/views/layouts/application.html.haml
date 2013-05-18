@@ -27,6 +27,7 @@
               .affix-top
                 = render 'layouts/fork_us'
                 = render 'layouts/kippt_resources'
-                = render 'layouts/twitter_snippet'
+                - unless Rails.env.test?
+                  = render 'layouts/twitter_snippet'
           %footer
 
