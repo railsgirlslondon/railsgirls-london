@@ -22,6 +22,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'vcr'
   gem 'fakeweb'
+  gem 'launchy'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'coveralls', require: false

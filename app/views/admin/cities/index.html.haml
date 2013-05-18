@@ -1,0 +1,6 @@
+= link_to "New city", new_admin_city_path, class: "btn btn-primary"
+
+%h2 Cities
+%ul
+  - @cities.each do |city|
+    %li= city.name
