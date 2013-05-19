@@ -27,6 +27,6 @@
               .affix-top
                 = render 'layouts/fork_us'
                 = render 'layouts/kippt_resources'
-                = render 'layouts/twitter_snippet'
+                = render 'layouts/twitter_snippet' if @city and @city.twitter
           %footer
 
