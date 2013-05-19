@@ -4,22 +4,20 @@ class Kippt
   class Clip < Struct.new(:title, :link, :kippt_url) 
   end
 
-  class << self
-    def get_clips
-      return [] unless config.configured?
+  def self.get_clips
+    return [] unless config.configured?
 
-      kippt = new
-      data =  JSON.parse(kippt.get("clips").body)["objects"]
-      kippt.parse_clips(data)
-    end
+    kippt = new
+    data =  JSON.parse(kippt.get("clips").body)["objects"]
+    kippt.parse_clips(data)
+  end
 
-    def configure
-      yield config
-    end
+  def self.configure
+    yield config
+  end
 
-    def config
-      @_config ||= KipptConfig.new
-    end
+  def self.config
+    @_config ||= KipptConfig.new
   end
 
   def initialize(host=Kippt.config.host)

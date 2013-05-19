@@ -5,15 +5,16 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'vcr'
 require 'coveralls'
+require 'webmock/rspec'
 Coveralls.wear!
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-VCR.config do |c|
+VCR.configure do |c|
   c.cassette_library_dir = 'spec/support/vcr_cassettes'
-  c.hook_into :fakeweb
+  c.hook_into :webmock
 end
 
 RSpec.configure do |config|
