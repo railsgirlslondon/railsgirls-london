@@ -11,8 +11,8 @@ describe "Listing cities" do
     And { page.has_content? "Na" }
   end
 
-  context "clicking on a city" do
-    Given { visit root_path; }
+  context "selecting on a city" do
+    Given { visit root_path }
 
     When { click_on("Sama") }
     Then { page.has_content? "Rails Girls Sama" }
