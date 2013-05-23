@@ -1,0 +1,15 @@
+%h2== Register for Rails Girls #{@city.name}
+%hr
+.row
+  .span7.offset1
+    = simple_form_for @registration, url: city_registrations_path(@city) do |f|
+      = f.input :first_name, input_html: {class: "span4"}
+      = f.input :last_name, input_html: {class: "span4"}
+      = f.input :email, input_html: {class: "span4"}
+      = f.input :phone_number, input_html: {class: "span4"}
+      = f.input :twitter, input_html: {class: "span4"}
+      = f.input :gender, input_html: {class: "span4"}
+      = f.input :programming_experience, input_html: {rows: 3, class: "span7"}
+      = f.input :reason_for_applying, input_html: {rows: 3, class: "span7"}
+
+      = f.submit "Register", class: "btn btn-primary btn-block btn-large"
