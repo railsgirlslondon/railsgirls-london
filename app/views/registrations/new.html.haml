@@ -1,0 +1,11 @@
+= simple_form_for @registration, url: city_registrations_path(@city) do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :email
+  = f.input :phone_number
+  = f.input :twitter
+  = f.input :gender
+  = f.input :programming_experience
+  = f.input :reason_for_applying
+
+  = f.submit "Register"
