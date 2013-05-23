@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
 
     if @registration.save
       flash[:notice] = "Thanks for registering!"
-      redirect_to root_path
+      redirect_to city_path(params[:city_id])
     else
       @city = City.find params[:city_id]
       render action: :new
