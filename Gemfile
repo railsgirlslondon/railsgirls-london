@@ -6,7 +6,6 @@ gem 'rails', '3.2.13'
 
 gem 'haml-rails'
 gem 'simple_form'
-gem 'redcarpet'
 gem 'devise'
 
 group :production do
