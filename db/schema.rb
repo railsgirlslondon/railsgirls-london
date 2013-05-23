@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20130523212928) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "twitter"
   end
 
   create_table "registrations", :force => true do |t|
