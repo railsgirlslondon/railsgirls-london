@@ -1,6 +1,4 @@
 language: ruby
-before_install:
- - cp config/kippt.yml.example config/kippt.yml
 bundler_args: --without development
 script:
   - bundle exec rake db:create
