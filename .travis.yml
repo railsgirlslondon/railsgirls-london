@@ -15,5 +15,3 @@ branches:
 notifications:
   email:
     - london@railsgirls.co.uk
-env:
-  - KIPPT_TOKEN=token KIPPT_USERNAME=example_name
