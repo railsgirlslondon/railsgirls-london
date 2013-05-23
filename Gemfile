@@ -20,12 +20,13 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'rspec-given'
+  gem 'capybara'
   gem 'vcr'
   gem 'launchy'
-  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'coveralls', require: false
-  gem 'webmock'
+  gem 'webmock', "< 1.10"
 end
 
 group :assets do
