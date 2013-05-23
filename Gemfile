@@ -26,7 +26,7 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'coveralls', require: false
-  gem 'webmock'
+  gem 'webmock', "< 1.10"
 end
 
 group :assets do
