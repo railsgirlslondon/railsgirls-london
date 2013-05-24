@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
   def new
-    @city = City.find params[:city_id]
+    @city = City.find_by_slug params[:city_id]
     @registration = Registration.new
   end
 

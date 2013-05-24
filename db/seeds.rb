@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
 City.create name: 'London', twitter: '@railsgirls_ldn'
+
+City.all.each { |c| c.save }
