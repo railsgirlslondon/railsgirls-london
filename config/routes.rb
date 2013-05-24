@@ -3,12 +3,12 @@ RailsgirlsLondon::Application.routes.draw do
 
   get "home/index"
 
-  resources :cities, path: "", only: [:show] do
-    resources :registrations, only: [:new, :create]
-  end
-
   namespace :admin do
     resources :cities, only: [:new, :create, :index]
+  end
+
+  resources :cities, path: "", only: [:show] do
+    resources :registrations, only: [:new, :create]
   end
 
   root :to => 'home#index'
