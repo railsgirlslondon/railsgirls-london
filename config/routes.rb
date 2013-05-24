@@ -2,8 +2,8 @@ RailsgirlsLondon::Application.routes.draw do
   devise_for :users, skip: :registrations
 
   get "home/index"
-  
-  resources :cities, only: [:show] do
+
+  resources :cities, path: "", only: [:show] do
     resources :registrations, only: [:new, :create]
   end
 

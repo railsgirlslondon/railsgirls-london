@@ -4,6 +4,10 @@ class City < ActiveRecord::Base
 
   before_save :generate_slug
 
+  def to_param
+    slug
+  end
+
   def generate_slug
     self.slug = name.parameterize
   end
