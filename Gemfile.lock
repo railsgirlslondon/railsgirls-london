@@ -117,7 +117,6 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
-    redcarpet (2.2.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec (2.13.0)
@@ -193,7 +192,6 @@ DEPENDENCIES
   launchy
   pg
   rails (= 3.2.13)
-  redcarpet
   rspec-given
   rspec-rails
   sass-rails (~> 3.2.3)
