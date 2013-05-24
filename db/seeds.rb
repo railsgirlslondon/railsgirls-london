@@ -8,4 +8,4 @@
 #
 City.create name: 'London', twitter: '@railsgirls_ldn'
 
-City.all { |c| c.save }
+City.all.each { |c| c.save }
