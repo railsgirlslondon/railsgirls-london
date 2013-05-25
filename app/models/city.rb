@@ -2,6 +2,8 @@ class City < ActiveRecord::Base
   attr_accessible :name, :twitter
   attr_protected :slug
 
+  has_many :events
+
   before_save :generate_slug
 
   def to_param
