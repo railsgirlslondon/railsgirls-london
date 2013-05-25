@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @event.description
+
+  %b Active:
+  = @event.active
+
+  %b City:
+  = @event.city_name
+
+
+= link_to 'Edit', edit_admin_event_path(@event)
+\|
+= link_to 'Back', admin_events_path
