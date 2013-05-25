@@ -3,6 +3,9 @@ class Event < ActiveRecord::Base
   belongs_to :city
 
   validates :city, :description, presence: true
+  validates :active, uniqueness: {scope: :city_id}, if: :active?
 
   delegate :name, to: :city, prefix: true
+
+
 end
