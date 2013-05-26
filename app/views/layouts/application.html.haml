@@ -14,19 +14,19 @@
   %body
     %header.navbar.navbar-fixed-top
       %nav.navbar-inner
-        .container
+        .container-fluid
           = render 'layouts/navigation'
     #main{:role => "main"}
       .container
         .content
           .row
-            .span9
-              = render 'layouts/messages'
-              = yield
             .span3
               .affix-top
                 = render 'layouts/fork_us'
                 = render 'layouts/kippt_resources'
                 = render 'layouts/twitter_snippet' if @city and @city.twitter
+            .span9
+              = render 'layouts/messages'
+              = yield
           %footer
 
