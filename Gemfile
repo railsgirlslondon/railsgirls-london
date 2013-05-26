@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '3.2.13'
+gem 'rails', '~> 4.0.0.rc1'
 
 gem 'haml-rails'
-gem 'simple_form'
-gem 'devise'
+gem 'simple_form', '~> 3.0.0.rc'
+gem 'devise', '~> 3.0.0.rc'
 
 group :production do
   gem 'pg'
@@ -30,10 +30,10 @@ group :test do
 end
 
 group :assets do
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'coffee-rails', '~> 4.0.0.rc1'
+  gem 'uglifier', '>= 1.3.0'
 end
 
 gem 'jquery-rails'
-gem 'sass-rails',   '~> 3.2.3'
+gem 'sass-rails',   '~> 4.0.0.rc1'
 gem 'bootstrap-sass'
