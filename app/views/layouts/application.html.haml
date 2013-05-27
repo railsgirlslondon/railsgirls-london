@@ -4,7 +4,7 @@
     %meta{:charset => "utf-8"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
     %link{rel: 'shortcut icon', href: 'favicon.png'}
-    %title= content_for?(:title) ? yield(:title) : "Rails Girls London"
+    %title= content_for?(:title) ? yield(:title) : "Rails Girls UK"
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
     = stylesheet_link_tag "application", :media => "all"
@@ -15,18 +15,22 @@
     %header.navbar.navbar-fixed-top
       %nav.navbar-inner
         .container
-          = render 'layouts/navigation'
+          .span10.offset1
+            = render 'layouts/navigation'
     #main{:role => "main"}
       .container
-        .content
-          .row
-            .span9
-              = render 'layouts/messages'
-              = yield
-            .span3
-              .affix-top
-                = render 'layouts/fork_us'
-                = render 'layouts/kippt_resources'
-                = render 'layouts/twitter_snippet' if @city and @city.twitter
-          %footer
+        .row
+          .span2.offset1
+            = render 'layouts/social_media'
+            %br
+            = image_tag "london-profile.jpg"
+            %br
+            %br
+            = render 'layouts/twitter_snippet' if @city and @city.twitter
+            %br
+            = render 'layouts/kippt_resources'
+          .span8
+            = render 'layouts/messages'
+            = yield
+        %footer
 

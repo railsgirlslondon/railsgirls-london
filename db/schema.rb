@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525160418) do
+ActiveRecord::Schema.define(:version => 20130527011846) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(:version => 20130525160418) do
     t.text     "reason_for_applying"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
+    t.string   "uk_resident"
+    t.string   "os"
+    t.string   "os_version"
+    t.string   "spoken_languages"
+    t.string   "preferred_language"
+    t.string   "address"
   end
 
   add_index "registrations", ["email"], :name => "index_registrations_on_email"

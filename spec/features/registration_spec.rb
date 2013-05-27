@@ -9,22 +9,61 @@ feature "a girl registering" do
   let(:experience) { Faker::Lorem.sentence }
   let(:reason) { Faker::Lorem.sentence }
   let(:gender) { "Female" }
+  let(:address) { Faker::Lorem.sentence }
+  let(:spoken_languages) { Faker::Lorem.sentence }
+  let(:preferred_language) { Faker::Lorem.sentence }
+  let(:os_version) { Faker::Lorem.sentence }
 
-  Given(:city) { City.create! name: "London" }
-  Given { visit new_city_registration_path(city) }
 
-  When do
-    fill_in "First name", with: first_name
-    fill_in "Last name", with: last_name
-    fill_in "Email", with: email
-    fill_in "Phone number", with: phone_number
-    fill_in "Twitter", with: twitter
-    fill_in "Programming experience", with: experience
-    fill_in "Reason for applying", with: reason
-    fill_in "Gender", with: gender
+  context "with the minimum required information" do
+    Given(:city) { City.create! name: "London" }
+    Given { visit new_city_registration_path(city) }
 
-    click_on "Register"
+    When do
+      fill_in "First name", with: first_name
+      fill_in "Last name", with: last_name
+      select "Female", from: "Gender"
+      fill_in "Email", with: email
+      fill_in "Phone number", with: phone_number
+      fill_in "Address", with: address
+      fill_in "Spoken languages", with: spoken_languages
+      fill_in "Preferred language", with: preferred_language
+      select "Yes", from: "UK Resident"
+      select "OS X", from: "Operating System"
+      fill_in "OS Version", with: os_version
+      fill_in "Programming experience", with: experience
+      fill_in "Reason for applying", with: reason
+
+      click_on "Register"
+    end
+
+    Then { page.has_content? "Thanks for registering!" }
   end
 
-  Then { page.has_content? "Thanks for registering!" }
+  context "with all information filled in required information" do
+    Given(:city) { City.create! name: "London" }
+    Given { visit new_city_registration_path(city) }
+
+    When do
+      fill_in "First name", with: first_name
+      fill_in "Last name", with: last_name
+      select "Female", from: "Gender"
+      fill_in "Email", with: email
+      fill_in "Phone number", with: phone_number
+      fill_in "Twitter", with: twitter
+      fill_in "Address", with: address
+      fill_in "Spoken languages", with: spoken_languages
+      fill_in "Preferred language", with: preferred_language
+      select "Yes", from: "UK Resident"
+      select "OS X", from: "Operating System"
+      fill_in "OS Version", with: os_version
+      fill_in "Programming experience", with: experience
+      fill_in "Reason for applying", with: reason
+
+      click_on "Register"
+    end
+
+    Then { page.has_content? "Thanks for registering!" }
+  end
+
 end
