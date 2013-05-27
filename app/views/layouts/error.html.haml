@@ -20,17 +20,6 @@
     #main{:role => "main"}
       .container
         .row
-          .span2.offset1
-            = render 'layouts/social_media'
-            %br
-            = image_tag "london-profile.jpg"
-            %br
-            %br
-            = render 'layouts/twitter_snippet' if @city and @city.twitter
-            %br
-            = render 'layouts/kippt_resources'
-          .span8
-            = render 'layouts/messages'
+          .span3.offset5
             = yield
-  =render 'layouts/footer'
-
+    =render 'layouts/footer'

@@ -3,7 +3,7 @@ require 'spec_helper'
 feature "an admin CRUDing cities" do
   Given { User.create!(email: "admin@railsgirls.co.uk", password: "admin12345") }
 
-  Given do 
+  Given do
     visit new_user_session_path
 
     fill_in "Email", with: "admin@railsgirls.co.uk"
@@ -13,7 +13,7 @@ feature "an admin CRUDing cities" do
 
   context "creating cities" do
     When do
-      expect(page).not_to have_content("London")
+      expect { find(".cities a") }.to raise_error
 
       click_link "New city"
 
@@ -25,8 +25,8 @@ feature "an admin CRUDing cities" do
       expect(page).to have_content("London")
 
       visit root_path
-      
-      expect(page).to have_content("London")
+
+      find(".cities a").should have_text "London"
     end
   end
 end
