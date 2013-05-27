@@ -10,21 +10,44 @@ feature "a girl registering" do
   let(:reason) { Faker::Lorem.sentence }
   let(:gender) { "Female" }
 
-  Given(:city) { City.create! name: "London" }
-  Given { visit new_city_registration_path(city) }
 
-  When do
-    fill_in "First name", with: first_name
-    fill_in "Last name", with: last_name
-    fill_in "Email", with: email
-    fill_in "Phone number", with: phone_number
-    fill_in "Twitter", with: twitter
-    fill_in "Programming experience", with: experience
-    fill_in "Reason for applying", with: reason
-    select "Female", from: "Gender"
+  context "with the minimum required information" do
+    Given(:city) { City.create! name: "London" }
+    Given { visit new_city_registration_path(city) }
 
-    click_on "Register"
+    When do
+      fill_in "First name", with: first_name
+      fill_in "Last name", with: last_name
+      fill_in "Email", with: email
+      fill_in "Phone number", with: phone_number
+      fill_in "Programming experience", with: experience
+      fill_in "Reason for applying", with: reason
+      select "Female", from: "Gender"
+
+      click_on "Register"
+    end
+
+    Then { page.has_content? "Thanks for registering!" }
   end
 
-  Then { page.has_content? "Thanks for registering!" }
+  context "with all information filled in required information" do
+    Given(:city) { City.create! name: "London" }
+    Given { visit new_city_registration_path(city) }
+
+    When do
+      fill_in "First name", with: first_name
+      fill_in "Last name", with: last_name
+      fill_in "Email", with: email
+      fill_in "Phone number", with: phone_number
+      fill_in "Twitter", with: twitter
+      fill_in "Programming experience", with: experience
+      fill_in "Reason for applying", with: reason
+      select "Female", from: "Gender"
+
+      click_on "Register"
+    end
+
+    Then { page.has_content? "Thanks for registering!" }
+  end
+
 end
