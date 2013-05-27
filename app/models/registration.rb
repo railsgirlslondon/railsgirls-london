@@ -12,9 +12,11 @@ class Registration < ActiveRecord::Base
                  :os_version,
                  :spoken_languages,
                  :preferred_language,
-                 :address ]
+                 :address,
+                 :event_id ]
 
   attr_accessible *ATTRIBUTES, :twitter
   validates *ATTRIBUTES, presence: true
 
+  belongs_to :event
 end

@@ -14,10 +14,11 @@ feature "a girl registering" do
   let(:preferred_language) { Faker::Lorem.sentence }
   let(:os_version) { Faker::Lorem.sentence }
 
+  Given(:city) { City.create! name: "London" }
+  Given(:event) { Event.create! city_id: city.id, description: Faker::Lorem.sentence }
+  Given { visit new_city_event_registration_path(city, event) }
 
   context "with the minimum required information" do
-    Given(:city) { City.create! name: "London" }
-    Given { visit new_city_registration_path(city) }
 
     When do
       fill_in "First name", with: first_name
@@ -41,8 +42,6 @@ feature "a girl registering" do
   end
 
   context "with all information filled in required information" do
-    Given(:city) { City.create! name: "London" }
-    Given { visit new_city_registration_path(city) }
 
     When do
       fill_in "First name", with: first_name

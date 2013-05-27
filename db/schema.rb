@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130527011846) do
+ActiveRecord::Schema.define(:version => 20130527125027) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20130527011846) do
     t.string   "spoken_languages"
     t.string   "preferred_language"
     t.string   "address"
+    t.integer  "event_id"
   end
 
   add_index "registrations", ["email"], :name => "index_registrations_on_email"

@@ -9,7 +9,9 @@ RailsgirlsLondon::Application.routes.draw do
   end
 
   resources :cities, path: "", only: [:show] do
-    resources :registrations, only: [:new, :create]
+    resources :events, only: [ ] do
+      resources :registrations, only: [:new, :create]
+    end
   end
 
   root :to => 'home#index'
