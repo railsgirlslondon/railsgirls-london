@@ -8,6 +8,8 @@ RailsgirlsLondon::Application.routes.draw do
     resources :events
   end
 
+  match "/404", to: "errors#not_found"
+
   resources :cities, path: "", only: [:show] do
     resources :events, only: [ ] do
       resources :registrations, only: [:new, :create]
