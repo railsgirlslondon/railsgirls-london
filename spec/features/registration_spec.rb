@@ -17,7 +17,8 @@ feature "a girl registering" do
 
   context "with the minimum required information" do
     Given(:city) { City.create! name: "London" }
-    Given { visit new_city_registration_path(city) }
+    Given(:event) { Event.create! city_id: city.id, description: Faker::Lorem.sentence }
+    Given { visit new_city_event_registration_path(city, event) }
 
     When do
       fill_in "First name", with: first_name
@@ -42,7 +43,8 @@ feature "a girl registering" do
 
   context "with all information filled in required information" do
     Given(:city) { City.create! name: "London" }
-    Given { visit new_city_registration_path(city) }
+    Given(:event) { Event.create! city_id: city.id, description: Faker::Lorem.sentence }
+    Given { visit new_city_event_registration_path(city, event) }
 
     When do
       fill_in "First name", with: first_name
