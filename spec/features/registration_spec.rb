@@ -21,7 +21,7 @@ feature "a girl registering" do
     fill_in "Twitter", with: twitter
     fill_in "Programming experience", with: experience
     fill_in "Reason for applying", with: reason
-    fill_in "Gender", with: gender
+    select "Female", from: "Gender"
 
     click_on "Register"
   end
