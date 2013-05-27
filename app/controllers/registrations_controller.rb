@@ -12,6 +12,7 @@ class RegistrationsController < ApplicationController
       flash[:notice] = "Thanks for registering!"
       redirect_to city_path(params[:city_id])
     else
+      @event = Event.find params[:event_id]
       @city = City.find_by_slug params[:city_id]
       render action: :new
     end
