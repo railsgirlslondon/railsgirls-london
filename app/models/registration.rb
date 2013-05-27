@@ -1,20 +1,20 @@
 class Registration < ActiveRecord::Base
 
-  attr_accessible :email,
-                  :first_name,
-                  :gender,
-                  :last_name,
-                  :phone_number,
-                  :programming_experience,
-                  :reason_for_applying,
-                  :twitter
+  ATTRIBUTES = [ :email,
+                 :first_name,
+                 :gender,
+                 :last_name,
+                 :phone_number,
+                 :programming_experience,
+                 :reason_for_applying,
+                 :uk_resident,
+                 :os,
+                 :os_version,
+                 :spoken_languages,
+                 :preferred_language,
+                 :address ]
 
-  validates :email,
-            :first_name,
-            :gender,
-            :last_name,
-            :phone_number,
-            :programming_experience,
-            :reason_for_applying, presence: true
+  attr_accessible *ATTRIBUTES, :twitter
+  validates *ATTRIBUTES, presence: true
 
 end
