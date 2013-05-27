@@ -14,19 +14,21 @@
   %body
     %header.navbar.navbar-fixed-top
       %nav.navbar-inner
-        .container-fluid
-          = render 'layouts/navigation'
+        .container
+          .span10.offset1
+            = render 'layouts/navigation'
     #main{:role => "main"}
       .container
-        .content
-          .row
-            .span3
-              .affix-top
-                = render 'layouts/fork_us'
-                = render 'layouts/kippt_resources'
-                = render 'layouts/twitter_snippet' if @city and @city.twitter
-            .span9
-              = render 'layouts/messages'
-              = yield
-          %footer
+        .row
+          .span2.offset1
+            = image_tag "london-profile.jpg"
+            %br
+            %br
+            = render 'layouts/twitter_snippet' if @city and @city.twitter
+            %br
+            = render 'layouts/kippt_resources'
+          .span8
+            = render 'layouts/messages'
+            = yield
+        %footer
 
