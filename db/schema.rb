@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(:version => 20130527142342) do
     t.string   "spoken_languages"
     t.string   "preferred_language"
     t.string   "address"
-    t.integer  "event"
     t.integer  "event_id"
   end
 
