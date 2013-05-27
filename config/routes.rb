@@ -9,7 +9,7 @@ RailsgirlsLondon::Application.routes.draw do
   end
 
   resources :cities, path: "", only: [:show] do
-    resources :events do
+    resources :events, only: [ ] do
       resources :registrations, only: [:new, :create]
     end
   end
