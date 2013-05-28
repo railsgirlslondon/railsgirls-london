@@ -1,2 +1,3 @@
 =render partial: 'upcoming_event', locals: { event: @city.upcoming_event } unless @city.upcoming_event.nil?
 
+=render partial: "past_events", locals: { events: @city.past_events } unless @city.past_events.empty?

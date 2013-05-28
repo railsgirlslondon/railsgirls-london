@@ -1,0 +1,21 @@
+.event-details#past_events
+  %h3.underline Past Events
+
+  - events.each do |event|
+    .row
+      .span3
+        .event-box
+          .picture
+            = image_tag "london-girl.png"
+          .title
+            = event.title
+
+      .span3
+        Sponsored by
+        .sponsors
+
+    %br
+    .row
+      .span3
+        .links
+          =link_to "View details", city_event_path(@city,event)
