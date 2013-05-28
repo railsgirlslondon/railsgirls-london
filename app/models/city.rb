@@ -3,6 +3,7 @@ class City < ActiveRecord::Base
   attr_protected :slug
 
   has_many :events
+  has_one :upcoming_event, conditions: { active:  true}, class_name: "Event"
 
   before_save :generate_slug
 
