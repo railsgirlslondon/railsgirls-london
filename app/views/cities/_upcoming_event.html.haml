@@ -1,0 +1,43 @@
+.event-details#upcoming_event
+  %h3.underline Upcoming Event
+
+  .title
+    = event.title
+
+  .details
+    .description= event.description
+
+    .applications
+      Applications are open.
+
+    %br
+    %br
+    .links
+      =link_to "View details and apply", city_event_path(@city,event)
+      .pull-right
+        %a{ href: "https://twitter.com/share", class: "twitter-share-button", :"data-via" => (twitter rescue "railsgirls_ldn") }Tweet
+  %br
+  %hr
+  .row.information
+    .span7
+      .box
+        %span.highlight You learn
+        designing, prototyping and coding with the help of our coaches.
+
+      .box
+        %span.highlight You need
+        your own laptop, curiosity and a springle of imagination.
+
+
+  %hr
+  .box
+    .help Want to help?
+  .box
+    We are looking for
+    %strong Rails coaches
+    %p
+      %a{ href: " https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"}Subscribe to our coaches google group
+
+
+  :javascript
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
