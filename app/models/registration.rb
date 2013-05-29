@@ -15,7 +15,7 @@ class Registration < ActiveRecord::Base
                  :address,
                  :event_id ]
 
-  attr_accessible *ATTRIBUTES, :twitter
+  attr_accessible *ATTRIBUTES, :twitter, :dietary_restrictions
   validates *ATTRIBUTES, presence: true
 
   belongs_to :event

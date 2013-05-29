@@ -13,6 +13,7 @@ feature "a girl registering" do
   let(:spoken_languages) { Faker::Lorem.sentence }
   let(:preferred_language) { Faker::Lorem.sentence }
   let(:os_version) { Faker::Lorem.sentence }
+  let(:dietary_restrictions) { Faker::Lorem.sentence }
 
   Given!(:city) { City.create! name: "London" }
 
@@ -67,6 +68,7 @@ feature "a girl registering" do
       fill_in "OS Version", with: os_version
       fill_in "Programming experience", with: experience
       fill_in "Reason for applying", with: reason
+      fill_in "Dietary restrictions", with: dietary_restrictions
 
       click_on "Register"
     end
