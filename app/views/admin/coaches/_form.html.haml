@@ -1,0 +1,10 @@
+= simple_form_for([:admin, @coach]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :email
+    = f.input :twitter
+
+  .form-actions
+    = f.button :submit

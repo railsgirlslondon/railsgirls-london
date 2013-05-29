@@ -2,28 +2,21 @@ require 'spec_helper'
 
 feature "an admin CRUDing cities" do
   Given { City.create! name: "A city that exists" }
-  Given { User.create!(email: "admin@railsgirls.co.uk", password: "admin12345") }
-
-  Given do
-    visit new_user_session_path
-
-    fill_in "Email", with: "admin@railsgirls.co.uk"
-    fill_in "Password", with: "admin12345"
-    click_on "Sign in"
-  end
+  Given { admin_logged_in! }
 
   context "creating cities" do
+    Given { click_on "Cities" }
+    
     When do
-      expect { find(".cities a") }.to raise_error
-
+      expect(page).to_not have_content "Some City"
       click_link "New city"
 
-      fill_in "Name", with: "London"
+      fill_in "Name", with: "Some City"
       click_on "Create City"
     end
 
     Then do
-      expect(page).to have_content("London")
+      expect(page).to have_content("Some City")
 
       visit root_path
 
