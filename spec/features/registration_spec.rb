@@ -15,7 +15,10 @@ feature "a girl registering" do
   let(:os_version) { Faker::Lorem.sentence }
 
   Given(:city) { City.create! name: "London" }
-  Given(:event) { Event.create! city_id: city.id, description: Faker::Lorem.sentence }
+  Given!(:event) do
+    Event.create!(city_id: city.id, active: true, description: Faker::Lorem.sentence,
+                  starts_on: Time.now, ends_on: Time.now)
+  end
   Given { visit new_city_event_registration_path(city, event) }
 
   context "with the minimum required information" do
