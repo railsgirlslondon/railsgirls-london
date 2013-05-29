@@ -3,7 +3,9 @@ require 'spec_helper'
 describe Event do
   context "validations" do
     Given(:city) { City.create! name: "London" }
-    Given { Event.create! description: "something", city_id: city.id, active: true }
+    Given do
+      Event.create! description: "something", city_id: city.id, active: true, starts_on: Time.now, ends_on: Time.now
+    end
 
     context "only one active event per city" do
       When(:invalid_event) { Event.create description: "something", city_id: city.id, starts_on: Date.today, ends_on: Date.tomorrow,  active: true}
@@ -12,8 +14,8 @@ describe Event do
       And { not invalid_event.errors[:active].empty?}
 
       context "allows multiple inactive events" do
-        When(:event_1) { Event.create description: "something", city_id: city.id, active: false}
-        When(:event_2) { Event.create description: "something", city_id: city.id, active: false}
+        When(:event_1) { Event.create description: "something", city_id: city.id, active: false, starts_on: Time.now, ends_on: Time.now}
+        When(:event_2) { Event.create description: "something", city_id: city.id, active: false, starts_on: Time.now, ends_on: Time.now}
 
         Then { event_1.valid? }
         And { event_2.valid? }

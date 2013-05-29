@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 
   attr_accessible *ATTRIBUTES
 
-  validates :description, :city_id, presence: true
+  validates :description, :city_id, :starts_on, :ends_on, presence: true
   validates :active, uniqueness: {scope: :city_id}, if: :active?
 
   delegate :name, to: :city, prefix: true
