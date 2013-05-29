@@ -1,6 +1,6 @@
 %h2 Cities
 
 %ul.cities
-  - City.all.each do |city|
+  - @cities.each do |city|
     %li
       = link_to city.name, city_path(city)
