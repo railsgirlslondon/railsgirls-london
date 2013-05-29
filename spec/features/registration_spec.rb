@@ -14,12 +14,18 @@ feature "a girl registering" do
   let(:preferred_language) { Faker::Lorem.sentence }
   let(:os_version) { Faker::Lorem.sentence }
 
-  Given(:city) { City.create! name: "London" }
+  Given!(:city) { City.create! name: "London" }
+
   Given!(:event) do
     Event.create!(city_id: city.id, active: true, description: Faker::Lorem.sentence,
                   starts_on: Time.now, ends_on: Time.now)
   end
-  Given { visit new_city_event_registration_path(city, event) }
+
+  Given do
+    visit root_path
+    click_on "London"
+    click_on "Apply"
+  end
 
   context "with the minimum required information" do
 
