@@ -9,7 +9,7 @@ This is the website and asset repository for Rails Girls London.
 
 ## Next Event
 
-Rails Girls London is taking place 19-20 April 2013.
+Out next event will be announced soon!
 
 
 ## On the web
