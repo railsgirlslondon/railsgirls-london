@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 feature "an admin CRUDing cities" do
+  Given { City.create! name: "A city that exists" }
   Given { admin_logged_in! }
 
   context "creating cities" do
@@ -19,7 +20,8 @@ feature "an admin CRUDing cities" do
 
       visit root_path
 
-      find(".cities a").should have_text "Some City"
+      expect(page).to have_content("Cities")
+      expect(page).to have_content("London")
     end
   end
 end

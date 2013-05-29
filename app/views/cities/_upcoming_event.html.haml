@@ -13,7 +13,10 @@
     %br
     %br
     .links
-      =link_to "View details and apply", city_event_path(@city,event)
+      %div
+        = link_to "View details", city_event_path(@city, event)
+      %div
+        = link_to "Apply", new_city_event_registration_path(@city, event)
       .pull-right
         %a{ href: "https://twitter.com/share", class: "twitter-share-button", :"data-via" => (twitter rescue "railsgirls_ldn") }Tweet
   %br
@@ -26,7 +29,7 @@
 
       .box
         %span.highlight You need
-        your own laptop, curiosity and a springle of imagination.
+        your own laptop, curiosity and a sprinkle of imagination.
 
 
   %hr
