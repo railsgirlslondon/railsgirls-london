@@ -15,12 +15,13 @@
     %header.navbar.navbar-fixed-top
       %nav.navbar-inner
         .container
-          .span10.offset1
-            = render 'layouts/navigation'
+          .row
+            .span10.offset1
+              = render 'layouts/navigation'
     #main{:role => "main"}
       .container
         .row
-          .span2.offset1
+          .span3.offset1
             = render 'layouts/social_media'
             %br
             = image_tag "london-profile.jpg"
@@ -29,7 +30,7 @@
             = render 'layouts/twitter_snippet' if @city and @city.twitter
             %br
             = render 'layouts/kippt_resources'
-          .span8
+          .span7
             = render 'layouts/messages'
             = yield
   =render 'layouts/footer'

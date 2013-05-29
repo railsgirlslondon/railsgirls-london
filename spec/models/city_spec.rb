@@ -24,5 +24,25 @@ describe City do
     end
   end
 
+  context "#associations" do
+    context "upcoming_event" do
+      it "returns nil if there are no active events" do
+        city = City.create name: "San"
+        Event.create description: Faker::Lorem.sentence, city_id: city.id, active: false
+        Event.create description: Faker::Lorem.sentence, city_id: city.id, active: false
+
+        city.upcoming_event.should eq nil
+      end
+
+      it "can retrieve the upcoming event" do
+        city = City.create name: "San"
+        active_event = Event.create description: Faker::Lorem.sentence, city_id: city.id, active: true
+        other_event = Event.create description: Faker::Lorem.sentence, city_id: city.id, active: false
+
+        city.upcoming_event.should eq active_event
+      end
+    end
+  end
+
 end
 

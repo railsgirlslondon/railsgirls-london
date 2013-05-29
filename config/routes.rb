@@ -11,7 +11,7 @@ RailsgirlsLondon::Application.routes.draw do
   get "/404", to: "errors#not_found"
 
   resources :cities, path: "", only: [:show] do
-    resources :events, only: [ ] do
+    resources :events, only: [:show] do
       resources :registrations, only: [:new, :create]
     end
   end

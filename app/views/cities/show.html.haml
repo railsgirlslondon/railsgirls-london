@@ -1,5 +1,4 @@
-%h1.railsgify
-  = "Rails Girls #{@city.name}"
-  %small 19-20th April
+=render partial: 'subscribe'
+=render partial: 'upcoming_event', locals: { event: @city.upcoming_event } unless @city.upcoming_event.nil?
 
-= render partial: @city.slug rescue ""
+=render partial: "past_events", locals: { events: @city.past_events } unless @city.past_events.empty?
