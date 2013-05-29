@@ -2,15 +2,7 @@ require "spec_helper"
 
 feature "admin CRUDing events" do
   Given { City.create! name: "London" }
-  Given { User.create!(email: "admin@railsgirls.co.uk", password: "admin12345") }
-
-  Given do 
-    visit new_user_session_path
-
-    fill_in "Email", with: "admin@railsgirls.co.uk"
-    fill_in "Password", with: "admin12345"
-    click_on "Sign in"
-  end
+  Given { admin_logged_in! }
 
   context "creating and editing an event" do
     When { visit new_admin_event_path }  
