@@ -6,6 +6,9 @@ RailsgirlsLondon::Application.routes.draw do
   namespace :admin do
     resources :cities, only: [:new, :create, :index]
     resources :events
+    resources :coaches
+
+    get '/dashboard' => 'dashboard#index', as: :dashboard
   end
 
   get "/404", to: "errors#not_found"
