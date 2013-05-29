@@ -24,27 +24,41 @@ body
   //background-color: #cccccc
 
 
-.navbar .brand
-  color: white
-  //background-image: url('railsgirls-london.png')
-  //background-repeat: no-repeat
-  font-size: 28px
-  font-weight: 500
-  line-height: 40px
-  padding-left: 140px
+.navbar
 
-#whiteboxlogo
-  margin-top: 5px
+  #logo
+    margin-left: 10px
+    margin-top: 5px
+    color: #FFF
+    vertical-align: bottom
+    display: inline-block
 
-.imageLogo
-  background-color: white
-  border-color: #EEEEEE
-  border-style: solid
-  border-width: 0 0 1px
-  height: 49px
-  padding: 11px 15px 10px
-  position: fixed
-  width: 74px
+    a
+      color: #FFF
+      font-size: 28px
+      font-weight: 500
+      line-height: 70px
+      padding-left: 10px
+
+    img
+      background-color: #FFF
+      border-color: #EEEEEE
+      border-style: solid
+      border-width: 0 0 1px
+      padding: 14px 15px 10px
+      width: 80px
+      position: relative
+      bottom: -1px
+
+  .rails-girls-heart
+    width: 50px
+    line-height: 60px
+    text-align: center
+
+@media (max-width: 979px)
+  .navbar
+    #logo img
+      bottom: -6px
 
 .form-actions
   background: transparent

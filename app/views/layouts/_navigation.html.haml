@@ -1,9 +1,9 @@
-#whiteboxlogo
-  .mainTitle
-    .imageLogo
-      = image_tag("railsgirls-london.png")
-    = link_to "Rails Girls #{city_name}", root_path, :class => 'brand'
-  .pull-right
-    .rails-girls-heart
-      %a.rails-girls{ href: "http://railsgirls.com", title: "Rails Girls" }
-        =image_tag "railsgirls-heart.png"
+#logo
+  =link_to root_path do
+    = image_tag "railsgirls-london.png", class: 'brand'
+    Rails Girls #{city_name}
+
+.pull-right
+  .rails-girls-heart
+    %a.rails-girls{ href: "http://railsgirls.com", title: "Rails Girls" }
+      =image_tag "railsgirls-heart.png"
