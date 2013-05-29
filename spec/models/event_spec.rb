@@ -26,6 +26,7 @@ describe Event do
 
         Then{ valid_event.valid? }
       end
+
     end
   end
 end
