@@ -65,4 +65,39 @@ feature "admin CRUDing sponsors" do
       end
     end
   end
+
+  context "assigning a sponsor to an event" do
+    Given!(:city) { City.create! name: "A city" }
+    Given!(:event) do
+      Event.create! city_id: city.id, description: "an event name", starts_on: Time.now, ends_on: Time.now
+    end
+    Given { Sponsor.create! name: "a sponsor" }
+
+    When do 
+      click_on "Sponsors" 
+      click_on "Edit"
+    end
+
+    context "with no sponsor currently" do
+      Then { !page.has_content? "Sponsoring" }
+      And { page.has_content? "an event name" }
+      And { page.has_content? "Events not sponsored" } 
+    end
+
+    context "sponsoring an event" do
+      When { click_on "Sponsor" }
+
+      Then { page.has_content? "Sponsoring" }
+      And { page.has_content? "an event name" }
+      And { !page.has_content? "Events not sponsored" }
+
+      context "removing a sponsorship" do
+        When { click_on "Remove" }
+
+        Then { !page.has_content? "Sponsoring" }
+        And { page.has_content? "an event name" }
+        And { page.has_content? "Events not sponsored" } 
+      end
+    end
+  end
 end

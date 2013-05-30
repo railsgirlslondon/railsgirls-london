@@ -2,6 +2,31 @@
 
 = render 'form'
 
+- if @event_sponsorships.any?
+  %hr
+  %h2 Sponsoring
+  %table.table
+    - @event_sponsorships.each do |event_sponsorship|
+      %tr
+        %td= event_sponsorship.event.description
+        %td= link_to 'Remove', admin_event_sponsorship_path(event_sponsorship, sponsor_id: @sponsor.id), method: :delete, class: "btn btn-link"
+
+
+- if @not_sponsored_events.any?
+  %hr
+  %h2 Events not sponsored
+  %table.table
+    - @not_sponsored_events.each do |event|
+      %tr
+        %td= event.description
+        %td
+          = simple_form_for [:admin, EventSponsorship.new] do |f|
+            = f.hidden_field :event_id, value: event.id
+            = f.hidden_field :sponsor_id, value: @sponsor.id
+            = f.submit "Sponsor", class: "btn btn-link"
+
+
+
 = link_to 'Show', [:admin, @sponsor]
 \|
 = link_to 'Back', admin_sponsors_path

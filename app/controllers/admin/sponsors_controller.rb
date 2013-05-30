@@ -18,6 +18,8 @@ class Admin::SponsorsController < ApplicationController
 
   # GET /sponsors/1/edit
   def edit
+    @event_sponsorships = @sponsor.event_sponsorships
+    @not_sponsored_events = Event.all - @sponsor.events
   end
 
   # POST /sponsors

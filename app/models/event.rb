@@ -15,6 +15,9 @@ class Event < ActiveRecord::Base
   belongs_to :city
   has_many :registrations
 
+  has_many :event_sponsorships
+  has_many :sponsors, through: :event_sponsorships
+
   def title
     "#{self.starts_on.strftime("%d")}-#{self.ends_on.strftime("%d")} #{self.starts_on.strftime("%B %Y")}"
   end

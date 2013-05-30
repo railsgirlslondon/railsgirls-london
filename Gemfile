@@ -26,6 +26,7 @@ group :test do
   gem 'vcr'
   gem 'launchy'
   gem 'database_cleaner'
+  gem 'fabrication'
   gem 'coveralls', require: false
   gem 'webmock', "< 1.10"
 end

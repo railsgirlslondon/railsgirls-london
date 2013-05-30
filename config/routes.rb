@@ -6,6 +6,7 @@ RailsgirlsLondon::Application.routes.draw do
   namespace :admin do
     resources :cities, only: [:new, :create, :index]
     resources :events
+    resources :event_sponsorships, only: [:create, :destroy]
     resources :sponsors
     resources :coaches
 
