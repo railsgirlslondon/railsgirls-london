@@ -54,6 +54,6 @@ class Admin::CoachesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def coach_params
-      params.require(:coach).permit(:name)
+      params.require(:coach).permit(:name, :twitter, :email)
     end
 end

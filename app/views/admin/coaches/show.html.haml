@@ -4,6 +4,14 @@
   %b Name:
   = @coach.name
 
+%p
+  %b Twitter:
+  = @coach.twitter
+
+%p
+  %b Email:
+  = @coach.email
+
 = link_to 'Edit', edit_admin_coach_path(@coach)
 \|
 = link_to 'Back', admin_coaches_path
