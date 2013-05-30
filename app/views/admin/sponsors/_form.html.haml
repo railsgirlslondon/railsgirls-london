@@ -1,0 +1,10 @@
+= simple_form_for([:admin, @sponsor]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :primary_contact_email
+    = f.input :description
+
+  .form-actions
+    = f.button :submit

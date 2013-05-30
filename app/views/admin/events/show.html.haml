@@ -1,14 +1,25 @@
 %p#notice= notice
 
+%h2 Event
 %p
   %b Description:
   = @event.description
 
+%p
   %b Active:
   = @event.active
 
+%p  
   %b City:
   = @event.city_name
+
+
+- if @event.sponsors.any?
+  %h3 Sponsors
+  %table.table
+    - @event.sponsors.each do |sponsor|
+      %tr
+        %td= link_to sponsor.name, [:admin, sponsor]
 
 
 = link_to 'Edit', edit_admin_event_path(@event)

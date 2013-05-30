@@ -22,5 +22,47 @@ feature "admin CRUDing coaches" do
     end
 
     Then { page.has_content? 'Coach was successfully created.' }
+    And { page.has_content? name }
+    And { page.has_content? twitter }
+    And { page.has_content? email }
+
+    context "then editing that coach" do
+      When do
+        click_on "Edit"
+
+        fill_in "Name", with: "a new name"
+
+        click_on "Update Coach"
+      end
+
+      Then { page.has_content? 'Coach was successfully updated.' }
+      And { page.has_content? 'a new name' }
+    end
+
+    context "viewing that coach on the index" do
+      When do
+        click_on "Back"
+      end 
+
+      Then { page.has_content? name }
+      And { page.has_content? email }
+    end
+
+    context "deleting that coach" do
+      When do
+        click_on "Back"
+        click_on "Destroy"
+      end
+
+      Then { page.has_content? 'Coach was successfully destroyed.' }
+
+      context "that coach no longer shows up on the index" do
+        When do
+          visit admin_coaches_path
+        end
+
+        Then { !page.has_content? name }
+      end
+    end
   end
 end
