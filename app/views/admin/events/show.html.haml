@@ -21,6 +21,12 @@
       %tr
         %td= link_to sponsor.name, [:admin, sponsor]
 
+- if @event.coaches.any?
+  %h3 Coaches
+  %table.table
+    - @event.coaches.each do |coach|
+      %tr
+        %td= link_to coach.name, [:admin, coach]
 
 = link_to 'Edit', edit_admin_event_path(@event)
 \|
