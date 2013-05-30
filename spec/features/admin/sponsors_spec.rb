@@ -91,6 +91,12 @@ feature "admin CRUDing sponsors" do
       And { page.has_content? "an event name" }
       And { !page.has_content? "Events not sponsored" }
 
+      context "viewing the sponsor on the event show" do
+        When { visit admin_event_path(event) }
+
+        Then { page.has_content? "a sponsor" }
+      end
+
       context "removing a sponsorship" do
         When { click_on "Remove" }
 
