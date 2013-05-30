@@ -19,6 +19,7 @@
     - @sponsor.events.each do |event|
       %tr
         %td= link_to event.description, [:admin, event]
+        
 = link_to 'Edit', edit_admin_sponsor_path(@sponsor)
 \|
 = link_to 'Back', admin_sponsors_path
