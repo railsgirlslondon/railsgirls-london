@@ -1,5 +1,5 @@
 %p#notice= notice
-
+%h2 Coach
 %p
   %b Name:
   = @coach.name
@@ -12,6 +12,12 @@
   %b Email:
   = @coach.email
 
+- if @coach.events.any?
+  %h3 Events Coaching
+  %table.table
+    - @coach.events.each do |event|
+      %tr
+        %td= link_to event.description, [:admin, event]
 = link_to 'Edit', edit_admin_coach_path(@coach)
 \|
 = link_to 'Back', admin_coaches_path

@@ -18,6 +18,8 @@ class Admin::CoachesController < ApplicationController
 
   # GET /coaches/1/edit
   def edit
+    @event_coachings = @coach.event_coachings
+    @not_coached_events = Event.all - @coach.events
   end
 
   # POST /coaches
