@@ -19,7 +19,7 @@
   %table.table
     - @event.sponsors.each do |sponsor|
       %tr
-        %td= sponsor.name
+        %td= link_to sponsor.name, [:admin, sponsor]
 
 
 = link_to 'Edit', edit_admin_event_path(@event)
