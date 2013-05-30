@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130529214935) do
+ActiveRecord::Schema.define(version: 20130530185539) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -64,6 +64,12 @@ ActiveRecord::Schema.define(version: 20130529214935) do
 
   add_index "registrations", ["email"], name: "index_registrations_on_email"
   add_index "registrations", ["last_name"], name: "index_registrations_on_last_name"
+
+  create_table "sponsors", force: true do |t|
+    t.string "name"
+    t.string "primary_contact_email"
+    t.text   "description"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

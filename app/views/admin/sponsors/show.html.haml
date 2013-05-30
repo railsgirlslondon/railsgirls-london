@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @sponsor.name
+
+%p
+  %b Primary contact email:
+  = @sponsor.primary_contact_email
+
+%p
+  %b Description:
+  = @sponsor.description
+
+= link_to 'Edit', edit_admin_sponsor_path(@sponsor)
+\|
+= link_to 'Back', admin_sponsors_path
