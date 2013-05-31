@@ -17,7 +17,11 @@
     %br
     .links
       %div
+      - if event.registration_ends_on and event.registration_ends_on > Date.today
         = link_to "View details and apply", city_event_path(@city, event)
+      - else
+        = link_to "View details", city_event_path(@city, event)
+
       .pull-right
         %a{ href: "https://twitter.com/share", class: "twitter-share-button", :"data-via" => (twitter rescue "railsgirls_ldn") }Tweet
   %br
