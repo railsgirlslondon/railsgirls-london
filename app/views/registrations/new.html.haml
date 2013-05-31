@@ -1,5 +1,4 @@
-%h2 Register for Rails Girls #{@city.name}
-%hr
+%h3.underline Apply to the #{@city.name} #{@event.title} event
 = simple_form_for @registration, url: city_event_registrations_path(@city, @event), html: { class: 'form-horizontal' } do |f|
   = f.input :first_name, input_html: {class: "span3"}
   = f.input :last_name, input_html: {class: "span3"}
@@ -24,4 +23,6 @@
   = f.input :dietary_restrictions, input_html: {rows: 3, class: "span5"}
 
   .form-actions
-    = f.submit "Register", class: "btn btn-large"
+    = f.submit "Apply", class: "btn btn-large"
+
+= link_to "Back to event", city_event_path(@city, @event)

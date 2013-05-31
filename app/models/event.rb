@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
                  :city_id,
                  :starts_on,
                  :ends_on,
+                 :registration_ends_on,
                  :active]
 
   attr_accessible *ATTRIBUTES

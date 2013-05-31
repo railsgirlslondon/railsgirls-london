@@ -19,13 +19,12 @@ feature "a girl registering" do
 
   Given!(:event) do
     Event.create!(city_id: city.id, active: true, description: Faker::Lorem.sentence,
-                  starts_on: Time.now, ends_on: Time.now)
+                  starts_on: Time.now, ends_on: Time.now, registration_ends_on: Time.now+1.day)
   end
 
   Given do
-    visit root_path
-    click_on "London"
-    click_on "Apply"
+    visit city_event_path(city, event)
+    click_on "Apply to the event"
   end
 
   context "with the minimum required information" do
@@ -45,7 +44,7 @@ feature "a girl registering" do
       fill_in "Programming experience", with: experience
       fill_in "Reason for applying", with: reason
 
-      click_on "Register"
+      click_on "Apply"
     end
 
     Then { page.has_content? "Thanks for registering!" }
@@ -70,7 +69,7 @@ feature "a girl registering" do
       fill_in "Reason for applying", with: reason
       fill_in "Dietary restrictions", with: dietary_restrictions
 
-      click_on "Register"
+      click_on "Apply"
     end
 
     Then { page.has_content? "Thanks for registering!" }
