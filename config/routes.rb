@@ -1,8 +1,6 @@
 RailsgirlsLondon::Application.routes.draw do
   devise_for :users, skip: :registrations
 
-  get "home/index"
-
   namespace :admin do
     resources :cities, only: [:new, :create, :index]
     resources :events
