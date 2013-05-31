@@ -1,2 +1,16 @@
 =render partial: "#{@event.city.slug}#{@event.id}" rescue ""
 
+%hr
+.row
+  .span7
+    %ul.sponsors.inline
+      - @event.sponsors.each do |sponsor|
+        %li.span2
+          %h5
+            = link_to sponsor.website do
+              = image_tag sponsor.image_url
+          %small
+            %strong
+              =link_to "#{sponsor.name} -"  if sponsor.image_url.nil?
+            = sponsor.description
+          %br
