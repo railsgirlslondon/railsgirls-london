@@ -1,7 +1,6 @@
 =render partial: "#{@event.city.slug}#{@event.id}" rescue ""
 
-%h5 Sponsors
-%hr
+%h3.underline Sponsors
 .row
   .span7
     %ul.sponsors.inline
@@ -16,15 +15,14 @@
             = sponsor.description
           %br
 
-%h5 Organisers and Coaches
-%hr
+%h3.underline Organisers and Coaches
 .row
   .span7
     %ul.coaches.inline
       - @event.coaches.each do |coach|
         %li.span1
           %h5
-            = link_to "https://twitter.com/#{coach.twitter}" do
+            = link_to "https://twitter.com/#{coach.twitter}", title: "@#{coach.twitter}" do
               = image_tag "https://api.twitter.com/1/users/profile_image/#{coach.twitter}", class: 'img-circle'
           %small
             %strong
