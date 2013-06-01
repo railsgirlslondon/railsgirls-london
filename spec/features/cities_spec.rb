@@ -25,10 +25,10 @@ describe "Listing cities" do
 end
 
 describe "Viewing a city" do
-  Given(:city) { City.create!(name: "Lorem") }
+  Given(:city) { Fabricate(:city) }
 
   context "with an upcoming event" do
-    Given { Event.create! city_id: city.id, description: Faker::Lorem.sentence, starts_on: Date.today+2.days, ends_on:Date.today+3.days, active: true }
+    Given { Fabricate(:event, city: city) }
 
     When { visit city_path(city) }
     Then { find("#upcoming_event .title").text.should eq city.upcoming_event.title }
@@ -37,7 +37,7 @@ describe "Viewing a city" do
   end
 
   context "with a past event" do
-    Given { Event.create! city_id: city.id, description: Faker::Lorem.sentence, starts_on: Date.today+3.months, ends_on:Date.today+3.months+1.day, active: false }
+    Given { Fabricate(:inactive_event, city: city) }
 
     When { visit city_path(city) }
     Then { find("#past_events .title").text.should eq city.past_events.first.title }

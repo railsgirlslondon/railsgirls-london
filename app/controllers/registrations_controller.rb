@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
 
     if @registration.save
       RegistrationMailer.application_received(@event, @registration, request_url).deliver
-      flash[:notice] = "Thanks for registering! You should receive an email confirming your application soon."
+      flash[:notice] = "Thanks for applying to our workshop.You should receive a confirmation email soon!"
       redirect_to city_path(params[:city_id])
     else
       render action: :new
