@@ -1,0 +1,20 @@
+%h3
+  Hi
+  #{@registration.first_name},
+
+.content
+  .left.inline
+    %p.lead
+      %strong Thank you
+      for applying to our Rails Girls #{@city.name} workshop!
+      .title= @event.title
+
+      =link_to "View details", full_url_for(city_event_path(@city, @event))
+
+    %p.lead
+      We will send you an email confirming that you were succesful in getting a place in the event after registrations close. To confirm your availability, you will have to accept or decline the invitation.
+  .right.inline
+    =image_url_for "london-girl.png", width: '200px'
+    %div
+      %highlight You learn
+      designing, prototyping and coding with the help of our coaches.

@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130530212038) do
+ActiveRecord::Schema.define(version: 20130531180543) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "twitter"
     t.string   "slug"
+    t.string   "email"
   end
 
   add_index "cities", ["slug"], name: "index_cities_on_slug"
@@ -49,10 +50,11 @@ ActiveRecord::Schema.define(version: 20130530212038) do
     t.text     "description"
     t.integer  "city_id"
     t.boolean  "active"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.date     "starts_on"
     t.date     "ends_on"
+    t.date     "registration_ends_on"
   end
 
   create_table "registrations", force: true do |t|
@@ -64,8 +66,8 @@ ActiveRecord::Schema.define(version: 20130530212038) do
     t.string   "phone_number"
     t.text     "programming_experience"
     t.text     "reason_for_applying"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "uk_resident"
     t.string   "os"
     t.string   "os_version"
@@ -83,6 +85,8 @@ ActiveRecord::Schema.define(version: 20130530212038) do
     t.string "name"
     t.string "primary_contact_email"
     t.text   "description"
+    t.string "image_url"
+    t.string "website"
   end
 
   create_table "users", force: true do |t|
@@ -99,8 +103,8 @@ ActiveRecord::Schema.define(version: 20130530212038) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

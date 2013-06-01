@@ -1,9 +1,9 @@
 .social-media.text-center
-  =link_to "http://twitter.com/london", class: "btn btn-media" do
+  =link_to "http://twitter.com/#{@city.twitter rescue 'railsgirls'}", class: "btn btn-media" do
     =image_tag "twitter.png"
   =link_to "https://plus.google.com/b/104252944343767158344", class: "btn btn-media" do
     =image_tag "gplus.png"
-  =link_to "https://www.facebook.com/RailsGirlsLondon", class: "btn btn-media" do
+  =link_to "https://www.facebook.com/RailsGirls#{@city.name rescue ''}", class: "btn btn-media" do
     =image_tag "facebook.png"
-  =link_to "https://github.com/railsgirlslondon/railsgirls-london", class: "btn btn-media" do
+  =link_to "https://github.com/railsgirls#{@city.name rescue  ''}", class: "btn btn-media" do
     =image_tag "github.png"
