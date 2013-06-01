@@ -10,11 +10,7 @@
     .applications
       - if event.registration_ends_on and event.registration_ends_on > Date.today
         Applications are open.
-      - else
-        Applications are now closed.
 
-    %br
-    %br
     .links
       %div
       - if event.registration_ends_on and event.registration_ends_on > Date.today
