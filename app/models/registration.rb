@@ -13,7 +13,8 @@ class Registration < ActiveRecord::Base
                  :spoken_languages,
                  :preferred_language,
                  :address,
-                 :event_id ]
+                 :event_id,
+                 :event]
 
   attr_accessible *ATTRIBUTES, :twitter, :dietary_restrictions
   validates *ATTRIBUTES, presence: true
