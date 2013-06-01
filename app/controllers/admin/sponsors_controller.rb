@@ -56,6 +56,6 @@ class Admin::SponsorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def sponsor_params
-      params.require(:sponsor).permit(:name, :description, :primary_contact_email)
+      params.require(:sponsor).permit(:name, :description, :primary_contact_email, :image_url, :website)
     end
 end
