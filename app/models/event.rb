@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   ATTRIBUTES = [ :description,
                  :city_id,
+                 :city,
                  :starts_on,
                  :ends_on,
                  :active]

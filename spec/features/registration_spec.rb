@@ -15,16 +15,13 @@ feature "a girl registering" do
   let(:os_version) { Faker::Lorem.sentence }
   let(:dietary_restrictions) { Faker::Lorem.sentence }
 
-  Given!(:city) { City.create! name: "London" }
 
-  Given!(:event) do
-    Event.create!(city_id: city.id, active: true, description: Faker::Lorem.sentence,
-                  starts_on: Time.now, ends_on: Time.now)
-  end
+  Given!(:event) { Fabricate(:event) }
+  Given!(:city) { event.city }
 
   Given do
     visit root_path
-    click_on "London"
+    click_on  city.name
     click_on "Apply"
   end
 
@@ -48,7 +45,7 @@ feature "a girl registering" do
       click_on "Register"
     end
 
-    Then { page.has_content? "Thanks for registering!" }
+    Then { page.has_content? "Thanks for applying to our workshop.You should receive a confirmation email soon!" }
   end
 
   context "with all information filled in required information" do
@@ -73,7 +70,7 @@ feature "a girl registering" do
       click_on "Register"
     end
 
-    Then { page.has_content? "Thanks for registering!" }
+    Then { page.has_content? "Thanks for applying to our workshop.You should receive a confirmation email soon!" }
   end
 
 end

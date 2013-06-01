@@ -1,7 +1,7 @@
 #logo
   =link_to root_path do
     = image_tag "railsgirls-london.png", class: 'brand'
-    Rails Girls #{city_name}
+    Rails Girls #{@city.name rescue ""}
 
 .pull-right
   .rails-girls-heart
