@@ -28,6 +28,7 @@ module FeatureHelpers
     fill_in "Password", with: "admin12345"
     click_on "Sign in"
   end
+
 end
 
 RSpec.configure do |config|

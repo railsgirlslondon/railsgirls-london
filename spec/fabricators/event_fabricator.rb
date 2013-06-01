@@ -3,6 +3,7 @@ Fabricator(:event) do
   city
   starts_on { Date.today+1.month }
   ends_on { Date.today+1.month+1.day }
+  registration_ends_on { Date.today+1.week }
   active true
 end
 
