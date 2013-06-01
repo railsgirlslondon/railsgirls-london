@@ -20,9 +20,8 @@ feature "a girl registering" do
   Given!(:city) { event.city }
 
   Given do
-    visit root_path
-    click_on  city.name
-    click_on "Apply"
+    visit city_event_path(city, event)
+    click_on "Apply to the event"
   end
 
   context "with the minimum required information" do
@@ -42,7 +41,7 @@ feature "a girl registering" do
       fill_in "Programming experience", with: experience
       fill_in "Reason for applying", with: reason
 
-      click_on "Register"
+      click_on "Apply"
     end
 
     Then { page.has_content? "Thanks for applying to our workshop.You should receive a confirmation email soon!" }
@@ -67,7 +66,7 @@ feature "a girl registering" do
       fill_in "Reason for applying", with: reason
       fill_in "Dietary restrictions", with: dietary_restrictions
 
-      click_on "Register"
+      click_on "Apply"
     end
 
     Then { page.has_content? "Thanks for applying to our workshop.You should receive a confirmation email soon!" }

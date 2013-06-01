@@ -8,15 +8,16 @@
     .description= event.description
 
     .applications
-      Applications are open.
+      - if event.registration_ends_on and event.registration_ends_on > Date.today
+        Applications are open.
 
-    %br
-    %br
     .links
       %div
+      - if event.registration_ends_on and event.registration_ends_on > Date.today
+        = link_to "View details and apply", city_event_path(@city, event)
+      - else
         = link_to "View details", city_event_path(@city, event)
-      %div
-        = link_to "Apply", new_city_event_registration_path(@city, event)
+
       .pull-right
         %a{ href: "https://twitter.com/share", class: "twitter-share-button", :"data-via" => (twitter rescue "railsgirls_ldn") }Tweet
   %br
@@ -39,7 +40,7 @@
     We are looking for
     %strong Rails coaches
     %p
-      %a{ href: " https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"}Subscribe to our coaches google group
+      %a{ href: " https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"}Subscribe to our coaches mailing list
 
 
   :javascript

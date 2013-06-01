@@ -4,6 +4,8 @@ feature "admin CRUDing sponsors" do
   let(:name) { Faker::Name.first_name }
   let(:description) { Faker::Lorem.paragraph }
   let(:email) { Faker::Internet.email }
+  let(:website) { Faker::Internet.domain_name }
+  let(:image_url) { Faker::Internet.domain_name }
 
   Given { admin_logged_in! }
 
@@ -17,6 +19,8 @@ feature "admin CRUDing sponsors" do
       fill_in "Name", with: name
       fill_in "Description", with: description
       fill_in "Primary contact email", with: email
+      fill_in "Image url", with: image_url
+      fill_in "Website", with: website
 
       click_on "Create Sponsor"
     end
@@ -71,7 +75,7 @@ feature "admin CRUDing sponsors" do
     Given!(:event) do
       Event.create! city_id: city.id, description: "an event name", starts_on: Time.now, ends_on: Time.now
     end
-    Given { Sponsor.create! name: "a sponsor" }
+    Given { Sponsor.create! name: "a sponsor", website: website }
 
     When do 
       click_on "Sponsors" 
