@@ -19,7 +19,8 @@
         = link_to "View details", city_event_path(@city, event)
 
       .pull-right
-        %a{ href: "https://twitter.com/share", class: "twitter-share-button", :"data-via" => (twitter rescue "railsgirls_ldn") }Tweet
+        =render partial: 'shared/tweet_button', locals: { twitter: city_twitter, text: "Rails Girls #{city_name} #{event.title}. Get excited and make things!" }
+
   %br
   %hr
   .row.information
@@ -40,8 +41,4 @@
     We are looking for
     %strong Rails coaches
     %p
-      %a{ href: " https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"}Subscribe to our coaches mailing list
-
-
-  :javascript
-    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      %a{ href: "https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"}Subscribe to our coaches mailing list

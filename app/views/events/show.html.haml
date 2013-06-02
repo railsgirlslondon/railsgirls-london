@@ -13,7 +13,8 @@
         Applications are now closed.
 
       .pull-right
-        %a{ href: "https://twitter.com/share", class: "twitter-share-button", :"data-via" => (twitter rescue "railsgirls_ldn") }Tweet
+        =render partial: 'shared/tweet_button', locals: { twitter: city_twitter, text: "Rails Girls #{city_name} #{@event.title}. Get excited and make things!" }
+
   - else
     %div
       %em
@@ -39,9 +40,9 @@
       %strong Rails coaches
       %br
       %small
-        %a{ href: " https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"}Subscribe to our coaches mailing list
+        %a{ href: "https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"}Subscribe to our coaches mailing list
 
-=render partial: "#{@event.city.slug}#{@event.id}" rescue ""
+=render_event_partial
 
 %section.sponsors
   %h3.underline Sponsors
@@ -69,7 +70,7 @@
               = image_tag "https://api.twitter.com/1/users/profile_image/#{coach.twitter}", class: 'img-circle'
           %small
             %strong
-            = coach.name
+              = coach.name
             = link_to "https://twitter.com/#{coach.twitter}" do
               %small= "@#{coach.twitter}"
           %br
