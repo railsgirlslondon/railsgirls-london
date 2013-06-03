@@ -11,6 +11,7 @@ gem 'protected_attributes' # temporary
 
 group :production do
   gem 'pg'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 end
 
 group :test, :development do
