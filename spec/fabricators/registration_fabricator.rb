@@ -2,6 +2,7 @@ Fabricator(:registration) do
   first_name { Faker::Name.first_name }
   last_name { Faker::Name.last_name }
   email { Faker::Internet.safe_email }
+  email_confirmation { |attrs| attrs[:email] }
   gender { Faker::Lorem.word }
   phone_number { Faker::PhoneNumber.phone_number }
   reason_for_applying { Faker::Lorem.paragraph }
@@ -14,4 +15,5 @@ Fabricator(:registration) do
   reason_for_applying { Faker::Lorem.paragraph }
   address { Faker::Lorem.word }
   event
+  terms_of_service  "1"
 end

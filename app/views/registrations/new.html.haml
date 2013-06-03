@@ -5,6 +5,7 @@
   = f.input :gender, collection: [ "Female", "Male" ], prompt: "Select your gender", input_html: {class: "span3"}
   %hr
   = f.input :email, input_html: {class: "span3"}
+  = f.input :email_confirmation, input_html: {class: "span3"}
   = f.input :phone_number, input_html: {class: "span3"}
 
   = f.input :twitter, input_html: {class: "span3"}
@@ -44,7 +45,7 @@
 
         %li
           If you have any questions about the application process, please
-          =mail_to "contact the Rails Girls #{@city.name} organisers", @city.email
+          =mail_to @city.email, "contact the Rails Girls #{@city.name} organisers"
           , or
           =link_to "use our mailing list", "http://bit.ly/rglondon"
           \.
