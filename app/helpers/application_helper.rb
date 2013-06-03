@@ -20,5 +20,17 @@ module ApplicationHelper
     @city ? @city.name : "UK"
   end
 
-end
+  def page_title
+    title = "Rails Girls #{city_name}"
+    title << " -  #{@event.title}" if @event and @event.active
+    title
+  end
 
+  def city_twitter
+    @city ? @city.twitter : "railsgirls"
+  end
+
+  def city_slug
+    @city ? @city.slug : ""
+  end
+end
