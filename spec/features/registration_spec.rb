@@ -30,7 +30,8 @@ feature "a girl registering" do
       fill_in "First name", with: first_name
       fill_in "Last name", with: last_name
       select "Female", from: "Gender"
-      fill_in "Email", with: email
+      fill_in 'registration_email', with: email
+      fill_in "Email confirmation", with: email
       fill_in "Phone number", with: phone_number
       fill_in "Address", with: address
       fill_in "Spoken languages", with: spoken_languages
@@ -40,6 +41,7 @@ feature "a girl registering" do
       fill_in "OS Version", with: os_version
       fill_in "Programming experience", with: experience
       fill_in "Reason for applying", with: reason
+      check('registration_terms_of_service')
 
       click_on "Apply"
     end
@@ -53,7 +55,8 @@ feature "a girl registering" do
       fill_in "First name", with: first_name
       fill_in "Last name", with: last_name
       select "Female", from: "Gender"
-      fill_in "Email", with: email
+      fill_in 'registration_email', with: email
+      fill_in "Email confirmation", with: email
       fill_in "Phone number", with: phone_number
       fill_in "Twitter", with: twitter
       fill_in "Address", with: address
@@ -65,6 +68,7 @@ feature "a girl registering" do
       fill_in "Programming experience", with: experience
       fill_in "Reason for applying", with: reason
       fill_in "Dietary restrictions", with: dietary_restrictions
+      check('registration_terms_of_service')
 
       click_on "Apply"
     end
