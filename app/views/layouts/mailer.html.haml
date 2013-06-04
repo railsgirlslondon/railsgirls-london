@@ -90,7 +90,7 @@
       %nav
         #logo.inline
           =link_to full_url_for(city_path(@city)) do
-            = image_url_for "railsgirls-london.png"
+            = image_tag attachments["railsgirls-london.png"].url
         %div.inline.white
           %h2{ style: 'margin-left: 20px;' } Rails Girls #{@city.name rescue ""}
           %br
@@ -98,7 +98,7 @@
         .pull-right{ style: 'float: right' }
           .rails-girls-heart
             %a.rails-girls{ href: "http://railsgirls.com", title: "Rails Girls" }
-              = image_url_for "railsgirls-heart.png"
+              = image_tag attachments['railsgirls-heart.png'].url
 
     #main
       = yield
@@ -123,10 +123,10 @@
         Keep in touch!
         .social-media.text-center
           =link_to "http://twitter.com/#{@city.twitter}", class: "btn btn-media" do
-            =image_url_for "twitter.png"
+            =image_tag attachments['twitter.png'].url
           =link_to "https://plus.google.com/b/104252944343767158344", class: "btn btn-media" do
-            =image_url_for "gplus.png"
+            =image_tag attachments['gplus.png'].url
           =link_to "https://www.facebook.com/railsgirls#{@city.slug}", class: "btn btn-media" do
-            =image_url_for "facebook.png"
+            =image_tag attachments['facebook.png'].url
           =link_to "https://github.com/railsgirlslondon/railsgirls-#{@city.slug}", class: "btn btn-media" do
-            =image_url_for "github.png"
+            =image_tag attachments['github.png'].url
