@@ -33,4 +33,9 @@ module ApplicationHelper
   def city_slug
     @city ? @city.slug : ""
   end
+
+  def path_active?(path)
+    "active" if current_page?(path)
+  end
+
 end
