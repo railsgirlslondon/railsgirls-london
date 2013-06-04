@@ -1,20 +1,20 @@
-%h3
+%h3{style: "border-bottom: 1px solid #E5E5E5; padding-bottom: 10px; margin-bottom: 15px; font-size: 28.5px;" }
   Hi
   #{@registration.first_name},
 
 .content
-  .left.inline
-    %p.lead
+  .left.inline{ style: "width: 65%; display: inline-block;" }
+    %p.lead{ style: "font-size: '22px;" }
       %strong Thank you
       for applying to our Rails Girls #{@city.name} workshop!
-      .title= @event.title
+      .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 15px 0; padding: 0 10px;" }= @event.title
 
-      =link_to "View details", full_url_for(city_event_path(@city, @event))
+      =link_to "View details", full_url_for(city_event_path(@city, @event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
     %p.lead
       We will send you an email confirming that you were succesful in getting a place in the event after registrations close. To confirm your availability, you will have to accept or decline the invitation.
-  .right.inline
-    =image_url_for "london-girl.png", width: '200px'
+  .right.inline{ style: "width: 24%; padding: 0 0 0 50px; display: inline-block;" }
+    =image_tag attachments['london-girl.png'].url, width: '200px'
     %div
-      %highlight You learn
+      %highlight{ style: "color: #E0330c" }You learn
       designing, prototyping and coding with the help of our coaches.
