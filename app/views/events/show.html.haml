@@ -44,6 +44,9 @@
 
 =render_event_partial
 
+-if @event.active
+  =link_to "View event schedule", "http://railsgirls.com/#{city_slug}"
+
 %section.sponsors
   %h3.underline Sponsors
   .row
