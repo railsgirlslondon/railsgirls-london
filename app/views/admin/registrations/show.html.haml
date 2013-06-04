@@ -1,0 +1,48 @@
+%p#notice= notice
+
+%h3 Application for #{@event.title}
+
+%table.table.table-striped
+  %tr
+    %td Name
+    %td= @registration.name
+  %tr
+    %td Email
+    %td= @registration.email
+  %tr
+    %td Gender
+    %td= @registration.gender
+  %tr
+    %td Phone number
+    %td= @registration.phone_number
+  %tr
+    %td Twitter
+    %td= @registration.twitter
+  %tr
+    %td Address
+    %td= @registration.address
+  %tr
+    %td UK Resident
+    %td= @registration.uk_resident
+  %tr
+    %td OS
+    %td= @registration.os
+  %tr
+    %td OS Version
+    %td= @registration.os_version
+  %tr
+    %td Spoken languages
+    %td= @registration.spoken_languages
+  %tr
+    %td Prefererred Language
+    %td= @registration.preferred_language
+  %tr
+    %td Programming Experience
+    %td= @registration.programming_experience
+  %tr
+    %td Reason for applying
+    %td= @registration.reason_for_applying
+
+= link_to 'Edit', edit_admin_event_path(@event)
+\|
+= link_to 'Back', admin_events_path
