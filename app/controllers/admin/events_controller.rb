@@ -1,4 +1,6 @@
 class Admin::EventsController < ApplicationController
+  layout 'admin'
+
   before_filter :find_event
   before_filter :authenticate_user!
 

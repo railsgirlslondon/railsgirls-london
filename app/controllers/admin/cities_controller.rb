@@ -1,8 +1,10 @@
 class Admin::CitiesController < ApplicationController
+  layout 'admin'
+
   before_filter :authenticate_user!
 
   def new
-    
+
   end
 
   def create

@@ -1,8 +1,8 @@
-%p
-  = link_to 'Cities', admin_cities_path
-%p
-  = link_to 'Events', admin_events_path
-%p
-  = link_to 'Coaches', admin_coaches_path
-%p
-  = link_to 'Sponsors', admin_sponsors_path
+%legend Active events
+- if @active_events
+  %ul.nav
+    - @active_events.each do |event|
+      %li
+        %strong=link_to "#{event.city.name}, #{event.title}", admin_event_path(event)
+        %br
+        =event.description

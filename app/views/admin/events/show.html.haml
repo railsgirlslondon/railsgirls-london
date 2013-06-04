@@ -1,28 +1,26 @@
 %p#notice= notice
 
-%h2 Event
-%p
-  %b Description:
-  = @event.description
+%h2= "#{@event.city_name} - #{@event.title}"
+%p.lead= @event.description
 
-%p
-  %b Active:
-  = @event.active
-
-%p
-  %b City:
-  = @event.city_name
+%em
+  The event is
+  = @event.active ? "active" : "not active"
 
 
+  %h3
+    Sponsors
+    %small= link_to "Add sponsor", new_admin_sponsor_path
 - if @event.sponsors.any?
-  %h3 Sponsors
   %table.table
     - @event.sponsors.each do |sponsor|
       %tr
         %td= link_to sponsor.name, [:admin, sponsor]
 
+  %h3
+    Coaches
+    %small= link_to "Add coach", new_admin_coach_path
 - if @event.coaches.any?
-  %h3 Coaches
   %table.table
     - @event.coaches.each do |coach|
       %tr
