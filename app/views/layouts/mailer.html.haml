@@ -1,112 +1,30 @@
 !!!
 %html
   %head
-    :sass
-      $width: 65%
-      $main-color: #E0330C
-      $gray: #E5E5E5
-      $base-color: #FFFFFF
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
 
-      body
-        font-family: Helvetica Neue,Helvetica,Arial,sans-serif
-
-      header
-        height: 100px
-        background-color: $main-color
-
-      nav
-        width: $width
-        margin: 0 auto
-
-      highlight
-        color: $main-color
-
-      .white
-        color: $base-color
-
-      .lead
-        font-size: 22px
-
-      #logo
-        a
-          img
-            background-color: #FFFFFF
-            margin-top: 10px
-            border: 10px solid #FFFFFF
-
-      .inline
-        display: inline-block
-
-      #main
-        width: $width
-        border: 1px solid $gray
-        padding: 40px
-        margin: 50px auto
-        background-color: #FFFFFF
-
-        a
-          color: $main-color
-          text-decoration: none
-          border-bottom: 1px dotted $main-color
-
-        .social-media
-          margin-top: 10px
-
-          a
-            text-decoration: none
-            border-bottom: none
-
-        hr
-          border-top: 1px solid $gray
-
-        h3
-          border-bottom: 1px solid $gray
-          padding-bottom: 10px
-          margin-bottom: 15px
-          font-size: 28.5px
-
-      .rails-girls-heart
-        margin-top: 30px
-
-      .left
-        width: $width
-
-      .right
-        width: 24%
-        padding: 0 0 0 50px
-
-      .title
-        border-left: 4px solid $gray
-        font-size: 26.5px
-        margin: 15px 0
-        padding: 0 10px
-
-      .footer
-        font-size: 21px
-
-
-  %body
-    %header
-      %nav
-        #logo.inline
+  %body{ style: "font-family: Helvetica Neue,Helvetica,Arial,sans-serif" }
+    %header{ style: "height: 100px; background-color:#E0330C " }
+      %nav{ style: "width: 65%; margin: 0 auto" }
+        #logo.inline{ style: "display: inline-block;" }
           =link_to full_url_for(city_path(@city)) do
-            = image_tag attachments["railsgirls-london.png"].url
-        %div.inline.white
+            = image_tag attachments["railsgirls-london.png"].url, style: "background-color: #FFFFFF; margin-top: 10px; border: 10px solid #FFFFFF; "
+        %div.inline{ style: 'color: #FFF; display: inline-block;' }
           %h2{ style: 'margin-left: 20px;' } Rails Girls #{@city.name rescue ""}
           %br
 
         .pull-right{ style: 'float: right' }
-          .rails-girls-heart
+          .rails-girls-heart{ style: 'margin-top: 30px;' }
             %a.rails-girls{ href: "http://railsgirls.com", title: "Rails Girls" }
               = image_tag attachments['railsgirls-heart.png'].url
 
-    #main
+    #main{style: "width: 65%; border: 1px solid #E5E5E5; padding: 40px; margin: 50px auto; background-color: #FFFFFF" }
       = yield
-      %hr
-      .footer
+      %hr{ style: "border-top: 1px solid #E5E5E5" }
+      .footer{ style: 'font-size: 21px' }
         %p
           If you have any questions,
-          %span=mail_to @city.email, "send us an email"
+          %span=mail_to @city.email, "send us an email", style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
           %span>.
 
           %br
@@ -121,12 +39,12 @@
           %br
 
         Keep in touch!
-        .social-media.text-center
-          =link_to "http://twitter.com/#{@city.twitter}", class: "btn btn-media" do
+        .social-media.text-center{ style: "margin-top: 10px;" }
+          =link_to "http://twitter.com/#{@city.twitter}", class: "btn btn-media", style:  "color: #E0330C; text-decoration: none; border-bottom: none; text-decoration: none;"  do
             =image_tag attachments['twitter.png'].url
-          =link_to "https://plus.google.com/b/104252944343767158344", class: "btn btn-media" do
+          =link_to "https://plus.google.com/b/104252944343767158344", class: "btn btn-media", style: "color: #E0330C; text-decoration: none; border-bottom: none; text-decoration: none;"  do
             =image_tag attachments['gplus.png'].url
-          =link_to "https://www.facebook.com/railsgirls#{@city.slug}", class: "btn btn-media" do
+          =link_to "https://www.facebook.com/railsgirls#{@city.slug}", class: "btn btn-media", style: "color: #E0330C; text-decoration: none; border-bottom: none; text-decoration: none;"  do
             =image_tag attachments['facebook.png'].url
-          =link_to "https://github.com/railsgirlslondon/railsgirls-#{@city.slug}", class: "btn btn-media" do
+          =link_to "https://github.com/railsgirlslondon/railsgirls-#{@city.slug}", class: "btn btn-media", style: "color: #E0330C; text-decoration: none; border-bottom: none; text-decoration: none;"  do
             =image_tag attachments['github.png'].url
