@@ -6,10 +6,10 @@ feature "an admin CRUDing cities" do
 
   context "creating cities" do
     Given { click_on "Cities" }
-    
+
     When do
       expect(page).to_not have_content "Some City"
-      click_link "New city"
+      click_link "Add city"
 
       fill_in "Name", with: "Some City"
       click_on "Create City"

@@ -1,23 +1,21 @@
-%h1 Listing Events
+%h2 Events
 
 %table.table
   %tr
-    %th Description
     %th City
+    %th Description
     %th Active
-    %th 
     %th
     %th
 
   - @events.each do |event|
     %tr
-      %td= event.description
       %td= event.city_name
+      %td= link_to event.description, [:admin, event]
       %td= event.active?
-      %td= link_to 'Show', [:admin, event], class: "btn"
-      %td= link_to 'Edit', [:admin, event], class: "btn"
-      %td= link_to 'Destroy', [:admin, event], class: "btn",  :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Edit', edit_admin_event_path(event), class: "btn"
+      %td= link_to 'Destroy', [:admin, event], class: "btn", :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %hr
 
-= link_to 'New Event', new_admin_event_path
+= link_to 'Add Event', new_admin_event_path
