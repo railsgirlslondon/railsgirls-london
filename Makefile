@@ -1,6 +1,5 @@
 test:
 	bundle exec rspec
-	bundle exec rake cucumber
 migrate:
 	bundle exec rake db:migrate db:test:prepare
 wipe:
