@@ -14,3 +14,13 @@ deploy_production:
 	git push production production:master
 	heroku run rake db:migrate --app=railsgirlslondon
 	heroku maintenance:off --app=railsgirlslondon
+backup_staging:
+	heroku pgbackups:capture --app=railsgirlslondon-staging
+	curl -o pg-staging-latest.dump `heroku pgbackups:url --app=railsgirlslondon-staging`
+	bzip2 pg-staging-latest.dump
+deploy_staging:
+	heroku maintenance:on --app=railsgirlslondon-staging
+	git tag staging_release_`date +"%Y%m%d-%H%M%S"`
+	git push staging staging:master
+	heroku run rake db:migrate --app=railsgirlslondon-staging
+	heroku maintenance:off --app=railsgirlslondon-staging
