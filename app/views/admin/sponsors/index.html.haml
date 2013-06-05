@@ -1,21 +1,21 @@
-%h1 Listing sponsors
+#admin_sponsors
+  %h2 Sponsors
 
-%table.table
-  %tr
-    %th Name
-    %th Primary contact email
-    %th
-    %th
-    %th
-
-  - @sponsors.each do |sponsor|
+  %table.table
     %tr
-      %td= sponsor.name
-      %td= sponsor.primary_contact_email
-      %td= link_to 'Show', [:admin, sponsor]
-      %td= link_to 'Edit', edit_admin_sponsor_path(sponsor)
-      %td= link_to 'Destroy', [:admin, sponsor], :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Name
+      %th Primary contact email
+      %th
+      %th
 
-%br
+    - @sponsors.each do |sponsor|
+      %tr
 
-= link_to 'New Sponsor', new_admin_sponsor_path
+        %td= link_to sponsor.name, [:admin, sponsor]
+        %td= sponsor.primary_contact_email
+        %td= link_to 'Edit', edit_admin_sponsor_path(sponsor), class: "btn"
+        %td= link_to 'Destroy', [:admin, sponsor], class: 'btn', :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'Add Sponsor', new_admin_sponsor_path

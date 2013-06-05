@@ -1,4 +1,6 @@
 class Admin::CoachesController < ApplicationController
+  layout 'admin'
+
   before_action :set_coach, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
 

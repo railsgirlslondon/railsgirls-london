@@ -1,6 +1,15 @@
-= link_to "New city", new_admin_city_path, class: "btn btn-primary"
-
 %h2 Cities
-%ul
+
+%table.table
+  %tr
+    %th Name
+    %th Email
+    %th twitter
+
   - @cities.each do |city|
-    %li= city.name
+    %tr
+      %td= city.name
+      %td= city.email
+      %td= city.twitter
+
+= link_to "Add city", new_admin_city_path

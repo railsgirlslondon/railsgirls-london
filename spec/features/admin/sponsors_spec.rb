@@ -12,7 +12,7 @@ feature "admin CRUDing sponsors" do
   context "creating a sponsor" do
     Given do
       click_on "Sponsors"
-      click_on "New Sponsor"
+      click_on "Add Sponsor"
     end
 
     When do

@@ -1,4 +1,6 @@
 class Admin::EventCoachingsController < ApplicationController
+  layout 'admin'
+
   def create
     EventCoaching.create!(event_coaching_params)
     redirect_to edit_admin_coach_path(event_coaching_params[:coach_id])
