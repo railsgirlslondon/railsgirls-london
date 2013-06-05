@@ -1,4 +1,6 @@
 class Admin::EventSponsorshipsController < ApplicationController
+  layout 'admin'
+
   def create
     EventSponsorship.create!(events_sponsor_params)
     redirect_to edit_admin_sponsor_path(events_sponsor_params[:sponsor_id])

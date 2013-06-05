@@ -1,9 +1,11 @@
 class Admin::EventsController < ApplicationController
+  layout 'admin'
+
   before_filter :find_event
   before_filter :authenticate_user!
 
   def index
-    @events = Event.all
+    @events = Event.all.reverse
   end
 
   def show

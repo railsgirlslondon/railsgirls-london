@@ -1,0 +1,40 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
+    %link{rel: 'shortcut icon', href: 'favicon.png'}
+    %title= content_for?(:title) ? yield(:title) : page_title
+    %meta{:content => "", :name => "description"}
+    %meta{:content => "", :name => "author"}
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = yield(:head)
+  %body
+    %header.navbar.navbar-fixed-top
+      %nav.navbar-inner
+        .container
+          .row
+            .span10.offset1
+              = render 'layouts/navigation'
+    #main{:role => "main"}
+      .container
+        .row
+          .span3.offset1
+            %ul.nav.nav-tabs.nav-stacked
+              %li{ class: path_active?(admin_dashboard_path) }
+                =link_to "Dashboard", admin_dashboard_path
+              %li{ class: path_active?(admin_cities_path) }
+                =link_to "Cities", admin_cities_path
+              %li{ class: path_active?(admin_events_path) }
+                =link_to "Events", admin_events_path
+              %li{ class: path_active?(admin_coaches_path) }
+                =link_to "Coaches", admin_coaches_path
+              %li{ class: path_active?(admin_sponsors_path) }
+                =link_to "Sponsors", admin_sponsors_path
+          .span7
+            = render 'layouts/messages'
+            = yield
+  =render 'layouts/footer'
+

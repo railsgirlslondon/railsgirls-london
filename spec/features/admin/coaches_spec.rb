@@ -10,7 +10,7 @@ feature "admin CRUDing coaches" do
   context "creating a coach" do
     Given do
       click_on "Coaches"
-      click_on "New Coach"
+      click_on "Add Coach"
     end
 
     When do

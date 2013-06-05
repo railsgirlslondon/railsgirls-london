@@ -1,12 +1,12 @@
-= simple_form_for([:admin, @sponsor]) do |f|
+= simple_form_for([:admin, @sponsor], html: { class: 'form-horizontal' } ) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :primary_contact_email
-    = f.input :description
-    = f.input :website
-    = f.input :image_url
+    = f.input :name, input_html: { class: 'span3' }
+    = f.input :primary_contact_email, input_html: { class: 'span3' }
+    = f.input :description, input_html: { class: 'span3', rows: 5 }
+    = f.input :website, input_html: { class: 'span4' }
+    = f.input :image_url, input_html: { class: 'span4' }
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-large'

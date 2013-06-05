@@ -1,4 +1,4 @@
-= simple_form_for([:admin, @coach]) do |f|
+= simple_form_for([:admin, @coach], html: { class: 'form-horizontal' }) do |f|
   = f.error_notification
 
   .form-inputs
@@ -7,4 +7,4 @@
     = f.input :twitter
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-large'

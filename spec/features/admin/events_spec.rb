@@ -14,7 +14,7 @@ feature "admin CRUDing events" do
     Then { page.has_content? "Event was successfully created." }
     And { page.has_content? "Second RG workshop" }
     And { page.has_content? "London" }
-    And { page.has_content? "true" }
+    And { page.has_content? "The event is active" }
 
     context "editing an event" do
       When { click_on "Edit" }
