@@ -14,13 +14,8 @@ This app helps us run our local organisation.
 - Visit our event page here: [http://railsgirls.com/london](http://railsgirls.com/london)
 - Sign up to our mailing list here: [https://groups.google.com/forum/#!forum/rails-girls-london](http://bit.ly/rglondon)
 - Sign up here if you are interested in coaching: [https://groups.google.com/forum/#!forum/rails-girls-london-coaches](http://bit.ly/rglcoaches)
-
-
-## Social Networking
-
-We are [@railsgirls_ldn](https://twitter.com/railsgirls_ldn) on Twitter.
-
-Our Google+ page is here: [https://plus.google.com/b/104252944343767158344/](http://bit.ly/rgl-gplus)
+- [@railsgirls_ldn](https://twitter.com/railsgirls_ldn) on Twitter.
+- Google+: [https://plus.google.com/b/104252944343767158344/](http://bit.ly/rgl-gplus)
 
 
 ## Contributing to This Site
