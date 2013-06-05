@@ -27,4 +27,9 @@ class Event < ActiveRecord::Base
     "#{self.starts_on.strftime("%d")}-#{self.ends_on.strftime("%d")} #{self.starts_on.strftime("%B %Y")}"
   end
 
+  def accepting_registrations?
+    return true unless registration_ends_on.present?
+    registration_ends_on.future?
+  end
+
 end

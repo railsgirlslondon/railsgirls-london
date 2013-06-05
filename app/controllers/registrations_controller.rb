@@ -2,7 +2,7 @@ class RegistrationsController < ApplicationController
   before_filter :setup_properties
 
   def new
-    if @event.registration_ends_on and @event.registration_ends_on > Date.today
+    if @event.accepting_registrations?
       @registration = @event.registrations.build
     else
       redirect_to city_event_path(@city, @event)
