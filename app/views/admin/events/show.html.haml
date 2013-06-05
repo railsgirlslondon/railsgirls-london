@@ -1,50 +1,51 @@
-%p#notice= notice
+#admin_event
+  %p#notice= notice
 
-%h2= "#{@event.city_name} - #{@event.title}"
-%p.lead= @event.description
+  %h2= "#{@event.city_name} - #{@event.title}"
+  %p.lead= @event.description
 
-%em
-  The event is
-  = @event.active ? "active" : "not active"
+  %em
+    The event is
+    = @event.active ? "active" : "not active"
 
 
-  %h3
-    Sponsors
-    %small= link_to "Add sponsor", new_admin_sponsor_path
-- if @event.sponsors.any?
-  %table.table
-    - @event.sponsors.each do |sponsor|
-      %tr
-        %td= link_to sponsor.name, [:admin, sponsor]
+    %h3
+      Sponsors
+      %small= link_to "Add sponsor", new_admin_sponsor_path
+  - if @event.sponsors.any?
+    %table.table
+      - @event.sponsors.each do |sponsor|
+        %tr
+          %td= link_to sponsor.name, [:admin, sponsor]
 
-  %h3
-    Coaches
-    %small= link_to "Add coach", new_admin_coach_path
-- if @event.coaches.any?
-  %table.table
-    - @event.coaches.each do |coach|
-      %tr
-        %td= link_to coach.name, [:admin, coach]
+    %h3
+      Coaches
+      %small= link_to "Add coach", new_admin_coach_path
+  - if @event.coaches.any?
+    %table.table
+      - @event.coaches.each do |coach|
+        %tr
+          %td= link_to coach.name, [:admin, coach]
 
-- if @event.registrations.any?
-  %h3 Applications
-  %table.table.table-striped
-    %thead
-      %th #
-      %th Name
-      %th Email
-      %th View
+  - if @event.registrations.any?
+    %h3 Applications
+    %table.table.table-striped
+      %thead
+        %th #
+        %th Name
+        %th Email
+        %th View
 
-      %tbody
-        - @event.registrations.each_with_index do |registration, index|
-          %tr
-            %td= index+1
-            %td= registration.name
-            %td
-              =mail_to registration.email, registration.email
-            %td
-              =link_to "Show", admin_event_registration_path(@event, registration)
+        %tbody
+          - @event.registrations.each_with_index do |registration, index|
+            %tr
+              %td= index+1
+              %td= registration.name
+              %td
+                =mail_to registration.email, registration.email
+              %td
+                =link_to "Show", admin_event_registration_path(@event, registration)
 
-= link_to 'Edit', edit_admin_event_path(@event)
-\|
-= link_to 'Back', admin_events_path
+  = link_to 'Edit', edit_admin_event_path(@event)
+  \|
+  = link_to 'Back', admin_events_path

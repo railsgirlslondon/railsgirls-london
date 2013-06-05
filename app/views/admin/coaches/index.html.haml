@@ -1,19 +1,20 @@
-%h2 Coaches
+#admin_coaches
+  %h2 Coaches
 
-%table.table
-  %tr
-    %th Name
-    %th Email
-    %th
-    %th
-
-  - @coaches.each do |coach|
+  %table.table
     %tr
-      %td= link_to  coach.name, [:admin, coach]
-      %td= coach.email
-      %td= link_to 'Edit', edit_admin_coach_path(coach), class: "btn"
-      %td= link_to 'Destroy', [:admin, coach], class: "btn", :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Name
+      %th Email
+      %th
+      %th
 
-%br
+    - @coaches.each do |coach|
+      %tr
+        %td= link_to  coach.name, [:admin, coach]
+        %td= coach.email
+        %td= link_to 'Edit', edit_admin_coach_path(coach), class: "btn"
+        %td= link_to 'Destroy', [:admin, coach], class: "btn", :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'Add Coach', new_admin_coach_path
+  %hr
+
+  = link_to 'Add Coach', new_admin_coach_path
