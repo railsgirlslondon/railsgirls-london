@@ -2,16 +2,15 @@ class RegistrationsController < ApplicationController
   before_filter :setup_properties
 
   def new
-    @registration = Registration.new
-    if @event.registration_ends_on and @event.registration_ends_on > Date.today
-      @registration = Registration.new
+    if @event.accepting_registrations?
+      @registration = @event.registrations.build
     else
       redirect_to city_event_path(@city, @event)
     end
   end
 
   def create
-    @registration = Registration.new params[:registration].merge(event_id: params[:event_id])
+    @registration = @event.registrations.build(params[:registration])
 
     if @registration.save
       RegistrationMailer.application_received(@event, @registration, request_url).deliver
