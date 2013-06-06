@@ -44,14 +44,24 @@
 
 =render_event_partial
 
--if @event.active
+-if @event.active?
   =link_to "View event schedule", "http://railsgirls.com/#{city_slug}"
+
+- if @event.has_host?
+  %section.host
+    %h3.underline Host
+    .row
+      .span6
+        %h5= @event.host_name
+        %p= @event.address_line_1
+        %p= @event.address_line_2
+        %p= "#{@event.address_city}, #{@event.address_postcode}"
 
 %section.sponsors
   %h3.underline Sponsors
   .row
     %ul.sponsors.inline
-      - @event.sponsors.each do |sponsor|
+      - @event.non_hosting_sponsors.each do |sponsor|
         %li.span2
           %h5
             = link_to sponsor.website do

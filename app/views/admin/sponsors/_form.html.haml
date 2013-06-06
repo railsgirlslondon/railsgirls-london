@@ -7,6 +7,10 @@
     = f.input :description, input_html: { class: 'span3', rows: 5 }
     = f.input :website, input_html: { class: 'span4' }
     = f.input :image_url, input_html: { class: 'span4' }
+    = f.input :address_line_1, input_html: { class: 'span4' }
+    = f.input :address_line_2, input_html: { class: 'span4' }
+    = f.input :address_city, input_html: { class: 'span4' }, label: "City"
+    = f.input :address_postcode, input_html: { class: 'span4' }, label: "Postcode"
 
   .form-actions
     = f.button :submit, class: 'btn btn-large'
