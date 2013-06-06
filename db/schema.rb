@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130606142554) do
+ActiveRecord::Schema.define(version: 20130606190816) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -82,11 +82,16 @@ ActiveRecord::Schema.define(version: 20130606142554) do
   add_index "registrations", ["last_name"], name: "index_registrations_on_last_name"
 
   create_table "sponsors", force: true do |t|
-    t.string "name"
-    t.string "primary_contact_email"
-    t.text   "description"
-    t.string "image_url"
-    t.string "website"
+    t.string  "name"
+    t.string  "primary_contact_email"
+    t.text    "description"
+    t.string  "image_url"
+    t.string  "website"
+    t.boolean "host",                  default: false, null: false
+    t.string  "address_line_1"
+    t.string  "address_line_2"
+    t.string  "address_city"
+    t.string  "address_postcode"
   end
 
   create_table "users", force: true do |t|

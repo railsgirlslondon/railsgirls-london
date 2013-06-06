@@ -1,4 +1,13 @@
 class Admin::SponsorsController < ApplicationController
+  WHITE_LIST = [:name, 
+                :description, 
+                :primary_contact_email, 
+                :image_url, 
+                :website,
+                :address_line_1,
+                :address_line_2,
+                :address_city,
+                :address_postcode]
   layout 'admin'
 
   before_action :set_sponsor, only: [:show, :edit, :update, :destroy]
@@ -58,6 +67,6 @@ class Admin::SponsorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def sponsor_params
-      params.require(:sponsor).permit(:name, :description, :primary_contact_email, :image_url, :website)
+      params.require(:sponsor).permit(WHITE_LIST)
     end
 end

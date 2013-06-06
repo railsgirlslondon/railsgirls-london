@@ -13,6 +13,25 @@
   %b Description:
   = @sponsor.description
 
+%p
+  %b Host:
+  = @sponsor.host?
+
+%p
+  %b Address line 1:
+  = @sponsor.address_line_1
+
+%p
+  %b Address line 2:
+  = @sponsor.address_line_2
+%p
+  %b City:
+  = @sponsor.address_city
+%p
+  %b Postcode:
+  = @sponsor.address_postcode
+
+
 - if @sponsor.events.any?
   %h3 Events Sponsoring
   %table.table
