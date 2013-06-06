@@ -5,12 +5,12 @@
 
   -if @event.active
     %div
-      - if @event.registration_deadline and @event.registration_deadline >= Date.today
+      - if @event.accepting_registrations?
         = link_to "Apply to the event.", new_city_event_registration_path(@city, @event)
         \-
         %small Applications are open until the #{I18n.l(@event.registration_deadline)}
       - else
-        Applications are now closed.
+        Applications are not available.
 
       .pull-right
         =render partial: 'shared/tweet_button', locals: { twitter: city_twitter, text: "Rails Girls #{city_name} #{@event.title}. Get excited and make things!" }
