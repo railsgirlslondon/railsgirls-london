@@ -33,13 +33,13 @@ describe Event do
   end
 
   describe "#accepting_registrations?" do
-    let(:event) { Event.new(registration_ends_on: date) }
+    let(:event) { Event.new(registration_deadline: date) }
 
     subject { event.accepting_registrations? }
 
     context "no registration deadline" do
       let(:date) { nil }
-      it { should be_true }
+      it { should be_false }
     end
 
     context "deadline in future" do
