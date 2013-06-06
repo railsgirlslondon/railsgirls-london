@@ -5,7 +5,7 @@ feature "viewing an event" do
 
   context "when it is active" do
 
-    context "and the registration deadline is set, registrations are available" do
+    context "when the registration deadline is set" do
 
       Given!(:event) { Fabricate(:event, city: city) }
 
@@ -16,7 +16,7 @@ feature "viewing an event" do
       Then { page.has_content? "Apply to the event." }
     end
 
-    context "and no registration deadline is set, registrations are not available" do
+    context "and no registration deadline is set" do
       Given!(:event) { Fabricate(:event, registration_deadline: nil, city: city) }
 
       When do
@@ -27,15 +27,17 @@ feature "viewing an event" do
     end
   end
 
-  context "registrations are no the event it not active" do
-
+  context "when inactive" do
     Given!(:event) { Fabricate(:inactive_event, city: city) }
 
-    When do
-      visit city_event_path(city, event)
+    context "when the registration deadline is set" do
+
+      When do
+        visit city_event_path(city, event)
+      end
+
+      Then { page.has_content? "This event has already taken place." }
+
     end
-
-    Then { page.has_content? "This event has already taken place." }
-
   end
 end
