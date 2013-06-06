@@ -4,6 +4,7 @@
   .form-inputs
     = f.association :city
     = f.input :description, input_html: {rows: 5, class: "span6"}
+    = f.input :address, input_html: {rows:5, class: "span6"}
     = f.input :starts_on, start_year: Date.today.year,
                                      end_year: Date.today.year + 1,
                                      order: [:day, :month, :year], input_html: { class: "span1" }

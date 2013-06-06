@@ -1,5 +1,13 @@
+= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?sensor=false'
+= javascript_include_tag 'google_maps'
+
+- content_for :event_map do
+  %div#location-map{ data: { address: @event.address, name: 'Rails Girls'} }
+
 %section
-  .title=@event.title
+
+  .title= @event.title
+
   %p.lead
     = @event.description
 
@@ -77,3 +85,4 @@
             = link_to "https://twitter.com/#{coach.twitter}" do
               %small= "@#{coach.twitter}"
           %br
+
