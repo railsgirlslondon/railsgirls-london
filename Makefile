@@ -4,6 +4,10 @@ migrate:
 	bundle exec rake db:migrate db:test:prepare
 wipe:
 	bundle exec rake db:drop db:create db:migrate db:test:prepare
+open_staging:
+	heroku open --app=railsgirlslondon-staging
+open_production:
+	heroku open --app=railsgirlslondon
 backup_production:
 	heroku pgbackups:capture --app=railsgirlslondon
 	curl -o pg-production-latest.dump `heroku pgbackups:url --app=railsgirlslondon`
