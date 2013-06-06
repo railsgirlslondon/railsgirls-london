@@ -7,7 +7,9 @@ class Admin::SponsorsController < ApplicationController
                 :address_line_1,
                 :address_line_2,
                 :address_city,
-                :address_postcode]
+                :address_postcode,
+                :host]
+
   layout 'admin'
 
   before_action :set_sponsor, only: [:show, :edit, :update, :destroy]
@@ -49,6 +51,8 @@ class Admin::SponsorsController < ApplicationController
     if @sponsor.update(sponsor_params)
       redirect_to [:admin, @sponsor], notice: 'Sponsor was successfully updated.'
     else
+      @event_sponsorships = @sponsor.event_sponsorships
+      @not_sponsored_events = Event.all - @sponsor.events
       render action: 'edit'
     end
   end

@@ -57,4 +57,21 @@ describe Event do
       it { should be_false }
     end
   end
+
+  describe "hosting" do
+    let!(:event) { Fabricate(:event) }   
+    let!(:sponsor) { Fabricate(:sponsor_with_address) }
+
+    let!(:event_sponsorship) { EventSponsorship.create! event: event, sponsor: sponsor, host: true }
+
+    specify { expect(event.host) == sponsor }
+    specify { expect(event.has_host?) == true }
+
+    context "when no sponsorships is there" do
+      before { event_sponsorship.destroy }
+
+      specify { expect(event.host).to eq(false) }
+      specify { expect(event.has_host?).to eq(false) }
+    end
+  end
 end

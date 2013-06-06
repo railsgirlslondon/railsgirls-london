@@ -14,10 +14,6 @@
   = @sponsor.description
 
 %p
-  %b Host:
-  = @sponsor.host?
-
-%p
   %b Address line 1:
   = @sponsor.address_line_1
 
@@ -38,6 +34,7 @@
     - @sponsor.events.each do |event|
       %tr
         %td= link_to event.description, [:admin, event]
+        %td= @sponsor.is_host_for?(event) ? "Hosting" : ""
 
 = link_to 'Edit', edit_admin_sponsor_path(@sponsor)
 \|

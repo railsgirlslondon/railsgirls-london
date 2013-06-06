@@ -6,7 +6,7 @@ RailsgirlsLondon::Application.routes.draw do
     resources :events do
       resources :registrations, only: [:show]
     end
-    resources :event_sponsorships, only: [:create, :destroy]
+    resources :event_sponsorships, only: [:create, :destroy, :update]
     resources :event_coachings, only: [:create, :destroy]
     resources :sponsors
     resources :coaches

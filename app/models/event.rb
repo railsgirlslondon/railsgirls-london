@@ -23,6 +23,9 @@ class Event < ActiveRecord::Base
   has_many :event_coachings
   has_many :coaches, through: :event_coachings
 
+  delegate :address_line_1, :address_line_2, :address_postcode, :address_city, to: :host
+  delegate :name, to: :host, prefix: true
+
   def title
     "#{self.starts_on.strftime("%d")}-#{self.ends_on.strftime("%d")} #{self.starts_on.strftime("%B %Y")}"
   end
@@ -32,4 +35,13 @@ class Event < ActiveRecord::Base
     registration_deadline.future?
   end
 
+  def host
+    event_sponsorship = event_sponsorships.where(host: true).first
+
+    event_sponsorship.present? and return event_sponsorship.sponsor
+  end
+
+  def has_host?
+    host.present?
+  end
 end
