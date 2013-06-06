@@ -11,6 +11,7 @@ backup_production:
 deploy_production:
 	heroku maintenance:on --app=railsgirlslondon
 	git tag production_release_`date +"%Y%m%d-%H%M%S"`
+	git push --tags
 	git push production production:master
 	heroku run rake db:migrate --app=railsgirlslondon
 	heroku maintenance:off --app=railsgirlslondon
@@ -21,6 +22,7 @@ backup_staging:
 deploy_staging:
 	heroku maintenance:on --app=railsgirlslondon-staging
 	git tag staging_release_`date +"%Y%m%d-%H%M%S"`
+	git push --tags
 	git push staging staging:master
 	heroku run rake db:migrate --app=railsgirlslondon-staging
 	heroku maintenance:off --app=railsgirlslondon-staging
