@@ -61,7 +61,7 @@
   %h3.underline Sponsors
   .row
     %ul.sponsors.inline
-      - @event.sponsors.each do |sponsor|
+      - @event.non_hosting_sponsors.each do |sponsor|
         %li.span2
           %h5
             = link_to sponsor.website do

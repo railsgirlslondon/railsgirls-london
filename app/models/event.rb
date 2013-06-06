@@ -41,6 +41,10 @@ class Event < ActiveRecord::Base
     event_sponsorship.present? and return event_sponsorship.sponsor
   end
 
+  def non_hosting_sponsors
+    sponsors - [host]
+  end
+
   def has_host?
     host.present?
   end

@@ -61,11 +61,15 @@ describe Event do
   describe "hosting" do
     let!(:event) { Fabricate(:event) }   
     let!(:sponsor) { Fabricate(:sponsor_with_address) }
+    let!(:other_sponsor) { Fabricate(:sponsor, events: [event]) }
 
     let!(:event_sponsorship) { EventSponsorship.create! event: event, sponsor: sponsor, host: true }
 
     specify { expect(event.host) == sponsor }
     specify { expect(event.has_host?) == true }
+
+    specify { expect(event.non_hosting_sponsors).not_to include(sponsor) }
+    specify { expect(event.non_hosting_sponsors).to eq([other_sponsor]) }
 
     context "when no sponsorships is there" do
       before { event_sponsorship.destroy }
