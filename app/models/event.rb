@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
                  :city,
                  :starts_on,
                  :ends_on,
-                 :registration_ends_on,
+                 :registration_deadline,
                  :active]
 
   attr_accessible *ATTRIBUTES
@@ -28,8 +28,8 @@ class Event < ActiveRecord::Base
   end
 
   def accepting_registrations?
-    return true unless registration_ends_on.present?
-    registration_ends_on.future?
+    return true unless registration_deadline.present?
+    registration_deadline.future?
   end
 
 end

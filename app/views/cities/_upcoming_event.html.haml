@@ -8,12 +8,12 @@
     .description= event.description
 
     .applications
-      - if event.registration_ends_on and event.registration_ends_on > Date.today
+      - if event.registration_deadline and event.registration_deadline > Date.today
         Applications are open.
 
     .links
       %div
-      - if event.registration_ends_on and event.registration_ends_on > Date.today
+      - if event.registration_deadline and event.registration_deadline > Date.today
         = link_to "View details and apply", city_event_path(@city, event)
       - else
         = link_to "View details", city_event_path(@city, event)

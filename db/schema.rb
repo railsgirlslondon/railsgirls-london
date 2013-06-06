@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130531180543) do
+ActiveRecord::Schema.define(version: 20130606142554) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20130531180543) do
     t.datetime "updated_at"
     t.date     "starts_on"
     t.date     "ends_on"
-    t.date     "registration_ends_on"
+    t.date     "registration_deadline"
   end
 
   create_table "registrations", force: true do |t|
