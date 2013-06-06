@@ -13,7 +13,11 @@ class Admin::EventSponsorshipsController < ApplicationController
 
   def update
     event_sponsorship = EventSponsorship.find(params[:id])
-    event_sponsorship.update_attributes!(host_params)
+    
+    unless event_sponsorship.update_attributes(host_params)
+      flash[:error] = event_sponsorship.errors.full_messages.join("\n")
+    end
+
     redirect_to edit_admin_sponsor_path(event_sponsorship.sponsor)
   end
 
