@@ -4,6 +4,10 @@ migrate:
 	bundle exec rake db:migrate db:test:prepare
 wipe:
 	bundle exec rake db:drop db:create db:migrate db:test:prepare
+db_staging:
+	heroku run rails db --app=railsgirlslondon-staging
+db_production:
+	heroku run rails db --app=railsgirlslondon
 open_staging:
 	heroku open --app=railsgirlslondon-staging
 open_production:
