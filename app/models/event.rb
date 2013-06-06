@@ -28,7 +28,7 @@ class Event < ActiveRecord::Base
   end
 
   def accepting_registrations?
-    return true unless registration_deadline.present?
+    return false unless registration_deadline.present?
     registration_deadline.future?
   end
 

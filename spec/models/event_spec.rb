@@ -39,7 +39,7 @@ describe Event do
 
     context "no registration deadline" do
       let(:date) { nil }
-      it { should be_true }
+      it { should be_false }
     end
 
     context "deadline in future" do
