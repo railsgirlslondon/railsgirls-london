@@ -5,7 +5,7 @@
 
   -if @event.active
     %div
-      - if @event.registration_deadline and @event.registration_deadline > Date.today
+      - if @event.registration_deadline and @event.registration_deadline >= Date.today
         = link_to "Apply to the event.", new_city_event_registration_path(@city, @event)
         \-
         %small Applications are open until the #{I18n.l(@event.registration_deadline)}
