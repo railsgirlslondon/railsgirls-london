@@ -10,6 +10,10 @@
       %tr
         %td= event_sponsorship.event.description
         %td= link_to 'Remove', admin_event_sponsorship_path(event_sponsorship, sponsor_id: @sponsor.id), method: :delete, class: "btn btn-link"
+        %td
+          = simple_form_for [:admin, event_sponsorship] do |f|
+            = f.hidden_field :host, value: !event_sponsorship.host?
+            = f.submit(event_sponsorship.host? ? "Remove host" : "Host", class: "btn btn-link")
 
 
 - if @not_sponsored_events.any?

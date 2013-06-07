@@ -68,6 +68,7 @@ feature "admin CRUDing sponsors" do
         Then { !page.has_content? name }
       end
     end
+
   end
 
   context "assigning a sponsor to an event" do
@@ -101,6 +102,29 @@ feature "admin CRUDing sponsors" do
         Then { page.has_content? "a sponsor" }
       end
 
+      context "making a sponsor a host" do
+        When do
+          fill_in "Address line 1", with: "My apartment"
+          fill_in "Address line 2", with: "123 Street st"
+          fill_in "City", with: "Sama"
+          fill_in "Postcode", with: "N1 3TY"
+
+          click_on "Update Sponsor"
+        end 
+
+        When do
+          click_on "Edit"
+          click_on "Host" 
+          click_on "Show"
+        end
+
+        Then { page.has_content? "Hosting" }
+        And { page.has_content? "My apartment" }
+        And { page.has_content? "123 Street st" }
+        And { page.has_content? "Sama" }
+        And { page.has_content? "N1 3TY" }
+      end
+
       context "removing a sponsorship" do
         When { click_on "Remove" }
 
@@ -108,6 +132,8 @@ feature "admin CRUDing sponsors" do
         And { page.has_content? "an event name" }
         And { page.has_content? "Events not sponsored" } 
       end
+
+
     end
   end
 end
