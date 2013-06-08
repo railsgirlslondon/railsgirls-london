@@ -47,9 +47,28 @@ class Event < ActiveRecord::Base
   end
 
   def dates
-    return starts_on.strftime("%B %-d, %Y") if starts_on.eql? ends_on
-    dates = starts_on.strftime("%-d")
-    dates << starts_on.strftime(" %B") unless starts_on.month.eql? ends_on.month
-    dates << ends_on.strftime("-%-d %B %Y")
+    return format_date(starts_on) if starts_on.eql? ends_on
+    dates = day(starts_on)
+    dates << month(starts_on) unless starts_on.month.eql? ends_on.month
+    dates << until_day_month_and_year(ends_on)
   end
+
+  private
+
+  def format_date date
+    return date.strftime("%B %-d, %Y")
+  end
+
+  def day date
+    date.strftime("%-d")
+  end
+
+  def month date
+    date.strftime(" %B")
+  end
+
+  def until_day_month_and_year date
+    date.strftime("-%-d %B %Y")
+  end
+
 end
