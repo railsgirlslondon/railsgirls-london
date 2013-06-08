@@ -34,3 +34,7 @@ deploy_staging:
 	git push staging staging:master
 	heroku run rake db:migrate --app=railsgirlslondon-staging
 	heroku maintenance:off --app=railsgirlslondon-staging
+copy_production_db_to_staging:
+	heroku pgbackups:restore HEROKU_POSTGRESQL_IVORY_URL \
+		--app=railsgirlslondon-staging \
+		`heroku pgbackups:url --app=railsgirlslondon`
