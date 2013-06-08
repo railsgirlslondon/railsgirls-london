@@ -79,7 +79,7 @@ describe Event do
     end
   end
 
-  describe "dates", wip: true do
+  describe "dates" do
 
     it "two days in the same month" do
       event = Fabricate(:event,
