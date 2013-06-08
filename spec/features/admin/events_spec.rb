@@ -6,6 +6,7 @@ feature "admin CRUDing events" do
 
   context "creating and editing an event" do
     When { visit new_admin_event_path }
+    When { fill_in "Description", with: "Autumn Workshop" }
     When { fill_in "Description", with: "Second RG workshop" }
     When { select "London", from: "City" }
     When { check "Active" }

@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-  ATTRIBUTES = [ :description,
+  ATTRIBUTES = [ :title,
+                 :description,
                  :city_id,
                  :city,
                  :starts_on,
@@ -25,10 +26,6 @@ class Event < ActiveRecord::Base
 
   delegate :address_line_1, :address_line_2, :address_postcode, :address_city, to: :host
   delegate :name, to: :host, prefix: true
-
-  def title
-    "#{self.starts_on.strftime("%d")}-#{self.ends_on.strftime("%d")} #{self.starts_on.strftime("%B %Y")}"
-  end
 
   def accepting_registrations?
     return false unless registration_deadline.present?
