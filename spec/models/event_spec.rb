@@ -59,7 +59,7 @@ describe Event do
   end
 
   describe "hosting" do
-    let!(:event) { Fabricate(:event) }   
+    let!(:event) { Fabricate(:event) }
     let!(:sponsor) { Fabricate(:sponsor_with_address) }
     let!(:other_sponsor) { Fabricate(:sponsor, events: [event]) }
 
@@ -76,6 +76,33 @@ describe Event do
 
       specify { expect(event.host).to eq(false) }
       specify { expect(event.has_host?).to eq(false) }
+    end
+  end
+
+  describe "dates" do
+
+    it "two days in the same month" do
+      event = Fabricate(:event,
+                        starts_on: Date.new(2013,7,13),
+                        ends_on: Date.new(2013,7,14))
+
+      event.dates.should eq "13-14 July 2013"
+    end
+
+    it "two days over two months" do
+      event = Fabricate(:event,
+                        starts_on: Date.new(2013,11,30),
+                        ends_on: Date.new(2013,12,1))
+
+      event.dates.should eq "30 November-1 December 2013"
+    end
+
+    it "one day" do
+      event = Fabricate(:event,
+                        starts_on: Date.new(2013,8,3),
+                        ends_on: Date.new(2013,8,3))
+
+      event.dates.should eq "August 3, 2013"
     end
   end
 end
