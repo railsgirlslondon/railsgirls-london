@@ -45,4 +45,8 @@ class Event < ActiveRecord::Base
   def has_host?
     host.present?
   end
+
+  def dates
+    "#{self.starts_on.strftime("%d")}-#{self.ends_on.strftime("%d")} #{self.starts_on.strftime("%B %Y")}"
+  end
 end
