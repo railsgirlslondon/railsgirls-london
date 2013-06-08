@@ -47,6 +47,7 @@ class Event < ActiveRecord::Base
   end
 
   def dates
+    return starts_on.strftime("%B %-d, %Y") if starts_on.eql? ends_on
     dates = starts_on.strftime("%-d")
     dates << starts_on.strftime(" %B") unless starts_on.month.eql? ends_on.month
     dates << ends_on.strftime("-%-d %B %Y")

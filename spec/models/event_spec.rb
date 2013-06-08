@@ -79,7 +79,7 @@ describe Event do
     end
   end
 
-  describe "title", wip: true do
+  describe "dates", wip: true do
 
     it "two days in the same month" do
       event = Fabricate(:event,
@@ -96,6 +96,13 @@ describe Event do
 
       event.dates.should eq "30 November-1 December 2013"
     end
+
+    it "one day" do
+      event = Fabricate(:event,
+                        starts_on: Date.new(2013,8,3),
+                        ends_on: Date.new(2013,8,3))
+
+      event.dates.should eq "August 3, 2013"
     end
   end
 end
