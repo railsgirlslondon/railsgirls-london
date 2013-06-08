@@ -6,12 +6,14 @@ feature "admin CRUDing events" do
 
   context "creating and editing an event" do
     When { visit new_admin_event_path }
+    When { fill_in "Title", with: "Autumn Workshop" }
     When { fill_in "Description", with: "Second RG workshop" }
     When { select "London", from: "City" }
     When { check "Active" }
     When { click_on "Create Event" }
 
     Then { page.has_content? "Event was successfully created." }
+    And { page.has_content? "Autumn Workshop" }
     And { page.has_content? "Second RG workshop" }
     And { page.has_content? "London" }
     And { page.has_content? "The event is active" }

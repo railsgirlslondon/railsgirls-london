@@ -3,6 +3,6 @@
   %ul.nav
     - @active_events.each do |event|
       %li
-        %strong=link_to "#{event.city.name}, #{event.title}", admin_event_path(event)
+        %strong=link_to "#{event.dates}, #{event.city_name}", admin_event_path(event)
         %br
         =event.description

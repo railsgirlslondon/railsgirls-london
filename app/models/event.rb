@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-  ATTRIBUTES = [ :description,
+  ATTRIBUTES = [ :title,
+                 :description,
                  :city_id,
                  :city,
                  :starts_on,
@@ -26,10 +27,6 @@ class Event < ActiveRecord::Base
   delegate :address_line_1, :address_line_2, :address_postcode, :address_city, to: :host
   delegate :name, to: :host, prefix: true
 
-  def title
-    "#{self.starts_on.strftime("%d")}-#{self.ends_on.strftime("%d")} #{self.starts_on.strftime("%B %Y")}"
-  end
-
   def accepting_registrations?
     return false unless registration_deadline.present?
     registration_deadline.future?
@@ -48,4 +45,30 @@ class Event < ActiveRecord::Base
   def has_host?
     host.present?
   end
+
+  def dates
+    return format_date(starts_on) if starts_on.eql? ends_on
+    dates = day(starts_on)
+    dates << month(starts_on) unless starts_on.month.eql? ends_on.month
+    dates << until_day_month_and_year(ends_on)
+  end
+
+  private
+
+  def format_date date
+    return date.strftime("%B %-d, %Y")
+  end
+
+  def day date
+    date.strftime("%-d")
+  end
+
+  def month date
+    date.strftime(" %B")
+  end
+
+  def until_day_month_and_year date
+    date.strftime("-%-d %B %Y")
+  end
+
 end

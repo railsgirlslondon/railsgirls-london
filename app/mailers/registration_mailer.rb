@@ -10,7 +10,7 @@ class RegistrationMailer < ActionMailer::Base
 
     load_attachments
 
-    subject = "Thanks for applying to Rails Girls #{@event.city.name} #{@event.title}"
+    subject = "Thanks for applying to Rails Girls #{@event.city.name} #{@event.dates}"
     email_with_name = "Rails Girls #{@event.city.name} <#{@event.city.email}>"
 
     content_type =  "text/html"
