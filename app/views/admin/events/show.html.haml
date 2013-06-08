@@ -1,7 +1,8 @@
 #admin_event
   %p#notice= notice
 
-  %h2= "#{@event.city_name} - #{@event.title}"
+  %h3.highlight= "#{@event.city_name} - #{@event.title}"
+  %h4= @event.dates
   %p.lead= @event.description
 
   %em

@@ -1,5 +1,6 @@
 %section
-  .title=@event.title
+  %h1.title.highlight=@event.title if @event.title
+  .dates=@event.dates
   %p.lead
     = @event.description
 
