@@ -24,22 +24,29 @@
 
   %br
   %hr
-  .row.information
-    .span7
-      .box
-        %span.highlight You learn
-        designing, prototyping and coding with the help of our coaches.
+  .row
+    .span3
+      %span.highlight You learn
+      designing, prototyping and coding with the help of our coaches.
 
-      .box
-        %span.highlight You need
-        your own laptop, curiosity and a sprinkle of imagination.
+    .span3
+      %span.highlight You need
+      your own laptop, curiosity and a sprinkle of imagination.
 
 
   %hr
-  .box
-    .help Want to help?
-  .box
-    We are looking for
-    %strong Rails coaches
-    %p
-      %a{ href: "https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"}Subscribe to our coaches mailing list
+  .row
+    .span3
+      .help Want to help?
+
+    .span3
+      We are looking for
+      %strong Rails coaches
+      %p
+        %a{ href: "https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"}Subscribe to our coaches mailing list
+
+  %hr
+  .row
+    .span6
+      =link_to "Learn more", city_sponsor_path(@city)
+      about becoming a sponsor.
