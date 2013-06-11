@@ -1,19 +1,20 @@
 class CitiesController < ApplicationController
   layout 'cities'
 
+  before_filter :find_city
+
   def show
-    @city = City.find_by_slug(params[:id])
-    not_found unless @city
+  end
+
+  def sponsor
+    render layout: 'application'
   end
 
   private
 
-  def not_found
-    raise ActionController::RoutingError.new('Not Found')
-  end
-
-  def sponsor
-    @city = City.find_by_slug(params[:city_id])
-    render layout: 'application'
+  def find_city
+    unless @city = City.find_by_slug(params[:id])
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 end
