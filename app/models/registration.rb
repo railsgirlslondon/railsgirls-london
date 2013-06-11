@@ -26,6 +26,10 @@ class Registration < ActiveRecord::Base
   validates :terms_of_service, acceptance: true
   validates :email, confirmation: true
 
+  def fullname
+    "#{first_name} #{last_name}"
+  end
+
   def to_s
     [ :gender,
       :uk_resident,
