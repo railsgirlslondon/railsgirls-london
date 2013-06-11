@@ -11,10 +11,18 @@ describe RegistrationsController do
 
       Invariant { Registration.count == registration_count }
 
-      When { post :create, city_id: city.to_param, event_id: event.to_param, registration: {} }
+      When {
+        post  :create,
+              city_id: city.to_param,
+              event_id: event.to_param,
+              registration: {}
+      }
+
       Then { expect(response).to render_template(:new) }
-      And  { expect(assigns(:registration).errors).not_to be_empty}
-      And  { expect(assigns(:city)).to eq(city)}
+      And  { expect(assigns(:registration).errors).not_to be_empty }
+      And  { expect(assigns(:city)).to eq(city) }
+    end
+
     describe "GET #new" do
       context "when the event is accepting registrations" do
 
