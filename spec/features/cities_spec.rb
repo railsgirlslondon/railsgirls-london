@@ -40,7 +40,7 @@ describe "Viewing a city" do
     Given { Fabricate(:inactive_event, city: city) }
 
     When { visit city_path(city) }
-    Then { find("#past_events .title").text.should eq city.past_events.first.title }
+    Then { find("#past_events .title").text.should eq city.past_events.first.dates }
   end
 
 end
