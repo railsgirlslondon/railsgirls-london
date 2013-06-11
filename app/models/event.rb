@@ -28,8 +28,11 @@ class Event < ActiveRecord::Base
   delegate :name, to: :host, prefix: true
 
   def accepting_registrations?
-    return false unless registration_deadline.present?
-    registration_deadline.future?
+    return true if registration_deadline.present?
+  end
+
+  def registrations_open?
+    accepting_registrations? and Date.today <= registration_deadline
   end
 
   def host

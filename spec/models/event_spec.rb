@@ -32,29 +32,35 @@ describe Event do
     end
   end
 
-  describe "#accepting_registrations?" do
+  describe "registrations" do
     let(:event) { Event.new(registration_deadline: date) }
 
-    subject { event.accepting_registrations? }
+    describe "#accepting_registrations?" do
+      subject { event.accepting_registrations? }
 
-    context "no registration deadline" do
-      let(:date) { nil }
-      it { should be_false }
+      context "no registration deadline" do
+        let(:date) { nil }
+        it { should be_false }
+      end
     end
 
-    context "deadline in future" do
-      let(:date) { 2.days.from_now }
-      it { should be_true }
-    end
+    describe "#registrations_open?" do
+      subject { event.registrations_open? }
 
-    context "deadline today" do
-      let(:date) { Date.today }
-      it { should be_false }
-    end
+      context "deadline in future" do
+        let(:date) { 2.days.from_now }
+        it { should be_true }
+      end
 
-    context "deadline in the past" do
-      let(:date) { Date.yesterday }
-      it { should be_false }
+      context "deadline today" do
+        let(:date) { Date.today }
+        it { should be_true }
+      end
+
+      context "deadline in the past" do
+        let(:date) { Date.yesterday }
+        it { should be_false }
+      end
     end
   end
 

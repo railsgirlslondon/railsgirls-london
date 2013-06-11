@@ -8,15 +8,15 @@ feature "viewing an event" do
     context "when the registration deadline is set" do
       Given!(:event) { Fabricate(:event, city: city) }
       Given!(:host) do
-       Fabricate(:sponsor, 
+       Fabricate(:sponsor,
                  address_line_1: "A house",
                  address_line_2: "123 Street st",
                  address_city: "London",
-                 address_postcode: "N1 3TY") 
+                 address_postcode: "N1 3TY")
       end
 
       Given!(:sponsor) do
-       Fabricate(:sponsor, 
+       Fabricate(:sponsor,
                  address_line_1: "Not a hosting house")
       end
 
@@ -45,8 +45,19 @@ feature "viewing an event" do
         visit city_event_path(city, event)
       end
 
-      Then { page.has_content? "Applications are not available." }
+      Then { page.has_content? "Applications are not available for this event." }
     end
+
+    context 'registration deadline has passed' do
+      Given!(:event) { Fabricate(:event, registration_deadline: Date.yesterday, city: city) }
+
+      When do
+        visit city_event_path(city, event)
+      end
+
+      Then { page.has_content? "Applications are now closed." }
+    end
+
   end
 
   context "when inactive" do
