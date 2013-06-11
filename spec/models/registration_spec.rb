@@ -8,10 +8,10 @@ describe Registration do
   end
 
   it '#to_s' do
-    [ :gender,
+    [ :fullname,
+      :gender,
       :uk_resident,
       :programming_experience,
-      :reason_for_applying,
       :spoken_languages,
       :preferred_language ].each do |information|
         registration.to_s.should include registration.send information

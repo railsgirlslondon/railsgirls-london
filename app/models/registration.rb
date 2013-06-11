@@ -31,10 +31,10 @@ class Registration < ActiveRecord::Base
   end
 
   def to_s
-    [ :gender,
+    [ :fullname,
+      :gender,
       :uk_resident,
       :programming_experience,
-      :reason_for_applying,
       :spoken_languages,
       :preferred_language ].map do |information|
         "#{information.to_s.humanize}: #{send(information)}"
