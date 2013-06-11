@@ -12,12 +12,16 @@
     var mapOptions = {
       zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROAD_MAP,
-      center: latLng 
+      disableDefaultUI: true,
+      draggable: false,
+      scrollwheel: false,
+      disableDoubleClickZoom: true,
+      center: latLng
     }
 
     return (function createMarkedMap(ele, opts) {
       var map = new google.maps.Map(ele, opts)
-      
+
       new google.maps.Marker({
         map: map,
         position: opts.center,
