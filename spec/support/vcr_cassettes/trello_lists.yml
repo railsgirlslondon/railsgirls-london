@@ -1,0 +1,189 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.trello.com/1/lists
+    body:
+      encoding: US-ASCII
+      string: name=Some%20list&closed=false&idBoard=51b75f57482917a9580086ff
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="",
+        oauth_timestamp="", oauth_token="",
+        oauth_version="1.0"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1370976434730'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '115'
+      Date:
+      - Tue, 11 Jun 2013 18:47:14 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51b770b20186f9c71200b650","name":"Some list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":1024}'
+    http_version: 
+  recorded_at: Tue, 11 Jun 2013 18:49:55 GMT
+- request:
+    method: post
+    uri: https://api.trello.com/1/lists
+    body:
+      encoding: US-ASCII
+      string: name=Some%20other%20list&closed=false&idBoard=51b75f57482917a9580086ff
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="",
+        oauth_timestamp="", oauth_token="",
+        oauth_version="1.0"
+      Content-Length:
+      - '70'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1370976435820'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '121'
+      Date:
+      - Tue, 11 Jun 2013 18:47:15 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51b770b35ff5beec04002191","name":"Some other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":1024}'
+    http_version: 
+  recorded_at: Tue, 11 Jun 2013 18:49:56 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/boards/51b75f57482917a9580086ff/lists?filter=open
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="",
+        oauth_timestamp="", oauth_token="",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1370976436455'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '5662'
+      Etag:
+      - '"1776917166"'
+      Date:
+      - Tue, 11 Jun 2013 18:47:16 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"id":"51b770b35ff5beec04002191","name":"Some other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":1024,"subscribed":false},{"id":"51b770b20186f9c71200b650","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":3072,"subscribed":false},{"id":"51b76ebe259be3bb15002c68","name":"The
+        Human","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":6144,"subscribed":false},{"id":"51b76ebdb4b7073052008582","name":"The
+        Borgue","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":10240,"subscribed":false},{"id":"51b76eba230710416b000a93","name":"Some
+        other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":15360,"subscribed":false},{"id":"51b76eba01d551b26000f405","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":21504,"subscribed":false},{"id":"51b76d6fbbdca56a3500923f","name":"The
+        Human","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":28672,"subscribed":false},{"id":"51b76d6ed3f3aa1778006471","name":"The
+        Borgue","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":36864,"subscribed":false},{"id":"51b76d6c35de97743500df86","name":"Some
+        other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":46080,"subscribed":false},{"id":"51b76d6b0186f9c71200b52a","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":56320,"subscribed":false},{"id":"51b76a4936716b684900f0ae","name":"The
+        Human","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":67584,"subscribed":false},{"id":"51b76a486e6d574b4a002c9e","name":"The
+        Borgue","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":79872,"subscribed":false},{"id":"51b76a45e44d25df3d008655","name":"Some
+        other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":93184,"subscribed":false},{"id":"51b76a453a874b4a4900edc4","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":107520,"subscribed":false},{"id":"51b768853aef60ab58008dd4","name":"The
+        Human","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":122880,"subscribed":false},{"id":"51b76884298f961d49009009","name":"The
+        Borgue","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":139264,"subscribed":false},{"id":"51b768821e7aa99258009594","name":"Some
+        other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":156672,"subscribed":false},{"id":"51b768812e2efbb82c0088e4","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":175104,"subscribed":false},{"id":"51b7686a3318449e58008e30","name":"The
+        Human","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":194560,"subscribed":false},{"id":"51b768699537cc2c3a007e90","name":"The
+        Borgue","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":215040,"subscribed":false},{"id":"51b768668c9d4a5d52002b35","name":"Some
+        other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":236544,"subscribed":false},{"id":"51b768660be02e800e00cb8e","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":259072,"subscribed":false},{"id":"51b76843230710416b000826","name":"Some
+        other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":282624,"subscribed":false},{"id":"51b76842d55a98f947008fa9","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":307200,"subscribed":false},{"id":"51b7683d35de97743500ddaf","name":"The
+        Human","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":332800,"subscribed":false},{"id":"51b7683cf6eafd1849009a45","name":"The
+        Borgue","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":359424,"subscribed":false},{"id":"51b7680a9aca25ad29004925","name":"The
+        Human","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":387072,"subscribed":false},{"id":"51b768090be02e800e00cb61","name":"The
+        Borgue","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":415744,"subscribed":false},{"id":"51b76806993f83e73d005b90","name":"Some
+        other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":445440,"subscribed":false},{"id":"51b768068555527c59002cb9","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":476160,"subscribed":false},{"id":"51b7636ece65e69c600097c4","name":"Some
+        other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":507904,"subscribed":false},{"id":"51b7636e14b27c5b3500f478","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":540672,"subscribed":false},{"id":"51b7633b35de97743500dccb","name":"Some
+        other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":574464,"subscribed":false},{"id":"51b7633aaf564f8c550028d1","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":609280,"subscribed":false},{"id":"51b7631f271668f54700e5c2","name":"Some
+        other list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":645120,"subscribed":false},{"id":"51b7631ece4bdf084900f0ee","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":681984,"subscribed":false},{"id":"51b762f612db91bb6000ef5b","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":719872,"subscribed":false},{"id":"51b762ce0b37c3fb4700f2e0","name":"Some
+        list","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":758784,"subscribed":false},{"id":"51b75f57482917a958008700","name":"To
+        Do","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":799744,"subscribed":false},{"id":"51b75f57482917a958008701","name":"Doing","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":843776,"subscribed":false},{"id":"51b75f57482917a958008702","name":"Done","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":893952,"subscribed":false}]'
+    http_version: 
+  recorded_at: Tue, 11 Jun 2013 18:49:57 GMT
+recorded_with: VCR 2.5.0
