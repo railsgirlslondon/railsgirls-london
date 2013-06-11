@@ -8,6 +8,7 @@ gem 'haml-rails'
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'devise', '~> 3.0.0.rc'
 gem 'protected_attributes' # temporary
+gem 'ruby-trello', require: false
 
 group :production do
   gem 'pg'
