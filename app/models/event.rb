@@ -56,6 +56,10 @@ class Event < ActiveRecord::Base
     dates << until_day_month_and_year(ends_on)
   end
 
+  def export_applications_to_trello
+    EventTrello.new(self).export
+  end
+
   private
 
   def format_date date

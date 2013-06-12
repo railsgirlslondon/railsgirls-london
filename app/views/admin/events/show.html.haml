@@ -41,7 +41,7 @@
           - @event.registrations.each_with_index do |registration, index|
             %tr
               %td= index+1
-              %td= registration.name
+              %td= registration.fullname
               %td
                 =mail_to registration.email, registration.email
               %td

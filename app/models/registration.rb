@@ -26,4 +26,19 @@ class Registration < ActiveRecord::Base
   validates :terms_of_service, acceptance: true
   validates :email, confirmation: true
 
+  def fullname
+    "#{first_name} #{last_name}"
+  end
+
+  def to_s
+    [ :fullname,
+      :gender,
+      :uk_resident,
+      :programming_experience,
+      :spoken_languages,
+      :preferred_language ].map do |information|
+        "#{information.to_s.humanize}: #{send(information)}"
+      end.join "\n"
+  end
+
 end
