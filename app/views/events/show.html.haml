@@ -55,11 +55,18 @@
   %section.host
     %h3.underline Host
     .row
-      .span6
-        %h5= @event.host_name
-        %p= @event.address_line_1
-        %p= @event.address_line_2
-        %p= "#{@event.address_city}, #{@event.address_postcode}"
+      .span4 
+        %div
+          = link_to @event.host_website do
+            = image_tag @event.host_image_url
+        %div= @event.host_description
+
+      .span3
+        %h4 Location:
+        %div= @event.host_name
+        %div= @event.address_line_1
+        %div= @event.address_line_2
+        %div= "#{@event.address_city}, #{@event.address_postcode}"
 
 %section.sponsors
   %h3.underline Sponsors
