@@ -38,4 +38,12 @@ module ApplicationHelper
     "active" if current_page?(path)
   end
 
+  def gravatar_url(email)
+    "http://gravatar.com/avatar/#{md5(email)}" 
+  end
+
+  def md5(string)
+    Digest::MD5.hexdigest(string.strip.downcase)
+  end
+
 end
