@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def show
     @city = City.find_by_slug(params[:city_id])
-    @event = Event.find_by_slug(params[:id])
+    @event = @city.events.find_by_slug(params[:id])
   end
 end
 

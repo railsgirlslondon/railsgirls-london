@@ -30,6 +30,6 @@ class RegistrationsController < ApplicationController
 
   def setup_properties
     @city = City.find_by_slug params[:city_id]
-    @event = Event.find_by_slug params[:event_id]
+    @event = @city.events.find_by_slug params[:event_id]
   end
 end
