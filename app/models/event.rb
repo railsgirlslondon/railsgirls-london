@@ -27,6 +27,8 @@ class Event < ActiveRecord::Base
   delegate :address_line_1, :address_line_2, :address_postcode, :address_city, to: :host
   delegate :name, to: :host, prefix: true
 
+  before_save :generate_slug
+
   def accepting_registrations?
     return true if registration_deadline.present?
   end
@@ -58,6 +60,14 @@ class Event < ActiveRecord::Base
 
   def export_applications_to_trello
     EventTrello.new(self).export
+  end
+
+  def to_param
+    slug
+  end
+
+  def generate_slug
+    self.slug = dates.parameterize
   end
 
   private

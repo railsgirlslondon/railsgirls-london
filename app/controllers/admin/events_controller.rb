@@ -25,7 +25,7 @@ class Admin::EventsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update
@@ -43,6 +43,6 @@ class Admin::EventsController < ApplicationController
 
   private
   def find_event
-    @event = Event.find(params[:id]) if params[:id]
+    @event = Event.find_by_slug(params[:id]) if params[:id]
   end
 end
