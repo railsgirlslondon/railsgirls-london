@@ -84,7 +84,7 @@
         %li.span1
           %h5
             = link_to "https://twitter.com/#{coach.twitter}", title: "@#{coach.twitter}" do
-              = image_tag "https://api.twitter.com/1/users/profile_image/#{coach.twitter}", class: 'img-circle'
+              = image_tag gravatar_url(coach.email), class: 'img-circle'
           %small
             %strong
               = coach.name
