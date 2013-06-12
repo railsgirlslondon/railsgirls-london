@@ -39,7 +39,7 @@ Make sure you have access to the Heroku app. One of the organisers can arrange t
 
 Since we are using Heroku, the deployment is done via a git push to the appropriate remote repository. Since doing it properly involves several steps, we have a Makefile for the deployment. This means you can just use `make` to deploy:
 
-    git co staging
+    git checkout staging
     make deploy_staging
 
 This will turn on maintenance mode for the staging app, add a tag for the release, push changes to the heroku app, run migrations and turn maintenance mode off again.
