@@ -25,7 +25,7 @@ class Event < ActiveRecord::Base
   has_many :coaches, through: :event_coachings
 
   delegate :address_line_1, :address_line_2, :address_postcode, :address_city, to: :host
-  delegate :name, to: :host, prefix: true
+  delegate :name, :website, :image_url, :description, to: :host, prefix: true
 
   def accepting_registrations?
     return true if registration_deadline.present?
