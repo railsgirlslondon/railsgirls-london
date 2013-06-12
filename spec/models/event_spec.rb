@@ -111,4 +111,17 @@ describe Event do
       event.dates.should eq "August 3, 2013"
     end
   end
+
+  describe "#export_applications_to_trello" do
+    let(:event) { Fabricate(:event) }
+
+    it "creates a trello board for the event's applicants" do
+      event_trello = mock(:event_trello, export: nil)
+
+      EventTrello.should_receive(:new).and_return(event_trello)
+      event_trello.should_receive(:export)
+
+      event.export_applications_to_trello
+    end
+  end
 end
