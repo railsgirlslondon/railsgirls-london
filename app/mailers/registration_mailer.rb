@@ -2,11 +2,10 @@ class RegistrationMailer < ActionMailer::Base
 
   helper :email
 
-  def application_received event, registration, host
+  def application_received event, registration
     @registration = registration
     @event = event
     @city = event.city
-    @host = host
 
     load_attachments
 
