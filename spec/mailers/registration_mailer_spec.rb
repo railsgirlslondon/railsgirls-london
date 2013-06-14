@@ -14,7 +14,7 @@ describe RegistrationMailer do
     ActionMailer::Base.deliveries.last.body.encoded.should include event.dates
   end
 
-  it "sends an email when an applicant is accepted", wip: true do
+  it "sends an email when an applicant is accepted" do
     event = Fabricate(:event)
     registration = Fabricate(:registration)
 
