@@ -36,6 +36,20 @@ class TrelloApi
     board.cards.select { |c| c.labels.map(&:color).include? label_name }
   end
 
+  def find_and_move_cards_to_list board, list_name, label_color
+    cards = find_cards_by_label board, label_color
+    list = find_list_by_name(board, list_name)
+    move_cards_to_list cards, list
+  end
+
+  def find_list_by_name board, list_name
+    board.lists.select { |l| l.name.eql? list_name }.first
+  end
+
+  def move_cards_to_list cards, list
+    cards.each { |card| card.move_to_list list }
+  end
+
   def self.configure
     yield config
   end

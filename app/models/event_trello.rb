@@ -7,8 +7,20 @@ class EventTrello
 
   def export
     add_board
-    add_applications_list
+    add_list "Applications"
     add_cards
+  end
+
+  def add_list list_name
+    @list = trello.add_list_to_board list_name, board
+  end
+
+  def move_cards_to_list list_name, label
+    trello.find_and_move_cards_to_list board, list_name, label
+  end
+
+  def find_list list_name
+    trello.find_list_by_name board, list_name
   end
 
   private
@@ -17,12 +29,12 @@ class EventTrello
     @trello ||= TrelloApi.new
   end
 
-  def add_board
-    @board = trello.find_or_create_board "#{event.city_name} #{event.dates}"
+  def board
+    @board ||= trello.find_or_create_board board_name(event)
   end
 
-  def add_applications_list
-    @list = trello.add_list_to_board "Applications", board
+  def add_board
+    board
   end
 
   def add_cards
@@ -33,4 +45,7 @@ class EventTrello
     trello.add_card_to_list name, description, list
   end
 
+  def board_name event
+    "#{event.city_name} #{event.dates}"
+  end
 end
