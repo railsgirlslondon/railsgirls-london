@@ -9,8 +9,8 @@ class RegistrationMailer < ActionMailer::Base
 
     load_attachments
 
-    subject = "Thanks for applying to Rails Girls #{@event.city.name} #{@event.dates}"
-    email_with_name = "Rails Girls #{@event.city.name} <#{@event.city.email}>"
+    subject = "Thanks for applying to Rails Girls #{@event.city_name} #{@event.dates}"
+    email_with_name = "Rails Girls #{@event.city_name} <#{@event.city.email}>"
 
     content_type =  "text/html"
 
@@ -19,6 +19,22 @@ class RegistrationMailer < ActionMailer::Base
     end
   end
 
+  def application_accepted event, registration
+    @registration = registration
+    @event = event
+    @city = event.city
+
+    load_attachments
+
+    subject = "You're invited to Rails Girls #{@event.city_name} (#{@event.dates})"
+    email_with_name = "Rails Girls #{@event.city.name} <#{@event.city.email}>"
+
+    content_type =  "text/html"
+
+    mail(from: email_with_name, to: @registration.email, subject: subject) do |format|
+      format.html { render :layout => 'mailer' }
+    end
+  end
 
   private
   def load_attachments
