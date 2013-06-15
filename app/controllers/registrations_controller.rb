@@ -14,7 +14,8 @@ class RegistrationsController < ApplicationController
   def create
     @registration = @event.registrations.build(params[:registration])
 
-    if @registration.save
+    if @registration.valid?(:registration)
+      @registration.save!
       RegistrationMailer.application_received(@event, @registration).deliver
       flash[:notice] = "Thanks for applying to our workshop.You should receive a confirmation email soon!"
       redirect_to city_path(params[:city_id])

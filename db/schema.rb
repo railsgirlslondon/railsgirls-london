@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130614213952) do
+ActiveRecord::Schema.define(version: 20130615213221) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "twitter"
     t.string   "slug"
     t.string   "email"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20130614213952) do
     t.text     "description"
     t.integer  "city_id"
     t.boolean  "active"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.date     "starts_on"
     t.date     "ends_on"
     t.date     "registration_deadline"
@@ -61,16 +61,16 @@ ActiveRecord::Schema.define(version: 20130614213952) do
   end
 
   create_table "registrations", force: true do |t|
-    t.string   "first_name",             null: false
-    t.string   "last_name",              null: false
-    t.string   "email",                  null: false
+    t.string   "first_name",                             null: false
+    t.string   "last_name",                              null: false
+    t.string   "email",                                  null: false
     t.string   "twitter"
     t.string   "gender"
     t.string   "phone_number"
     t.text     "programming_experience"
     t.text     "reason_for_applying"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "uk_resident"
     t.string   "os"
     t.string   "os_version"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20130614213952) do
     t.integer  "event_id"
     t.string   "dietary_restrictions"
     t.string   "selection_state"
+    t.boolean  "attending",              default: false, null: false
   end
 
   add_index "registrations", ["email"], name: "index_registrations_on_email"
@@ -111,8 +112,8 @@ ActiveRecord::Schema.define(version: 20130614213952) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

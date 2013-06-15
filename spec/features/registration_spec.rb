@@ -25,7 +25,6 @@ feature "a girl registering" do
   end
 
   context "with the minimum required information" do
-
     When do
       fill_in "First name", with: first_name
       fill_in "Last name", with: last_name
