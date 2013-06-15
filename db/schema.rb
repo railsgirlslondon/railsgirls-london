@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130614213952) do
+ActiveRecord::Schema.define(version: 20130615213221) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -61,9 +61,9 @@ ActiveRecord::Schema.define(version: 20130614213952) do
   end
 
   create_table "registrations", force: true do |t|
-    t.string   "first_name",             null: false
-    t.string   "last_name",              null: false
-    t.string   "email",                  null: false
+    t.string   "first_name",                             null: false
+    t.string   "last_name",                              null: false
+    t.string   "email",                                  null: false
     t.string   "twitter"
     t.string   "gender"
     t.string   "phone_number"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20130614213952) do
     t.integer  "event_id"
     t.string   "dietary_restrictions"
     t.string   "selection_state"
+    t.boolean  "attending",              default: false, null: false
   end
 
   add_index "registrations", ["email"], name: "index_registrations_on_email"

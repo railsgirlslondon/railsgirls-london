@@ -45,7 +45,7 @@ feature "admin CRUDing events" do
       Then { !page.has_content? "Second RG workshop" }
     end
 
-    context "adding a registrant to the event" do
+    context "adding a registrant to the event and marking as attending" do
       When do
         click_on 'Add registration'
         fill_in 'First name', with: 'Johnny'
@@ -55,8 +55,13 @@ feature "admin CRUDing events" do
         click_on 'Create Registration'
       end
 
-      Then { page.has_content? "Registration created." }
-      And { page.has_content? "john@registrant.com" }
+      Then { page.has_content? "john@registrant.com" }
+
+      When { click_on 'Confirm Attendance' }
+      Then { page.has_content? 'Attending' }
+
+      When { click_on 'Remove Attendance' }
+      Then { page.has_content? 'Attending' }
     end
   end
 end
