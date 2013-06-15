@@ -1,27 +1,28 @@
 %h3{style: "border-bottom: 1px solid #E5E5E5; padding-bottom: 10px; margin-bottom: 15px; font-size: 28.5px;" }
-  Hi
-  #{@registration.first_name},
+  Hi #{@registration.first_name},
+
 
 .content
-  .left.inline{ style: "width: 65%; display: inline-block;" }
-    %p.lead{ style: "font-size: '22px;" }
-      .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 15px 0; padding: 0 10px;" }= @event.dates
+  .left.inline{style: "width: 65%; display: inline-block;"}
+    %p.lead{style: "font-size: 22px;"}
+      %strong Thank you
+      for applying to our Rails Girls #{@city.name} workshop!
 
-      =link_to "View details", full_url_for(city_event_path(@city, @event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
-
-    %p.lead
-      Dear Angela,
-
-      Thank you for your application to Rails Girls London.
-
+    %p.lead{style: "font-size: 22px;"}
       We have had an incredible response to the event. Unfortunately we can't take everyone who applied, and we're afraid we are unable to accommodate you this time.
 
-      We will be keeping you on our list and we will try our best to get you a place in a future event, if you wish to apply again. Don't forget to follow us at http://twitter.com/railsgirls_ldn and https://plus.google.com/104252944343767158344, so you can stay posted about future events.
+    %p.lead{style: "font-size: 22px;"}
+      This doesn't mean we don't want you, so next time we host an event, we'll try our best to get you a place.
 
+    %p.lead{style: "font-size: 22px;"}
+      You can stay posted about future events by following us on
+      %a{href: "http://twitter.com/railsgirls_ldn"}twitter
+      and
+      %a{href: "https://plus.google.com/104252944343767158344"}google plus
+
+
+    %p.lead
       There are always cancellations and we fill all available places, so we might still be taking in a couple of people!
-
-      All the best,
-      The Rails Girls London organisers
 
   .right.inline{ style: "width: 24%; padding: 0 0 0 50px; display: inline-block;" }
     =image_tag attachments['london-girl.png'].url, width: '200px'
