@@ -8,8 +8,6 @@
   %em
     The event is
     = @event.active ? "active" : "not active"
-
-
     %h3
       Sponsors
       %small= link_to "Add sponsor", new_admin_sponsor_path
@@ -28,8 +26,10 @@
         %tr
           %td= link_to coach.name, [:admin, coach]
 
+  %h3
+    Registrations
+    %small= link_to "Add registration", new_admin_event_registration_path(@event)
   - if @event.registrations.any?
-    %h3 Applications
     %table.table.table-striped
       %thead
         %th #

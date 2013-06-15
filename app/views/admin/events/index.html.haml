@@ -13,7 +13,7 @@
 
     - @events.each do |event|
       %tr
-        %td= event.city_name
+        %td= link_to event.city_name, [:admin, event]
         %td= event.title
         %td= event.dates
         %td= link_to event.description, [:admin, event]

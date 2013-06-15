@@ -5,12 +5,14 @@ feature "admin CRUDing events" do
   Given { admin_logged_in! }
 
   context "creating and editing an event" do
-    When { visit new_admin_event_path }
-    When { fill_in "Title", with: "Autumn Workshop" }
-    When { fill_in "Description", with: "Second RG workshop" }
-    When { select "London", from: "City" }
-    When { check "Active" }
-    When { click_on "Create Event" }
+    When do
+      visit new_admin_event_path
+      fill_in "Title", with: "Autumn Workshop"
+      fill_in "Description", with: "Second RG workshop"
+      select "London", from: "City"
+      check "Active"
+      click_on "Create Event"
+    end
 
     Then { page.has_content? "Event was successfully created." }
     And { page.has_content? "Autumn Workshop" }
@@ -19,9 +21,11 @@ feature "admin CRUDing events" do
     And { page.has_content? "The event is active" }
 
     context "editing an event" do
-      When { click_on "Edit" }
-      When { fill_in "Description", with: "A new description" }
-      When { click_on "Update Event" }
+      When do
+        click_on "Edit"
+        fill_in "Description", with: "A new description"
+        click_on "Update Event"
+      end
 
       Then { page.has_content? "Event was successfully updated." }
       And { page.has_content? "A new description" }
@@ -33,9 +37,26 @@ feature "admin CRUDing events" do
     end
 
     context "deleting an event" do
-      When { click_link "Back"}
-      When { click_link "Destroy" }
+      When do
+        click_link "Back"
+        click_link "Destroy"
+      end
+
       Then { !page.has_content? "Second RG workshop" }
+    end
+
+    context "adding a registrant to the event" do
+      When do
+        click_on 'Add registration'
+        fill_in 'First name', with: 'Johnny'
+        fill_in 'Last name', with: "Smithington"
+        fill_in 'Email', with: 'john@registrant.com'
+
+        click_on 'Create Registration'
+      end
+
+      Then { page.has_content? "Registration created." }
+      And { page.has_content? "john@registrant.com" }
     end
   end
 end
