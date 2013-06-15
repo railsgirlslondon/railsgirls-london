@@ -57,7 +57,36 @@ class Event < ActiveRecord::Base
   end
 
   def export_applications_to_trello
-    EventTrello.new(self).export
+    trello.export "Applications"
+  end
+
+  def process_applications slots=35
+    application_manager = ApplicationManager.new(self, slots)
+    application_manager.process!
+  end
+
+  def send_email_to_selected_applicants
+    selected_applicants.each do |registration|
+      RegistrationMailer.application_accepted(self, registration).deliver
+    end
+  end
+
+  def send_email_to_waiting_list_applicants
+    waiting_list_applicants.each do |registration|
+      RegistrationMailer.application_rejected(self, registration).deliver
+    end
+  end
+
+  def selected_applicants
+    registrations.where selection_state: "accepted"
+  end
+
+  def waiting_list_applicants
+    registrations.where selection_state: "waiting list"
+  end
+
+  def trello
+    @trello ||= EventTrello.new(self)
   end
 
   private
@@ -77,5 +106,4 @@ class Event < ActiveRecord::Base
   def until_day_month_and_year date
     date.strftime("-%-d %B %Y")
   end
-
 end

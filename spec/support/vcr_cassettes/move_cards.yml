@@ -1,0 +1,516 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.trello.com/1/members/me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="",
+        oauth_timestamp="1371237204", oauth_token="",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371237032798'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '4493'
+      Etag:
+      - '"33834030"'
+      Date:
+      - Fri, 14 Jun 2013 19:10:32 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51b73c7e78623ba660007f27","avatarHash":null,"bio":"","confirmed":true,"fullName":"Rails
+        Girls","idPremOrgsAdmin":[],"initials":"RG","memberType":"normal","status":"active","url":"https://trello.com/railsgirls","username":"railsgirls","avatarSource":"none","email":"trello@railsgirls.co.uk","gravatarHash":"f757afbffa2d334aaebcdafba62e5239","idBoards":["51b73c7e78623ba660007f28","51b7446ee3c01cdc600093ef","51b74492298f961d490086e8","51b745957982afe130007546","51b745a8d8c516b85800dc0a","51b74817110b4e004800dd68","51b7482aa146111c49009ee6","51b74846e44d25df3d007b36","51b74857e9793dea1f00be0f","51b7487b8675c5be5800e4d1","51b748b8310a40225600bbb6","51b748d18c48c90a4800e3eb","51b748f6085caab804002078","51b749fa3b44ff644900eeb7","51b74a0e78623ba6600082e9","51b74a2a7a01249a58008773","51b74a44298f961d490088cd","51b74bea356121ea6000d805","51b74cf20186f9c71200a973","51b74d094abdea174900e166","51b74d56356121ea6000d88a","51b74d9a98f3169d6f008327","51b74e1a16b7fa9435008efc","51b74e332a1191e25800e3ce","51b7509e2a1191e25800e46f","51b750bf67a6755e25006837","51b750dd63b35abf5800935e","51b751ef8675c5be5800e8e3","51b75237aa5e21976000d9fc","51b752b5ce4bdf084900ea2b","51b752eba20a92b535008fc9","51b752ff110b4e004800e0e3","51b75361fbf0592649009831","51b757bd4100fda55800e449","51b757c09cb93e354500c904","51b757d83c4f255b4900929a","51b75839942476730e00c2c0","51b75869b4b7073052007e4c","51b7588fa03c5d204900e970","51b75940e3c01cdc600099cc","51b75966928019f34800b886","51b75ba69cb93e354500ca35","51b75bc204d88c2d1400b09e","51b75c056e6d574b4a00280a","51b75c67be58ef9b5500268b","51b75f57482917a9580086ff","51b790a84100fda55800f699","51b790c64caf120748009d9b","51b790e0824286bc5800ae08","51b795533318449e580097b8","51b79623dca18f224900bbcf","51b79655ba9be7993500fe29","51b7983b31a77abd60009ce5","51b8fb96ec25f472580026fe","51bb379c9dba420118002e1b","51bb3b0a072475811e002f98","51bb3b84a5050b0e18004eef","51bb4da5ede6c03c1e004e69","51bb4eda38bcb86d26003471","51bb61f73e3e1d3e1e003869","51bb63b9f83f01940e00349f","51bb63dcede6c03c1e005442","51bb6405f529d7371800581c","51bb690ed47cfb79260058b2","51bb698848afc4690e0039de","51bb69a5c9eb0ac56300276e","51bb69db5e6e1c1977000a37","51bb6a61074e4c78540045c4"],"idBoardsInvited":[],"idBoardsPinned":["51b73c7e78623ba660007f28","51b7446ee3c01cdc600093ef","51b74492298f961d490086e8","51b745957982afe130007546","51b745a8d8c516b85800dc0a","51b74817110b4e004800dd68","51b7482aa146111c49009ee6","51b74846e44d25df3d007b36","51b74857e9793dea1f00be0f","51b7487b8675c5be5800e4d1","51b748b8310a40225600bbb6","51b748d18c48c90a4800e3eb","51b748f6085caab804002078","51b749fa3b44ff644900eeb7","51b74a0e78623ba6600082e9","51b74a2a7a01249a58008773","51b74a44298f961d490088cd","51b74bea356121ea6000d805","51b74cf20186f9c71200a973","51b74d094abdea174900e166","51b74d56356121ea6000d88a","51b74d9a98f3169d6f008327","51b74e1a16b7fa9435008efc","51b74e332a1191e25800e3ce","51b7509e2a1191e25800e46f","51b750bf67a6755e25006837","51b750dd63b35abf5800935e","51b751ef8675c5be5800e8e3","51b75237aa5e21976000d9fc","51b752b5ce4bdf084900ea2b","51b752eba20a92b535008fc9","51b752ff110b4e004800e0e3","51b75361fbf0592649009831","51b757bd4100fda55800e449","51b757c09cb93e354500c904","51b757d83c4f255b4900929a","51b75839942476730e00c2c0","51b75869b4b7073052007e4c","51b7588fa03c5d204900e970","51b75940e3c01cdc600099cc","51b75966928019f34800b886","51b75ba69cb93e354500ca35","51b75bc204d88c2d1400b09e","51b75c056e6d574b4a00280a","51b75c67be58ef9b5500268b","51b75f57482917a9580086ff","51b790a84100fda55800f699","51b790c64caf120748009d9b","51b790e0824286bc5800ae08","51b795533318449e580097b8","51b79623dca18f224900bbcf","51b79655ba9be7993500fe29","51b7983b31a77abd60009ce5","51b8fb96ec25f472580026fe","51bb379c9dba420118002e1b","51bb3b0a072475811e002f98","51bb3b84a5050b0e18004eef","51bb4da5ede6c03c1e004e69","51bb4eda38bcb86d26003471","51bb61f73e3e1d3e1e003869","51bb63b9f83f01940e00349f","51bb63dcede6c03c1e005442","51bb6405f529d7371800581c","51bb690ed47cfb79260058b2","51bb698848afc4690e0039de","51bb69a5c9eb0ac56300276e","51bb69db5e6e1c1977000a37","51bb6a61074e4c78540045c4"],"idOrganizations":[],"idOrganizationsInvited":[],"loginTypes":["google","password"],"newEmail":null,"oneTimeMessagesDismissed":[],"prefs":{"timezoneInfo":{"timezoneNext":"GMT","dateNext":"2013-10-27T01:00:00.000Z","offsetNext":0,"timezoneCurrent":"BST","offsetCurrent":-60},"sendSummaries":true,"minutesBetweenSummaries":60,"minutesBeforeDeadlineToNotify":1440,"colorBlind":false},"trophies":[],"uploadedAvatarHash":null}'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 19:13:24 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/members/railsgirls/boards
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371237204", oauth_token="",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371237033614'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '3969'
+      Etag:
+      - '"1016563738"'
+      Date:
+      - Fri, 14 Jun 2013 19:10:33 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        c6VCMIOS5zOkcgWmSxaAbrO45xlRzZkuSc8nHwbHn2p4iJIiTY0j2nog8ntb
+        Cv38ozjV5SXlqFut7gIjjXkW5+78aAdu7tSwopsipxXKtqzX9HmK1DR/RfcC
+        0K0Wd4GRxqzo/vSwO3539KWWrtv76c2KHFiFpLscdKvFXWCkMUn37t7WXmQO
+        SA3ixgx67QGViOWbFQnc/M0dFoBus7iLjDRmc4dtffr50/GDqkHcXNvsNT7e
+        Kvo8/09WIC0pB91mcRcZaUxagr+OP25sXp3WIW4rsCEeUapzyyP58+sCqxtR
+        lqNutboLjDRmYeDoBiSI7fZrULfAUhJEOOM4e5eWQQY0v+suB91mcRcZIU0R
+        92a8PYz272p4jJIKJjXRHARSKArtdeTnZ7qr67rLUbda3fOM0MZMdQ8H+OZJ
+        wg91qFt4BbChFoF8ilTyVei6S0G3WtwFRprTdbttfmc+1LCmm0oCZt4OJM0q
+        dN3lqNus7gIjtjFd9/tYPHl5ltShbsYkEgBKj7M5Ui3Ezz9IWaG6S1G3Wt0F
+        RhrzJCW6O7z9ehTVsEs3De2ceU2hwj+/wUN16i5H3WZ1FxlpzA4Pm2hyen4h
+        D+tQtwmJmhXCIAtJ8DyQq7DytRx1q9U9z4hqzMrXHdjbu2D9OgaVBlDmmKWc
+        aKIACMFtFWa7y1G3Wd1FRhoz2812Bte70dfNOtTNeLYU2HmpaYhoiInp1YHX
+        /VEn/Bs8dnQDJk4Cmm74N3icEXppA1ot9AIjjVkoeHx5jd/3DK5e6CXtndq0
+        +9JFJlP04jcJ/76e++G57ilNL8DaYk2XMDKXeBPHFPfKAmql0ADp0MULQs28
+        puMkHajox0W9XEO4OVM3e/ywxwZXlTtLM+h5GBA5aMN/BwAWbGqtS5aXdHpJ
+        6gadveFoMuhsJ1GSduh3k20Mh0FJzzLo+PC3JUUqyqOirPJuP6u8a7PKu3R9
+        SVPba8wyRhqzQsZyc3Pxea/6tY0ac2mk1YogAKEIIdhBXWqJXGKdXGI/ZojZ
+        AnXZYX1JI1tshhJGGpN5oZTcwS/qfQ1m0EABjginAmZdBPJSvGaGDnqzHfIi
+        tcUHtL6kqW22RJGRxrxk5fzy6mlbweo3fA6sCKIooEADl3UUxDn/qiXw2y2B
+        67QEXl/S1FZbYp4R35i9YS5uLsZf+bn9EUtMq//FHi+K30zSqzm7lFhk1hbE
+        KuqsYwZgk3UWYUxXPpKY1jh5uy1InbYg60ua2mJblDDSmJFEcnpLPn0kvPpI
+        QZxVWGijw7gKhQZjwuGrlvjBwfV8kZoH1wua2mZLFBlpzrNVA3+3c31aw7tF
+        JaUYYygIkfkeJpLrufFEd1epq/u+e+hA2IWosz+JHjthTPZaBrWsXEXmuP6G
+        oJsj6N4EBN0MwfqSlrfXIWWMNGZ4IdWX/h7frmHjdgmUmH5szTM5l0d1e+rW
+        dTb7UfQ4SCbj67ca5fXiVQWTAKSrX4CU26acjjbbpshIY3Kt3vnBx600f0N8
+        5bZxQCCCBNMmY0WFr3O2OQqxYSNyX1VsU6fe6ppXS1dkmjjEF/WCY4FnSrlo
+        tWcKjDQm1NztnvVQclb9zT8uGaVaSe24lNnGLd6h+VBzErB3NgZBbG82zPKi
+        FbllGEB0VQ6i3CrlFLTZKkVGqgkvM8q0QADtAHL5livA6kJqCDiSxjJLMEAC
+        cggdkdgWQPyTJQPSQk4wdtYZkTXS8/nJPuI40Z5qgEIOixwMCLxj3v9aFIjg
+        UAshUGVPVClPaAEFIFIAKyhVGgrB8xVyv3T5REBhs3c+coSyZwMgwKww8cmQ
+        wxqHRN5pFC6IDoNenucCvxAFlkGWXmDHsQWAMVlAAR2jnEmHObFEcwQyGPCf
+        oviR9+FcXJ5H1NSwHY8EhhGjPESAZw9uSCt1WUfe64d+MHg+dT/VmS8tXmWH
+        Hr0AWZD/lNLR5k69yEhjbm7b/ZN3R58+HdSR/yBsjYLCI5T1rCHIzN3J656a
+        a2VdbK7DF5e+1TWvlq7INKMZHAsSoVIu2uyZAiO2Mbf64qN9TA4vetV45r//
+        DxdK1b/azwAA
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 19:13:25 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/boards/51bb61f73e3e1d3e1e003869/cards?filter=open
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371237205", oauth_token="",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371237034279'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '1402'
+      Etag:
+      - '"-2116728260"'
+      Date:
+      - Fri, 14 Jun 2013 19:10:34 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"id":"51bb649ff008b6a402002c74","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":false,"due":null},"checkItemStates":[],"closed":false,"dateLastActivity":"2013-06-14T18:45:10.189Z","desc":"","due":null,"idBoard":"51bb61f73e3e1d3e1e003869","idChecklists":[],"idList":"51bb61f73e3e1d3e1e00386a","idMembers":[],"idMembersVoted":[],"idShort":2,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[],"name":"Something
+        else","pos":131071,"shortUrl":"https://trello.com/c/5Uzccyof","subscribed":false,"url":"https://trello.com/card/something-else/51bb61f73e3e1d3e1e003869/2"},{"id":"51bb649c9fc34c612c00574e","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":false,"due":null},"checkItemStates":[],"closed":false,"dateLastActivity":"2013-06-14T19:10:17.787Z","desc":"","due":null,"idBoard":"51bb61f73e3e1d3e1e003869","idChecklists":[],"idList":"51bb61f73e3e1d3e1e00386c","idMembers":[],"idMembersVoted":[],"idShort":1,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[{"color":"purple","name":""}],"name":"Something","pos":65535,"shortUrl":"https://trello.com/c/EKM7yAZc","subscribed":false,"url":"https://trello.com/card/something/51bb61f73e3e1d3e1e003869/1"}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 19:13:26 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb649ff008b6a402002c74/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371237206", oauth_token="",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371237034841'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 19:10:34 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 19:13:26 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb649c9fc34c612c00574e/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371237206", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371237035466'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '30'
+      Date:
+      - Fri, 14 Jun 2013 19:10:35 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"color":"purple","name":""}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 19:13:27 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/boards/51bb61f73e3e1d3e1e003869/lists?filter=open
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="", oauth_token="",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371237036977'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '400'
+      Date:
+      - Fri, 14 Jun 2013 19:10:36 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"id":"51bb61f73e3e1d3e1e00386a","name":"To Do","closed":false,"idBoard":"51bb61f73e3e1d3e1e003869","pos":16384,"subscribed":false},{"id":"51bb61f73e3e1d3e1e00386b","name":"Doing","closed":false,"idBoard":"51bb61f73e3e1d3e1e003869","pos":32768,"subscribed":false},{"id":"51bb61f73e3e1d3e1e00386c","name":"Accepted","closed":false,"idBoard":"51bb61f73e3e1d3e1e003869","pos":49152,"subscribed":false}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 19:13:28 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/boards/51bb61f73e3e1d3e1e003869/lists?filter=open
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371237208", oauth_token="",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371237037547'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '400'
+      Date:
+      - Fri, 14 Jun 2013 19:10:37 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"id":"51bb61f73e3e1d3e1e00386a","name":"To Do","closed":false,"idBoard":"51bb61f73e3e1d3e1e003869","pos":16384,"subscribed":false},{"id":"51bb61f73e3e1d3e1e00386b","name":"Doing","closed":false,"idBoard":"51bb61f73e3e1d3e1e003869","pos":32768,"subscribed":false},{"id":"51bb61f73e3e1d3e1e00386c","name":"Accepted","closed":false,"idBoard":"51bb61f73e3e1d3e1e003869","pos":49152,"subscribed":false}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 19:13:29 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/boards/51bb61f73e3e1d3e1e003869/lists?filter=open
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="e3c5c08b0adcfc3b96bb84916b816f43",
+        oauth_signature="fYlNV8T18DUb8JzbtkjF2ecRttE%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371237209", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371237038134'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '400'
+      Date:
+      - Fri, 14 Jun 2013 19:10:38 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"id":"51bb61f73e3e1d3e1e00386a","name":"To Do","closed":false,"idBoard":"51bb61f73e3e1d3e1e003869","pos":16384,"subscribed":false},{"id":"51bb61f73e3e1d3e1e00386b","name":"Doing","closed":false,"idBoard":"51bb61f73e3e1d3e1e003869","pos":32768,"subscribed":false},{"id":"51bb61f73e3e1d3e1e00386c","name":"Accepted","closed":false,"idBoard":"51bb61f73e3e1d3e1e003869","pos":49152,"subscribed":false}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 19:13:30 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/lists/51bb61f73e3e1d3e1e00386c/cards?filter=open
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371237210", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371237038718'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '710'
+      Date:
+      - Fri, 14 Jun 2013 19:10:38 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"id":"51bb649c9fc34c612c00574e","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":false,"due":null},"checkItemStates":[],"closed":false,"dateLastActivity":"2013-06-14T19:10:17.787Z","desc":"","due":null,"idBoard":"51bb61f73e3e1d3e1e003869","idChecklists":[],"idList":"51bb61f73e3e1d3e1e00386c","idMembers":[],"idMembersVoted":[],"idShort":1,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[{"color":"purple","name":""}],"name":"Something","pos":65535,"shortUrl":"https://trello.com/c/EKM7yAZc","subscribed":false,"url":"https://trello.com/card/something/51bb61f73e3e1d3e1e003869/1"}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 19:13:30 GMT
+recorded_with: VCR 2.5.0

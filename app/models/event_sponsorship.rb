@@ -14,7 +14,7 @@ class EventSponsorship < ActiveRecord::Base
 
   def host_must_be_unique
     return unless event.has_host?
-    
+
     errors.add(:host, "already exists")
   end
 end
