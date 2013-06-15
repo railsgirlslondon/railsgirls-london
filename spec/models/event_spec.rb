@@ -137,7 +137,7 @@ describe Event do
       applications.should_receive(:take).and_return([card])
       applications.should_receive(:drop).and_return([])
 
-      event.process_applications
+      event.process_applications 2
 
       registration.reload.selection_state.should eq "accepted"
     end
@@ -169,6 +169,4 @@ describe Event do
     end
 
   end
-
-
 end

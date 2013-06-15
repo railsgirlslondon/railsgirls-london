@@ -60,8 +60,8 @@ class Event < ActiveRecord::Base
     trello.export "Applications"
   end
 
-  def process_applications
-    application_manager = ApplicationManager.new(self, 38)
+  def process_applications slots=35
+    application_manager = ApplicationManager.new(self, slots)
     application_manager.process!
   end
 
