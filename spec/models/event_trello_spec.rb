@@ -24,6 +24,6 @@ describe EventTrello do
 
       event_trello.matches_any_card?(cards, "George").should be_false
     end
-
   end
+
 end

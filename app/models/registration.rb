@@ -18,7 +18,7 @@ class Registration < ActiveRecord::Base
                  :terms_of_service,
                  :email_confirmation]
 
-  attr_accessible *ATTRIBUTES, :twitter, :dietary_restrictions
+  attr_accessible *ATTRIBUTES, :twitter, :dietary_restrictions, :selection_state
   validates *ATTRIBUTES, presence: true
 
   belongs_to :event
