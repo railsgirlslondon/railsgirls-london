@@ -77,12 +77,22 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def send_email_invite_to_weeklies
+    weeklies_invitees.each do |registration|
+      RegistrationMailer.application_invited_to_weeklies(self, registration).deliver
+    end
+  end
+
   def selected_applicants
     registrations.where selection_state: "accepted"
   end
 
   def waiting_list_applicants
     registrations.where selection_state: "waiting list"
+  end
+
+  def weeklies_invitees
+    registrations.where selection_state: "RGL Weeklies"
   end
 
   def trello

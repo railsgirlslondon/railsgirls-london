@@ -41,6 +41,19 @@ class RegistrationMailer < ActionMailer::Base
     end
   end
 
+  def application_invited_to_weeklies event, registration
+    setup event, registration
+
+    subject = "Rails Girls #{@event.city_name} - You are invited to Weeklies"
+    email_with_name = "Rails Girls #{@event.city.name} <#{@event.city.email}>"
+
+    content_type =  "text/html"
+
+    mail(from: email_with_name, to: @registration.email, subject: subject) do |format|
+      format.html { render :layout => 'mailer' }
+    end
+  end
+
   private
 
   def load_attachments

@@ -116,6 +116,7 @@ describe Event do
     let(:event) { Fabricate(:event, city: Fabricate(:city, name: "test-#{Time.now}")) }
     let!(:accepted_registrations) { 3.times.map { Fabricate(:registration, event: event, selection_state: "accepted") } }
     let!(:waiting_registrations) { 2.times.map { Fabricate(:registration, event: event, selection_state: "waiting list") } }
+    let!(:weeklies) { 2.times.map { Fabricate(:registration, event: event, selection_state: "RGL Weeklies") } }
 
     it "#export_applications_to_trello" do
       event_trello = mock(:event_trello, export: nil)
@@ -168,5 +169,13 @@ describe Event do
       event.send_email_to_waiting_list_applicants
     end
 
+    it "#send_email_to_weeklies_applicants" do
+      weeklies.each do |registration|
+        registration_mailer = mock(:registration_mailer, deliver: nil)
+        RegistrationMailer.should_receive(:application_invited_to_weeklies).with(event, registration).and_return(registration_mailer)
+      end
+
+      event.send_email_invite_to_weeklies
+    end
   end
 end
