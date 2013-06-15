@@ -18,7 +18,7 @@ describe Registration do
       end
   end
 
-  it "#mark_selection", wip: true do
+  it "#mark_selection" do
     registration.mark_selection "accepted"
 
 

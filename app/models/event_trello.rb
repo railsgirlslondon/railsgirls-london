@@ -5,29 +5,33 @@ class EventTrello
     @event = event
   end
 
-  def export
+  def export list
     add_board
-    add_list "Applications"
+    add_list list
     add_cards
   end
 
   def add_list list_name
-    @list = trello.add_list_to_board list_name, board
+    @list ||= trello.add_list_to_board list_name, board
   end
 
   def move_cards_to_list list_name, label
     trello.find_and_move_cards_to_list board, list_name, label
   end
 
-  def find_list list_name
-    trello.find_list_by_name board, list_name
+  def applications
+    trello.find_list_by_name(board, "Applications").cards
   end
-
-  private
 
   def trello
     @trello ||= TrelloApi.new
   end
+
+  def matches_any_card? cards, name
+    cards.select { |c| c.name; c.name == name }.any?
+  end
+
+  private
 
   def board
     @board ||= trello.find_or_create_board board_name(event)
@@ -48,4 +52,5 @@ class EventTrello
   def board_name event
     "#{event.city_name} #{event.dates}"
   end
+
 end
