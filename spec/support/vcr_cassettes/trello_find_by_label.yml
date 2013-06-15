@@ -1,0 +1,2300 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.trello.com/1/cards
+    body:
+      encoding: US-ASCII
+      string: name=Seven%20of%20Nine&desc=You%20will%20be%20assimilated.&idList=51bb5a02c536e0043d00513d
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="",
+        oauth_timestamp="", oauth_token="",
+        oauth_version="1.0"
+      Content-Length:
+      - '90'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232776243'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '585'
+      Date:
+      - Fri, 14 Jun 2013 17:59:36 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51bb5a08f2e9ca7f7500094f","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":true,"due":null},"checkItemStates":[],"closed":false,"desc":"You
+        will be assimilated.","due":null,"idBoard":"51b75f57482917a9580086ff","idChecklists":[],"idList":"51bb5a02c536e0043d00513d","idMembers":[],"idShort":40,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[],"name":"Seven
+        of Nine","pos":49152,"url":"https://trello.com/card/seven-of-nine/51b75f57482917a9580086ff/40"}'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:28 GMT
+- request:
+    method: post
+    uri: https://api.trello.com/1/cards
+    body:
+      encoding: US-ASCII
+      string: name=Picard&desc=Tea%2C%20Earl%20Gray%2C%20hot!&idList=51bb5a04f83f01940e0032d3
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="79180bb3006060d58a7dfa1c824d57af",
+        oauth_signature="9F2wQsQy%2F1ErTRiSUdmyYa6RIa0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232948", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      Content-Length:
+      - '79'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232776943'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '567'
+      Date:
+      - Fri, 14 Jun 2013 17:59:36 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51bb5a08d3deb13f1e0030bb","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":true,"due":null},"checkItemStates":[],"closed":false,"desc":"Tea,
+        Earl Gray, hot!","due":null,"idBoard":"51b75f57482917a9580086ff","idChecklists":[],"idList":"51bb5a04f83f01940e0032d3","idMembers":[],"idShort":41,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[],"name":"Picard","pos":32768,"url":"https://trello.com/card/picard/51b75f57482917a9580086ff/41"}'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:28 GMT
+- request:
+    method: post
+    uri: https://api.trello.com/1/cards
+    body:
+      encoding: US-ASCII
+      string: name=William%20Riker&desc=Fate.%20It%20protects%20fools%2C%20little%20children%2C%20and%20ships%20named%20'Enterprise.'&idList=51bb5a04f83f01940e0032d3
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="d4ebf9dca0f4f72fc4d8d67f018bd6c2",
+        oauth_signature="Fc0PXIksuFoJLTwIn83VONAC0XY%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232948", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      Content-Length:
+      - '151'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232777673'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '632'
+      Date:
+      - Fri, 14 Jun 2013 17:59:37 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51bb5a09b1267a9026003755","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":true,"due":null},"checkItemStates":[],"closed":false,"desc":"Fate.
+        It protects fools, little children, and ships named ''Enterprise.''","due":null,"idBoard":"51b75f57482917a9580086ff","idChecklists":[],"idList":"51bb5a04f83f01940e0032d3","idMembers":[],"idShort":42,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[],"name":"William
+        Riker","pos":49152,"url":"https://trello.com/card/william-riker/51b75f57482917a9580086ff/42"}'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:29 GMT
+- request:
+    method: post
+    uri: https://api.trello.com/1/cards/51bb5a08f2e9ca7f7500094f/labels
+    body:
+      encoding: US-ASCII
+      string: value=purple
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="350e42866e82bc2081465cc722ac913a",
+        oauth_signature="yrstNpl9K%2Fed6ivvW4wWnUpESg0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232949", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      Content-Length:
+      - '12'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232778598'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '30'
+      Date:
+      - Fri, 14 Jun 2013 17:59:38 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"color":"purple","name":""}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:30 GMT
+- request:
+    method: post
+    uri: https://api.trello.com/1/cards/51bb5a08d3deb13f1e0030bb/labels
+    body:
+      encoding: US-ASCII
+      string: value=purple
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="971f3b668d7d2f24ceb680d3fbb24f0e",
+        oauth_signature="zxXzBb%2BjQdfU85jEghEEfrW5g14%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232950", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      Content-Length:
+      - '12'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232779251'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '30'
+      Date:
+      - Fri, 14 Jun 2013 17:59:39 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"color":"purple","name":""}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:31 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/boards/51b75f57482917a9580086ff/cards?filter=open
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="6c70e9585abe0ff470351aeb3beabfef",
+        oauth_signature="H6zVLVCQXpqZmy0Evv3tRtBdScU%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232951", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232779910'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2658'
+      Etag:
+      - '"1993683349"'
+      Date:
+      - Fri, 14 Jun 2013 17:59:39 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        dQAA
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:31 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb5a0338bcb86d260036aa/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="3726d03ffb40119402268ad7e0bfcd77",
+        oauth_signature="%2BXU3BUfgoqTMSZX24KFPvdjCoWk%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232951", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232780462'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:40 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:32 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb5a05b079b66015005503/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="88bef2d6803aa76d7563f63bf9492724",
+        oauth_signature="rMVj%2Bz1nBvuuAoT2%2FbUE01f1IK0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232952", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232780994'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:40 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:32 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb5a08d3deb13f1e0030bb/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="1b12b4889b1794244ec891ffed58a607",
+        oauth_signature="I7i5xTruodtBpmbrbKsGJvdmw24%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232952", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232781577'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '30'
+      Date:
+      - Fri, 14 Jun 2013 17:59:41 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"color":"purple","name":""}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:33 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb5a09b1267a9026003755/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="6370375095f56dd78e00c454e6b7cc71",
+        oauth_signature="ZaLMG66u0vTCJXXjOSWsnrcci8Y%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232953", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232782138'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:42 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:33 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb5a03656d15770e005a2f/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="f1d284043f319ba8f30e0884639de6e2",
+        oauth_signature="W%2FaRGonaFRBPdm8iZ39NgMYs1Rc%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232953", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232782708'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:42 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:35 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb5a08f2e9ca7f7500094f/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="8702ec7d228ab2e2600474ed680d0b72",
+        oauth_signature="N85XvS2LcoFn%2B8Bvmo64UddB8FI%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232955", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232783859'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '30'
+      Date:
+      - Fri, 14 Jun 2013 17:59:43 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"color":"purple","name":""}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:35 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb59ca0e19d05f1800343a/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="f78f793356b937d10065e721f804f885",
+        oauth_signature="DetdJl9kc6ml4%2BMd0Gd20iQtz7k%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232955", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232784425'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:44 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:36 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb59cbdb14be6e260036b1/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="a88a12742ea80a92dde4f1b2e17c43b0",
+        oauth_signature="eRvBbdANGeX3JR022MDmubiBXF4%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232956", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232784957'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:44 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:36 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb59cb656d15770e005a23/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="66497fdcb274faf0573b33e85b956ec6",
+        oauth_signature="8wy7LMJOgekNVvo6IdRAZ9nJtZY%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232956", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232785510'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:45 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:37 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb58bcb130df9126003c8f/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="650d05e1151e606b907d01280515052f",
+        oauth_signature="FNjG5uW9ZKmtvq0hgCBMFdqsoKw%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232957", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232786310'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '30'
+      Date:
+      - Fri, 14 Jun 2013 17:59:46 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"color":"purple","name":""}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:38 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb58bd2a37f3b9300055c4/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="c858ee15b9cd9d0442f06aaacebb6188",
+        oauth_signature="QPvINRqfgnqqnIbvXPpHVGlRtG0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232958", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232786906'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:46 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:38 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb58bb71bb1e79150049a3/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="a9f5bd1930ec8b95e16ffdf7ede934bb",
+        oauth_signature="aG7%2F%2BYVj2FAoM4626MTb%2FherFbg%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232958", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232787495'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '30'
+      Date:
+      - Fri, 14 Jun 2013 17:59:47 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"color":"purple","name":""}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:39 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb58b6166a4b5a15005998/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="c24145fb3737752f45c1d8a1dc18a234",
+        oauth_signature="pWgiP5vLrY99A%2BwTzVdPgcNQWMM%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232959", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232788045'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:48 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:39 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb58b5d8830b153d0032c2/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="4a0e66d380c6544e76adb5cccb19d6b3",
+        oauth_signature="%2BeyJUvRdJ5vqVKXc4OIpa8cNYQg%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232959", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232788637'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:48 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:40 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb58b5bc44c9611500343a/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="9cae2309cfbf01c9eaec38ccbf6646ec",
+        oauth_signature="8rlva30wrK0lgYk7WVSpLYuhkU0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232960", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232789217'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:49 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:41 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb575062d52875260053dd/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="184b1cf988977007696d13444140f8a8",
+        oauth_signature="50s5BqwAFED9563aXjtgnuwL%2BOQ%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232961", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232789774'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:49 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:41 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb57510d9bbd16180037f4/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="583fbe0322ab67efaec74a3fe1be01da",
+        oauth_signature="E3kJjUqy17QJmk8JLXZpXjJajk8%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232961", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232790372'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:50 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:42 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb575264301b561e00354b/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="ae49331c0b553a1535883a8a61620807",
+        oauth_signature="FybrwMDDz9VuzHWTjApSI7Zpz9A%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232962", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232790978'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:50 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:42 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb550badfe2c520e004dfb/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="da4c8f7de3a8909311a51dcfb3a581bd",
+        oauth_signature="92EeeO8qvwaIIHJqF4Y25GgrF9E%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232962", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232791554'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:51 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:43 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb55099dbd8db02600375e/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="8edb5bf84ee4b254719a716f33b8e4cf",
+        oauth_signature="e%2Bq13r3FfYwACgbySgdlKAoSsjk%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232963", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232792084'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:52 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:43 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51bb550a79c4010718003a76/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="fb3c2c9f20f1bc59eaca675c8a2d3745",
+        oauth_signature="uHQ1ZzvIAwpe03pYnu3jLQy5RRU%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232963", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232792671'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:52 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:44 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b774afea6ba2b259003036/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="d2cffafc7efefc33f80bd46d8710fb97",
+        oauth_signature="0GOH538wqljumYm2yysCKolgS%2BU%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232964", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232793212'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:53 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:45 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b774adfce689f51200b5c4/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="0bc5e1a06ffc68d29df1176f10493d3c",
+        oauth_signature="uxS42YOdUdb09XqNvFkldSJjLm0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232965", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232793840'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:53 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:45 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b774ae59679d454900e864/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="226ba5287e92aaebd725a1b1e148e134",
+        oauth_signature="vv2sLlt67KzPoZfSzZJR68pvn5M%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232965", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232794409'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:54 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:46 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b76ec098f3169d6f008e8e/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="60a59319d03fd35af2d91868be8f340d",
+        oauth_signature="aH6MiTefSrrN6hLnWSgf7NO%2FW2Y%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232966", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232795021'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:55 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:46 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b76ebe32180510640015af/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="0ae5b9b14064366354c3a45e60736935",
+        oauth_signature="c1a7xzRZkBf0gkvGz4HHsy8WJsA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232966", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232795648'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:55 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:47 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b76ebf5a5f44213b00a4e8/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="4f674b150e6f3e6fdfdf825409e5e259",
+        oauth_signature="mO%2BkM%2F510Y0O2No3o0Wa%2B9dyejY%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232967", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232796221'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:56 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:48 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b76d7228605f1e05002e71/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="2697efeb99dabd9628cd500a2b4cbcb3",
+        oauth_signature="LjvoQNSckUBBPrAWvvruWQXMBAU%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232968", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232796773'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:56 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:48 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b76d701e7aa992580096e9/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="a178b7ed2766b0db534a396fa47b6017",
+        oauth_signature="BKuSPVArJtiN55DKQlESENkAx%2Fk%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232968", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232797321'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:57 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:49 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b76d717e46906435009622/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="31ae9aeefc480d658ab7eb242912b474",
+        oauth_signature="EEAQrbOw5avGRlsz67rpNcCJYRc%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232969", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232797874'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:57 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:49 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b76a4b321805106400144d/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="f113f4dca91b9a2b9c689566749115cd",
+        oauth_signature="lhSU6bqa8jJg9ly8mmrPvX3jHwY%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232969", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232798435'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:58 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:50 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b76a4a840c432d0e00d049/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="38db84c059d4e9697b1df733d0d2ac0c",
+        oauth_signature="16bfV09QbvaIFDOIimuVvnUt3Bs%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232970", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232799220'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:59 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:51 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b76a4b8cd27c0d4900da48/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="a75967077c36deac6e909295961daf0f",
+        oauth_signature="p2vCYFX6VTPRcswdS6AvCuK77mE%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232971", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232799777'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 17:59:59 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:51 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b7688988f325f048009ea9/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="c20454708bc97ac1641d3ae380ee0e69",
+        oauth_signature="KT%2FKAQoXP0OOZ7HMutSSowGAx6s%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232971", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232801977'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 18:00:01 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:53 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b76887adad83fe04002c68/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="7a9a5d13a78fe674b44d40e94290f4a8",
+        oauth_signature="%2BNWTYr90OjxOGgtUO7ATyEBLUso%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232973", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232802522'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 18:00:02 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:54 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b76888259be3bb150029b1/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="495022ccc7164b383b6fe658e3d25c52",
+        oauth_signature="095vzTNPNkmn75%2BKchLbdrBFRdc%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232974", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232803249'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 18:00:03 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:55 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b7686cef8a2b8d3d0093da/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="5beacf4ed572bbedf0da6f22766bd5e0",
+        oauth_signature="ne%2FX3%2BBE30ozfz5DuHMGU5QCMTs%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232975", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232803838'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 18:00:03 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:55 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b7686a92f2ecfc47008b62/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="1f8d439c8ed1096f945f1490572f8726",
+        oauth_signature="syzXyN39NtkPv4Kir%2FFtxxeSNGw%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232975", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232804382'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 18:00:04 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:56 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b7686bb4b707305200835c/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="c2708996f83172730579523a7fb65e67",
+        oauth_signature="b5tzHO8i82LlFDr0r5QXfascL8w%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232976", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232805038'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 18:00:05 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:56 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b7683f17d1df694900a405/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="73746810ff7b9ac5bd4e2650898e4608",
+        oauth_signature="LvE32dX0Z46nGBTcDCIGifIY6%2FM%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232976", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232805569'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 18:00:05 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:57 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b7683e3c911c776500a41f/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="d9939a9eedebec4e08adb776909f44f4",
+        oauth_signature="ez8iXj%2BzqZsKi4iA06MKMWNGuzc%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232977", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232806171'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 18:00:06 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:58 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/51b7683efd24089d5800f777/labels
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="b9a058b5c6af40b9433cacbfef406ae1",
+        oauth_signature="ne8Dt3gkdXq%2B9WtfDcz5Dt4Ei3k%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232978", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232806717'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '2'
+      Date:
+      - Fri, 14 Jun 2013 18:00:06 GMT
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:58 GMT
+recorded_with: VCR 2.5.0

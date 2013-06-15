@@ -15,7 +15,7 @@ class RegistrationsController < ApplicationController
     @registration = @event.registrations.build(params[:registration])
 
     if @registration.save
-      RegistrationMailer.application_received(@event, @registration, request_url).deliver
+      RegistrationMailer.application_received(@event, @registration).deliver
       flash[:notice] = "Thanks for applying to our workshop.You should receive a confirmation email soon!"
       redirect_to city_path(params[:city_id])
     else
@@ -24,10 +24,6 @@ class RegistrationsController < ApplicationController
   end
 
   private
-  def request_url
-    request.protocol + request.host_with_port
-  end
-
   def setup_properties
     @city = City.find_by_slug params[:city_id]
     @event = Event.find params[:event_id]

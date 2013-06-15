@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.trello.com/1/lists
+    body:
+      encoding: US-ASCII
+      string: name=The%20Human&closed=false&idBoard=51b75f57482917a9580086ff
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="", oauth_token="",
+        oauth_version="1.0"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232770257'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '115'
+      Date:
+      - Fri, 14 Jun 2013 17:59:30 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51bb5a02c536e0043d00513d","name":"The Human","closed":false,"idBoard":"51b75f57482917a9580086ff","pos":1024}'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:22 GMT
+recorded_with: VCR 2.5.0

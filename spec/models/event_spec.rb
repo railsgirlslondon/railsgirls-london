@@ -112,10 +112,12 @@ describe Event do
     end
   end
 
-  describe "#export_applications_to_trello" do
-    let(:event) { Fabricate(:event) }
+  describe "applications" do
+    let(:event) { Fabricate(:event, city: Fabricate(:city, name: "test-#{Time.now}")) }
+    let!(:accepted_registrations) { 3.times.map { Fabricate(:registration, event: event, selection_state: "accepted") } }
+    let!(:waiting_registrations) { 2.times.map { Fabricate(:registration, event: event, selection_state: "waiting list") } }
 
-    it "creates a trello board for the event's applicants" do
+    it "#export_applications_to_trello" do
       event_trello = mock(:event_trello, export: nil)
 
       EventTrello.should_receive(:new).and_return(event_trello)
@@ -123,5 +125,48 @@ describe Event do
 
       event.export_applications_to_trello
     end
+
+    it "processess all applications" do
+      registration = Fabricate(:registration, event: event)
+      card = mock(:card, name: registration.reason_for_applying)
+      applications = mock
+
+      event.trello.should_receive(:add_list).and_return(nil)
+      event.trello.should_receive(:move_cards_to_list).and_return(nil)
+      event.trello.should_receive(:applications).and_return(applications)
+      applications.should_receive(:take).and_return([card])
+      applications.should_receive(:drop).and_return([])
+
+      event.process_applications 2
+
+      registration.reload.selection_state.should eq "accepted"
+    end
+
+    it "#selected_applicants" do
+      event.selected_applicants.should eq accepted_registrations
+    end
+
+    it "#waiting_list_applicants" do
+      event.waiting_list_applicants.should eq waiting_registrations
+    end
+
+    it "#send_email_to_selected_applicants" do
+      accepted_registrations.each do |registration|
+        registration_mailer = mock(:registration_mailer, deliver: nil)
+        RegistrationMailer.should_receive(:application_accepted).with(event, registration).and_return(registration_mailer)
+      end
+
+      event.send_email_to_selected_applicants
+    end
+
+    it "#send_email_to_rejected_applicants" do
+      waiting_registrations.each do |registration|
+        registration_mailer = mock(:registration_mailer, deliver: nil)
+        RegistrationMailer.should_receive(:application_rejected).with(event, registration).and_return(registration_mailer)
+      end
+
+      event.send_email_to_waiting_list_applicants
+    end
+
   end
 end

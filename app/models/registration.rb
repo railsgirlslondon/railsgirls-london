@@ -18,7 +18,7 @@ class Registration < ActiveRecord::Base
                  :terms_of_service,
                  :email_confirmation]
 
-  attr_accessible *ATTRIBUTES, :twitter, :dietary_restrictions
+  attr_accessible *ATTRIBUTES, :twitter, :dietary_restrictions, :selection_state
   validates *ATTRIBUTES, presence: true
 
   belongs_to :event
@@ -39,6 +39,10 @@ class Registration < ActiveRecord::Base
       :preferred_language ].map do |information|
         "#{information.to_s.humanize}: #{send(information)}"
       end.join "\n"
+  end
+
+  def mark_selection selection_state
+    update_attribute :selection_state, selection_state
   end
 
 end
