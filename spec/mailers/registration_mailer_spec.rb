@@ -41,6 +41,5 @@ describe RegistrationMailer do
     ActionMailer::Base.deliveries.last.To.to_s.should == registration.email
     ActionMailer::Base.deliveries.last.subject.should eq subject
     ActionMailer::Base.deliveries.last.body.encoded.should include registration.first_name
-    ActionMailer::Base.deliveries.last.body.encoded.should include event.dates
   end
 end
