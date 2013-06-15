@@ -17,4 +17,11 @@ describe Registration do
         registration.to_s.should include registration.send information
       end
   end
+
+  it "#mark_selection", wip: true do
+    registration.mark_selection "accepted"
+
+
+    registration.selection_state.should eq "accepted"
+  end
 end

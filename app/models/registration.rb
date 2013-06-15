@@ -41,4 +41,8 @@ class Registration < ActiveRecord::Base
       end.join "\n"
   end
 
+  def mark_selection selection_state
+    update_attribute :selection_state, selection_state
+  end
+
 end

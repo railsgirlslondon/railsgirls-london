@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130608145921) do
+ActiveRecord::Schema.define(version: 20130614213952) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20130608145921) do
     t.string   "address"
     t.integer  "event_id"
     t.string   "dietary_restrictions"
+    t.string   "selection_state"
   end
 
   add_index "registrations", ["email"], name: "index_registrations_on_email"
