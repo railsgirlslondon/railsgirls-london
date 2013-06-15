@@ -8,8 +8,6 @@
   %em
     The event is
     = @event.active ? "active" : "not active"
-
-
     %h3
       Sponsors
       %small= link_to "Add sponsor", new_admin_sponsor_path
@@ -28,14 +26,18 @@
         %tr
           %td= link_to coach.name, [:admin, coach]
 
+  %h3
+    Registrations
+    %small= link_to "Add registration", new_admin_event_registration_path(@event)
   - if @event.registrations.any?
-    %h3 Applications
     %table.table.table-striped
       %thead
         %th #
         %th Name
         %th Email
         %th View
+        %th Attending?
+        %th Actions
 
         %tbody
           - @event.registrations.each_with_index do |registration, index|
@@ -49,6 +51,12 @@
               - if registration.selection_state
                 %td
                   =content_tag "a", registration.selection_state, class: 'btn btn-success disabled'
+              - if registration.attending?
+                %td Attending
+                %td= link_to("Remove Attendance", admin_event_registration_attendance_path(@event, registration), method: :delete)
+              - else
+                %td
+                %td= link_to("Confirm Attendance", admin_event_registration_attendance_path(@event, registration), method: :post)
 
   = link_to 'Edit', edit_admin_event_path(@event)
   \|
