@@ -115,6 +115,7 @@ describe Event do
   describe "applications" do
     let(:event) { Fabricate(:event, city: Fabricate(:city, name: "test-#{Time.now}")) }
     let!(:accepted_registrations) { 3.times.map { Fabricate(:registration, event: event, selection_state: "accepted") } }
+    let!(:waiting_registrations) { 2.times.map { Fabricate(:registration, event: event, selection_state: "waiting list") } }
 
     it "#export_applications_to_trello" do
       event_trello = mock(:event_trello, export: nil)
@@ -145,6 +146,10 @@ describe Event do
       event.selected_applicants.should eq accepted_registrations
     end
 
+    it "#waiting_list_applicants" do
+      event.waiting_list_applicants.should eq waiting_registrations
+    end
+
     it "#send_email_to_selected_applicants" do
       accepted_registrations.each do |registration|
         registration_mailer = mock(:registration_mailer, deliver: nil)
@@ -152,6 +157,15 @@ describe Event do
       end
 
       event.send_email_to_selected_applicants
+    end
+
+    it "#send_email_to_rejected_applicants" do
+      waiting_registrations.each do |registration|
+        registration_mailer = mock(:registration_mailer, deliver: nil)
+        RegistrationMailer.should_receive(:application_rejected).with(event, registration).and_return(registration_mailer)
+      end
+
+      event.send_email_to_waiting_list_applicants
     end
 
   end

@@ -46,6 +46,9 @@
                 =mail_to registration.email, registration.email
               %td
                 =link_to "Show", admin_event_registration_path(@event, registration)
+              - if registration.selection_state
+                %td
+                  =content_tag "a", registration.selection_state, class: 'btn btn-success disabled'
 
   = link_to 'Edit', edit_admin_event_path(@event)
   \|

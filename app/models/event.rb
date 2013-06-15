@@ -71,8 +71,18 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def send_email_to_waiting_list_applicants
+    waiting_list_applicants.each do |registration|
+      RegistrationMailer.application_rejected(self, registration).deliver
+    end
+  end
+
   def selected_applicants
     registrations.where selection_state: "accepted"
+  end
+
+  def waiting_list_applicants
+    registrations.where selection_state: "waiting list"
   end
 
   def trello
