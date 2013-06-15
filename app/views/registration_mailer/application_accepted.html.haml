@@ -3,7 +3,7 @@
   #{@registration.first_name},
 
 .content
-  .left.inline{ style: "width: 65%; display: inline-block;" }
+  .left.inline{ style: "width: 65%; min-width: 260px; display: inline-block;" }
     %p.lead{ style: "font-size: '22px;" }
       %strong Thank you
       for applying to our Rails Girls #{@city.name} workshop!
@@ -39,6 +39,6 @@
       The Rails Girls organisers
   .right.inline{ style: "width: 24%; padding: 0 0 0 50px; display: inline-block;" }
     =image_tag attachments['london-girl.png'].url, width: '200px'
-    %div
+    %div{ style: 'min-width: 200px' }
       %highlight{ style: "color: #E0330c" }You learn
       designing, prototyping and coding with the help of our coaches.
