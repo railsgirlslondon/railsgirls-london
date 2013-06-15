@@ -1,0 +1,32 @@
+%h3{style: "border-bottom: 1px solid #E5E5E5; padding-bottom: 10px; margin-bottom: 15px; font-size: 28.5px;" }
+  Hi #{@registration.first_name},
+
+
+.content
+  .left.inline{style: "width: 65%; display: inline-block;"}
+    %p.lead{style: "font-size: 22px;"}
+      %strong Thank you
+      for applying to our Rails Girls #{@city.name} workshop!
+
+    %p.lead{style: "font-size: 22px;"}
+      We have had an incredible response to the event. Unfortunately we can't take everyone who applied, and we're afraid we are unable to accommodate you this time. 
+      
+    %p.lead{style: "font-size: 22px;"}
+      This doesn't mean we don't want you, so next time we host an event, we'll try our best to get you a place.
+
+    %p.lead{style: "font-size: 22px;"}
+      You can stay posted about future events by following us on
+      %a{href: "http://twitter.com/railsgirls_ldn"}twitter
+      and
+      %a{href: "https://plus.google.com/104252944343767158344"}google plus
+
+
+    %p.lead
+      There are always cancellations and we fill all available places, so we might still be taking in a couple of people!
+
+  .right.inline{ style: "width: 24%; padding: 0 0 0 50px; display: inline-block;" }
+    =image_tag attachments['london-girl.png'].url, width: '200px'
+    %div
+      %highlight{ style: "color: #E0330c" }You learn
+      designing, prototyping and coding with the help of our coaches.
+
