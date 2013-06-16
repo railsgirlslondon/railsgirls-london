@@ -7,13 +7,13 @@ class CitiesController < ApplicationController
   end
 
   def sponsor
-    render layout: 'application'
+    render :layout => 'application'
   end
 
   private
 
   def find_city
-    unless @city = City.find_by_slug(params[:id])
+    unless (@city = City.find_by_slug(params[:id]))
       raise ActionController::RoutingError.new('Not Found')
     end
   end

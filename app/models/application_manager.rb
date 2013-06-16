@@ -4,7 +4,7 @@ class ApplicationManager
 
   attr_reader :event, :event_trello, :spots, :weeklies, :applications, :accepted, :waiting
 
-  def initialize event,  spots=35
+  def initialize(event, spots=35)
     @event = event
     @event_trello = event.trello
     @spots = spots
@@ -40,7 +40,7 @@ class ApplicationManager
     @waiting  ||= applications.drop(spots)
   end
 
-  def mark_registrations_as state, cards
+  def mark_registrations_as(state, cards)
     @event.registrations.each do |reg|
       reg.mark_selection(state) if event_trello.matches_any_card?(cards, reg.reason_for_applying)
     end

@@ -18,9 +18,9 @@ class Admin::EventsController < ApplicationController
   def create
     @event = Event.new params[:event]
     if @event.save
-      redirect_to [:admin, @event], notice: 'Event was successfully created.'
+      redirect_to [:admin, @event], :notice => 'Event was successfully created.'
     else
-      render action: :new
+      render :action => :new
     end
   end
 
@@ -30,9 +30,9 @@ class Admin::EventsController < ApplicationController
 
   def update
     if @event.update_attributes(params[:event])
-      redirect_to [:admin, @event], notice: 'Event was successfully updated.'
+      redirect_to [:admin, @event], :notice => 'Event was successfully updated.'
     else
-      render action: "edit"
+      render :action => "edit"
     end
   end
 

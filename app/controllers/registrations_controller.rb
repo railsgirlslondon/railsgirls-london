@@ -20,7 +20,7 @@ class RegistrationsController < ApplicationController
       flash[:notice] = "Thanks for applying to our workshop.You should receive a confirmation email soon!"
       redirect_to city_path(params[:city_id])
     else
-      render action: :new
+      render :action => :new
     end
   end
 

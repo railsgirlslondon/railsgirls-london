@@ -11,12 +11,12 @@ class EventTrello
     add_cards
   end
 
-  def add_list list_name
+  def add_list(list_name)
     @list ||= trello.add_list_to_board list_name, board
   end
 
-  def move_cards_to_list list_name, label
-    trello.find_and_move_cards_to_list board, list_name, label
+  def move_cards_to_list(list_name, label)
+    trello.find_and_move_cards_to_list(board, list_name, label)
   end
 
   def applications
@@ -27,7 +27,7 @@ class EventTrello
     @trello ||= TrelloApi.new
   end
 
-  def matches_any_card? cards, name
+  def matches_any_card?(cards, name)
     cards.select { |c| c.name; c.name == name }.any?
   end
 
@@ -45,11 +45,11 @@ class EventTrello
     event.registrations.each { |r| add_card r.reason_for_applying, r.to_s }
   end
 
-  def add_card name, description
+  def add_card(name, description)
     trello.add_card_to_list name, description, list
   end
 
-  def board_name event
+  def board_name(event)
     "#{event.city_name} #{event.dates}"
   end
 

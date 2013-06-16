@@ -20,11 +20,11 @@ class Kippt
     @_config ||= KipptConfig.new
   end
 
-  def initialize(host=Kippt.config.host)
+  def initialize(host = Kippt.config.host)
     @host = host
   end
 
-  def parse_clips clips
+  def parse_clips(clips)
     clips.map do |clip|
       Clip.new(clip["title"], clip["url"], clip["app_url"])
     end
@@ -40,7 +40,7 @@ class Kippt
   end
 
   def uri
-    uri = URI.parse(@host)
+    URI.parse(@host)
   end
 
   def http
