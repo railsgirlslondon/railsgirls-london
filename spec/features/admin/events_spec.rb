@@ -57,11 +57,19 @@ feature "admin CRUDing events" do
 
       Then { page.has_content? "john@registrant.com" }
 
-      When { click_on 'Confirm Attendance' }
-      Then { page.has_content? 'Attending' }
+      context "setting the registration's status" do
+        When do
+          within("tr", :text => "john@registrant.com") do
+            click_on "Edit"
+          end
 
-      When { click_on 'Remove Attendance' }
-      Then { page.has_content? 'Attending' }
+          select "Weeklies", from: "Selection state"
+
+          click_on "Update Registration"
+        end
+
+        Then { page.has_content? "Weeklies" }
+      end
     end
   end
 end

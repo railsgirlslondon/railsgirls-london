@@ -46,4 +46,8 @@ module ApplicationHelper
     Digest::MD5.hexdigest(string.strip.downcase)
   end
 
+  def humanize_select(collection)
+    collection.map(&:humanize).zip(collection)
+  end
+
 end

@@ -115,8 +115,8 @@ describe Event do
   describe "applications" do
     let(:event) { Fabricate(:event, city: Fabricate(:city, name: "test-#{Time.now}")) }
     let!(:accepted_registrations) { 3.times.map { Fabricate(:registration, event: event, selection_state: "accepted") } }
-    let!(:waiting_registrations) { 2.times.map { Fabricate(:registration, event: event, selection_state: "waiting list") } }
-    let!(:weeklies) { 2.times.map { Fabricate(:registration, event: event, selection_state: "RGL Weeklies") } }
+    let!(:waiting_registrations) { 2.times.map { Fabricate(:registration, event: event, selection_state: "waiting_list") } }
+    let!(:weeklies) { 2.times.map { Fabricate(:registration, event: event, selection_state: "weeklies") } }
 
     it "#export_applications_to_trello" do
       event_trello = mock(:event_trello, export: nil)

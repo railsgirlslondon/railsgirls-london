@@ -36,7 +36,7 @@
         %th Name
         %th Email
         %th View
-        %th Attending?
+        %th Selection state
         %th Actions
 
         %tbody
@@ -48,15 +48,10 @@
                 =mail_to registration.email, registration.email
               %td
                 =link_to "Show", admin_event_registration_path(@event, registration)
-              - if registration.selection_state
                 %td
-                  =content_tag "a", registration.selection_state, class: 'btn btn-success disabled'
-              - if registration.attending?
-                %td Attending
-                %td= link_to("Remove Attendance", admin_event_registration_attendance_path(@event, registration), method: :delete)
-              - else
-                %td
-                %td= link_to("Confirm Attendance", admin_event_registration_attendance_path(@event, registration), method: :post)
+                  - if registration.selection_state.present?
+                    = content_tag "a", registration.selection_state.humanize, class: 'btn btn-success disabled'
+                %td= link_to("Edit", edit_admin_event_registration_path(@event, registration))
 
   = link_to 'Edit', edit_admin_event_path(@event)
   \|

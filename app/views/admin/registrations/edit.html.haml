@@ -1,14 +1,12 @@
-%legend New Registrant
+%legend= "Edit Registration: #{@registration.fullname}"
 
 = simple_form_for([:admin, @event, @registration], html: {class: "form-horizontal"}) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :first_name
-    = f.input :last_name
-    = f.input :email
+    = f.input :selection_state, :collection => humanize_select(Registration::SELECTION_STATES)
 
   .form-actions
-    = f.submit
+    = f.submit :class => "btn"
 
 = link_to 'Back', admin_events_path
