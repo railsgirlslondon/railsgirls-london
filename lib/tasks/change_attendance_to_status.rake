@@ -1,0 +1,1 @@
+#TODO: write rake task to migrate attendance field to status

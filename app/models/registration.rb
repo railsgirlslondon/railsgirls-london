@@ -17,6 +17,9 @@ class Registration < ActiveRecord::Base
                              :terms_of_service,
                              :email_confirmation]
 
+  SELECTION_STATES = %w(accepted attending not_attending
+                        rejected weeklies waiting_list)
+
   attr_accessible(*(REQUIRED_ATTRIBUTES + REGISTRATION_ATTRIBUTES),
                   :twitter,
                   :dietary_restrictions,
@@ -29,6 +32,9 @@ class Registration < ActiveRecord::Base
 
   validates :terms_of_service, acceptance: true
   validates :email, confirmation: true
+  validates :selection_state,
+            :inclusion => {:in => SELECTION_STATES},
+            :allow_blank => true
 
   def fullname
     "#{first_name} #{last_name}"

@@ -88,11 +88,11 @@ class Event < ActiveRecord::Base
   end
 
   def waiting_list_applicants
-    registrations.where selection_state: "waiting list"
+    registrations.where selection_state: "waiting_list"
   end
 
   def weeklies_invitees
-    registrations.where selection_state: "RGL Weeklies"
+    registrations.where selection_state: "weeklies"
   end
 
   def trello

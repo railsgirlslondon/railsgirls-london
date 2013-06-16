@@ -42,5 +42,21 @@ describe Registration do
         expect(invalid_registration.errors[attribute]).not_to be_empty
       end
     end
+
+    context "selection_state" do
+      it 'allows selection state to be one of the selected statues' do
+        Registration::SELECTION_STATES.each do |selection_state|
+          subject.selection_state = selection_state
+          subject.valid?
+          expect(subject.errors[selection_state]).to be_empty
+        end
+      end
+
+      it "doesn't allow other values" do
+        subject.selection_state = "something else"
+        subject.valid?
+        expect(subject.errors[:selection_state]).to_not be_empty
+      end
+    end
   end
 end
