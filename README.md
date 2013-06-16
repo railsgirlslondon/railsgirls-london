@@ -30,6 +30,8 @@ Documentation should use [Github-flavoured Markdown](https://help.github.com/art
 
 We use [Kippt](https://kippt.com/) for collecting resources. The mainpage dynamically pulls in resources from kippt if it's configured. If you'd like to see the links, either sign up for kippt yourself and configure it (look at config/kippt.yml.example for reference), or ask one of the core members for the username/token information. If you don't know what this means, feel free to ask or ignore it all together!
 
+Please stick to Github's [style guide](https://github.com/styleguide/ruby)
+
 ## Deployment
 
 Make sure you have access to the Heroku app. One of the organisers can arrange that.
