@@ -22,13 +22,13 @@ class Registration < ActiveRecord::Base
                   :dietary_restrictions,
                   :selection_state)
 
-  validates *REQUIRED_ATTRIBUTES, presence: true
-  validates *REGISTRATION_ATTRIBUTES, presence: true, on: 'registration'
+  validates *REQUIRED_ATTRIBUTES, :presence => true
+  validates *REGISTRATION_ATTRIBUTES, :presence => true, :on => 'registration'
 
   belongs_to :event
 
-  validates :terms_of_service, acceptance: true
-  validates :email, confirmation: true
+  validates :terms_of_service, :acceptance => true
+  validates :email, :confirmation => true
 
   def fullname
     "#{first_name} #{last_name}"
@@ -45,7 +45,7 @@ class Registration < ActiveRecord::Base
     end.join "\n"
   end
 
-  def mark_selection selection_state
+  def mark_selection(selection_state)
     update_attribute :selection_state, selection_state
   end
 

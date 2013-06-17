@@ -10,22 +10,22 @@ class Event < ActiveRecord::Base
 
   attr_accessible *ATTRIBUTES
 
-  validates :description, :city_id, :starts_on, :ends_on, presence: true
-  validates :active, uniqueness: {scope: :city_id}, if: :active?
+  validates :description, :city_id, :starts_on, :ends_on, :presence => true
+  validates :active, uniqueness: {:scope => :city_id}, :if => :active?
 
-  delegate :name, to: :city, prefix: true
+  delegate :name, to: :city, :prefix => true
 
   belongs_to :city
   has_many :registrations
 
   has_many :event_sponsorships
-  has_many :sponsors, through: :event_sponsorships
+  has_many :sponsors, :through => :event_sponsorships
 
   has_many :event_coachings
-  has_many :coaches, through: :event_coachings
+  has_many :coaches, :through => :event_coachings
 
-  delegate :address_line_1, :address_line_2, :address_postcode, :address_city, to: :host
-  delegate :name, :website, :image_url, :description, to: :host, prefix: true
+  delegate :address_line_1, :address_line_2, :address_postcode, :address_city, :to => :host
+  delegate :name, :website, :image_url, :description, :to => :host, :prefix => true
 
   def accepting_registrations?
     return true if registration_deadline.present?
@@ -36,9 +36,9 @@ class Event < ActiveRecord::Base
   end
 
   def host
-    event_sponsorship = event_sponsorships.where(host: true).first
+    event_sponsorship = event_sponsorships.where(:host => true).first
 
-    event_sponsorship.present? and return event_sponsorship.sponsor
+    event_sponsorship.present? and event_sponsorship.sponsor
   end
 
   def non_hosting_sponsors
@@ -84,15 +84,15 @@ class Event < ActiveRecord::Base
   end
 
   def selected_applicants
-    registrations.where selection_state: "accepted"
+    registrations.where :selection_state => "accepted"
   end
 
   def waiting_list_applicants
-    registrations.where selection_state: "waiting list"
+    registrations.where :selection_state => "waiting list"
   end
 
   def weeklies_invitees
-    registrations.where selection_state: "RGL Weeklies"
+    registrations.where :selection_state => "RGL Weeklies"
   end
 
   def trello
@@ -101,8 +101,8 @@ class Event < ActiveRecord::Base
 
   private
 
-  def format_date date
-    return date.strftime("%B %-d, %Y")
+  def format_date(date)
+    date.strftime("%B %-d, %Y")
   end
 
   def day date

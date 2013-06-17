@@ -3,8 +3,8 @@ class EventSponsorship < ActiveRecord::Base
   belongs_to :event
   belongs_to :sponsor
 
-  validate :host_must_have_address, if: :host?
-  validate :host_must_be_unique, if: :host?
+  validate :host_must_have_address, :if => :host?
+  validate :host_must_be_unique, :if => :host?
 
   def host_must_have_address
     return if sponsor.has_full_address?
