@@ -4,6 +4,7 @@ class CitiesController < ApplicationController
   before_filter :find_city
 
   def show
+    @upcoming_meetings = @city.meetings.upcoming.announced
   end
 
   def sponsor
