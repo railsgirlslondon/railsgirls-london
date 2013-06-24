@@ -26,7 +26,6 @@ class Meeting < ActiveRecord::Base
 
   def announce!
     Registration.members.each do |member|
-      puts member.inspect
       MeetingMailer.invite(self, member).deliver
     end
   end

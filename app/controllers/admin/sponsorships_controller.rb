@@ -25,7 +25,6 @@ class Admin::SponsorshipsController < ApplicationController
     unless sponsorship.update_attributes(host_params)
       flash[:error] = sponsorship.errors.full_messages.join("\n")
     end
-    puts sponsorship.reload.host.inspect
 
     redirect_to edit_admin_sponsor_path(sponsorship.sponsor)
   end
