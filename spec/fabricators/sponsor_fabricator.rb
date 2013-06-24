@@ -9,3 +9,12 @@ Fabricator(:sponsor_with_address, from: :sponsor) do
   address_city "Sama"
   address_postcode "N1 3TY"
 end
+
+Fabricator(:sponsorship) do
+  sponsor { Fabricate(:sponsor) }
+end
+
+Fabricator(:event_sponsorship, from: :sponsorship) do
+  sponsorable_type { 'Event' }
+  sponsorable_id { Fabricate(:event).id }
+end
