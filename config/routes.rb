@@ -1,13 +1,18 @@
 RailsgirlsLondon::Application.routes.draw do
+
   devise_for :users, skip: :registrations
 
   namespace :admin do
-    resources :cities, only: [:new, :create, :index]
+    resources :cities, only: [:show, :new, :create, :index] do
+      resources :meetings
+    end
+
     resources :events do
       resources :registrations, only: [:show, :new, :create] do
         resource :attendance, only: [:create, :destroy]
       end
     end
+
     resources :event_sponsorships, only: [:create, :destroy, :update]
     resources :event_coachings, only: [:create, :destroy]
     resources :sponsors
@@ -24,6 +29,7 @@ RailsgirlsLondon::Application.routes.draw do
     resources :events, only: [:show] do
       resources :registrations, only: [:new, :create]
     end
+    resources :meetings, only: [:show, :index]
   end
 
   root :to => 'home#index'

@@ -1,0 +1,19 @@
+%legend Meetings
+
+.row
+  .span7
+    - if @meetings.any?
+      %ul.horizontal.unstyled
+        - @meetings.each do |meeting|
+          %li
+            .row
+              .span4
+                #{meeting.name}, #{I18n.l(meeting.date)}
+              .span3
+                = link_to 'Show', admin_city_meeting_path(@city, meeting), class: "btn"
+                = link_to 'Edit', edit_admin_city_meeting_path(@city, meeting), class: "btn"
+                = link_to 'Destroy',[:admin, @city, meeting], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"
+
+%br
+
+= link_to 'New Meeting', new_admin_city_meeting_path(@city)

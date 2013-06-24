@@ -43,4 +43,12 @@ describe "Viewing a city" do
     Then { find("#past_events .title").text.should eq city.past_events.first.dates }
   end
 
+  context "with upcoming meetings" do
+    Given!(:meeting) { Fabricate(:meeting, city: city) }
+
+    When { visit city_path(city) }
+    Then { page.has_content?(I18n.l(meeting.date)) }
+    Then { page.has_content? meeting.name }
+  end
+
 end

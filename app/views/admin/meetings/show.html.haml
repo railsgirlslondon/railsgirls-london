@@ -1,0 +1,13 @@
+%p#notice= notice
+
+.row
+  .span5
+    %h3.highlight= @meeting.name
+    = I18n.l(@meeting.date)
+
+    %br
+    %br
+
+= link_to "#{@city.name} dashboard", [:admin, @city, @meetings_path]
+\|
+= link_to 'Edit', edit_admin_city_meeting_path(@city, @meeting)

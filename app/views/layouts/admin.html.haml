@@ -25,6 +25,10 @@
             %ul.nav.nav-tabs.nav-stacked
               %li{ class: path_active?(admin_dashboard_path) }
                 =link_to "Dashboard", admin_dashboard_path
+              - if @cities
+                - @cities.each do |city|
+                  %li{ class: path_active?(admin_city_path(city)) }
+                    =link_to "#{city.name} dashboard", admin_city_path(city)
               %li{ class: path_active?(admin_cities_path) }
                 =link_to "Cities", admin_cities_path
               %li{ class: path_active?(admin_events_path) }
