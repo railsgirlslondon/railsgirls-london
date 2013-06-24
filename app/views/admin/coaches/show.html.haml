@@ -12,12 +12,12 @@
   %b Email:
   = @coach.email
 
-- if @coach.events.any?
+- if @coach.coachings.any?
   %h3 Events Coaching
   %table.table
-    - @coach.events.each do |event|
+    - @coach.coachings.each do |coaching|
       %tr
-        %td= link_to event.description, [:admin, event]
+        %td= coaching.coachable.description
 = link_to 'Edit', edit_admin_coach_path(@coach)
 \|
 = link_to 'Back', admin_coaches_path

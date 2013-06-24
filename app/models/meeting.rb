@@ -9,6 +9,7 @@ class Meeting < ActiveRecord::Base
   attr_accessible *ATTRIBUTES
 
   include Extentions::Sponsorable
+  include Extentions::Coachable
 
   validates :meeting_type_id, presence: true
 

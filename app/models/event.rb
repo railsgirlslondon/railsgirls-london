@@ -11,6 +11,7 @@ class Event < ActiveRecord::Base
   attr_accessible *ATTRIBUTES
 
   include Extentions::Sponsorable
+  include Extentions::Coachable
 
   validates :description, :city_id, :starts_on, :ends_on, presence: true
   validates :active, uniqueness: {scope: :city_id}, if: :active?
@@ -19,9 +20,6 @@ class Event < ActiveRecord::Base
 
   belongs_to :city
   has_many :registrations
-
-  has_many :event_coachings
-  has_many :coaches, :through => :event_coachings
 
   def accepting_registrations?
     return true if registration_deadline.present?

@@ -2,26 +2,27 @@
 
 = render 'form'
 
-- if @event_coachings.any?
+- if @coaching.any?
   %hr
   %h2 Coaching
   %table.table
-    - @event_coachings.each do |event_coaching|
+    - @coaching.each do |coaching|
       %tr
-        %td= link_to event_coaching.event.description, [:admin, event_coaching.event]
-        %td= link_to 'Remove', admin_event_coaching_path(event_coaching, coach_id: @coach.id), method: :delete, class: "btn btn-link"
+        %td= coaching.coachable.description
+        %td= link_to 'Remove', admin_coaching_path(coaching, coach_id: @coach.id), method: :delete, class: "btn btn-link"
 
 
-- if @not_coached_events.any?
+- if @not_coaching.any?
   %hr
   %h2 Events not coached
   %table.table
-    - @not_coached_events.each do |event|
+    - @not_coaching.each do |object|
       %tr
-        %td= link_to event.description, [:admin, event]
+        %td  #{object.class.name.humanize}: #{object.description}
         %td
-          = simple_form_for [:admin, EventCoaching.new] do |f|
-            = f.hidden_field :event_id, value: event.id
+          = simple_form_for [:admin, Coaching.new] do |f|
+            = f.hidden_field :coachable_type, value: object.class.name.humanize
+            = f.hidden_field :coachable_id, value: object.id
             = f.hidden_field :coach_id, value: @coach.id
             = f.submit "Add Coach", class: "btn btn-link"
 = link_to 'Show', [:admin, @coach]
