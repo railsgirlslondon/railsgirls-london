@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130620005822) do
+ActiveRecord::Schema.define(version: 20130620234642) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -117,6 +117,17 @@ ActiveRecord::Schema.define(version: 20130620005822) do
     t.string "address_city"
     t.string "address_postcode"
   end
+
+  create_table "sponsorships", force: true do |t|
+    t.integer  "sponsor_id"
+    t.string   "sponsorable_type"
+    t.integer  "sponsorable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "host",             default: false, null: false
+  end
+
+  add_index "sponsorships", ["sponsor_id"], name: "index_sponsorships_on_sponsor_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

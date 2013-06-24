@@ -2,32 +2,46 @@
 
 = render 'form'
 
-- if @event_sponsorships.any?
+- if @sponsorships.any?
   %hr
   %h2 Sponsoring
   %table.table
-    - @event_sponsorships.each do |event_sponsorship|
-      %tr
-        %td= event_sponsorship.event.description
-        %td= link_to 'Remove', admin_event_sponsorship_path(event_sponsorship, sponsor_id: @sponsor.id), method: :delete, class: "btn btn-link"
+    - @sponsorships.each do |sponsorship|
+      = simple_form_for [:admin, sponsorship], html: { class: "form-inline" } do |f|
+        %tr
+          %td
+            = sponsorship.sponsorable.description
+          %td
+            .span1
+              Host
+              = f.input :host, label: false
+          %td
+            = f.submit "Update", class: "btn"
+            %br
+            %br
+            = link_to 'Remove', admin_sponsorship_path(sponsorship), method: :delete, class: "btn"
         %td
-          = simple_form_for [:admin, event_sponsorship] do |f|
-            = f.hidden_field :host, value: !event_sponsorship.host?
-            = f.submit(event_sponsorship.host? ? "Remove host" : "Host", class: "btn btn-link")
 
 
-- if @not_sponsored_events.any?
+- if @non_sponsored.any?
   %hr
-  %h2 Events not sponsored
+  %h2 Not sponsoring
   %table.table
-    - @not_sponsored_events.each do |event|
+    - @non_sponsored.each do |object|
       %tr
-        %td= event.description
+        %td.span6= object.description
         %td
-          = simple_form_for [:admin, EventSponsorship.new] do |f|
-            = f.hidden_field :event_id, value: event.id
-            = f.hidden_field :sponsor_id, value: @sponsor.id
-            = f.submit "Sponsor", class: "btn btn-link"
+          .row
+            = simple_form_for [:admin, Sponsorship.new], html: { class: "form-inline" } do |f|
+              .span1
+                Host
+                = f.input :host, label: false
+              .span1
+                = f.hidden_field :sponsorable_id, value: object.id
+                = f.hidden_field :sponsorable_type, value: object.class.name.humanize
+                = f.hidden_field :sponsor_id, value: @sponsor.id
+              .span1
+                = f.submit "Sponsor", class: "btn"
 
 
 
