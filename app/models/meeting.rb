@@ -8,6 +8,8 @@ class Meeting < ActiveRecord::Base
 
   attr_accessible *ATTRIBUTES
 
+  include Extentions::Sponsorable
+
   validates :meeting_type_id, presence: true
 
   belongs_to :city
@@ -19,18 +21,4 @@ class Meeting < ActiveRecord::Base
   delegate :name, to: :meeting_type
   delegate :description, to: :meeting_type
 
-  has_many :sponsorships, as: :sponsorable
-  has_many :sponsors, through: :sponsorships
-
-  def non_hosting_sponsors
-    sponsors - [host]
-  end
-
-  def has_host?
-    host.present?
-  end
-
-  def host
-    sponsorships.where(host: true).try(:first).try(:sponsor)
-  end
 end

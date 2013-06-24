@@ -10,6 +10,8 @@ class Event < ActiveRecord::Base
 
   attr_accessible *ATTRIBUTES
 
+  include Extentions::Sponsorable
+
   validates :description, :city_id, :starts_on, :ends_on, presence: true
   validates :active, uniqueness: {scope: :city_id}, if: :active?
 
@@ -18,14 +20,8 @@ class Event < ActiveRecord::Base
   belongs_to :city
   has_many :registrations
 
-  has_many :sponsorships, as: :sponsorable
-  has_many :sponsors, through: :sponsorships
-
   has_many :event_coachings
   has_many :coaches, through: :event_coachings
-
-  delegate :address_line_1, :address_line_2, :address_postcode, :address_city, to: :host
-  delegate :name, :website, :image_url, :description, to: :host, prefix: true
 
   def accepting_registrations?
     return true if registration_deadline.present?
@@ -33,18 +29,6 @@ class Event < ActiveRecord::Base
 
   def registrations_open?
     accepting_registrations? and Date.today <= registration_deadline
-  end
-
-  def non_hosting_sponsors
-    sponsors - [host]
-  end
-
-  def host
-    sponsorships.where(host: true).try(:first).try(:sponsor)
-  end
-
-  def has_host?
-    host.present?
   end
 
   def dates
