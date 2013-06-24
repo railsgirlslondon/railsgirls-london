@@ -1,15 +1,13 @@
 class Admin::RegistrationsController < ApplicationController
   layout 'admin'
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :find_cities, :find_event
 
   def new
-    find_event!
     @registration = Registration.new
   end
 
   def create
-    find_event!
     @registration = Registration.new(params[:registration])
     @event.registrations << @registration
 
@@ -22,11 +20,12 @@ class Admin::RegistrationsController < ApplicationController
   end
 
   def show
-    find_event!
     @registration = Registration.find params[:id]
   end
 
-  def find_event!
+  private
+
+  def find_event
     @event = Event.find(params[:event_id]) if params[:event_id]
   end
 end

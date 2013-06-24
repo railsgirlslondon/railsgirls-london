@@ -1,8 +1,7 @@
 class Admin::EventsController < ApplicationController
   layout 'admin'
 
-  before_filter :find_event
-  before_filter :authenticate_user!
+  before_action :authenticate_user!, :find_event, :find_cities
 
   def index
     @events = Event.all.reverse
@@ -42,7 +41,9 @@ class Admin::EventsController < ApplicationController
   end
 
   private
+
   def find_event
     @event = Event.find(params[:id]) if params[:id]
   end
+
 end
