@@ -5,7 +5,7 @@ describe Sponsor do
   subject { Fabricate(:sponsor_with_address) }
 
   before do
-    EventSponsorship.create! event: event, sponsor: subject, host: true 
+    Sponsorship.create! sponsorable_type: 'Event', sponsorable_id: event.id, sponsor: subject, host: true
   end
 
   describe "validations" do

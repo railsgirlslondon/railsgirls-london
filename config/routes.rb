@@ -7,13 +7,16 @@ RailsgirlsLondon::Application.routes.draw do
       resources :meetings
     end
 
+
     resources :events do
       resources :registrations, only: [:show, :new, :create] do
         resource :attendance, only: [:create, :destroy]
       end
+
     end
 
-    resources :event_sponsorships, only: [:create, :destroy, :update]
+    resources :sponsorships, only: [:create, :destroy, :update]
+
     resources :event_coachings, only: [:create, :destroy]
     resources :sponsors
     resources :coaches

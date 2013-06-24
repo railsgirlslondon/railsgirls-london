@@ -18,8 +18,8 @@ class Event < ActiveRecord::Base
   belongs_to :city
   has_many :registrations
 
-  has_many :event_sponsorships
-  has_many :sponsors, :through => :event_sponsorships
+  has_many :sponsorships, as: :sponsorable
+  has_many :sponsors, through: :sponsorships
 
   has_many :event_coachings
   has_many :coaches, :through => :event_coachings
@@ -35,14 +35,12 @@ class Event < ActiveRecord::Base
     accepting_registrations? and Date.today <= registration_deadline
   end
 
-  def host
-    event_sponsorship = event_sponsorships.where(:host => true).first
-
-    event_sponsorship.present? and event_sponsorship.sponsor
-  end
-
   def non_hosting_sponsors
     sponsors - [host]
+  end
+
+  def host
+    sponsorships.where(host: true).try(:first).try(:sponsor)
   end
 
   def has_host?
