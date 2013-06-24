@@ -7,20 +7,19 @@
   %h2 Sponsoring
   %table.table
     - @sponsorships.each do |sponsorship|
-      = simple_form_for [:admin, sponsorship], html: { class: "form-inline" } do |f|
-        %tr
-          %td
-            = sponsorship.sponsorable.description
-          %td
-            .span1
-              Host
-              = f.input :host, label: false
-          %td
-            = f.submit "Update", class: "btn"
-            %br
-            %br
-            = link_to 'Remove', admin_sponsorship_path(sponsorship), method: :delete, class: "btn"
+      %tr
+        %td.span6= sponsorship.sponsorable.description
         %td
+          .row
+            = simple_form_for [:admin, sponsorship], html: { class: "form-inline" } do |f|
+              .span1
+                Host
+                = f.input :host, label: false
+              .span1
+                = f.submit "Update", class: "btn"
+                %br
+                %br
+                = link_to 'Remove', admin_sponsorship_path(sponsorship), method: :delete, class: "btn"
 
 
 - if @non_sponsored.any?
