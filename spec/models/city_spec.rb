@@ -7,7 +7,6 @@ describe City do
       city = City.new twitter: "railsgirls_ldn"
       expect(city).to be_valid
     end
-
   end
 
   context "slug" do
@@ -25,6 +24,8 @@ describe City do
   end
 
   context "#associations" do
+    let(:city) { Fabricate(:city) }
+
     context "upcoming_event" do
       it "returns nil if there are no active events" do
         city = City.create! name: "San"
@@ -34,7 +35,6 @@ describe City do
       end
 
       it "can retrieve the upcoming event" do
-        city = Fabricate(:city)
         active_event = Fabricate(:event, city: city)
         other_event = Fabricate(:inactive_event, city: city)
 
@@ -42,6 +42,4 @@ describe City do
       end
     end
   end
-
 end
-

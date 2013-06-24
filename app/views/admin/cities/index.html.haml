@@ -8,7 +8,7 @@
 
   - @cities.each do |city|
     %tr
-      %td= city.name
+      %td= link_to city.name, [:admin, city]
       %td= city.email
       %td= city.twitter
 

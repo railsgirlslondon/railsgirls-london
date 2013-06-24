@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130615213221) do
+ActiveRecord::Schema.define(version: 20130620234642) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -60,6 +60,26 @@ ActiveRecord::Schema.define(version: 20130615213221) do
     t.string   "title"
   end
 
+  create_table "meeting_types", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "frequency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meetings", force: true do |t|
+    t.datetime "date"
+    t.boolean  "announced"
+    t.integer  "city_id"
+    t.integer  "meeting_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "meetings", ["city_id"], name: "index_meetings_on_city_id"
+  add_index "meetings", ["meeting_type_id"], name: "index_meetings_on_meeting_type_id"
+
   create_table "registrations", force: true do |t|
     t.string   "first_name",                             null: false
     t.string   "last_name",                              null: false
@@ -97,6 +117,17 @@ ActiveRecord::Schema.define(version: 20130615213221) do
     t.string "address_city"
     t.string "address_postcode"
   end
+
+  create_table "sponsorships", force: true do |t|
+    t.integer  "sponsor_id"
+    t.string   "sponsorable_type"
+    t.integer  "sponsorable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "host",             default: false, null: false
+  end
+
+  add_index "sponsorships", ["sponsor_id"], name: "index_sponsorships_on_sponsor_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

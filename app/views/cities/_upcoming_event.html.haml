@@ -1,29 +1,16 @@
+%hr
 %section.event-details#upcoming_event
-  %h3.underline Upcoming Event
-
   %h3.title.highlight= event.title if event.title.present?
-  .dates
-    =event.dates
+  %blockquote
+    %p.lead=event.dates
 
   .details
-    .description= event.description
+    %p.lead.description= event.description
 
     .applications
       - if event.registrations_open?
         Applications are open.
 
-    .links
-      %div
-      - if event.registrations_open?
-        = link_to "View details and apply", city_event_path(@city, event)
-      - else
-        = link_to "View details", city_event_path(@city, event)
-
-      .pull-right
-        =render partial: 'shared/tweet_button', locals: { twitter: city_twitter, text: "Rails Girls #{city_name} #{event.title}. Get excited and make things!" }
-
-  %br
-  %hr
   .row
     .span3
       %span.highlight You learn
@@ -32,21 +19,16 @@
     .span3
       %span.highlight You need
       your own laptop, curiosity and a sprinkle of imagination.
+  %br
 
-
-  %hr
   .row
-    .span3
-      .help Want to help?
+    .span7
+      .links
+        %div
+        - if event.registrations_open?
+          = link_to "View details and apply", city_event_path(@city, event)
+        - else
+          = link_to "View details", city_event_path(@city, event)
 
-    .span3
-      We are looking for
-      %strong Rails coaches
-      %p
-        %a{ href: "https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"}Subscribe to our coaches mailing list
-
-  %hr
-  .row
-    .span6
-      =link_to "Learn more", city_sponsor_path(@city)
-      about becoming a sponsor.
+        .pull-right
+          =render partial: 'shared/tweet_button', locals: { twitter: city_twitter, text: "Rails Girls #{city_name} #{event.title}. Get excited and make things!" }

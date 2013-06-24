@@ -1,0 +1,12 @@
+= simple_form_for([:admin, @city, @meeting], html: {class: "form-horizontal"}) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :meeting_type
+    = f.input :date, start_year: Date.today.year,
+                     end_year: Date.today.year + 1,
+                     order: [:hour, :minute, :day, :month, :year], input_html: { class: "span1" }
+    = f.input :announced
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-large'

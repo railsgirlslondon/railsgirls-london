@@ -2,6 +2,7 @@ class Registration < ActiveRecord::Base
   REQUIRED_ATTRIBUTES = [:first_name,
                          :last_name,
                          :email]
+
   REGISTRATION_ATTRIBUTES = [:gender,
                              :phone_number,
                              :programming_experience,
@@ -20,7 +21,8 @@ class Registration < ActiveRecord::Base
   attr_accessible(*(REQUIRED_ATTRIBUTES + REGISTRATION_ATTRIBUTES),
                   :twitter,
                   :dietary_restrictions,
-                  :selection_state)
+                  :selection_state,
+                  :attending)
 
   validates *REQUIRED_ATTRIBUTES, :presence => true
   validates *REGISTRATION_ATTRIBUTES, :presence => true, :on => 'registration'
@@ -41,12 +43,17 @@ class Registration < ActiveRecord::Base
      :programming_experience,
      :spoken_languages,
      :preferred_language].map do |information|
-      "#{information.to_s.humanize}: #{send(information)}"
-    end.join "\n"
+       "#{information.to_s.humanize}: #{send(information)}"
+     end.join "\n"
   end
 
   def mark_selection(selection_state)
     update_attribute :selection_state, selection_state
   end
 
+  def self.members
+    arel = Registration.arel_table
+    Registration.where(arel[:selection_state].eq("RGL Weeklies").
+                    or(arel[:selection_state].eq("accepted").and(arel[:attending].eq(true))))
+  end
 end

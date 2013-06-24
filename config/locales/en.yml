@@ -5,3 +5,8 @@ en:
   date:
       formats:
         default: "%d/%m/%Y"
+  time:
+      formats:
+        default: "%a, %d %b %Y %H:%M "
+        email: "%a, %d %b %Y at %H:%M "
+        short: "%d/%m/%Y %H:%M "

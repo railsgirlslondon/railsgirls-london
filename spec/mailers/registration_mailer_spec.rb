@@ -43,7 +43,7 @@ describe RegistrationMailer do
     ActionMailer::Base.deliveries.last.body.encoded.should include registration.first_name
   end
 
-  it "sends an email when an applicant is invited to the weeklies", wip: true do
+  it "sends an email when an applicant is invited to the weeklies" do
     event = Fabricate(:event)
     registration = Fabricate(:registration)
 

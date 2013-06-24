@@ -1,8 +1,16 @@
-%legend Active events
 - if @active_events
+  %legend Upcoming events
   %ul.nav
     - @active_events.each do |event|
       %li
         %strong=link_to "#{event.dates}, #{event.city_name}", admin_event_path(event)
         %br
         =event.description
+
+- if @meetings
+  %legend Upcoming meetings
+  %ul.nav
+    - @meetings.each do |meeting|
+      %li
+        %strong=link_to "#{meeting.name}, #{meeting.date}", admin_city_meeting_path(meeting.city, meeting)
+

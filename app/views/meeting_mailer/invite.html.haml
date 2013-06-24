@@ -1,0 +1,39 @@
+
+%h3{style: "border-bottom: 1px solid #E5E5E5; padding-bottom: 10px; margin-bottom: 15px; font-size: 28.5px;" }
+  Hi #{@registration.first_name},
+
+.content
+  .left.inline{style: "width: 65%; min-width: 260px; display: inline-block;"}
+    %p.lead{style: "font-size: 20px;"}
+      We would like to invite you to our next Rails Girls Weekly event!
+
+    %p.lead{style: "font-size: 20px;"}
+      Rails Girls Weeklies are a new Q&amp;A style session aimed at people who have previously attended a Rails Girls workshop, or had some experience with Ruby on Rails.
+
+    %p.lead{style: "font-size: 20px;"}
+      Coaches from the workshops will be around to answer any questions you have about Ruby and Rails, and even pair with you if you need some help! You'll also have the opportunity to catch up with your fellow Rails Girls peers.
+
+    %p.lead{style: "font-size: 20px;"}
+      Sessions will be held every Wednesday, and will run loosely between 6.30PM and 9.00PM. Our next session will be on
+      %strong #{I18n.l(@meeting.date, format: :email)}
+      and will be held at:
+
+    %address{style: "font-size: 18px"}
+      =link_to @meeting.host_name, @meeting.host_website, style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+      %br
+      #{@meeting.address_line_1}<br/>
+      #{@meeting.address_line_2}<br/>
+      #{@meeting.address_city}, #{@meeting.address_postcode}<br/>
+
+    %p.lead{style: "font-size: 20px;"}
+      Please let us know if you are planning to attend by
+      =link_to "confirming your attendance", "http://doodle.com/h78aby3ufghamk9c", style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+
+    %p{ style: "color: #E0330C"}We'd love it if you could come!
+
+  .right.inline{ style: "width: 24%; padding: 0 0 0 50px; display: inline-block;" }
+    =image_tag attachments['london-girl.png'].url, width: '200px'
+    %div
+      %highlight{ style: "color: #E0330c" }You learn
+      designing, prototyping and coding with the help of our coaches.
+

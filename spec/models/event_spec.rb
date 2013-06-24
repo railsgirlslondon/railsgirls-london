@@ -69,7 +69,7 @@ describe Event do
     let!(:sponsor) { Fabricate(:sponsor_with_address) }
     let!(:other_sponsor) { Fabricate(:sponsor, events: [event]) }
 
-    let!(:event_sponsorship) { EventSponsorship.create! event: event, sponsor: sponsor, host: true }
+    let!(:sponsorship) { Sponsorship.create! sponsorable_id: event.id, sponsorable_type: 'Event', sponsor: sponsor, host: true }
 
     specify { expect(event.host) == sponsor }
     specify { expect(event.has_host?) == true }
@@ -78,11 +78,25 @@ describe Event do
     specify { expect(event.non_hosting_sponsors).to eq([other_sponsor]) }
 
     context "when no sponsorships is there" do
-      before { event_sponsorship.destroy }
+      before { sponsorship.destroy }
 
-      specify { expect(event.host).to eq(false) }
+      specify { expect(event.host).to eq(nil) }
       specify { expect(event.has_host?).to eq(false) }
     end
+
+    describe "is_host_for?", wip: true do
+      let!(:meeting) { Fabricate(:meeting) }
+      let!(:sponsor) { Fabricate(:sponsor_with_address) }
+      let!(:other_sponsor) { Fabricate(:event_sponsorship) }
+
+      let!(:sponsorship) { Sponsorship.create! sponsorable_id: meeting.id, sponsorable_type: 'Meeting', sponsor: sponsor, host: true }
+
+      context "when there is a host" do
+        specify { expect(sponsor.is_host_for?(meeting)).to eq(true) }
+      end
+
+    end
+
   end
 
   describe "dates" do
