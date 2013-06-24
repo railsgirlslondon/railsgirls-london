@@ -13,6 +13,8 @@ class Meeting < ActiveRecord::Base
   validates :meeting_type_id, presence: true
 
   belongs_to :city
+  delegate :name, to: :city, prefix: true
+
   belongs_to :meeting_type
 
   scope :upcoming, -> { where("date >= ?", Date.today) }
@@ -21,4 +23,11 @@ class Meeting < ActiveRecord::Base
   delegate :name, to: :meeting_type
   delegate :description, to: :meeting_type
 
+
+  def announce!
+    Registration.members.each do |member|
+      puts member.inspect
+      MeetingMailer.invite(self, member).deliver
+    end
+  end
 end
