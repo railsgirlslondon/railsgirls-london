@@ -69,7 +69,7 @@
         %div= "#{@event.address_city}, #{@event.address_postcode}"
 
 %section.sponsors
-  %h3.underline Sponsors
+  %legend Sponsors
   .row
     %ul.sponsors.inline
       - @event.non_hosting_sponsors.each do |sponsor|
@@ -83,18 +83,4 @@
             = sponsor.description
           %br
 
-%section.coaches
-  %h3.underline Organisers and Coaches
-  .row
-    %ul.coaches.inline
-      - @event.coaches.each do |coach|
-        %li.span1
-          %h5
-            = link_to "https://twitter.com/#{coach.twitter}", title: "@#{coach.twitter}" do
-              = image_tag gravatar_url(coach.email), class: 'img-circle'
-          %small
-            %strong
-              = coach.name
-            = link_to "https://twitter.com/#{coach.twitter}" do
-              %small= "@#{coach.twitter}"
-          %br
+= render partial: "shared/coaches", locals: { coaches: @event.coaches, title: "Organisers and coaches" }
