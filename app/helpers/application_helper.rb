@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def gravatar_url(email)
-    "http://gravatar.com/avatar/#{md5(email)}"
+    "http://gravatar.com/avatar/#{md5(email)}?s=50"
   end
 
   def md5(string)
