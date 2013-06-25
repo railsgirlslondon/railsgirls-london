@@ -19,12 +19,12 @@
 
 = render partial: "shared/coaches", locals: { coaches: @meeting.coaches , title: "Attending Coaches" }
 
-- if Meeting.all_sponsors.any?
+- if @sponsors.any?
   %section
     %legend Sponsors
 
     .row
-      - Meeting.all_sponsors.each do |sponsor|
+      - @sponsors.each do |sponsor|
         .span2
           =image_tag sponsor.image_url
 

@@ -30,4 +30,8 @@ class Meeting < ActiveRecord::Base
       MeetingMailer.invite(self, member).deliver
     end
   end
+
+  def self.all_sponsors
+    Sponsorship.where(:sponsorable_type => "Meeting").map(&:sponsor).uniq! or []
+  end
 end
