@@ -1,6 +1,8 @@
 class Admin::SponsorshipsController < ApplicationController
   layout 'admin'
 
+  before_action :authenticate_user!
+
   def create
     sponsorship = Sponsorship.new(sponsor_params)
 
