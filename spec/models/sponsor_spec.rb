@@ -40,7 +40,9 @@ describe Sponsor do
   describe "#is_host? and #is_host_for?" do
     let!(:other_event) { Fabricate(:event) }
 
-    before { EventSponsorship.create! event: other_event, sponsor: subject, host: false}
+    before do
+      Sponsorship.create! sponsorable_type: 'Event', sponsorable_id: other_event.id, sponsor: subject, host: false
+    end
 
     specify { expect(subject.is_host?).to eq(true) }
     specify { expect(subject.is_host_for?(event)).to eq(true) }

@@ -15,3 +15,8 @@
 
     %br
     %br
+
+
+= render partial: "shared/coaches", locals: { coaches: @meeting.coaches , title: "Attending Coaches" }
+
+= render partial: "shared/all_sponsors", locals: { sponsors: @sponsors }

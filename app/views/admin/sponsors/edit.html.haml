@@ -1,47 +1,13 @@
-%legend Editing sponsor
+%legend
+  %h3 Editing sponsor
 
 = render 'form'
 
 - if @sponsorships.any?
-  %hr
-  %h2 Sponsoring
-  %table.table
-    - @sponsorships.each do |sponsorship|
-      %tr
-        %td.span6= sponsorship.sponsorable.description
-        %td
-          .row
-            = simple_form_for [:admin, sponsorship], html: { class: "form-inline" } do |f|
-              .span1
-                Host
-                = f.input :host, label: false
-              .span1
-                = f.submit "Update", class: "btn"
-                %br
-                %br
-                = link_to 'Remove', admin_sponsorship_path(sponsorship), method: :delete, class: "btn"
-
+  =render partial: "admin/shared/sponsorships", locals: { sponsorships: @sponsorships }
 
 - if @non_sponsored.any?
-  %hr
-  %h2 Not sponsoring
-  %table.table
-    - @non_sponsored.each do |object|
-      %tr
-        %td.span6= object.description
-        %td
-          .row
-            = simple_form_for [:admin, Sponsorship.new], html: { class: "form-inline" } do |f|
-              .span1
-                Host
-                = f.input :host, label: false
-              .span1
-                = f.hidden_field :sponsorable_id, value: object.id
-                = f.hidden_field :sponsorable_type, value: object.class.name.humanize
-                = f.hidden_field :sponsor_id, value: @sponsor.id
-              .span1
-                = f.submit "Sponsor", class: "btn"
-
+  =render partial: "admin/shared/non_sponsorships", locals: { non_sponsored: @non_sponsored }
 
 
 = link_to 'Show', [:admin, @sponsor]

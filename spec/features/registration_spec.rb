@@ -48,7 +48,7 @@ feature "a girl registering" do
     Then { page.has_content? "Thanks for applying to our workshop.You should receive a confirmation email soon!" }
   end
 
-  context "with all information filled in required information" do
+  context "with all information filled in" do
 
     When do
       fill_in "First name", with: first_name

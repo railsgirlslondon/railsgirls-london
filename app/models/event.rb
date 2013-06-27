@@ -11,6 +11,7 @@ class Event < ActiveRecord::Base
   attr_accessible *ATTRIBUTES
 
   include Extentions::Sponsorable
+  include Extentions::Coachable
 
   validates :description, :city_id, :starts_on, :ends_on, presence: true
   validates :active, uniqueness: {scope: :city_id}, if: :active?
@@ -20,8 +21,7 @@ class Event < ActiveRecord::Base
   belongs_to :city
   has_many :registrations
 
-  has_many :event_coachings
-  has_many :coaches, :through => :event_coachings
+  default_scope { order('events.created_at DESC') }
 
   def accepting_registrations?
     return true if registration_deadline.present?
@@ -79,6 +79,10 @@ class Event < ActiveRecord::Base
 
   def trello
     @trello ||= EventTrello.new(self)
+  end
+
+  def to_s
+    "<strong>Workshop</strong>, #{self.dates}"
   end
 
   private

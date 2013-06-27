@@ -18,9 +18,4 @@ class Admin::CitiesController < ApplicationController
   def show
     @city = City.find_by_slug params[:id]
   end
-
-  private
-  def find_cities
-    @cities = City.all
-  end
 end

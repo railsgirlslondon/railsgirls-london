@@ -29,4 +29,19 @@ describe Meeting do
       expect(Meeting.announced).to eq(announced_meetings)
     end
   end
+
+  context "#announce!" do
+    let(:meeting) { Fabricate(:meeting) }
+    let(:registrations) { 5.times.map { Fabricate(:registration, selection_state: "RGL Weeklies") } }
+
+    it "announces the meeting to all RGL members" do
+      registrations.each do |registration|
+        mailer = mock(MeetingMailer, deliver: mock)
+        MeetingMailer.should_receive(:invite).with(meeting, registration).and_return(mailer)
+        mailer.deliver
+      end
+
+      meeting.announce!
+    end
+  end
 end

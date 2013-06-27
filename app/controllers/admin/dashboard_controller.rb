@@ -7,10 +7,4 @@ class Admin::DashboardController < ApplicationController
     @active_events = Event.where(:active => true)
     @meetings = Meeting.upcoming
   end
-
-  private
-
-  def find_cities
-    @cities = City.all
-  end
 end

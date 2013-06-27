@@ -1,0 +1,14 @@
+- if not_coaching.any?
+  %legend Not coaching
+  %ul.nav.nav-tabs.nav-stacked
+    - not_coaching.each do |coachable|
+      %li.row
+        = simple_form_for [:admin, Coaching.new] do |f|
+          .span6
+            =link_to [:admin, coachable.city, coachable] do
+              =coachable.to_s.html_safe
+          .span1
+            = f.hidden_field :coachable_type, value: coachable.class.name.humanize
+            = f.hidden_field :coachable_id, value: coachable.id
+            = f.hidden_field :coach_id, value: coach.id
+            = f.submit "Coach", class: "btn btn-link"

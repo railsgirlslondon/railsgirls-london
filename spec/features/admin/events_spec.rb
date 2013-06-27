@@ -38,7 +38,7 @@ feature "admin CRUDing events" do
 
     context "deleting an event" do
       When do
-        click_link "Back"
+        visit admin_events_path
         click_link "Destroy"
       end
 
