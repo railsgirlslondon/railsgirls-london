@@ -1,7 +1,7 @@
 class Admin::MeetingsController < ApplicationController
   layout 'admin'
 
-  before_action :authenticate_user!, :set_city
+  before_action :authenticate_user!, :set_city, :find_cities
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -5,12 +5,12 @@ class Admin::CoachingsController < ApplicationController
 
   def create
     Coaching.create!(event_coaching_params)
-    redirect_to edit_admin_coach_path(event_coaching_params[:coach_id])
+    redirect_to(:back)
   end
 
   def destroy
     Coaching.find(params[:id]).destroy
-    redirect_to edit_admin_coach_path(params[:coach_id])
+    redirect_to(:back)
   end
 
   private
