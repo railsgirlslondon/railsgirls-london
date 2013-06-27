@@ -19,16 +19,4 @@
 
 = render partial: "shared/coaches", locals: { coaches: @meeting.coaches , title: "Attending Coaches" }
 
-- if @sponsors.any?
-  %section
-    %legend
-      Hosts and Sponsors
-
-    %ul.unstyled.inline
-      - @sponsors.each do |sponsor|
-        %li.sponsor
-          =link_to sponsor.website do
-            - if sponsor.image_url.blank?
-              %strong=sponsor.name
-            - else
-              =image_tag sponsor.image_url
+= render partial: "shared/all_sponsors", locals: { sponsors: @sponsors }
