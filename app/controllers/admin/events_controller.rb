@@ -15,7 +15,8 @@ class Admin::EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new params[:event]
+    @event = Event.create(event_params)
+
     if @event.save
       redirect_to [:admin, @event], :notice => 'Event was successfully created.'
     else
@@ -28,7 +29,7 @@ class Admin::EventsController < ApplicationController
   end
 
   def update
-    if @event.update_attributes(params[:event])
+    if @event.update_attributes(event_params)
       redirect_to [:admin, @event], :notice => 'Event was successfully updated.'
     else
       render :action => "edit"
@@ -46,4 +47,7 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:id]) if params[:id]
   end
 
+  def event_params
+    params.require(:event).permit(:title, :description, :city_id, :active, :city, :starts_on, :ends_on, :registration_deadline)
+  end
 end
