@@ -38,8 +38,8 @@ module ApplicationHelper
     "active" if current_page?(path)
   end
 
-  def gravatar_url(email)
-    "http://gravatar.com/avatar/#{md5(email)}?s=50"
+  def gravatar_url(email,size=50)
+    "http://gravatar.com/avatar/#{md5(email)}?s=#{size}"
   end
 
   def md5(string)

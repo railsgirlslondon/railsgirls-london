@@ -1,16 +1,20 @@
 %p#notice= notice
-%h2 Coach
-%p
-  %b Name:
-  = @coach.name
+%legend
+  %h3=@coach.name
 
-%p
-  %b Twitter:
-  = @coach.twitter
+.row
+  .span4
+    %ul.unstyled
+      %li
+        %strong twitter
+        = link_to "@#{@coach.twitter}", "https://twitter.com/#{@coach.twitter}"
+      %li
+        %strong email
+        =mail_to @coach.email, @coach.email
 
-%p
-  %b Email:
-  = @coach.email
+
+  .span3
+    .pull-right= image_tag gravatar_url(@coach.email, 90), class: 'img-circle'
 
 =render partial: "shared/coachings", locals: { coachings: @coach.coachings }
 =render partial: "shared/non_coachings", locals: { not_coaching: @not_coaching, coach: @coach }
