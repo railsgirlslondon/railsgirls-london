@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
   belongs_to :city
   has_many :registrations
 
-  default_scope order: 'events.created_at DESC'
+  default_scope { order('events.created_at DESC') }
 
   def accepting_registrations?
     return true if registration_deadline.present?
