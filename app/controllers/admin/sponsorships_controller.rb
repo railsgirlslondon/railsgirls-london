@@ -5,28 +5,33 @@ class Admin::SponsorshipsController < ApplicationController
     sponsorship = Sponsorship.new(sponsor_params)
 
     if sponsorship.save
-      redirect_to edit_admin_sponsor_path(sponsor_params[:sponsor_id])
+      flash[:notice] = "#{sponsorship.sponsor.name} sponsorship has been added to #{sponsorship.sponsorable.to_s}.".html_safe
     else
       flash[:error] = sponsorship.errors.full_messages.join("\n")
-      redirect_to edit_admin_sponsor_path(sponsor_params[:sponsor_id])
     end
+
+    redirect_to(:back)
   end
 
   def destroy
     sponsorship = Sponsorship.find(params[:id])
     sponsorship.destroy
 
-    redirect_to edit_admin_sponsor_path(sponsorship.sponsor_id)
+    flash[:notice] = "#{sponsorship.sponsor.name} sponsorship has been removed from #{sponsorship.sponsorable.to_s}.".html_safe
+
+    redirect_to(:back)
   end
 
   def update
     sponsorship = Sponsorship.find(params[:id])
 
-    unless sponsorship.update_attributes(host_params)
+    if sponsorship.update_attributes(host_params)
+      flash[:notice] = "#{sponsorship.sponsor.name} sponsorship has been updated.".html_safe
+    else
       flash[:error] = sponsorship.errors.full_messages.join("\n")
     end
 
-    redirect_to edit_admin_sponsor_path(sponsorship.sponsor)
+    redirect_to(:back)
   end
 
   private

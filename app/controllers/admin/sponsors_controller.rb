@@ -22,6 +22,8 @@ class Admin::SponsorsController < ApplicationController
   end
 
   def show
+    @sponsorships = @sponsor.sponsorships
+    @non_sponsored = Meeting.all + Event.all - @sponsorships.map(&:sponsorable)
   end
 
   def new
