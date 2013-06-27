@@ -8,11 +8,13 @@
   %ul.unstyled
     - @sponsors.each do |sponsor|
       %li.row
+        .span1
+          = image_tag sponsor.image_url
         .span3
           = link_to sponsor.name, [:admin, sponsor]
-        .span2
+          %br
           = sponsor.primary_contact_email
-        .span2
+        .span2.offset1
           .pull-right
             = link_to 'Edit', edit_admin_sponsor_path(sponsor), class: "btn"
             = link_to 'Destroy', [:admin, sponsor], class: 'btn btn-danger', :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -1,6 +1,9 @@
 #events
   %legend
-    %h3 Events
+    %h2
+      Events
+      .pull-right
+        %strong= link_to 'Add Event', new_admin_event_path, class: 'btn'
 
   %ul.unstyled
     - @events.each do |event|
@@ -13,9 +16,5 @@
           %br
           = link_to event.description, [:admin, event]
         .span1
-          = link_to 'Destroy', [:admin, event], class: "btn", :method => :delete, :data => { :confirm => 'Are you sure?' }
+          = link_to 'Destroy', [:admin, event], class: "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' }
       %br
-
-  %hr
-
-  = link_to 'Add Event', new_admin_event_path

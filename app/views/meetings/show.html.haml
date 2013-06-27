@@ -21,10 +21,14 @@
 
 - if @sponsors.any?
   %section
-    %legend Sponsors
+    %legend
+      Hosts and Sponsors
 
-    .row
+    %ul.unstyled.inline
       - @sponsors.each do |sponsor|
-        .span2
-          =image_tag sponsor.image_url
-
+        %li.sponsor
+          =link_to sponsor.website do
+            - if sponsor.image_url.blank?
+              %strong=sponsor.name
+            - else
+              =image_tag sponsor.image_url
