@@ -16,8 +16,8 @@
   .span3
     .pull-right= image_tag gravatar_url(@coach.email, 90), class: 'img-circle'
 
-=render partial: "shared/coachings", locals: { coachings: @coach.coachings }
-=render partial: "shared/non_coachings", locals: { not_coaching: @not_coaching, coach: @coach }
+=render partial: "admin/shared/coachings", locals: { coachings: @coach.coachings }
+=render partial: "admin/shared/non_coachings", locals: { not_coaching: @not_coaching, coach: @coach }
 
 
 = link_to 'Edit', edit_admin_coach_path(@coach)

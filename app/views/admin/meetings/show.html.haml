@@ -1,12 +1,17 @@
 %p#notice= notice
+%legend
+  %h3
+    =@meeting.name
+    %small=I18n.l(@meeting.date)
 
 .row
-  .span5
-    %h3.highlight= @meeting.name
-    = I18n.l(@meeting.date)
+  .span7
+    %p.lead= @meeting.description
 
-    %br
-    %br
+=render partial: "admin/shared/sponsors", locals: { sponsorable: @meeting }
+
+=render partial: "admin/shared/coaches", locals:  { coachable: @meeting } if @meeting.coachable
+
 
 = link_to "#{@city.name} dashboard", [:admin, @city, @meetings_path]
 \|

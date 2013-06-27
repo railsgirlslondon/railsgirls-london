@@ -1,32 +1,23 @@
 #admin_event
   %p#notice= notice
 
-  %h3.highlight= "#{@event.city_name} - #{@event.title}"
+  %legend
+    %h3= "#{@event.city_name} - #{@event.title}"
   %h4= @event.dates
   %p.lead= @event.description
 
-  %em
+  .highlight
     The event is
     = @event.active ? "active" : "not active"
-    %h3
-      Sponsors
-      %small= link_to "Add sponsor", new_admin_sponsor_path
-  - if @event.sponsors.any?
-    %table.table
-      - @event.sponsors.each do |sponsor|
-        %tr
-          %td= link_to sponsor.name, [:admin, sponsor]
 
-    %h3
-      Coaches
-      %small= link_to "Add coach", new_admin_coach_path
-  - if @event.coaches.any?
-    %table.table
-      - @event.coaches.each do |coach|
-        %tr
-          %td= link_to coach.name, [:admin, coach]
+  %br
+  %br
 
-  %h3
+  =render partial: "admin/shared/sponsors", locals:  { sponsorable: @event }
+
+  =render partial: "admin/shared/coaches", locals:  { coachable: @event } if @event.coachable
+
+  %legend
     Registrations
     %small= link_to "Add registration", new_admin_event_registration_path(@event)
   - if @event.registrations.any?

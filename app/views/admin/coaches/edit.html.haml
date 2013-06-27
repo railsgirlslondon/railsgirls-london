@@ -3,8 +3,8 @@
 
 = render 'form'
 
-=render partial: "shared/coachings", locals: { coachings: @coach.coachings }
-=render partial: "shared/non_coachings", locals: { not_coaching: @not_coaching, coach: @coach }
+=render partial: "admin/shared/coachings", locals: { coachings: @coach.coachings }
+=render partial: "admin/shared/non_coachings", locals: { not_coaching: @not_coaching, coach: @coach }
 
 
 = link_to 'Show', [:admin, @coach]
