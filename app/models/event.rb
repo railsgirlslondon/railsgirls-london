@@ -81,6 +81,10 @@ class Event < ActiveRecord::Base
     @trello ||= EventTrello.new(self)
   end
 
+  def to_s
+    "<strong>Workshop</strong>, #{self.dates}"
+  end
+
   private
 
   def format_date(date)

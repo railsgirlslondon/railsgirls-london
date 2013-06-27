@@ -7,6 +7,7 @@
                      end_year: Date.today.year + 1,
                      order: [:hour, :minute, :day, :month, :year], input_html: { class: "span1" }
     = f.input :announced
+    = f.input :coachable
 
   .form-actions
     = f.button :submit, class: 'btn btn-large'

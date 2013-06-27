@@ -42,7 +42,7 @@ feature "admin CRUDing coaches" do
     context "viewing that coach on the index" do
       When do
         click_on "Back"
-      end 
+      end
 
       Then { page.has_content? name }
       And { page.has_content? email }
@@ -69,27 +69,33 @@ feature "admin CRUDing coaches" do
   context "assigning a coach to an event" do
     Given!(:city) { City.create! name: "A city" }
     Given!(:event) do
-      Event.create! city_id: city.id, description: "an event name", starts_on: Time.now, ends_on: Time.now
+      Event.create! city_id: city.id, description: "an event name", starts_on: Time.now, ends_on: Time.now, coachable: true
     end
+    Given!(:non_coachable_meeting) { Fabricate(:meeting) }
     Given { Coach.create! name: "a coach" }
 
-    When do 
-      click_on "Coaches" 
+    When do
+      click_on "Coaches"
       click_on "Edit"
+    end
+
+    context "non coachable cannot be assigned", wip: true do
+      Then { page.has_content? "Not coaching" }
+      Then { !page.has_content? non_coachable_meeting.to_s }
     end
 
     context "with no coach currently assigned" do
       Then { !page.has_content? "Coaching" }
-      And { page.has_content? "an event name" }
-      And { page.has_content? "Events not coached" } 
+      And { page.has_content? event.dates }
+      And { page.has_content? "Not coaching" }
     end
 
     context "coaching an event" do
-      When { click_on "Add Coach" }
+      When { click_on "Coach" }
 
       Then { page.has_content? "Coaching" }
-      And { page.has_content? "an event name" }
-      And { !page.has_content? "Events not coached" }
+      And { page.has_content? event.dates }
+      And { !page.has_content? "Not coaching" }
 
       context "viewing the coach on the event show" do
         When { visit admin_event_path(event) }
@@ -97,12 +103,12 @@ feature "admin CRUDing coaches" do
         Then { page.has_content? "a coach" }
       end
 
-      context "removing a coachship" do
+      context "removing a coaching" do
         When { click_on "Remove" }
 
         Then { !page.has_content? "Coaching" }
-        And { page.has_content? "an event name" }
-        And { page.has_content? "Events not coached" } 
+        And { page.has_content? event.dates }
+        And { page.has_content? "Not coaching" }
       end
     end
   end

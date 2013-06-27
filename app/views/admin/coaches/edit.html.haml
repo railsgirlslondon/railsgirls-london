@@ -2,29 +2,35 @@
 
 = render 'form'
 
-- if @coaching.any?
-  %hr
-  %h2 Coaching
-  %table.table
-    - @coaching.each do |coaching|
-      %tr
-        %td= coaching.coachable.description
-        %td= link_to 'Remove', admin_coaching_path(coaching, coach_id: @coach.id), method: :delete, class: "btn btn-link"
+%hr
+- if @coach.coachings.any?
+  %h3 Coaching
 
+  %ul.nav.nav-tabs.nav-stacked
+    - @coach.coachings.each do |coaching|
+      %li.row
+        .span6
+          =link_to [:admin, coaching.coachable.city, coaching.coachable] do
+            =coaching.coachable.to_s.html_safe
+        .span1= link_to 'Remove', admin_coaching_path(coaching.id, coach_id: @coach.id), method: :delete, class: "btn btn-link"
+
+%hr
 
 - if @not_coaching.any?
-  %hr
-  %h2 Events not coached
-  %table.table
-    - @not_coaching.each do |object|
-      %tr
-        %td  #{object.class.name.humanize}: #{object.description}
-        %td
+  %h2 Not coaching
+  %ul.unstyled
+    - @not_coaching.each do |coachable|
+      %li.row
+        .span6
+          =link_to [:admin, coachable.city, coachable] do
+            =coachable.to_s.html_safe
+        .span1
           = simple_form_for [:admin, Coaching.new] do |f|
-            = f.hidden_field :coachable_type, value: object.class.name.humanize
-            = f.hidden_field :coachable_id, value: object.id
+            = f.hidden_field :coachable_type, value: coachable.class.name.humanize
+            = f.hidden_field :coachable_id, value: coachable.id
             = f.hidden_field :coach_id, value: @coach.id
-            = f.submit "Add Coach", class: "btn btn-link"
+            = f.submit "Coach", class: "btn btn-link"
+
 = link_to 'Show', [:admin, @coach]
 \|
 = link_to 'Back', admin_coaches_path

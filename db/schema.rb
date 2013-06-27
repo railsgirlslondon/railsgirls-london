@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130624225348) do
+ActiveRecord::Schema.define(version: 20130626134402) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20130624225348) do
     t.date     "registration_deadline"
     t.string   "address"
     t.string   "title"
+    t.boolean  "coachable"
   end
 
   create_table "meeting_types", force: true do |t|
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20130624225348) do
     t.integer  "meeting_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "coachable"
   end
 
   add_index "meetings", ["city_id"], name: "index_meetings_on_city_id"

@@ -16,8 +16,7 @@ class Admin::CoachesController < ApplicationController
   end
 
   def edit
-    @coaching = @coach.coachings
-    @not_coaching = Event.all + Meeting.all - @coaching.map(&:coachable)
+    @not_coaching = non_coached(@coach)
   end
 
   def create
@@ -50,5 +49,9 @@ class Admin::CoachesController < ApplicationController
 
     def coach_params
       params.require(:coach).permit(:name, :twitter, :email)
+    end
+
+    def non_coached coach
+      Meeting.coachable + Event.coachable - coach.coachings.map(&:coachable)
     end
 end

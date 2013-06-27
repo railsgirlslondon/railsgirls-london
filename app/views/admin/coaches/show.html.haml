@@ -13,11 +13,17 @@
   = @coach.email
 
 - if @coach.coachings.any?
-  %h3 Events Coaching
-  %table.table
+  %legend Coaching
+
+  %ul.nav.nav-tabs.nav-stacked
     - @coach.coachings.each do |coaching|
-      %tr
-        %td= coaching.coachable.description
+      %li.row
+        .span6
+          =link_to [:admin, coaching.coachable.city, coaching.coachable] do
+            =coaching.coachable.to_s.html_safe
+        .span1= link_to 'Remove', admin_coaching_path(coaching.id, coach_id: @coach.id), method: :delete, class: "btn btn-link"
+
+
 = link_to 'Edit', edit_admin_coach_path(@coach)
 \|
 = link_to 'Back', admin_coaches_path

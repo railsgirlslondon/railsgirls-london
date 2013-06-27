@@ -34,4 +34,8 @@ class Meeting < ActiveRecord::Base
   def self.all_sponsors
     Sponsorship.where(:sponsorable_type => "Meeting").map(&:sponsor).uniq! or []
   end
+
+  def to_s
+    "<strong>#{self.name}</strong>, #{I18n.l(date, format: :email)}"
+  end
 end
