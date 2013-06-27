@@ -4,17 +4,37 @@ feature "Coachings" do
   Given { admin_logged_in! }
   Given!(:coach) { Fabricate(:coach) }
 
-  context "can be created for an event" do
+  context "for events" do
     Given!(:event) { Fabricate(:event, coachable: true) }
 
-    When do
-      visit admin_coach_path(coach)
-      click_on "Coach"
+    context "can be created" do
+      When do
+        visit admin_coach_path(coach)
+        click_on "Coach"
+      end
+
+      Then do
+        page.has_content? "#{coach.name} has been assigned to #{event.to_s}."
+        visit admin_city_event_path(event.city, event)
+        page.has_content? coach.name
+      end
     end
 
-    Then do
-      visit admin_city_event_path(event.city, event)
-      page.has_content? coach.name
+    context "can be removed" do
+      Given do
+        Fabricate(:event_coaching, coach: coach, coachable_id: event.id)
+      end
+
+      When do
+        visit admin_coach_path(coach)
+        click_on "Remove"
+      end
+
+      Then do
+        page.has_content? "#{coach.name} has been removed from #{event.to_s}."
+        visit admin_city_event_path(event.city, event)
+        !page.has_content? coach.name
+      end
     end
   end
 
@@ -27,6 +47,7 @@ feature "Coachings" do
     end
 
     Then do
+      page.has_content? "#{coach.name} has been assigned to #{meeting.to_s}."
       visit admin_city_meeting_path(meeting.city, meeting)
       page.has_content? coach.name
     end

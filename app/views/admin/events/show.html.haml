@@ -1,9 +1,9 @@
 #admin_event
-  %p#notice= notice
-
   %legend
-    %h3= "#{@event.city_name} - #{@event.title}"
-  %h4= @event.dates
+    %h3
+      = event_title(@event)
+      %small= @event.dates
+      .pull-right= link_to 'Edit', edit_admin_event_path(@event), class: "btn"
   %p.lead= @event.description
 
   .highlight
@@ -48,7 +48,3 @@
               - else
                 %td
                 %td= link_to("Confirm Attendance", admin_event_registration_attendance_path(@event, registration), method: :post)
-
-  = link_to 'Edit', edit_admin_event_path(@event)
-  \|
-  = link_to 'Back', admin_events_path
