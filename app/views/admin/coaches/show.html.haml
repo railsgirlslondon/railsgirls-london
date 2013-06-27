@@ -12,16 +12,8 @@
   %b Email:
   = @coach.email
 
-- if @coach.coachings.any?
-  %legend Coaching
-
-  %ul.nav.nav-tabs.nav-stacked
-    - @coach.coachings.each do |coaching|
-      %li.row
-        .span6
-          =link_to [:admin, coaching.coachable.city, coaching.coachable] do
-            =coaching.coachable.to_s.html_safe
-        .span1= link_to 'Remove', admin_coaching_path(coaching.id, coach_id: @coach.id), method: :delete, class: "btn btn-link"
+=render partial: "shared/coachings", locals: { coachings: @coach.coachings }
+=render partial: "shared/non_coachings", locals: { not_coaching: @not_coaching, coach: @coach }
 
 
 = link_to 'Edit', edit_admin_coach_path(@coach)

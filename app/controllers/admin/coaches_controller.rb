@@ -2,6 +2,7 @@ class Admin::CoachesController < ApplicationController
   layout 'admin'
 
   before_action :set_coach, only: [:show, :edit, :update, :destroy]
+  before_action :set_not_coaching, only: [:show, :edit]
   before_action :authenticate_user!, :find_cities
 
   def index
@@ -16,7 +17,6 @@ class Admin::CoachesController < ApplicationController
   end
 
   def edit
-    @not_coaching = non_coached(@coach)
   end
 
   def create
@@ -51,7 +51,7 @@ class Admin::CoachesController < ApplicationController
       params.require(:coach).permit(:name, :twitter, :email)
     end
 
-    def non_coached coach
-      Meeting.coachable + Event.coachable - coach.coachings.map(&:coachable)
+    def set_not_coaching
+      @not_coaching = Meeting.coachable + Event.coachable - @coach.coachings.map(&:coachable)
     end
 end
