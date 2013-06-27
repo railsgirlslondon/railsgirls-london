@@ -2,7 +2,7 @@ class Admin::CoachesController < ApplicationController
   layout 'admin'
 
   before_action :set_coach, only: [:show, :edit, :update, :destroy]
-  before_action :set_not_coaching, only: [:show, :edit]
+  before_action :set_not_coaching, only: [:show, :edit, :update]
   before_action :authenticate_user!, :find_cities
 
   def index
