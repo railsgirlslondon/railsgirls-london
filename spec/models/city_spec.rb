@@ -42,4 +42,25 @@ describe City do
       end
     end
   end
+
+  context "#sponsors" do
+    let(:city_1) { Fabricate(:city) }
+    let(:city_2) { Fabricate(:city) }
+
+    let!(:event_1) { Fabricate(:event, city: city_1) }
+    let!(:meeting) { Fabricate(:meeting, city: city_1) }
+    let!(:event_2) { Fabricate(:event, city: city_2) }
+
+    before do
+      2.times { Fabricate(:event_sponsorship, sponsorable_id: event_1.id) }
+      4.times { Fabricate(:event_sponsorship, sponsorable_id: event_2.id) }
+      1.times { Fabricate(:meeting_sponsorship, sponsorable_id: meeting.id) }
+    end
+
+    it "returns all the sponsors related to city events and meetups" do
+
+      city_1.sponsors.should eq(event_1.sponsors + meeting.sponsors)
+    end
+
+  end
 end

@@ -1,7 +1,8 @@
 - if sponsors.any?
   %section
     %legend
-      Hosts and Sponsors
+      - if show_title
+        Hosts and Sponsors
 
     %ul.unstyled.inline
       - sponsors.each do |sponsor|

@@ -84,7 +84,7 @@ describe Event do
       specify { expect(event.has_host?).to eq(false) }
     end
 
-    describe "is_host_for?", wip: true do
+    describe "is_host_for?" do
       let!(:meeting) { Fabricate(:meeting) }
       let!(:sponsor) { Fabricate(:sponsor_with_address) }
       let!(:other_sponsor) { Fabricate(:event_sponsorship) }
