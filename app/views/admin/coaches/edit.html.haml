@@ -1,29 +1,12 @@
-%legend Editing coach
+%legend
+  %h3 Edit coach
 
 = render 'form'
 
-- if @event_coachings.any?
-  %hr
-  %h2 Coaching
-  %table.table
-    - @event_coachings.each do |event_coaching|
-      %tr
-        %td= link_to event_coaching.event.description, [:admin, event_coaching.event]
-        %td= link_to 'Remove', admin_event_coaching_path(event_coaching, coach_id: @coach.id), method: :delete, class: "btn btn-link"
+=render partial: "admin/shared/coachings", locals: { coachings: @coach.coachings }
+=render partial: "admin/shared/non_coachings", locals: { not_coaching: @not_coaching, coach: @coach }
 
 
-- if @not_coached_events.any?
-  %hr
-  %h2 Events not coached
-  %table.table
-    - @not_coached_events.each do |event|
-      %tr
-        %td= link_to event.description, [:admin, event]
-        %td
-          = simple_form_for [:admin, EventCoaching.new] do |f|
-            = f.hidden_field :event_id, value: event.id
-            = f.hidden_field :coach_id, value: @coach.id
-            = f.submit "Add Coach", class: "btn btn-link"
 = link_to 'Show', [:admin, @coach]
 \|
 = link_to 'Back', admin_coaches_path

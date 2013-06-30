@@ -15,13 +15,15 @@ class Admin::SponsorsController < ApplicationController
   layout 'admin'
 
   before_action :set_sponsor, :only => [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_action :authenticate_user!, :find_cities
 
   def index
     @sponsors = Sponsor.all
   end
 
   def show
+    @sponsorships = @sponsor.sponsorships
+    @non_sponsored = Meeting.all + Event.all - @sponsorships.map(&:sponsorable)
   end
 
   def new

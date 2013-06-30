@@ -1,0 +1,13 @@
+%legend Sponsoring
+%ul.unstyled
+  - @sponsorships.each do |sponsorship|
+    %li.row
+      .span4
+        = link_to [:admin, sponsorship.sponsorable.city, sponsorship.sponsorable] do
+          =sponsorship.sponsorable.to_s.html_safe
+      .span3
+        = simple_form_for [:admin, sponsorship], html: { class: "form-inline" } do |f|
+          .span1
+            = f.input :host, label: "Host"
+          = f.submit "Update", class: "btn"
+          = link_to 'Remove', admin_sponsorship_path(sponsorship), method: :delete, class: "btn"

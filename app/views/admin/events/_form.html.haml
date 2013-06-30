@@ -16,6 +16,7 @@
                                       order: [:day, :month, :year], input_html: { class: "span1" },
                                       hint: "Registrations will only become available when you set the registration deadline", class: 'help-inline'
     = f.input :active
+    = f.input :coachable, input_html: { checked: default_to_coachable(@event) }
 
   .form-actions
     = f.button :submit, class: 'btn btn-large'

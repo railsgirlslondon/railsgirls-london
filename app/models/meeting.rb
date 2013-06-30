@@ -9,6 +9,7 @@ class Meeting < ActiveRecord::Base
   attr_accessible *ATTRIBUTES
 
   include Extentions::Sponsorable
+  include Extentions::Coachable
 
   validates :meeting_type_id, presence: true
 
@@ -28,5 +29,13 @@ class Meeting < ActiveRecord::Base
     Registration.members.each do |member|
       MeetingMailer.invite(self, member).deliver
     end
+  end
+
+  def self.all_sponsors
+    Sponsorship.where(:sponsorable_type => "Meeting").map(&:sponsor).uniq! or []
+  end
+
+  def to_s
+    "<strong>#{self.name}</strong>, #{I18n.l(date, format: :email)}"
   end
 end

@@ -1,0 +1,10 @@
+- if coachings.any?
+  %legend Coaching
+
+  %ul.nav.nav-tabs.nav-stacked
+    - coachings.each do |coaching|
+      %li.row
+        .span6
+          =link_to [:admin, coaching.coachable.city, coaching.coachable] do
+            =coaching.coachable.to_s.html_safe
+        .span1= link_to 'Remove', admin_coaching_path(coaching.id, coach_id: coaching.coach.id), method: :delete, class: "btn btn-link"

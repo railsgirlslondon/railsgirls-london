@@ -1,20 +1,22 @@
 #admin_coaches
-  %h2 Coaches
+  %legend
+    %h2
+      Coaches
+      .pull-right
+        %strong= link_to 'Add Coach', new_admin_coach_path, class: "btn"
 
-  %table.table
-    %tr
-      %th Name
-      %th Email
-      %th
-      %th
-
+  %ul.unstyled
     - @coaches.each do |coach|
-      %tr
-        %td= link_to  coach.name, [:admin, coach]
-        %td= coach.email
-        %td= link_to 'Edit', edit_admin_coach_path(coach), class: "btn"
-        %td= link_to 'Destroy', [:admin, coach], class: "btn", :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %li.row
+        .span1
+          .pull-right= image_tag gravatar_url(coach.email), class: 'img-circle'
+        .span3
+          =link_to  coach.name, [:admin, coach]
+          %br
+          = coach.email
+        .span2.offset1
+          .pull-right
+            = link_to 'Edit', edit_admin_coach_path(coach), class: "btn"
+            = link_to 'Destroy', [:admin, coach], class: "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %hr
 
-  %hr
-
-  = link_to 'Add Coach', new_admin_coach_path

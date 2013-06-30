@@ -5,19 +5,18 @@ RailsgirlsLondon::Application.routes.draw do
   namespace :admin do
     resources :cities, only: [:show, :new, :create, :index] do
       resources :meetings
+      resources :events, only: [:show]
     end
-
 
     resources :events do
       resources :registrations, only: [:show, :new, :create] do
         resource :attendance, only: [:create, :destroy]
       end
-
     end
 
     resources :sponsorships, only: [:create, :destroy, :update]
 
-    resources :event_coachings, only: [:create, :destroy]
+    resources :coachings, only: [:create, :destroy]
     resources :sponsors
     resources :coaches
 

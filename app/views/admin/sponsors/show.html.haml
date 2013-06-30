@@ -1,41 +1,38 @@
-%p#notice= notice
+%legend
+  %h3
+    = @sponsor.name
+    .pull-right= link_to 'Edit', edit_admin_sponsor_path(@sponsor), class: 'btn'
 
-%h2 Sponsor
-%p
-  %b Name:
-  = @sponsor.name
+.row
+  .span5
+    %p.lead
+      = @sponsor.description
+  .span2
+    = image_tag @sponsor.image_url
 
-%p
-  %b Primary contact email:
-  = @sponsor.primary_contact_email
+- unless @sponsor.primary_contact_email.blank?
+  .row
+    .span3
+      %strong Email
+      =mail_to @sponsor.primary_contact_email, @sponsor.primary_contact_email
 
-%p
-  %b Description:
-  = @sponsor.description
+%br
 
-%p
-  %b Address line 1:
-  = @sponsor.address_line_1
+.row
+  .span3
+    - if @sponsor.has_full_address?
+      %strong Address
+      %address
+        =@sponsor.address_line_1
+        %br
+        #{@sponsor.address_line_2}
+        %br
+        #{@sponsor.address_city}, #{@sponsor.address_postcode}
 
-%p
-  %b Address line 2:
-  = @sponsor.address_line_2
-%p
-  %b City:
-  = @sponsor.address_city
-%p
-  %b Postcode:
-  = @sponsor.address_postcode
+- if @sponsorships.any?
+  =render partial: "admin/shared/sponsorships", locals: { sponsorships: @sponsorships }
 
+- if @non_sponsored.any?
+  =render partial: "admin/shared/non_sponsorships", locals: { non_sponsored: @non_sponsored }
 
-- if @sponsor.events.any?
-  %h3 Sponsoring
-  %table.table
-    - @sponsor.events.each do |event|
-      %tr
-        %td= link_to event.description, [:admin, event]
-        %td= @sponsor.is_host_for?(event) ? "Hosting" : ""
-
-= link_to 'Edit', edit_admin_sponsor_path(@sponsor)
-\|
 = link_to 'Back', admin_sponsors_path

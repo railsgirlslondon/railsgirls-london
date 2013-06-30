@@ -1,7 +1,7 @@
 class MeetingsController < ApplicationController
   layout 'cities'
 
-  before_action :set_city
+  before_action :set_city, :find_all_sponsors
   before_action :set_meeting, only: [:show]
 
   def index
@@ -26,5 +26,9 @@ class MeetingsController < ApplicationController
 
     def meeting_params
       params.require(:meeting).permit(:name, :date, :announcement_date, :city_id, :meeting_type_id)
+    end
+
+    def find_all_sponsors
+      @sponsors ||= Meeting.all_sponsors
     end
   end

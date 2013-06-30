@@ -1,13 +1,13 @@
-%p#notice= notice
+%legend
+  %h3
+    =@meeting.name
+    %small=I18n.l(@meeting.date)
+    .pull-right= link_to 'Edit', edit_admin_city_meeting_path(@city, @meeting), class: "btn"
 
 .row
-  .span5
-    %h3.highlight= @meeting.name
-    = I18n.l(@meeting.date)
+  .span7
+    %p.lead= @meeting.description
 
-    %br
-    %br
+=render partial: "admin/shared/sponsors", locals: { sponsorable: @meeting }
 
-= link_to "#{@city.name} dashboard", [:admin, @city, @meetings_path]
-\|
-= link_to 'Edit', edit_admin_city_meeting_path(@city, @meeting)
+=render partial: "admin/shared/coaches", locals:  { coachable: @meeting } if @meeting.coachable

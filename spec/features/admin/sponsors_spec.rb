@@ -85,7 +85,7 @@ feature "admin CRUDing sponsors" do
 
     context "with no sponsor currently" do
       Then { !page.has_content? "Sponsoring" }
-      And { page.has_content? "an event name" }
+      And { page.has_content? event.dates }
       And { page.has_content? "Not sponsoring" }
     end
 
@@ -93,7 +93,7 @@ feature "admin CRUDing sponsors" do
       When { click_on "Sponsor" }
 
       Then { page.has_content? "Sponsoring" }
-      And { page.has_content? "an event name" }
+      And { page.has_content? event.dates }
       And { !page.has_content? "Not sponsored" }
 
       context "viewing the sponsor on the event show" do
@@ -130,7 +130,7 @@ feature "admin CRUDing sponsors" do
         When { click_on "Remove" }
 
         Then { !page.has_content? "Sponsoring" }
-        And { page.has_content? "an event name" }
+        And { page.has_content? event.dates }
         And { page.has_content? "Not sponsoring" }
       end
     end

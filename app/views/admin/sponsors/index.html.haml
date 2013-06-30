@@ -1,21 +1,21 @@
 #admin_sponsors
-  %h2 Sponsors
+  %legend
+    %h2
+      Sponsors
+      .pull-right
+        %strong= link_to 'Add Sponsor', new_admin_sponsor_path, class: 'btn'
 
-  %table.table
-    %tr
-      %th Name
-      %th Primary contact email
-      %th
-      %th
-
+  %ul.unstyled
     - @sponsors.each do |sponsor|
-      %tr
-
-        %td= link_to sponsor.name, [:admin, sponsor]
-        %td= sponsor.primary_contact_email
-        %td= link_to 'Edit', edit_admin_sponsor_path(sponsor), class: "btn"
-        %td= link_to 'Destroy', [:admin, sponsor], class: 'btn', :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-  %br
-
-  = link_to 'Add Sponsor', new_admin_sponsor_path
+      %li.row
+        .span1
+          = image_tag sponsor.image_url
+        .span3
+          = link_to sponsor.name, [:admin, sponsor]
+          %br
+          = sponsor.primary_contact_email
+        .span2.offset1
+          .pull-right
+            = link_to 'Edit', edit_admin_sponsor_path(sponsor), class: "btn"
+            = link_to 'Destroy', [:admin, sponsor], class: 'btn btn-danger', :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %hr
