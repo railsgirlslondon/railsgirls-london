@@ -59,7 +59,7 @@ describe City do
 
     it "returns all the sponsors related to city events and meetups" do
 
-      city_1.sponsors.should eq(event_1.sponsors + meeting.sponsors)
+      expect(city_1.sponsors).to eq(event_1.sponsors + meeting.sponsors)
     end
 
   end
