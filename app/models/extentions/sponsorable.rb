@@ -1,17 +1,17 @@
+require 'active_support/concern'
 module Extentions
   module Sponsorable
 
-    def self.included base
-      base.class_eval do
-        base.send :include, InstanceMethods
+    extend ActiveSupport::Concern
 
-        has_many :sponsorships, as: :sponsorable
-        has_many :sponsors, through: :sponsorships
+    included do
+      include InstanceMethods
 
-        delegate :address_line_1, :address_line_2, :address_postcode, :address_city, to: :host
-        delegate :name, :website, :image_url, :description, to: :host, prefix: true
+      has_many :sponsorships, as: :sponsorable
+      has_many :sponsors, through: :sponsorships
 
-      end
+      delegate :address_line_1, :address_line_2, :address_postcode, :address_city, to: :host
+      delegate :name, :website, :image_url, :description, to: :host, prefix: true
     end
 
     module InstanceMethods
