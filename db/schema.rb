@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20130626134402) do
     t.date     "starts_on"
     t.date     "ends_on"
     t.date     "registration_deadline"
-    t.string   "address"
     t.string   "title"
     t.boolean  "coachable"
   end
