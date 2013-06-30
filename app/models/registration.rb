@@ -32,6 +32,8 @@ class Registration < ActiveRecord::Base
   validates :terms_of_service, :acceptance => true
   validates :email, :confirmation => true
 
+  scope :accepted, -> { where(selection_state: "accepted", attending: true) }
+
   def fullname
     "#{first_name} #{last_name}"
   end
@@ -56,4 +58,5 @@ class Registration < ActiveRecord::Base
     Registration.where(arel[:selection_state].eq("RGL Weeklies").
                     or(arel[:selection_state].eq("accepted").and(arel[:attending].eq(true))))
   end
+
 end

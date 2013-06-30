@@ -7,6 +7,8 @@ class Member < ActiveRecord::Base
 
   validates *REQUIRED_ATTRIBUTES, :presence => true
 
+  validates :email, uniqueness: { scope: :city_id }
+
   attr_accessible *REQUIRED_ATTRIBUTES, :twitter, :city
 
   belongs_to :city

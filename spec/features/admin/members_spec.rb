@@ -7,6 +7,7 @@ feature "admin CRUDing members" do
   let(:email) { Faker::Internet.email }
   let(:phone_number) { Faker::Lorem.word }
 
+
   Given!(:city) { Fabricate(:city) }
   Given { admin_logged_in! }
 
@@ -54,6 +55,26 @@ feature "admin CRUDing members" do
 
         Then { page.has_content? given_names }
         Then { page.has_content? last_name }
+      end
+
+      context "Adding a member with the same email" do
+        let(:other_given_names) { Faker::Name.name }
+        let(:other_last_name) { Faker::Name.name }
+        let(:other_phone_number) { Faker::Lorem.word }
+
+        When do
+          click_on "Add Member"
+
+          fill_in "Given names", with: other_given_names
+          fill_in "Last name", with: other_last_name
+          fill_in "Phone number", with: other_phone_number
+          fill_in "Email", with: email
+
+          click_on "Create Member"
+        end
+
+        Then { page.has_content? 'Please review the problems below' }
+        And { page.has_content? "has already been taken" }
       end
     end
   end

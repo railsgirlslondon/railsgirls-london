@@ -18,6 +18,14 @@ describe Registration do
     end
   end
 
+  it "#accepted" do
+    accepted_registrations = 3.times.map { Fabricate(:registration,
+                                                 selection_state: "accepted",
+                                                 attending: true) }
+
+    Registration.accepted.to_a.should eq accepted_registrations
+  end
+
   it "#mark_selection" do
     registration.mark_selection "accepted"
 
