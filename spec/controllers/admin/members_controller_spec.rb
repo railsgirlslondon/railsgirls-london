@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin::MembersController do
 
   let!(:city) { Fabricate(:city) }
-  let(:valid_attributes) { { "given_names" => "Maria", "last_name" => "Doe", "phone_number" => "0123123", "email" => "email@example", "city_id" => city.id } }
+  let(:valid_attributes) { { "first_name" => "Maria", "last_name" => "Doe", "phone_number" => "0123123", "email" => "email@example", "city_id" => city.id } }
 
   let(:valid_session) { {} }
 
@@ -86,9 +86,9 @@ describe Admin::MembersController do
     describe "with valid params" do
       it "updates the requested member" do
         member = Member.create! valid_attributes
-        Member.any_instance.should_receive(:update).with({ "given_names" => "MyString" })
+        Member.any_instance.should_receive(:update).with({ "first_name" => "MyString" })
 
-        put :update, {:city_id => city.to_param, :id => member.to_param, :member => { "given_names" => "MyString" }}, valid_session
+        put :update, {:city_id => city.to_param, :id => member.to_param, :member => { "first_name" => "MyString" }}, valid_session
       end
 
       it "assigns the requested member as @member" do

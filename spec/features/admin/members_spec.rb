@@ -2,7 +2,7 @@ require "spec_helper"
 
 feature "admin CRUDing members" do
 
-  let(:given_names) { Faker::Name.name }
+  let(:first_name) { Faker::Name.name }
   let(:last_name) { Faker::Name.name }
   let(:email) { Faker::Internet.email }
   let(:phone_number) { Faker::Lorem.word }
@@ -20,7 +20,7 @@ feature "admin CRUDing members" do
 
     context "with the minimum required information" do
       When do
-        fill_in "Given names", with: given_names
+        fill_in "First name", with: first_name
         fill_in "Last name", with: last_name
         fill_in "Phone number", with: phone_number
         fill_in "Email", with: email
@@ -29,7 +29,7 @@ feature "admin CRUDing members" do
       end
 
       Then { page.has_content? 'Member was successfully created.' }
-      And { page.has_content? given_names }
+      And { page.has_content? first_name }
       And { page.has_content? last_name }
       And { page.has_content? email }
 
@@ -53,19 +53,19 @@ feature "admin CRUDing members" do
           click_on "Back"
         end
 
-        Then { page.has_content? given_names }
+        Then { page.has_content? first_name }
         Then { page.has_content? last_name }
       end
 
       context "Adding a member with the same email" do
-        let(:other_given_names) { Faker::Name.name }
+        let(:other_first_name) { Faker::Name.name }
         let(:other_last_name) { Faker::Name.name }
         let(:other_phone_number) { Faker::Lorem.word }
 
         When do
           click_on "Add Member"
 
-          fill_in "Given names", with: other_given_names
+          fill_in "First name", with: other_first_name
           fill_in "Last name", with: other_last_name
           fill_in "Phone number", with: other_phone_number
           fill_in "Email", with: email

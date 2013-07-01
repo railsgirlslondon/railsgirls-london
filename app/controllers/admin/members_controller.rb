@@ -46,6 +46,6 @@ class Admin::MembersController < ApplicationController
     end
 
     def member_params
-      params.require(:member).permit(:given_names, :last_name, :email, :phone_number, :twitter, :city_id)
+      params.require(:member).permit(Member::PERMITTED_ATTRIBUTES)
     end
 end

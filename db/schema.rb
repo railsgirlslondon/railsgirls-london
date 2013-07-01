@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130630214743) do
+ActiveRecord::Schema.define(version: 20130701004911) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20130630214743) do
   add_index "meetings", ["meeting_type_id"], name: "index_meetings_on_meeting_type_id"
 
   create_table "members", force: true do |t|
-    t.string   "given_names"
+    t.string   "first_name"
     t.string   "last_name"
     t.string   "phone_number"
     t.string   "email"
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 20130630214743) do
     t.string   "dietary_restrictions"
     t.string   "selection_state"
     t.boolean  "attending",              default: false, null: false
+    t.integer  "member_id"
   end
 
   add_index "registrations", ["email"], name: "index_registrations_on_email"

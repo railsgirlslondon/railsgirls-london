@@ -17,3 +17,16 @@ Fabricator(:registration) do
   event
   terms_of_service  "1"
 end
+
+Fabricator(:attended_registration, from: :registration) do
+  selection_state { "accepted" }
+  attending { true }
+end
+
+Fabricator(:weeklies_registration, from: :registration) do
+  selection_state { "RGL Weeklies" }
+end
+
+Fabricator(:waiting_list_registration, from: :registration) do
+  selection_state { "waiting list" }
+end

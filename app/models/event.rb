@@ -86,6 +86,12 @@ class Event < ActiveRecord::Base
     "<strong>Workshop</strong>, #{self.dates}"
   end
 
+  def convert_attendees_to_members!
+    registrations.accepted.each do |registration|
+      Member.create_from registration
+    end
+  end
+
   private
 
   def format_date(date)

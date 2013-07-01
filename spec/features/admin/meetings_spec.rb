@@ -5,7 +5,7 @@ feature "admin CRUDing meetings" do
   Given!(:meeting_type) { Fabricate(:meeting_type) }
   Given { admin_logged_in! }
 
-  context "creating and editing an event", wip: true do
+  context "creating and editing an event" do
     When do
       visit new_admin_city_meeting_path(city)
 

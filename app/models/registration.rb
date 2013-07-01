@@ -22,12 +22,14 @@ class Registration < ActiveRecord::Base
                   :twitter,
                   :dietary_restrictions,
                   :selection_state,
-                  :attending)
+                  :attending,
+                  :member)
 
   validates *REQUIRED_ATTRIBUTES, :presence => true
   validates *REGISTRATION_ATTRIBUTES, :presence => true, :on => 'registration'
 
   belongs_to :event
+  belongs_to :member
 
   validates :terms_of_service, :acceptance => true
   validates :email, :confirmation => true
