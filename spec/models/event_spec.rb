@@ -200,7 +200,7 @@ describe Event do
       event.should_receive(:registrations).and_return(registrations)
       registrations.should_receive(:accepted).and_return(attendees)
 
-      attendees.each { |attendee| Member.should_receive(:create_from).with(attendee) }
+      attendees.each { |attendee| Member.should_receive(:create_from_registration).with(attendee) }
 
       event.convert_attendees_to_members!
     end

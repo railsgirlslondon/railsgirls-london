@@ -1,7 +1,7 @@
 require "spec_helper"
 
 feature "admin CRUDing events" do
-  Given { City.create! name: "London" }
+  Given!(:city) { City.create! name: "London" }
   Given { admin_logged_in! }
 
   context "creating and editing an event" do
@@ -57,11 +57,28 @@ feature "admin CRUDing events" do
 
       Then { page.has_content? "john@registrant.com" }
 
-      When { click_on 'Confirm Attendance' }
-      Then { page.has_content? 'Attending' }
+      When { click_on 'Attend' }
+      Then { page.has_content? 'attending' }
 
-      When { click_on 'Remove Attendance' }
-      Then { page.has_content? 'Attending' }
+      When { click_on "Don't Attend" }
+      Then { page.has_content? 'attending' }
     end
+  end
+
+  context "converting event attendees to members", wip: true do
+    Given!(:event) { Fabricate(:event, city: city, active: false) }
+    Given!(:registration) { Fabricate(:attended_registration, event: event)}
+
+    When do
+      visit admin_city_event_path(city, event)
+
+      click_on "Convert attendees to members"
+    end
+
+    Then do
+      !page.has_content? "Convert attendees to members"
+      page.has_content? "member"
+    end
+
   end
 end

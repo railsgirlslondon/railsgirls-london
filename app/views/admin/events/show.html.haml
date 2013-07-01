@@ -17,34 +17,5 @@
 
   =render partial: "admin/shared/coaches", locals:  { coachable: @event } if @event.coachable
 
-  %legend
-    Registrations
-    %small= link_to "Add registration", new_admin_event_registration_path(@event)
-  - if @event.registrations.any?
-    %table.table.table-striped
-      %thead
-        %th #
-        %th Name
-        %th Email
-        %th View
-        %th Attending?
-        %th Actions
+  =render partial: "admin/shared/registrations", locals:  { registrations: @event.registrations }
 
-        %tbody
-          - @event.registrations.each_with_index do |registration, index|
-            %tr
-              %td= index+1
-              %td= registration.fullname
-              %td
-                =mail_to registration.email, registration.email
-              %td
-                =link_to "Show", admin_event_registration_path(@event, registration)
-              - if registration.selection_state
-                %td
-                  =content_tag "a", registration.selection_state, class: 'btn btn-success disabled'
-              - if registration.attending?
-                %td Attending
-                %td= link_to("Remove Attendance", admin_event_registration_attendance_path(@event, registration), method: :delete)
-              - else
-                %td
-                %td= link_to("Confirm Attendance", admin_event_registration_attendance_path(@event, registration), method: :post)

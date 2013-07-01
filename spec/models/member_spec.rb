@@ -28,7 +28,7 @@ describe Member do
 
       permitted_attributes = Member.permitted_attributes_from(registration).symbolize_keys.keys
 
-      expect(permitted_attributes).to include(*Member::PERMITTED_ATTRIBUTES)
+      expect(permitted_attributes).to include(:first_name, :last_name, :email, :twitter, :phone_number, :city_id)
     end
   end
 

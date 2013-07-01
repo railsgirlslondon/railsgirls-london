@@ -41,6 +41,12 @@ class Admin::EventsController < ApplicationController
     redirect_to admin_events_path
   end
 
+  def convert_attendees_to_members!
+    @event = Event.find(params[:event_id])
+    @members = @event.convert_attendees_to_members!
+    redirect_to admin_city_members_path(@event.city, @members), :notice => "The following members were created."
+  end
+
   private
 
   def find_event

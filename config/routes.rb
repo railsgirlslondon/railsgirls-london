@@ -5,8 +5,11 @@ RailsgirlsLondon::Application.routes.draw do
   namespace :admin do
     resources :cities, only: [:show, :new, :create, :index] do
       resources :meetings
-      resources :events, only: [:show]
+      resources :events, only: [:show] do
+        post "/convert_members" => "events#convert_attendees_to_members!", as: :convert_members
+      end
       resources :members
+
     end
 
     resources :events do

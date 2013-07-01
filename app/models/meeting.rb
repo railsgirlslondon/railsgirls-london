@@ -26,7 +26,7 @@ class Meeting < ActiveRecord::Base
 
 
   def announce!
-    Registration.members.each do |member|
+    city.members.each do |member|
       MeetingMailer.invite(self, member).deliver
     end
   end

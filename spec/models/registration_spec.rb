@@ -53,13 +53,13 @@ describe Registration do
   end
 
   describe "#members" do
-    it "returns the list of people who attended the workshop" do
+    it "returns the registrations converted into members" do
       Fabricate(:registration, selection_state: "RGL Weeklies")
-      2.times.map { Fabricate(:registration, selection_state: "accepted", attending: true) }
-      2.times { Fabricate(:registration) }
+      2.times.map { Fabricate(:registration, member: Fabricate(:member)) }
       4.times { Fabricate(:registration, selection_state: "accepted", attending: false)}
+      4.times { Fabricate(:attended_registration) }
 
-      expect(Registration.members.count).to eq 3
+      expect(Registration.members.count).to eq 2
     end
   end
 end
