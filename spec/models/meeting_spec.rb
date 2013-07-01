@@ -30,7 +30,7 @@ describe Meeting do
     end
   end
 
-  context "#announce!" do
+  context "#invite_members" do
     let(:meeting) { Fabricate(:meeting) }
     let(:members) { 5.times.map { Fabricate(:member, city: meeting.city) } }
 
@@ -41,7 +41,7 @@ describe Meeting do
         mailer.deliver
       end
 
-      meeting.announce!
+      meeting.invite_members
     end
   end
 end

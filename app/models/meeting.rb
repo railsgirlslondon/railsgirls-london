@@ -25,7 +25,7 @@ class Meeting < ActiveRecord::Base
   delegate :description, to: :meeting_type
 
 
-  def announce!
+  def invite_members
     city.members.each do |member|
       MeetingMailer.invite(self, member).deliver
     end
