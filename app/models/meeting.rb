@@ -4,12 +4,15 @@ class Meeting < ActiveRecord::Base
                  :date,
                  :meeting_type_id,
                  :meeting_type,
+                 :sponsorships,
+                 :sponsors,
                  :announced ]
 
   attr_accessible *ATTRIBUTES
 
   include Extentions::Sponsorable
   include Extentions::Coachable
+  include Extentions::Invitable
 
   validates :meeting_type_id, presence: true
 
@@ -23,13 +26,7 @@ class Meeting < ActiveRecord::Base
 
   delegate :name, to: :meeting_type
   delegate :description, to: :meeting_type
-
-
-  def invite_members
-    city.members.each do |member|
-      MeetingMailer.invite(self, member).deliver
-    end
-  end
+  delegate :members, to: :city
 
   def self.all_sponsors
     Sponsorship.where(:sponsorable_type => "Meeting").map(&:sponsor).uniq! or []
@@ -38,4 +35,9 @@ class Meeting < ActiveRecord::Base
   def to_s
     "<strong>#{self.name}</strong>, #{I18n.l(date, format: :email)}"
   end
+
+  def email email_type, member
+    MeetingMailer.send(email_type.to_sym, self, member).deliver
+  end
+
 end

@@ -2,7 +2,7 @@ class Sponsorship < ActiveRecord::Base
   belongs_to :sponsor
   belongs_to :sponsorable, :polymorphic => true
 
-  attr_accessible :sponsorable_type, :sponsorable_id, :sponsor_id, :host, :sponsor
+  attr_accessible :sponsorable_type, :sponsorable_id, :sponsor_id, :host, :sponsor, :sponsorable
 
   validate :host_must_have_address, if: :host?
   validate :host_must_be_unique, if: :host?
