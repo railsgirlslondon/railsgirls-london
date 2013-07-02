@@ -9,6 +9,9 @@ class Invitation < ActiveRecord::Base
 
   after_create :send_invitation
 
+  scope :accepted, -> { where(attending: true) }
+  scope :waiting_list, -> { where(waiting_list: true) }
+
   def send_invitation
     invitable.email :invite, self.member
   end

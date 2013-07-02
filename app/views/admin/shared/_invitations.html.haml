@@ -1,0 +1,25 @@
+%legend
+  Invitations
+  %small=invitations.count
+  .pull-right
+    %small
+      attending
+      %strong= invitations.accepted.count
+      = unless invitations.waiting_list.empty?
+        waiting list
+        %strong= invitations.waiting_list.count
+
+- if invitations.empty? and invitable.has_host?
+  =link_to "Invite members",
+            [ :admin, @city, invitable, :invitations],
+            method: :post,
+            class: "btn btn-large btn-primary"
+-else
+  .row
+    %ul.nav.nav-tabs.nav-stacked.span4
+      - invitations.each do |invitation|
+        %li
+          =link_to [ :admin, @city, invitable, invitation] do
+            = invitation.member.name
+            - unless invitation.attending.nil?
+              -invitation_attendance_label(invitation)

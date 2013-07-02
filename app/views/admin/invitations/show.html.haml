@@ -1,0 +1,30 @@
+%legend
+  %h3
+    Invitation
+.row
+  .span4
+    %h4
+      =link_to [:admin, @city, @invitation.invitable] do
+        %strong=@invitation.invitable.name
+        %small=I18n.l(@invitation.invitable.date)
+%br
+
+.row
+  .span3
+    %dd
+      %dt to
+      %dl=@invitation.member.name
+      %dt emailed at
+      %dl #{I18n.l(@invitation.created_at, format: :short)}
+      %dt response
+      %dl
+      - if @invitation.attending.nil?
+        N/A
+      - else
+        -invitation_attendance_label(invitation)
+
+
+.row
+  .span7
+    %p.lead= @invitation.invitable.description
+

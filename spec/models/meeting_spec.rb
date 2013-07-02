@@ -30,18 +30,17 @@ describe Meeting do
     end
   end
 
-  context "#invite_members" do
+  context "#email" do
     let(:meeting) { Fabricate(:meeting) }
-    let(:members) { 5.times.map { Fabricate(:member, city: meeting.city) } }
+    let(:member) { Fabricate(:member, city: meeting.city) }
 
-    it "announces the meeting to all members" do
-      members.each do |member|
-        mailer = mock(MeetingMailer, deliver: mock)
-        MeetingMailer.should_receive(:invite).with(meeting, member).and_return(mailer)
-        mailer.deliver
-      end
+    it "triggers the MeetingMailer" do
+      mailer = mock(MeetingMailer, deliver: mock)
+      MeetingMailer.should_receive(:invite).with(meeting, member).and_return(mailer)
+      mailer.deliver
 
-      meeting.invite_members
+      meeting.email :invite, member
     end
   end
+
 end

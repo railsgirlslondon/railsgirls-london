@@ -2,10 +2,10 @@ class Member < ActiveRecord::Base
   REQUIRED_ATTRIBUTES = [ :first_name,
                           :last_name,
                           :email,
-                          :city_id ]
+                          :city ]
 
 
-  PERMITTED_ATTRIBUTES = [ *REQUIRED_ATTRIBUTES, :city, :phone_number, :twitter ]
+  PERMITTED_ATTRIBUTES = [ *REQUIRED_ATTRIBUTES, :city_id, :phone_number, :twitter ]
 
   validates *REQUIRED_ATTRIBUTES, :presence => true
   validates :email, uniqueness: { scope: :city_id }

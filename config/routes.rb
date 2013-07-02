@@ -4,10 +4,16 @@ RailsgirlsLondon::Application.routes.draw do
 
   namespace :admin do
     resources :cities, only: [:show, :new, :create, :index] do
-      resources :meetings
+      resources :meetings do
+        resources :invitations, only: [ :show ], :invitable_type => 'Meeting', :invitable_id => 'meeting_id' do
+          post 'create', on: :collection
+        end
+      end
+
       resources :events, only: [:show] do
         post "/convert_members" => "events#convert_attendees_to_members!", as: :convert_members
       end
+
       resources :members
 
     end

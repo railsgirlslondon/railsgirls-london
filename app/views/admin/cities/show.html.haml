@@ -30,11 +30,11 @@
   .span3
     %h5
       Latest Members
-      %small= link_to 'Add member', new_admin_city_member_path(@city)
+      %small=link_to "View all", admin_city_members_path(@city)
     - if @city.members
       %ul.nav.nav-tabs.nav-stacked
         - @city.members.latest.each do |member|
           %li
             =link_to member.name, admin_city_member_path(@city, member)
 
-      =link_to "View all members", admin_city_members_path(@city)
+    = link_to 'Add member', new_admin_city_member_path(@city)
