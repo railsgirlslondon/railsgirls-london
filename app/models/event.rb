@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
                  :city,
                  :starts_on,
                  :ends_on,
+                 :image,
                  :registration_deadline,
                  :active]
 
