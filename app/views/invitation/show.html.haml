@@ -1,0 +1,46 @@
+%legend
+  %h3
+    %strong=@invitable.name
+    %small=I18n.l(@invitable.date)
+.row
+  .span6
+    %br
+    %p.lead
+      =@invitable.description
+  .span4
+    .hero-unit
+      %h3 Will you attend?
+      =simple_form_for @invitation, html: { class: 'form-inline' } do |f|
+        =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last
+
+        =f.submit "RSVP", class: 'btn btn-primary'
+      - unless @invitation.attending.nil?
+        %small
+          You have RSVPed
+          %strong #{@invitation.attending ? "yes" : "no"}
+
+.row
+  .span5
+    %legend Location
+
+    %strong=link_to @invitable.host.name, @invitable.host.website
+
+    %address
+      =@invitable.host.address_line_1
+      %br
+      #{@invitable.host.address_line_2}
+      %br
+      #{@invitable.host.address_city}, #{@invitable.host.address_postcode}
+    - unless @invitable.host.image_url.blank?
+      = image_tag @invitable.host.image_url
+
+  - if @invitable.invitations.accepted.any?
+    .span3.offset1
+      %legend Attending
+      %ul.unstyled
+        - @invitable.invitations.accepted.each do |invitation|
+          %li.row
+            .span3
+              = image_tag gravatar_url(invitation.member.email, 35), class: 'img-polaroid'
+              =invitation.member.name
+          %br

@@ -30,16 +30,17 @@ describe Meeting do
     end
   end
 
-  context "#email" do
+  context "#email", wip: true do
     let(:meeting) { Fabricate(:meeting) }
-    let(:member) { Fabricate(:member, city: meeting.city) }
+    let!(:sponsor) { Fabricate(:sponsor_with_address) }
+    let!(:hosting) { Fabricate(:hosting, sponsorable: meeting, sponsor: sponsor)}
+    let!(:invitation) { Fabricate(:invitation, invitable: meeting) }
 
-    it "triggers the MeetingMailer" do
+    it "triggers the MeetingMailer"  do
       mailer = mock(MeetingMailer, deliver: mock)
-      MeetingMailer.should_receive(:invite).with(meeting, member).and_return(mailer)
-      mailer.deliver
+      MeetingMailer.should_receive(:invite).with(meeting, invitation.member, invitation).and_return(mailer)
 
-      meeting.email :invite, member
+      meeting.email :invite, invitation.member, invitation
     end
   end
 

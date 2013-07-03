@@ -37,6 +37,8 @@ RailsgirlsLondon::Application.routes.draw do
 
   get "/:id/sponsor" => "cities#sponsor", as: :city_sponsor
 
+  resources :invitation, only: [:show, :update ], param: :token
+
   resources :cities, path: "", only: [:show] do
     resources :events, only: [:show] do
       resources :registrations, only: [:new, :create]

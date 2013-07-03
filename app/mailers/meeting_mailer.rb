@@ -2,8 +2,8 @@ class MeetingMailer < ActionMailer::Base
 
   helper :email
 
-  def invite meeting, registration
-    setup meeting, registration
+  def invite meeting, registration, invitation
+    setup meeting, registration, invitation
 
     subject = "Rails Girls #{@meeting.city_name} - You are invited to Weeklies"
     email_with_name = "Rails Girls #{@meeting.city.name} <#{@meeting.city.email}>"
@@ -23,8 +23,9 @@ class MeetingMailer < ActionMailer::Base
     end
   end
 
-  def setup meeting, registration
+  def setup meeting, registration, invitation
     @registration = registration
+    @invitation = invitation
     @meeting = meeting
     @city = meeting.city
 

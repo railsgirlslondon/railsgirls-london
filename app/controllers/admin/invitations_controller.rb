@@ -10,7 +10,7 @@ class Admin::InvitationsController < ApplicationController
   end
 
   def show
-    @invitation = Invitation.find params[:id]
+    @invitation = Invitation.find_by_token params[:id]
   end
 
   private

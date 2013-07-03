@@ -31,7 +31,7 @@ describe Invitation, wip: true do
 
   context "methods" do
     it "#send_invitation" do
-      invitation.invitable.should_receive(:email).with(:invite, invitation.member)
+      invitation.invitable.should_receive(:email).with(:invite, invitation.member, invitation)
 
       invitation.send_invitation
     end
