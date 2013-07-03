@@ -6,6 +6,7 @@ RailsgirlsLondon::Application.routes.draw do
     resources :cities, only: [:show, :new, :create, :index] do
       resources :meetings
       resources :events, only: [:show]
+      resources :members
     end
 
     resources :events do
