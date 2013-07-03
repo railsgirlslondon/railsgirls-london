@@ -4,7 +4,7 @@ class Admin::EventsController < ApplicationController
   before_action :authenticate_user!, :find_event, :find_cities
 
   def index
-    @events = Event.all.reverse
+    @events = Event.all
   end
 
   def show
