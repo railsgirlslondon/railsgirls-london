@@ -1,5 +1,3 @@
-%p#notice= notice
-
 .row
   .span7
     .page-header
@@ -19,4 +17,4 @@
 
 = render partial: "shared/coaches", locals: { coaches: @meeting.coaches , title: "Attending Coaches" }
 
-= render partial: "shared/all_sponsors", locals: { sponsors: @sponsors }
+= render partial: "shared/all_sponsors", locals: { sponsors: @sponsors, show_title: true }

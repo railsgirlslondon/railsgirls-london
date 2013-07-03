@@ -1,31 +1,18 @@
 %section#past_events
   %legend Past Events
 
-  - events.each do |event|
-    .row
-      .span3
-        .event-box
-          =link_to city_event_path(@city, event) do
+  %ul.thumbnails
+    - events.each do |event|
+      %li.span3
+        =link_to city_event_path(@city, event), class: 'thumbnail' do
+          - if event.image
+            .picture
+              =image_tag event.image
+            %p
+              %strong=event.dates
+          - else
             .picture
               = image_tag "london-girl.png"
-          .title
-            = event.dates
+            %p
+              %strong=event.dates
 
-      .span3
-        %h5
-          Sponsored by
-        %br
-        .span2
-          %ul.sponsors.unstyled
-            - event.sponsors.each do |sponsor|
-              %li
-                = link_to sponsor.website do
-                  = image_tag sponsor.image_url, title: sponsor.description
-              %br
-
-    %br
-    .row
-      .span3
-        .links
-          =link_to "View details", city_event_path(@city, event)
-    %br

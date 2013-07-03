@@ -5,3 +5,6 @@
 =render partial: 'upcoming_meetings', locals: { meetings: @city.meetings.upcoming } unless @city.meetings.upcoming.nil?
 
 =render partial: "past_events", locals: { events: @city.past_events } unless @city.past_events.empty?
+
+=render partial: 'shared/all_sponsors', locals: { sponsors: @city.sponsors, show_title: false }
+

@@ -17,4 +17,8 @@ class City < ActiveRecord::Base
   def generate_slug
     self.slug = name.parameterize
   end
+
+  def sponsors
+    [events.map(&:sponsors) + meetings.map(&:sponsors)].flatten.uniq
+  end
 end
