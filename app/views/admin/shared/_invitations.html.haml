@@ -9,11 +9,15 @@
         waiting list
         %strong= invitations.waiting_list.count
 
-- if invitations.empty? and invitable.has_host?
-  =link_to "Invite members",
-            [ :admin, @city, invitable, :invitations],
-            method: :post,
-            class: "btn btn-large btn-primary"
+- if invitations.empty?
+  -if invitable.has_host?
+    =link_to "Invite members",
+              [ :admin, @city, invitable, :invitations],
+              method: :post,
+              class: "btn btn-large btn-primary"
+  - else
+    %em The meeting host must be set for invitations to become available
+
 -else
   .row
     %ul.nav.nav-tabs.nav-stacked.span4
