@@ -17,6 +17,8 @@ feature "admin CRUDing meetings" do
       select "18", from: "meeting[date(4i)]"
       select "30", from: "meeting[date(5i)]"
 
+      fill_in "Available slots", with: 1
+
       click_on "Create Meeting"
     end
 

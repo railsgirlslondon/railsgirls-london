@@ -33,11 +33,10 @@ class Meeting < ActiveRecord::Base
   end
 
   def to_s
-    "<strong>#{self.name}</strong>, #{I18n.l(date, format: :email)}"
+    "<strong>#{self.name}</strong>, #{I18n.l(date, format: :date)}"
   end
 
   def email email_type, member, invitation
     MeetingMailer.send(email_type.to_sym, self, member, invitation).deliver
   end
-
 end

@@ -3,6 +3,7 @@ Fabricator(:meeting) do
   city
   meeting_type { Fabricate(:meeting_type) }
   announced { true }
+  available_slots 15
 end
 
 Fabricator(:unannounced_meeting, from: :meeting) do
