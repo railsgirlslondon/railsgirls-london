@@ -65,7 +65,7 @@ feature "admin CRUDing events" do
     end
   end
 
-  context "converting event attendees to members", wip: true do
+  context "converting event attendees to members" do
     Given!(:event) { Fabricate(:event, city: city, active: false) }
     Given!(:registration) { Fabricate(:attended_registration, event: event)}
 

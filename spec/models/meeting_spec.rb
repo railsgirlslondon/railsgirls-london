@@ -30,7 +30,7 @@ describe Meeting do
     end
   end
 
-  context "#email", wip: true do
+  context "#email" do
     let(:meeting) { Fabricate(:meeting) }
     let!(:sponsor) { Fabricate(:sponsor_with_address) }
     let!(:hosting) { Fabricate(:hosting, sponsorable: meeting, sponsor: sponsor)}

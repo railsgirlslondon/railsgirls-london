@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Invitation, wip: true do
+describe Invitation do
   let(:meeting) { Fabricate(:meeting, available_slots: 1) }
   let(:member) { Fabricate(:member) }
   let!(:hosting) { Fabricate(:hosting, sponsorable: meeting) }
@@ -31,7 +31,7 @@ describe Invitation, wip: true do
     context "#after_update" do
       let(:invitation) { Fabricate(:invitation, invitable: meeting, attending: true) }
 
-      context "attendance is false", wip: true do
+      context "attendance is false" do
         it "processess the waiting list" do
           other_invitation = Fabricate(:invitation, invitable: meeting, waiting_list: true)
 
@@ -41,7 +41,7 @@ describe Invitation, wip: true do
         end
       end
 
-      context "attendance is true and waiting_list is false", wip: true do
+      context "attendance is true and waiting_list is false" do
         let(:invitation) { Fabricate(:invitation, invitable: meeting, waiting_list: true) }
 
         it "sends a confirmation email" do
