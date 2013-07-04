@@ -30,18 +30,18 @@ describe Meeting do
     end
   end
 
-  context "#announce!" do
+  context "#email" do
     let(:meeting) { Fabricate(:meeting) }
-    let(:registrations) { 5.times.map { Fabricate(:registration, selection_state: "RGL Weeklies") } }
+    let!(:sponsor) { Fabricate(:sponsor_with_address) }
+    let!(:hosting) { Fabricate(:hosting, sponsorable: meeting, sponsor: sponsor)}
+    let!(:invitation) { Fabricate(:invitation, invitable: meeting) }
 
-    it "announces the meeting to all RGL members" do
-      registrations.each do |registration|
-        mailer = mock(MeetingMailer, deliver: mock)
-        MeetingMailer.should_receive(:invite).with(meeting, registration).and_return(mailer)
-        mailer.deliver
-      end
+    it "triggers the MeetingMailer"  do
+      mailer = mock(MeetingMailer, deliver: mock)
+      MeetingMailer.should_receive(:invite).with(meeting, invitation.member, invitation).and_return(mailer)
 
-      meeting.announce!
+      meeting.email :invite, invitation.member, invitation
     end
   end
+
 end

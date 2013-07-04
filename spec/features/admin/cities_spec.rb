@@ -25,23 +25,53 @@ feature "an admin CRUDing cities" do
     end
   end
 
-  context "managing cities" do
-    Given!(:meeting) { Fabricate(:meeting, city: city) }
-    Given!(:event) { Fabricate(:event, city: city) }
+  context "managing" do
+    context "events" do
+      Given!(:event) { Fabricate(:event, city: city) }
 
-    Given { click_on "Cities" }
+      Given { click_on "Cities" }
 
-    When do
-      click_on city.name
+      When do
+        click_on city.name
+      end
+
+      Then do
+        expect(page).to have_content("#{city.name} dashboard")
+        expect(page).to have_link("Add event")
+        expect(page).to have_link(event.dates)
+      end
     end
 
-    Then do
-      expect(page).to have_content("#{city.name} dashboard")
-      expect(page).to have_link("Add meeting")
-      expect(page).to have_link("Add event")
-      expect(page).to have_link(meeting.name)
-      expect(page).to have_link(event.dates)
+    context "meetings" do
+      Given!(:meeting) { Fabricate(:meeting, city: city) }
+      Given { click_on "Cities" }
+
+      When do
+        click_on city.name
+      end
+
+      Then do
+        expect(page).to have_content("#{city.name} dashboard")
+        expect(page).to have_link("Add meeting")
+        expect(page).to have_link(meeting.name)
+      end
+    end
+
+    context "members" do
+      Given!(:member) { Fabricate(:member, city: city) }
+      Given { click_on "Cities" }
+
+      When do
+        click_on city.name
+      end
+
+      Then do
+        expect(page).to have_content("#{city.name} dashboard")
+        expect(page).to have_link("Add member")
+        expect(page).to have_link(member.name)
+      end
     end
   end
+
 end
 

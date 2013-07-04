@@ -22,6 +22,7 @@ RailsgirlsLondon::Application.configure do
 
   config.eager_load = true
 
+  config.action_mailer.default_url_options = { :host => 'railsgirls.co.uk' }
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 

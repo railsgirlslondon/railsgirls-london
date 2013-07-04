@@ -6,6 +6,7 @@
     = f.input :date, start_year: Date.today.year,
                      end_year: Date.today.year + 1,
                      order: [:hour, :minute, :day, :month, :year], input_html: { class: "span1" }
+    = f.input :available_slots, input_html: { class: "span1" }
     = f.input :announced
     = f.input :coachable, input_html: { checked: default_to_coachable(@meeting) }
 

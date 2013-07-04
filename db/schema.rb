@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130630173642) do
+ActiveRecord::Schema.define(version: 20130703033754) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -72,6 +72,19 @@ ActiveRecord::Schema.define(version: 20130630173642) do
     t.string   "image"
   end
 
+  create_table "invitations", force: true do |t|
+    t.integer  "member_id"
+    t.string   "invitable_type"
+    t.boolean  "attending"
+    t.integer  "invitable_id"
+    t.boolean  "waiting_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+  end
+
+  add_index "invitations", ["member_id"], name: "index_invitations_on_member_id"
+
   create_table "meeting_types", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -88,10 +101,24 @@ ActiveRecord::Schema.define(version: 20130630173642) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "coachable"
+    t.integer  "available_slots"
   end
 
   add_index "meetings", ["city_id"], name: "index_meetings_on_city_id"
   add_index "meetings", ["meeting_type_id"], name: "index_meetings_on_meeting_type_id"
+
+  create_table "members", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "email"
+    t.string   "twitter"
+    t.integer  "city_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "members", ["city_id"], name: "index_members_on_city_id"
 
   create_table "registrations", force: true do |t|
     t.string   "first_name",                             null: false
@@ -114,6 +141,7 @@ ActiveRecord::Schema.define(version: 20130630173642) do
     t.string   "dietary_restrictions"
     t.string   "selection_state"
     t.boolean  "attending",              default: false, null: false
+    t.integer  "member_id"
   end
 
   add_index "registrations", ["email"], name: "index_registrations_on_email"

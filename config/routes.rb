@@ -4,8 +4,18 @@ RailsgirlsLondon::Application.routes.draw do
 
   namespace :admin do
     resources :cities, only: [:show, :new, :create, :index] do
-      resources :meetings
-      resources :events, only: [:show]
+      resources :meetings do
+        resources :invitations, only: [ :show ], :invitable_type => 'Meeting', :invitable_id => 'meeting_id' do
+          post 'create', on: :collection
+        end
+      end
+
+      resources :events, only: [:show] do
+        post "/convert_members" => "events#convert_attendees_to_members!", as: :convert_members
+      end
+
+      resources :members
+
     end
 
     resources :events do
@@ -26,6 +36,8 @@ RailsgirlsLondon::Application.routes.draw do
   get "/404", to: "errors#not_found"
 
   get "/:id/sponsor" => "cities#sponsor", as: :city_sponsor
+
+  resources :invitation, only: [:show, :update ], param: :token
 
   resources :cities, path: "", only: [:show] do
     resources :events, only: [:show] do
