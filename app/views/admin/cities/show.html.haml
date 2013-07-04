@@ -1,28 +1,40 @@
 %legend.highlight #{@city.name} dashboard
 
 .row
-  .span7
-    .row
-      .span3
-        %h5
-          Upcoming Meetings
-          %small=link_to "View all", admin_city_meetings_path(@city)
-        %ul.nav.nav-tabs.nav-stacked
-          - @city.meetings.upcoming.each do |meeting|
-            %li
-              =link_to admin_city_meeting_path(@city, meeting) do
-                #{meeting.name}
-                %small #{I18n.l(meeting.date, format: :short)}
+  .span3
+    %h5
+      Upcoming Meetings
+      %small=link_to "View all", admin_city_meetings_path(@city)
+    %ul.nav.nav-tabs.nav-stacked
+      - @city.meetings.upcoming.each do |meeting|
+        %li
+          =link_to admin_city_meeting_path(@city, meeting) do
+            #{meeting.name}
+            %small #{I18n.l(meeting.date, format: :short)}
 
-        = link_to "Add meeting", new_admin_city_meeting_path(@city)
+    = link_to "Add meeting", new_admin_city_meeting_path(@city)
 
-      .span3
-        %h5
-          Upcoming Events
-          %small=link_to "View all", admin_events_path
-        %ul.nav.nav-tabs.nav-stacked
-          - if @city.upcoming_event
-            %li
-              =link_to @city.upcoming_event.dates, admin_event_path(@city.upcoming_event)
+  .span3
+    %h5
+      Upcoming Events
+      %small=link_to "View all", admin_events_path
+    %ul.nav.nav-tabs.nav-stacked
+      - if @city.upcoming_event
+        %li
+          =link_to @city.upcoming_event.dates, admin_event_path(@city.upcoming_event)
 
-        = link_to "Add event", new_admin_event_path
+    = link_to "Add event", new_admin_event_path
+
+%hr
+.row
+  .span3
+    %h5
+      Latest Members
+      %small=link_to "View all", admin_city_members_path(@city)
+    - if @city.members
+      %ul.nav.nav-tabs.nav-stacked
+        - @city.members.latest.each do |member|
+          %li
+            =link_to member.name, admin_city_member_path(@city, member)
+
+    = link_to 'Add member', new_admin_city_member_path(@city)

@@ -31,4 +31,4 @@ class MeetingsController < ApplicationController
     def find_all_sponsors
       @sponsors ||= Meeting.all_sponsors
     end
-  end
+end

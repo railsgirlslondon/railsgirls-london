@@ -86,6 +86,17 @@ class Event < ActiveRecord::Base
     "<strong>Workshop</strong>, #{self.dates}"
   end
 
+  def members_converted?
+    return true if registrations.empty? or registrations.members.count == registrations.count
+    false
+  end
+
+  def convert_attendees_to_members!
+    return registrations.accepted.map do |registration|
+      Member.create_from_registration(registration)
+    end
+  end
+
   private
 
   def format_date(date)

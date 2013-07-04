@@ -1,0 +1,26 @@
+%legend
+  Registrations
+  %small= link_to "Add registration", new_admin_event_registration_path(@event)
+  - if not(@event.active) and not(@event.members_converted?)
+    .pull-right
+      =link_to "Convert attendees to members", admin_city_event_convert_members_path(@event.city, @event), class: "btn btn-danger", method: :post
+
+- if @event.registrations.any?
+  %ul.unstyled
+    - registrations.each_with_index do |registration, index|
+      %li.row
+        .span3
+          =registration.fullname
+          %small=link_to "Show", admin_event_registration_path(@event, registration)
+          =mail_to registration.email, registration.email
+        .span3
+          .label.label-success=registration.attending? ? "attending" : "not attending"
+          .pull-right
+            -if registration.attending?
+              = link_to "Don't Attend", admin_event_registration_attendance_path(@event, registration), method: :delete , class: 'btn btn-default'
+            - else
+              = link_to " Attend", admin_event_registration_attendance_path(@event, registration), method: :post , class: 'btn'
+        .span1
+          .label.label-success=registration.selection_state
+          - if registration.member
+            .label.label-info member

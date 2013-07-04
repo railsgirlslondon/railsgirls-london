@@ -1,0 +1,21 @@
+%legend
+  %h3
+    =@member.name
+    .pull-right= link_to 'Edit', edit_admin_city_member_path(@city, @member), class: "btn"
+
+.row
+  .span4
+    %ul.unstyled
+      %li
+        %strong twitter
+        = link_to "@#{@member.twitter}", "https://twitter.com/#{@member.twitter}"
+      %li
+        %strong email
+        =mail_to @member.email, @member.email
+
+
+  .span3
+    .pull-right= image_tag gravatar_url(@member.email, 90), class: 'img-circle'
+
+
+= link_to 'Back', admin_city_members_path(@city)

@@ -11,7 +11,12 @@ Fabricator(:sponsor_with_address, from: :sponsor) do
 end
 
 Fabricator(:sponsorship) do
-  sponsor { Fabricate(:sponsor) }
+  sponsor
+end
+
+Fabricator(:hosting, from: :sponsorship) do
+  sponsor(fabricator: :sponsor_with_address)
+  host true
 end
 
 Fabricator(:event_sponsorship, from: :sponsorship) do

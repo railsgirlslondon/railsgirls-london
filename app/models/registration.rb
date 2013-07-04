@@ -22,15 +22,20 @@ class Registration < ActiveRecord::Base
                   :twitter,
                   :dietary_restrictions,
                   :selection_state,
-                  :attending)
+                  :attending,
+                  :member)
 
   validates *REQUIRED_ATTRIBUTES, :presence => true
   validates *REGISTRATION_ATTRIBUTES, :presence => true, :on => 'registration'
 
   belongs_to :event
+  belongs_to :member
 
   validates :terms_of_service, :acceptance => true
   validates :email, :confirmation => true
+
+  scope :accepted, -> { where(selection_state: "accepted", attending: true) }
+  scope :members, -> { where(Registration.arel_table[:member_id].not_eq(nil)) }
 
   def fullname
     "#{first_name} #{last_name}"
@@ -51,9 +56,4 @@ class Registration < ActiveRecord::Base
     update_attribute :selection_state, selection_state
   end
 
-  def self.members
-    arel = Registration.arel_table
-    Registration.where(arel[:selection_state].eq("RGL Weeklies").
-                    or(arel[:selection_state].eq("accepted").and(arel[:attending].eq(true))))
-  end
 end

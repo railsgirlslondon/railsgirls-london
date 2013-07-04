@@ -4,7 +4,7 @@ class Admin::EventsController < ApplicationController
   before_action :authenticate_user!, :find_event, :find_cities
 
   def index
-    @events = Event.all.reverse
+    @events = Event.all
   end
 
   def show
@@ -39,6 +39,13 @@ class Admin::EventsController < ApplicationController
   def destroy
     @event.destroy
     redirect_to admin_events_path
+  end
+
+  def convert_attendees_to_members!
+    @event = Event.find(params[:event_id])
+    @members = @event.convert_attendees_to_members!
+
+    redirect_to admin_city_members_path(@event.city, @members), :notice => "The following members were created."
   end
 
   private
