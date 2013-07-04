@@ -24,5 +24,16 @@ module Extentions
     def invite_members
       members.each { |member| invite(member) }
     end
+
+    def has_available_slots?
+      available_slots and available_slots > invitations.accepted.count
+    end
+
+    def process_waiting_list
+      spots = available_slots - invitations.accepted.count
+      invitations.waiting_list.limit(spots).each do |invitation|
+        invitation.update_attributes(attending: true, waiting_list: false)
+      end
+    end
   end
 end

@@ -10,7 +10,7 @@ class InvitationController < ApplicationController
 
   def update
     if @invitation.update_attributes(invitation_params)
-      flash[:notice] = "Thank you for RSVPing."
+      flash[:notice] = "Thank you for your response."
     end
 
     redirect_to @invitation

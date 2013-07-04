@@ -9,15 +9,29 @@
       =@invitable.description
   .span4
     .hero-unit
-      %h3 Will you attend?
-      =simple_form_for @invitation, html: { class: 'form-inline' } do |f|
-        =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last
+      - if @invitable.has_available_slots? or @invitation.attending
+        %h3 Will you attend?
+        =simple_form_for @invitation, html: { class: 'form-inline' } do |f|
+          =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last
 
-        =f.submit "RSVP", class: 'btn btn-primary'
-      - unless @invitation.attending.nil?
-        %small
-          You have RSVPed
-          %strong #{@invitation.attending ? "yes" : "no"}
+          =f.submit "RSVP", class: 'btn btn-primary'
+        - unless @invitation.attending.nil?
+          %small
+            You have RSVPed
+            %strong #{@invitation.attending ? "yes" : "no"}
+      - else @invitable.has_available_slots?
+        %h3
+          No spots left.
+        %br
+        - unless @invitation.waiting_list
+          =link_to "Join the waiting list", invitation_path(invitation: { waiting_list: true }), method: :put, class: 'btn btn-primary'
+        - else
+          =link_to "Remove from waiting list", invitation_path(invitation: { waiting_list: false }), method: :put, class: 'btn btn-danger'
+        - if @invitation.waiting_list
+          %br
+          %br
+          %small
+            You have joined the waiting list.
 
 .row
   .span5

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Invitation, wip: true do
-  let(:meeting) { Fabricate(:meeting) }
+  let(:meeting) { Fabricate(:meeting, available_slots: 1) }
   let(:member) { Fabricate(:member) }
   let!(:hosting) { Fabricate(:hosting, sponsorable: meeting) }
   let(:invitation) { Fabricate(:invitation, invitable: meeting) }
@@ -27,6 +27,31 @@ describe Invitation, wip: true do
 
       Invitation.create! member: member, invitable: meeting
     end
+
+    context "#after_update" do
+      let(:invitation) { Fabricate(:invitation, invitable: meeting, attending: true) }
+
+      context "attendance is false", wip: true do
+        it "processess the waiting list" do
+          other_invitation = Fabricate(:invitation, invitable: meeting, waiting_list: true)
+
+          invitation.invitable.should_receive(:process_waiting_list)
+
+          invitation.update_attribute(:attending, false)
+        end
+      end
+
+      context "attendance is true and waiting_list is false", wip: true do
+        let(:invitation) { Fabricate(:invitation, invitable: meeting, waiting_list: true) }
+
+        it "sends a confirmation email" do
+          invitation.should_receive(:send_confirmation)
+
+          invitation.update_attributes(attending: true, waiting_list: false)
+        end
+
+      end
+    end
   end
 
   context "methods" do
@@ -34,6 +59,12 @@ describe Invitation, wip: true do
       invitation.invitable.should_receive(:email).with(:invite, invitation.member, invitation)
 
       invitation.send_invitation
+    end
+
+    it "#send_attendance_confirmation" do
+      invitation.invitable.should_receive(:email).with(:confirm_attendance, invitation.member, invitation)
+
+      invitation.send_confirmation
     end
   end
 end
