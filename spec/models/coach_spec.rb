@@ -1,17 +1,30 @@
 require 'spec_helper'
 
 describe Coach do
-  describe "#is_organiser_for?" do
-    subject { Fabricate(:coach) }
-    let!(:event) { Fabricate(:event) }
+  let!(:coach) { Fabricate(:coach) }
+  let!(:event) { Fabricate(:event) }
+
+  describe "validations" do
+    it "requires phone number when organising" do
+      expect(coach.valid?).to be_true
+
+      Coaching.create! coachable_type: 'Event', coachable_id: event.id, coach: coach, organiser: true
+
+      expect(coach.valid?).to be_false
+      expect(coach).to have(1).error_on(:phone_number)
+    end
+  end
+
+  describe "#is_organiser and #is_organiser_for?" do
     let!(:other_event) { Fabricate(:event) }
 
     before do
-      Coaching.create! coachable_type: 'Event', coachable_id: event.id, coach: subject, organiser: true
-      Coaching.create! coachable_type: 'Event', coachable_id: other_event.id, coach: subject, organiser: false
+      Coaching.create! coachable_type: 'Event', coachable_id: event.id, coach: coach, organiser: true
+      Coaching.create! coachable_type: 'Event', coachable_id: other_event.id, coach: coach, organiser: false
     end
 
-    specify { expect(subject.is_organiser_for?(event)).to eq(true) }
-    specify { expect(subject.is_organiser_for?(other_event)).to eq(false) }
+    specify { expect(coach.is_organiser?).to eq(true) }
+    specify { expect(coach.is_organiser_for?(event)).to eq(true) }
+    specify { expect(coach.is_organiser_for?(other_event)).to eq(false) }
   end
 end
