@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130703033754) do
+ActiveRecord::Schema.define(version: 20130708201117) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20130703033754) do
     t.integer  "coachable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "organiser"
   end
 
   add_index "coachings", ["coach_id"], name: "index_coachings_on_coach_id"

@@ -26,7 +26,7 @@ RailsgirlsLondon::Application.routes.draw do
 
     resources :sponsorships, only: [:create, :destroy, :update]
 
-    resources :coachings, only: [:create, :destroy]
+    resources :coachings, only: [:create, :destroy, :update]
     resources :sponsors
     resources :coaches
 
