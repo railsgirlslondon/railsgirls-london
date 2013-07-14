@@ -29,12 +29,14 @@ feature "admin CRUDing coaches" do
           click_on "Edit"
 
           fill_in "Name", with: "a new name"
+          fill_in "Phone number", with: "a phone number"
 
           click_on "Update Coach"
         end
 
         Then { page.has_content? 'Coach was successfully updated.' }
         And { page.has_content? 'a new name' }
+        And { page.has_content? "a phone number" } 
       end
 
       context "viewing that coach on the index" do

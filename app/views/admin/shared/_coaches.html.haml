@@ -5,4 +5,8 @@
   .row
     %ul.nav.nav-tabs.nav-stacked.span4
       - coachable.coaches.each do |coach|
-        %li= link_to coach.name, [:admin, coach]
+        %li
+          = link_to [:admin, coach] do
+            = coach.name
+            - if coach.is_organiser_for?(coachable)
+              .label.label-info Organiser
