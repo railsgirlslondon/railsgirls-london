@@ -5,13 +5,15 @@ describe Coach do
   let!(:event) { Fabricate(:event) }
 
   describe "validations" do
+    let!(:coach) { Coach.create name: "Name", email: "email@emial.com" }
+
     it "requires phone number when organising" do
       expect(coach.valid?).to be_true
 
-      Coaching.create! coachable_type: 'Event', coachable_id: event.id, coach: coach, organiser: true
+      coaching = Coaching.create coachable_type: 'Event', coachable_id: event.id, coach: coach, organiser: true
 
-      expect(coach.valid?).to be_false
-      expect(coach).to have(1).error_on(:phone_number)
+      expect(coaching.valid?).to be_false
+      expect(coaching).to have(1).error_on(:coach)
     end
   end
 
