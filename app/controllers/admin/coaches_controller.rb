@@ -48,7 +48,7 @@ class Admin::CoachesController < ApplicationController
     end
 
     def coach_params
-      params.require(:coach).permit(:name, :twitter, :email)
+      params.require(:coach).permit(:name, :twitter, :email, :phone_number)
     end
 
     def set_not_coaching
