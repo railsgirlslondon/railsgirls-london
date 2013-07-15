@@ -20,6 +20,22 @@ feature "Coachings" do
       end
     end
 
+    context "can be set as organiser" do
+      When do
+        visit admin_coach_path(coach)
+        click_on "Coach"
+        check "Organiser"
+        click_on "Update"
+      end
+
+      Then do
+        page.has_content? "#{coach.name} coaching has been updated."
+        visit admin_city_event_path(event.city, event)
+        page.has_content? coach.name
+      end
+      And { page.has_content? "Organiser" }
+    end
+
     context "can be removed" do
       Given do
         Fabricate(:event_coaching, coach: coach, coachable_id: event.id)

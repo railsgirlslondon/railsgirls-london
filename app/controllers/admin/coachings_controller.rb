@@ -15,8 +15,20 @@ class Admin::CoachingsController < ApplicationController
     redirect_to(:back)
   end
 
+  def update
+    coaching = Coaching.find(params[:id])
+
+    if coaching.update_attributes(event_coaching_params)
+      flash[:notice] = "#{coaching.coach.name} coaching has been updated.".html_safe
+    else
+      flash[:error] = coaching.errors.full_messages.join("\n")
+    end
+
+    redirect_to(:back)
+  end
+
   private
     def event_coaching_params
-      params.require(:coaching).permit(:coachable_id, :coachable_type, :coach_id)
+      params.require(:coaching).permit(:coachable_id, :coachable_type, :coach_id, :organiser)
     end
 end
