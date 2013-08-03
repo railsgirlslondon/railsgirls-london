@@ -1,6 +1,6 @@
 %section#subscribe
   %h2 Subscribe
-  = simple_form_for :subscription, url: "https://groups.google.com/group/rails-girls-london/boxsubscribe" do |f|
+  = simple_form_for :subscription, url: "https://groups.google.com/group/rails-girls-london/boxsubscribe", method: :get do |f|
     = f.input :email, label: false
 
   .info
