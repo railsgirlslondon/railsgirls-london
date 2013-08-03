@@ -10,4 +10,4 @@
               %strong= meeting.name
               %small= I18n.l(meeting.date)
 
-= render partial: "shared/all_sponsors", locals: { sponsors: @sponsors }
+= render partial: "shared/all_sponsors", locals: { sponsors: @sponsors, show_title: false }
