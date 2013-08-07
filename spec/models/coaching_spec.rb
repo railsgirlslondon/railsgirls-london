@@ -5,8 +5,8 @@ describe Coaching do
     it "requires a phone number for a coach" do
       coach = Fabricate(:coach, phone_number: nil)
       event = Fabricate(:event)
-      
-      coaching = Coaching.new(coachable_id: event.id, 
+
+      coaching = Coaching.new(coachable_id: event.id,
                               coachable_type: 'Event',
                               coach: coach,
                               organiser: true)
