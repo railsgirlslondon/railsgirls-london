@@ -7,7 +7,7 @@ describe MeetingMailer do
   let(:invitation) { Fabricate(:invitation, invitable: meeting) }
 
   it "sends an invitation email" do
-    @email_subject = "Rails Girls #{meeting.city_name} - You are invited to Weeklies"
+    @email_subject = "Rails Girls #{meeting.city_name} - You are invited to Weeklies (#{meeting.date.to_formatted_s(:long_ordinal)})"
 
     MeetingMailer.invite(meeting, invitation.member, invitation).deliver
   end
