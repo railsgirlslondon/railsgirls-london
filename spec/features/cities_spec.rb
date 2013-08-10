@@ -1,54 +1,51 @@
 require 'spec_helper'
 
 describe "Listing cities" do
-  Given { City.create!(name: "Sama") }
-  Given { City.create!(name: "Na") }
+  before(:each) do
+    @city = Fabricate(:city, name: "Sama")
+    Fabricate(:event, city: @city)
+    Fabricate(:inactive_event, city: @city)
+    @meeting =  Fabricate(:meeting, city: @city)
+    
+    Fabricate(:city, name: "Na")
+  end
+  
+  specify "viewing and selecting cities" do
+    visit root_path
 
-  context "viewing cities" do
-    When { visit root_path }
+    page.has_content? "Sama"
+    page.has_content? "Na"
 
-    Then { page.has_content? "Sama" }
-    And { page.has_content? "Na" }
+    viewing_by_link
+    viewing_by_url
+
+    check_upcoming_events
+    check_past_events
+    check_upcoming_meetings
+  end
+    
+  def viewing_by_url
+    visit "/sama"
+    page.has_content? "Rails Girls Sama"
   end
 
-  context "selecting a city" do
-    Given { visit root_path }
-
-    When { click_on("Sama") }
-    Then { page.has_content? "Rails Girls Sama" }
+  def viewing_by_link
+    click_on("Sama")
+    page.has_content? "Rails Girls Sama"
   end
 
-  context "visiting a city directly" do
-    Given { visit "/sama" }
-    Then { page.has_content? "Rails Girls Sama" }
-  end
-end
-
-describe "Viewing a city" do
-  Given(:city) { Fabricate(:city) }
-
-  context "with an upcoming event" do
-    Given { Fabricate(:event, city: city) }
-
-    When { visit city_path(city) }
-    Then { find("#upcoming_event .title").text.should eq city.upcoming_event.title }
-    Then { find("#upcoming_event .description").text.should eq city.upcoming_event.description }
-    Then { find("#upcoming_event .links").text.should include "Tweet" }
+  def check_upcoming_events
+    find("#upcoming_event .title").text.should eq @city.upcoming_event.title
+    find("#upcoming_event .description").text.should eq @city.upcoming_event.description
+    find("#upcoming_event .links").text.should include "Tweet"
   end
 
-  context "with a past event" do
-    Given { Fabricate(:inactive_event, city: city) }
-
-    When { visit city_path(city) }
-    Then { find("#past_events p").text.should eq city.past_events.first.dates }
+  def check_upcoming_meetings
+    page.has_content?(I18n.l(@meeting.date))
+    page.has_content? @meeting.name
   end
 
-  context "with upcoming meetings" do
-    Given!(:meeting) { Fabricate(:meeting, city: city) }
-
-    When { visit city_path(city) }
-    Then { page.has_content?(I18n.l(meeting.date)) }
-    Then { page.has_content? meeting.name }
+  def check_past_events
+    find("#past_events p").text.should eq @city.past_events.first.dates    
   end
-
 end
