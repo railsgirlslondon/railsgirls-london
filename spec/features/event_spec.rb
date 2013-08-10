@@ -2,9 +2,7 @@ require 'spec_helper'
 
 feature "viewing an event" do
   Given(:city) { Fabricate(:city) }
-
   context "when it is active" do
-
     context "when the registration deadline is set" do
       Given!(:event) { Fabricate(:event, city: city) }
       Given!(:host) do

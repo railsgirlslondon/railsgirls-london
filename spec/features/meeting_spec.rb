@@ -1,28 +1,24 @@
 require 'spec_helper'
 
 feature "viewing a meeting" do
-  Given(:city) { Fabricate(:city) }
+  let!(:city) { Fabricate(:city) }
 
-  context "when it has been announced" do
-    Given!(:meeting) { Fabricate(:meeting, city: city) }
+  let!(:announced_meeting) { Fabricate(:meeting, city: city) }
+  let!(:unannounced_meeting) { Fabricate(:unannounced_meeting, city: city) }
 
-    When do
-      visit city_meeting_path(city, meeting)
-    end
-
-    Then { page.has_content? meeting.name }
-    And { page.has_content? meeting.description }
-
+  specify do
+    viewing_announced_meeting
+    cant_view_unannounced_meeting
   end
 
-  context "when it has not been announced" do
-    Given!(:meeting) { Fabricate(:unannounced_meeting, city: city) }
+  def viewing_announced_meeting
+    visit city_meeting_path(city, announced_meeting)
+    page.has_content? announced_meeting.name 
+    page.has_content? announced_meeting.description 
+  end
 
-    When do
-      visit(city_meeting_path(city, meeting))
-    end
-
-    Then { page.has_content? "No such meeting." }
-
+  def cant_view_unannounced_meeting
+    visit(city_meeting_path(city, unannounced_meeting))
+    page.has_content? "No such meeting."
   end
 end
