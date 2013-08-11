@@ -5,10 +5,14 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'rspec/given'
 require 'vcr'
-require 'coveralls'
 require 'webmock/rspec'
 require 'capybara/rails'
-Coveralls.wear!
+
+if ENV['CI']
+  require 'coveralls'
+  Coveralls.wear!
+end
+
 RSpec::Given.use_natural_assertions
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
