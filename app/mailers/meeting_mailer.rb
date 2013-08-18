@@ -23,6 +23,7 @@ class MeetingMailer < ActionMailer::Base
   def setup meeting, registration, invitation
     @registration = registration
     @invitation = invitation
+    @member = invitation.member
     @meeting = meeting
     @city = meeting.city
 
