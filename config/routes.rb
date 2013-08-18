@@ -37,6 +37,9 @@ RailsgirlsLondon::Application.routes.draw do
 
   get "/:id/sponsor" => "cities#sponsor", as: :city_sponsor
 
+  get "/unsubscribe/:member_uuid" => "unsubscribes#new", as: :unsubscribe
+  post "/unsubscribe/:member_uuid" => "unsubscribes#create"
+
   resources :invitation, only: [:show, :update ], param: :token
 
   resources :cities, path: "", only: [:show] do
