@@ -30,6 +30,21 @@ describe Meeting do
     end
   end
 
+  context "#invite_members" do
+    let(:members) { [ Fabricate(:member),
+                      Fabricate(:member),
+                      Fabricate(:member, active: false)] }
+    let!(:city) { Fabricate(:city, members: members) }
+    let!(:meeting) { Fabricate(:meeting, city: city) }
+
+    it "sends emails only to active members" do
+      mailer = double(MeetingMailer, deliver: nil)
+      MeetingMailer.should_receive(:invite).twice.and_return(mailer)
+
+      meeting.invite_members
+    end
+  end
+
   context "#email" do
     let(:meeting) { Fabricate(:meeting) }
     let!(:sponsor) { Fabricate(:sponsor_with_address) }

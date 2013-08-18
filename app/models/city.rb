@@ -11,6 +11,10 @@ class City < ActiveRecord::Base
 
   before_save :generate_slug
 
+  def active_members
+    members.where(active: true)
+  end
+
   def to_param
     slug
   end

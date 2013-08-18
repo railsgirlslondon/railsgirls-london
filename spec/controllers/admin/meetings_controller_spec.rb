@@ -128,5 +128,4 @@ describe Admin::MeetingsController do
       response.should redirect_to(admin_city_meetings_path(city))
     end
   end
-
 end
