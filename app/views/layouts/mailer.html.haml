@@ -48,3 +48,9 @@
             =image_tag attachments['facebook.png'].url
           =link_to "https://github.com/railsgirlslondon/railsgirls-#{@city.slug}", class: "btn btn-media", style: "color: #E0330C; text-decoration: none; border-bottom: none; text-decoration: none;"  do
             =image_tag attachments['github.png'].url
+
+      - if @member.present?
+        %p.lead{style: "font-size: 12px"}
+          If you'd like to unsubscribe please
+          = link_to "click here", unsubscribe_url(@member.uuid)
+

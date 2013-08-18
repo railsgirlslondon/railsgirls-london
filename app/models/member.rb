@@ -6,17 +6,29 @@ class Member < ActiveRecord::Base
 
 
   PERMITTED_ATTRIBUTES = [ *REQUIRED_ATTRIBUTES, :city_id, :phone_number, :twitter ]
+  ALL_ATTRIBUTES = [*PERMITTED_ATTRIBUTES, :active]
 
-  validates *REQUIRED_ATTRIBUTES, :presence => true
+  validates(*REQUIRED_ATTRIBUTES, :presence => true)
   validates :email, uniqueness: { scope: :city_id }
 
-  attr_accessible *PERMITTED_ATTRIBUTES
+  attr_accessible(*ALL_ATTRIBUTES)
 
   belongs_to :city
 
   scope :latest, -> { order('members.created_at DESC').limit(10) }
 
   has_one :registration
+
+  before_create do
+    self.uuid = SecureRandom.uuid
+  end
+
+  def self.deactivate!(uuid)
+    find_by(uuid: uuid).tap do |member|
+      member.active = false
+      member.save!
+    end
+  end
 
   def name
     "#{first_name} #{last_name}"

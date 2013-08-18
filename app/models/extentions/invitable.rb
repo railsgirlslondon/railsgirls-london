@@ -22,7 +22,7 @@ module Extentions
     end
 
     def invite_members
-      members.each { |member| invite(member) }
+      active_members.each { |member| invite(member) }
     end
 
     def has_available_slots?
