@@ -44,19 +44,4 @@ describe Meeting do
       meeting.invite_members
     end
   end
-
-  context "#email" do
-    let(:meeting) { Fabricate(:meeting) }
-    let!(:sponsor) { Fabricate(:sponsor_with_address) }
-    let!(:hosting) { Fabricate(:hosting, sponsorable: meeting, sponsor: sponsor)}
-    let!(:invitation) { Fabricate(:invitation, invitable: meeting) }
-
-    it "triggers the MeetingMailer"  do
-      mailer = mock(MeetingMailer, deliver: mock)
-      MeetingMailer.should_receive(:invite).with(meeting, invitation.member, invitation).and_return(mailer)
-
-      meeting.email :invite, invitation.member, invitation
-    end
-  end
-
 end
