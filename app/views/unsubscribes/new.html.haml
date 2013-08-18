@@ -1,0 +1,6 @@
+%h2 Are you sure you want to unsubscribe?
+
+= simple_form_for :unsubscribe, method: :post, url: unsubscribe_path(@member_uuid) do |f|
+  = f.submit "Yes", class: "btn btn-primary"
+  = link_to "No", root_path, class: "btn"
+

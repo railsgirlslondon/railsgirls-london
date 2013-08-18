@@ -30,18 +30,18 @@ describe Meeting do
     end
   end
 
-  context "#email" do
-    let(:meeting) { Fabricate(:meeting) }
-    let!(:sponsor) { Fabricate(:sponsor_with_address) }
-    let!(:hosting) { Fabricate(:hosting, sponsorable: meeting, sponsor: sponsor)}
-    let!(:invitation) { Fabricate(:invitation, invitable: meeting) }
+  context "#invite_members" do
+    let(:members) { [ Fabricate(:member),
+                      Fabricate(:member),
+                      Fabricate(:member, active: false)] }
+    let!(:city) { Fabricate(:city, members: members) }
+    let!(:meeting) { Fabricate(:meeting, city: city) }
 
-    it "triggers the MeetingMailer"  do
-      mailer = mock(MeetingMailer, deliver: mock)
-      MeetingMailer.should_receive(:invite).with(meeting, invitation.member, invitation).and_return(mailer)
+    it "sends emails only to active members" do
+      mailer = double(MeetingMailer, deliver: nil)
+      MeetingMailer.should_receive(:invite).twice.and_return(mailer)
 
-      meeting.email :invite, invitation.member, invitation
+      meeting.invite_members
     end
   end
-
 end

@@ -8,7 +8,7 @@ class Meeting < ActiveRecord::Base
                  :sponsors,
                  :announced ]
 
-  attr_accessible *ATTRIBUTES
+  attr_accessible(*ATTRIBUTES)
 
   include Extentions::Sponsorable
   include Extentions::Coachable
@@ -26,7 +26,7 @@ class Meeting < ActiveRecord::Base
 
   delegate :name, to: :meeting_type
   delegate :description, to: :meeting_type
-  delegate :members, to: :city
+  delegate :active_members, to: :city
 
   def self.all_sponsors
     Sponsorship.where(:sponsorable_type => "Meeting").map(&:sponsor).uniq! or []

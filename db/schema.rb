@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130708204220) do
+ActiveRecord::Schema.define(version: 20130818104350) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -118,6 +118,8 @@ ActiveRecord::Schema.define(version: 20130708204220) do
     t.integer  "city_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uuid"
+    t.boolean  "active",       default: true
   end
 
   add_index "members", ["city_id"], name: "index_members_on_city_id"

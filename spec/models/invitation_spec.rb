@@ -49,7 +49,6 @@ describe Invitation do
 
           invitation.update_attributes(attending: true, waiting_list: false)
         end
-
       end
     end
   end
