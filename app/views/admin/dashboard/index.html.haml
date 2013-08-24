@@ -4,16 +4,16 @@
     %table.table.table-striped.span7
       %thead
         %tr
-          %th Location
           %th Host
+          %th Location
           %th Date
           %th
 
       %tbody
         - @active_events.each do |event|
           %tr
-            %td= event.city_name
             %td= event.host.name
+            %td= event.host.address_postcode
             %td= event.dates
             %td.actions= link_to 'View', admin_event_path(event)
 
