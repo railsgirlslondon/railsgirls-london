@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '~> 4.0.0.rc1'
+gem 'rails', '~> 4.0.0'
 gem 'unicorn'
 
 gem 'haml-rails'
@@ -10,10 +10,10 @@ gem 'simple_form', '~> 3.0.0.rc'
 gem 'devise', '~> 3.0.0.rc'
 gem 'protected_attributes' # temporary
 gem 'ruby-trello', require: false
+gem 'pg'
 
 group :production do
-  gem 'pg'
-  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+  gem 'rails_12factor'
 end
 
 group :test, :development do
