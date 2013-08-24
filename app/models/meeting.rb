@@ -21,7 +21,7 @@ class Meeting < ActiveRecord::Base
 
   belongs_to :meeting_type
 
-  scope :upcoming, -> { where("date >= ?", Date.today) }
+  scope :upcoming, -> { where("date >= ?", Date.today).order(:date) }
   scope :announced, -> { where("announced = ?", true) }
 
   delegate :name, to: :meeting_type
