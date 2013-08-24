@@ -30,6 +30,8 @@ RailsgirlsLondon::Application.routes.draw do
     resources :sponsors
     resources :coaches
 
+    root :to => 'dashboard#index'
+
     get '/dashboard' => 'dashboard#index', as: :dashboard
   end
 

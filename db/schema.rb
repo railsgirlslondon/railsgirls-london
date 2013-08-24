@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20130818104350) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "twitter"
     t.string   "slug"
     t.string   "email"
@@ -188,8 +188,8 @@ ActiveRecord::Schema.define(version: 20130818104350) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
