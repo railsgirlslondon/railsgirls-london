@@ -26,18 +26,18 @@
         %strong Want to help?
         %small
           We are looking for coaches to help out with our meetings and workshops.
-          = link_to "Subscribe", "https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"
-          to our coaches mailing list!
+          = link_to "Subscribe to our coaches mailing list!", "https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"
     #main{:role => "main"}
       .container
         .row#marginup
           .span3.offset1
             = render 'layouts/social_media'
             %br
-            = image_tag "london-profile.jpg"
+            = image_tag "london-profile.svg"
             %br
-            .text-center
-              %strong= link_to "Become a sponsor!", city_sponsor_path(@city)
+            .text-center.sponsorbutton
+              %strong#sponsor
+                = link_to "Become a sponsor!", city_sponsor_path(@city)
             %br
             = render 'layouts/twitter_snippet' if @city and @city.twitter
             %br
