@@ -51,7 +51,7 @@ feature "admin CRUDing coaches" do
       context "deleting that coach" do
         When do
           click_on "Back"
-          click_on "Destroy"
+          click_on "Delete"
         end
 
         Then { page.has_content? 'Coach was successfully destroyed.' }

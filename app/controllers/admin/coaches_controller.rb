@@ -6,7 +6,7 @@ class Admin::CoachesController < ApplicationController
   before_action :authenticate_user!, :find_cities
 
   def index
-    @coaches = Coach.all
+    @coaches = Coach.sorted_by_name
   end
 
   def show
