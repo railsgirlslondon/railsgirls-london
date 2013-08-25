@@ -5,6 +5,7 @@ $baseFontSize: 16px
 
 body
   padding-top: 110px
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif
 
 @import "bootstrap-responsive"
 
@@ -15,7 +16,7 @@ body
 
   /* Gradients for modern browsers, replace as you see fit */
 
-  border-bottom: 1px dotted #555555
+  /* border-bottom: 1px dotted #555555 */
 
   /* IE8-9 gradient filter */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#d3360b', GradientType=0)
@@ -26,6 +27,10 @@ body
 
 .navbar
 
+  a
+    color: $red-tone
+    border-bottom: none
+
   #logo
     margin-left: 10px
     margin-top: 5px
@@ -35,10 +40,11 @@ body
 
     a
       color: #FFF
-      font-size: 28px
-      font-weight: 500
+      font-size: 31px
+      font-weight: 600
       line-height: 70px
-      padding-left: 10px
+      letter-spacing: 0.03em
+      padding-left: 20px
 
     img
       background-color: #FFF
@@ -86,3 +92,28 @@ table.table-balanced
 
 i
   font-size: 1%
+
+.btn
+  background-color: #FFFFFF
+  border: 1px solid #E5E9EC
+  border-radius: 5px
+  box-shadow: 0 1px 0 rgba(186, 178, 187, 0.1), 1px 0 1px rgba(186, 178, 187, 0.2)
+  color: #333333
+  cursor: pointer
+  display: inline-block
+  font-size: 16px
+  line-height: 20px
+  margin-bottom: 0
+  margin-left: 2px
+  padding: 6px 7px
+  text-align: center
+  vertical-align: middle
+  background-image: none
+  background-repeat: none
+
+form
+  margin: 0 0 12px
+
+.navbar
+  .brand
+    margin-left: -8px

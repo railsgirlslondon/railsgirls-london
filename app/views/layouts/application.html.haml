@@ -8,6 +8,9 @@
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
     = stylesheet_link_tag "application", :media => "all"
+    %script(type="text/javascript" src="http://use.typekit.net/xaz4ocu.js")
+    :javascript
+      try{Typekit.load();}catch(e){}
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield(:head)

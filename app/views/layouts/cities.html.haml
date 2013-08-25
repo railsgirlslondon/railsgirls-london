@@ -7,6 +7,9 @@
     %title= content_for?(:title) ? yield(:title) : page_title
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
+    %script(type="text/javascript" src="http://use.typekit.net/xaz4ocu.js")
+    :javascript
+      try{Typekit.load();}catch(e){}
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -27,7 +30,7 @@
           to our coaches mailing list!
     #main{:role => "main"}
       .container
-        .row
+        .row#marginup
           .span3.offset1
             = render 'layouts/social_media'
             %br
