@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature "an admin CRUDing cities" do
-  Given { City.create! name: "A city that exists" }
+  Given!(:city) { City.create! name: "A city that exists" }
   Given { admin_logged_in! }
 
   context "creating cities" do
@@ -24,5 +24,54 @@ feature "an admin CRUDing cities" do
       expect(page).to have_content("London")
     end
   end
+
+  context "managing" do
+    context "events" do
+      Given!(:event) { Fabricate(:event, city: city) }
+
+      Given { click_on "Cities" }
+
+      When do
+        click_on city.name
+      end
+
+      Then do
+        expect(page).to have_content("#{city.name} dashboard")
+        expect(page).to have_link("Add event")
+        expect(page).to have_link(event.dates)
+      end
+    end
+
+    context "meetings" do
+      Given!(:meeting) { Fabricate(:meeting, city: city) }
+      Given { click_on "Cities" }
+
+      When do
+        click_on city.name
+      end
+
+      Then do
+        expect(page).to have_content("#{city.name} dashboard")
+        expect(page).to have_link("Add meeting")
+        expect(page).to have_link(meeting.name)
+      end
+    end
+
+    context "members" do
+      Given!(:member) { Fabricate(:member, city: city) }
+      Given { click_on "Cities" }
+
+      When do
+        click_on city.name
+      end
+
+      Then do
+        expect(page).to have_content("#{city.name} dashboard")
+        expect(page).to have_link("Add member")
+        expect(page).to have_link(member.name)
+      end
+    end
+  end
+
 end
 

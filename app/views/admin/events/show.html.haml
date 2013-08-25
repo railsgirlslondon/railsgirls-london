@@ -1,63 +1,21 @@
 #admin_event
-  %p#notice= notice
-
-  %h3.highlight= "#{@event.city_name} - #{@event.title}"
-  %h4= @event.dates
+  %legend
+    %h3
+      = event_title(@event)
+      %small= @event.dates
+      .pull-right= link_to 'Edit', edit_admin_event_path(@event), class: "btn"
   %p.lead= @event.description
 
-  %em
+  .highlight
     The event is
     = @event.active ? "active" : "not active"
-    %h3
-      Sponsors
-      %small= link_to "Add sponsor", new_admin_sponsor_path
-  - if @event.sponsors.any?
-    %table.table
-      - @event.sponsors.each do |sponsor|
-        %tr
-          %td= link_to sponsor.name, [:admin, sponsor]
 
-    %h3
-      Coaches
-      %small= link_to "Add coach", new_admin_coach_path
-  - if @event.coaches.any?
-    %table.table
-      - @event.coaches.each do |coach|
-        %tr
-          %td= link_to coach.name, [:admin, coach]
+  %br
+  %br
 
-  %h3
-    Registrations
-    %small= link_to "Add registration", new_admin_event_registration_path(@event)
-  - if @event.registrations.any?
-    %table.table.table-striped
-      %thead
-        %th #
-        %th Name
-        %th Email
-        %th View
-        %th Attending?
-        %th Actions
+  =render partial: "admin/shared/sponsors", locals:  { sponsorable: @event }
 
-        %tbody
-          - @event.registrations.each_with_index do |registration, index|
-            %tr
-              %td= index+1
-              %td= registration.fullname
-              %td
-                =mail_to registration.email, registration.email
-              %td
-                =link_to "Show", admin_event_registration_path(@event, registration)
-              - if registration.selection_state
-                %td
-                  =content_tag "a", registration.selection_state, class: 'btn btn-success disabled'
-              - if registration.attending?
-                %td Attending
-                %td= link_to("Remove Attendance", admin_event_registration_attendance_path(@event, registration), method: :delete)
-              - else
-                %td
-                %td= link_to("Confirm Attendance", admin_event_registration_attendance_path(@event, registration), method: :post)
+  =render partial: "admin/shared/coaches", locals:  { coachable: @event } if @event.coachable
 
-  = link_to 'Edit', edit_admin_event_path(@event)
-  \|
-  = link_to 'Back', admin_events_path
+  =render partial: "admin/shared/registrations", locals:  { registrations: @event.registrations }
+

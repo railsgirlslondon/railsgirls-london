@@ -56,16 +56,16 @@ describe Admin::EventsController do
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved event as @event" do
+      before do
         Event.any_instance.stub(:save).and_return(false)
-        post :create, {:event => {  }}
+        post :create, {:event => { :wrong_params => true  }}
+      end
+
+      it "assigns a newly created but unsaved event as @event" do
         assigns(:event).should be_a_new(Event)
       end
 
       it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Event.any_instance.stub(:save).and_return(false)
-        post :create, {:event => {  }}
         response.should render_template("new")
       end
     end

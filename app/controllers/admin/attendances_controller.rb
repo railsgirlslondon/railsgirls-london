@@ -1,4 +1,6 @@
 class Admin::AttendancesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     toggle_attendance!
   end

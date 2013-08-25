@@ -1,10 +1,11 @@
 class Admin::CitiesController < ApplicationController
   layout 'admin'
 
-  before_filter :authenticate_user!
+  before_action :authenticate_user!, :find_cities
+  before_action :find_city, only: [:show]
 
   def new
-
+    @city = City.new
   end
 
   def create
@@ -14,5 +15,14 @@ class Admin::CitiesController < ApplicationController
 
   def index
     @cities = City.all
+  end
+
+  def show
+  end
+
+  private
+
+  def find_city
+    @city = City.find_by_slug params[:id]
   end
 end

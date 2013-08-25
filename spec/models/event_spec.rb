@@ -69,7 +69,7 @@ describe Event do
     let!(:sponsor) { Fabricate(:sponsor_with_address) }
     let!(:other_sponsor) { Fabricate(:sponsor, events: [event]) }
 
-    let!(:event_sponsorship) { EventSponsorship.create! event: event, sponsor: sponsor, host: true }
+    let!(:sponsorship) { Sponsorship.create! sponsorable_id: event.id, sponsorable_type: 'Event', sponsor: sponsor, host: true }
 
     specify { expect(event.host) == sponsor }
     specify { expect(event.has_host?) == true }
@@ -78,11 +78,25 @@ describe Event do
     specify { expect(event.non_hosting_sponsors).to eq([other_sponsor]) }
 
     context "when no sponsorships is there" do
-      before { event_sponsorship.destroy }
+      before { sponsorship.destroy }
 
-      specify { expect(event.host).to eq(false) }
+      specify { expect(event.host).to eq(nil) }
       specify { expect(event.has_host?).to eq(false) }
     end
+
+    describe "is_host_for?" do
+      let!(:meeting) { Fabricate(:meeting) }
+      let!(:sponsor) { Fabricate(:sponsor_with_address) }
+      let!(:other_sponsor) { Fabricate(:event_sponsorship) }
+
+      let!(:sponsorship) { Sponsorship.create! sponsorable_id: meeting.id, sponsorable_type: 'Meeting', sponsor: sponsor, host: true }
+
+      context "when there is a host" do
+        specify { expect(sponsor.is_host_for?(meeting)).to eq(true) }
+      end
+
+    end
+
   end
 
   describe "dates" do
@@ -114,9 +128,9 @@ describe Event do
 
   describe "applications" do
     let(:event) { Fabricate(:event, city: Fabricate(:city, name: "test-#{Time.now}")) }
-    let!(:accepted_registrations) { 3.times.map { Fabricate(:registration, event: event, selection_state: "accepted") } }
-    let!(:waiting_registrations) { 2.times.map { Fabricate(:registration, event: event, selection_state: "waiting list") } }
-    let!(:weeklies) { 2.times.map { Fabricate(:registration, event: event, selection_state: "RGL Weeklies") } }
+    let!(:accepted) { 3.times.map { Fabricate(:attended_registration, event: event) } }
+    let!(:weeklies) { 2.times.map { Fabricate(:weeklies_registration, event: event) } }
+    let!(:waiting_list) { 2.times.map { Fabricate(:waiting_list_registration, event: event) } }
 
     it "#export_applications_to_trello" do
       event_trello = mock(:event_trello, export: nil)
@@ -144,15 +158,15 @@ describe Event do
     end
 
     it "#selected_applicants" do
-      event.selected_applicants.should eq accepted_registrations
+      event.selected_applicants.should eq accepted
     end
 
     it "#waiting_list_applicants" do
-      event.waiting_list_applicants.should eq waiting_registrations
+      event.waiting_list_applicants.should eq waiting_list
     end
 
     it "#send_email_to_selected_applicants" do
-      accepted_registrations.each do |registration|
+      accepted.each do |registration|
         registration_mailer = mock(:registration_mailer, deliver: nil)
         RegistrationMailer.should_receive(:application_accepted).with(event, registration).and_return(registration_mailer)
       end
@@ -161,7 +175,7 @@ describe Event do
     end
 
     it "#send_email_to_rejected_applicants" do
-      waiting_registrations.each do |registration|
+      waiting_list.each do |registration|
         registration_mailer = mock(:registration_mailer, deliver: nil)
         RegistrationMailer.should_receive(:application_rejected).with(event, registration).and_return(registration_mailer)
       end
@@ -176,6 +190,19 @@ describe Event do
       end
 
       event.send_email_invite_to_weeklies
+    end
+
+    it "#converts_attendees_to_members!" do
+      5.times.map { Fabricate(:registration, event: event) }
+      attendees = 2.times.map { Fabricate(:attended_registration, event: event) }
+
+      registrations = event.registrations
+      event.should_receive(:registrations).and_return(registrations)
+      registrations.should_receive(:accepted).and_return(attendees)
+
+      attendees.each { |attendee| Member.should_receive(:create_from_registration).with(attendee) }
+
+      event.convert_attendees_to_members!
     end
   end
 end

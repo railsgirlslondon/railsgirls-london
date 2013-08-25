@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130615213221) do
+ActiveRecord::Schema.define(version: 20130818104350) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20130615213221) do
     t.string   "email"
   end
 
-  add_index "cities", ["slug"], name: "index_cities_on_slug"
+  add_index "cities", ["slug"], name: "index_cities_on_slug", using: :btree
 
   create_table "coaches", force: true do |t|
     t.string   "name"
@@ -30,14 +33,26 @@ ActiveRecord::Schema.define(version: 20130615213221) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phone_number"
   end
+
+  create_table "coachings", force: true do |t|
+    t.integer  "coach_id"
+    t.string   "coachable_type"
+    t.integer  "coachable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "organiser"
+  end
+
+  add_index "coachings", ["coach_id"], name: "index_coachings_on_coach_id", using: :btree
 
   create_table "event_coachings", force: true do |t|
     t.integer "event_id", null: false
     t.integer "coach_id", null: false
   end
 
-  add_index "event_coachings", ["event_id", "coach_id"], name: "index_event_coachings_on_event_id_and_coach_id", unique: true
+  add_index "event_coachings", ["event_id", "coach_id"], name: "index_event_coachings_on_event_id_and_coach_id", unique: true, using: :btree
 
   create_table "event_sponsorships", force: true do |t|
     t.integer "event_id",                   null: false
@@ -45,8 +60,8 @@ ActiveRecord::Schema.define(version: 20130615213221) do
     t.boolean "host",       default: false, null: false
   end
 
-  add_index "event_sponsorships", ["event_id", "sponsor_id"], name: "index_event_sponsorships_on_event_id_and_sponsor_id", unique: true
-  add_index "event_sponsorships", ["host"], name: "index_event_sponsorships_on_host"
+  add_index "event_sponsorships", ["event_id", "sponsor_id"], name: "index_event_sponsorships_on_event_id_and_sponsor_id", unique: true, using: :btree
+  add_index "event_sponsorships", ["host"], name: "index_event_sponsorships_on_host", using: :btree
 
   create_table "events", force: true do |t|
     t.text     "description"
@@ -58,7 +73,59 @@ ActiveRecord::Schema.define(version: 20130615213221) do
     t.date     "ends_on"
     t.date     "registration_deadline"
     t.string   "title"
+    t.boolean  "coachable"
+    t.string   "image"
   end
+
+  create_table "invitations", force: true do |t|
+    t.integer  "member_id"
+    t.string   "invitable_type"
+    t.boolean  "attending"
+    t.integer  "invitable_id"
+    t.boolean  "waiting_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+  end
+
+  add_index "invitations", ["member_id"], name: "index_invitations_on_member_id", using: :btree
+
+  create_table "meeting_types", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "frequency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meetings", force: true do |t|
+    t.datetime "date"
+    t.boolean  "announced"
+    t.integer  "city_id"
+    t.integer  "meeting_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "coachable"
+    t.integer  "available_slots"
+  end
+
+  add_index "meetings", ["city_id"], name: "index_meetings_on_city_id", using: :btree
+  add_index "meetings", ["meeting_type_id"], name: "index_meetings_on_meeting_type_id", using: :btree
+
+  create_table "members", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "email"
+    t.string   "twitter"
+    t.integer  "city_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "uuid"
+    t.boolean  "active",       default: true
+  end
+
+  add_index "members", ["city_id"], name: "index_members_on_city_id", using: :btree
 
   create_table "registrations", force: true do |t|
     t.string   "first_name",                             null: false
@@ -81,10 +148,11 @@ ActiveRecord::Schema.define(version: 20130615213221) do
     t.string   "dietary_restrictions"
     t.string   "selection_state"
     t.boolean  "attending",              default: false, null: false
+    t.integer  "member_id"
   end
 
-  add_index "registrations", ["email"], name: "index_registrations_on_email"
-  add_index "registrations", ["last_name"], name: "index_registrations_on_last_name"
+  add_index "registrations", ["email"], name: "index_registrations_on_email", using: :btree
+  add_index "registrations", ["last_name"], name: "index_registrations_on_last_name", using: :btree
 
   create_table "sponsors", force: true do |t|
     t.string "name"
@@ -97,6 +165,17 @@ ActiveRecord::Schema.define(version: 20130615213221) do
     t.string "address_city"
     t.string "address_postcode"
   end
+
+  create_table "sponsorships", force: true do |t|
+    t.integer  "sponsor_id"
+    t.string   "sponsorable_type"
+    t.integer  "sponsorable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "host",             default: false, null: false
+  end
+
+  add_index "sponsorships", ["sponsor_id"], name: "index_sponsorships_on_sponsor_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -116,8 +195,8 @@ ActiveRecord::Schema.define(version: 20130615213221) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

@@ -1,8 +1,36 @@
-%legend Active events
-- if @active_events
-  %ul.nav
-    - @active_events.each do |event|
-      %li
-        %strong=link_to "#{event.dates}, #{event.city_name}", admin_event_path(event)
-        %br
-        =event.description
+- unless @active_events.empty?
+  %legend Upcoming Workshops
+  .row
+    %table.table.table-striped.span7
+      %thead
+        %tr
+          %th Host
+          %th Location
+          %th Date
+          %th
+
+      %tbody
+        - @active_events.each do |event|
+          %tr
+            %td= event.host.name
+            %td= event.host.address_postcode
+            %td= event.dates
+            %td.actions= link_to 'View', admin_event_path(event)
+
+- unless @meetings.empty?
+  %legend Upcoming Meetups
+  .row
+    %table.table.table-striped.span7
+      %thead
+        %tr
+          %th Host
+          %th Location
+          %th Date
+          %th
+      %tbody
+        - @meetings.each do |meeting|
+          %tr
+            %td= meeting.host.name
+            %td= meeting.host.address_postcode
+            %td= l(meeting.date)
+            %td.actions= link_to 'View', admin_city_meeting_path(meeting.city, meeting)

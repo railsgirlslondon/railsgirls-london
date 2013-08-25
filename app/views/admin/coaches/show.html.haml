@@ -1,23 +1,26 @@
-%p#notice= notice
-%h2 Coach
-%p
-  %b Name:
-  = @coach.name
+%legend
+  %h3
+    =@coach.name
+    .pull-right= link_to 'Edit', edit_admin_coach_path(@coach), class: "btn"
 
-%p
-  %b Twitter:
-  = @coach.twitter
+.row
+  .span4
+    %ul.unstyled
+      %li
+        %strong twitter
+        = link_to "@#{@coach.twitter}", "https://twitter.com/#{@coach.twitter}"
+      %li
+        %strong email
+        =mail_to @coach.email, @coach.email
+      %li
+        %strong phone
+        = @coach.phone_number
 
-%p
-  %b Email:
-  = @coach.email
 
-- if @coach.events.any?
-  %h3 Events Coaching
-  %table.table
-    - @coach.events.each do |event|
-      %tr
-        %td= link_to event.description, [:admin, event]
-= link_to 'Edit', edit_admin_coach_path(@coach)
-\|
+  .span3
+    .pull-right= image_tag gravatar_url(@coach.email, 90), class: 'img-circle'
+
+=render partial: "admin/shared/coachings", locals: { coachings: @coach.coachings }
+=render partial: "admin/shared/non_coachings", locals: { not_coaching: @not_coaching, coach: @coach }
+
 = link_to 'Back', admin_coaches_path

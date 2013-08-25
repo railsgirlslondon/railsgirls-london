@@ -1,26 +1,20 @@
 #events
-  %h2 Events
+  %legend
+    %h2
+      Events
+      .pull-right
+        %strong= link_to 'Add Event', new_admin_event_path, class: 'btn'
 
-  %table.table
-    %tr
-      %th City
-      %th Title
-      %th Dates
-      %th Description
-      %th Active
-      %th
-      %th
-
+  %ul.unstyled
     - @events.each do |event|
-      %tr
-        %td= link_to event.city_name, [:admin, event]
-        %td= event.title
-        %td= event.dates
-        %td= link_to event.description, [:admin, event]
-        %td= event.active?
-        %td= link_to 'Edit', edit_admin_event_path(event), class: "btn"
-        %td= link_to 'Destroy', [:admin, event], class: "btn", :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-  %hr
-
-  = link_to 'Add Event', new_admin_event_path
+      %li.row
+        .span1= link_to event.city_name, [:admin, event]
+        .span5
+          = event.dates
+          - unless event.active?
+            .label.label-info Not active
+          %br
+          = link_to event.description, [:admin, event]
+        .span1
+          = link_to 'Destroy', [:admin, event], class: "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %br

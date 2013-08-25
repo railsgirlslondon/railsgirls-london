@@ -5,10 +5,14 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'rspec/given'
 require 'vcr'
-require 'coveralls'
 require 'webmock/rspec'
 require 'capybara/rails'
-Coveralls.wear!
+
+if ENV['CI']
+  require 'coveralls'
+  Coveralls.wear!
+end
+
 RSpec::Given.use_natural_assertions
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -39,5 +43,25 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.include ControllerHelpers, type: :controller
   config.include FeatureHelpers, type: :feature
-end
 
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with :truncation
+  end
+
+  config.before(:all) do
+    DeferredGarbageCollection.start
+  end
+
+  config.after(:all) do
+    DeferredGarbageCollection.reconsider
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+end

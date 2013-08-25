@@ -1,0 +1,9 @@
+%legend
+  %h3 Edit member
+
+= render 'form'
+
+
+= link_to 'Show', [:admin, @city, @member]
+\|
+= link_to 'Back', admin_city_members_path(@city)

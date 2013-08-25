@@ -1,0 +1,15 @@
+- if coachings.any?
+  %legend Coaching
+
+  %ul.unstyled
+    - coachings.each do |coaching|
+      %li.row
+        .span4
+          =link_to [:admin, coaching.coachable.city, coaching.coachable] do
+            =coaching.coachable.to_s.html_safe
+        .span3
+          = simple_form_for [:admin, coaching], html: { class: "form-inline" } do |f|
+            .span1
+              = f.input :organiser, label: "Organiser"
+            = f.submit "Update", class: "btn"
+            = link_to 'Remove', admin_coaching_path(coaching), method: :delete, class: "btn"

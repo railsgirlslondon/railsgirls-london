@@ -46,7 +46,7 @@ feature "admin CRUDing sponsors" do
     context "viewing that sponsor on the index" do
       When do
         click_on "Back"
-      end 
+      end
 
       Then { page.has_content? name }
       And { page.has_content? email }
@@ -78,23 +78,23 @@ feature "admin CRUDing sponsors" do
     end
     Given { Sponsor.create! name: "a sponsor", website: website }
 
-    When do 
-      click_on "Sponsors" 
+    When do
+      click_on "Sponsors"
       click_on "Edit"
     end
 
     context "with no sponsor currently" do
       Then { !page.has_content? "Sponsoring" }
-      And { page.has_content? "an event name" }
-      And { page.has_content? "Events not sponsored" } 
+      And { page.has_content? event.dates }
+      And { page.has_content? "Not sponsoring" }
     end
 
     context "sponsoring an event" do
       When { click_on "Sponsor" }
 
       Then { page.has_content? "Sponsoring" }
-      And { page.has_content? "an event name" }
-      And { !page.has_content? "Events not sponsored" }
+      And { page.has_content? event.dates }
+      And { !page.has_content? "Not sponsored" }
 
       context "viewing the sponsor on the event show" do
         When { visit admin_event_path(event) }
@@ -110,15 +110,16 @@ feature "admin CRUDing sponsors" do
           fill_in "Postcode", with: "N1 3TY"
 
           click_on "Update Sponsor"
-        end 
+        end
 
         When do
           click_on "Edit"
-          click_on "Host" 
+          find(:css, "#sponsorship_host").set(true)
+          click_on "Update"
           click_on "Show"
         end
 
-        Then { page.has_content? "Hosting" }
+        Then { page.has_content? "Host" }
         And { page.has_content? "My apartment" }
         And { page.has_content? "123 Street st" }
         And { page.has_content? "Sama" }
@@ -129,11 +130,9 @@ feature "admin CRUDing sponsors" do
         When { click_on "Remove" }
 
         Then { !page.has_content? "Sponsoring" }
-        And { page.has_content? "an event name" }
-        And { page.has_content? "Events not sponsored" } 
+        And { page.has_content? event.dates }
+        And { page.has_content? "Not sponsoring" }
       end
-
-
     end
   end
 end

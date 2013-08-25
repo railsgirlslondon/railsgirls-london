@@ -19,15 +19,19 @@ class Sponsor < ActiveRecord::Base
 
   validates *ADDRESS_FIELDS, :presence => true, :if => :is_host?
 
-  has_many :event_sponsorships
-  has_many :events, :through => :event_sponsorships
+  has_many :sponsorships
 
-  def is_host?
-    event_sponsorships.where(:host => true).any?
+  with_options :through => :sponsorships, :source => :sponsorable do |tag|
+    tag.has_many :meetings, :source_type => 'Meeting'
+    tag.has_many :events, :source_type => 'Event'
   end
 
-  def is_host_for?(event)
-    event_sponsorships.where(:event => event, :host => true).any?
+  def is_host?
+    sponsorships.where(host: true).any?
+  end
+
+  def is_host_for?(object)
+    sponsorships.where(sponsorable_id: object.id, sponsorable_type: object.class.to_s.humanize, host: true).any?
   end
 
   def has_full_address?

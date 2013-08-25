@@ -2,9 +2,7 @@ require 'spec_helper'
 
 feature "viewing an event" do
   Given(:city) { Fabricate(:city) }
-
   context "when it is active" do
-
     context "when the registration deadline is set" do
       Given!(:event) { Fabricate(:event, city: city) }
       Given!(:host) do
@@ -20,8 +18,8 @@ feature "viewing an event" do
                  address_line_1: "Not a hosting house")
       end
 
-      Given { EventSponsorship.create! event: event, sponsor: host, host: true }
-      Given { EventSponsorship.create! event: event, sponsor: sponsor, host: false }
+      Given { Fabricate(:event_sponsorship, sponsorable_id: event.id, sponsor: host, host: true) }
+      Given { Fabricate(:event_sponsorship, sponsorable_id: event.id, sponsor: sponsor, host: false) }
 
       When do
         visit city_event_path(city, event)
