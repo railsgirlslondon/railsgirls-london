@@ -1,14 +1,16 @@
 %section
   %h1.title.highlight=@event.title if @event.title
-  .dates=@event.dates
-  %p.lead
-    = @event.description
+  %blockquote
+    %p.lead=@event.dates
+  .details
+    %p.description
+      = @event.description
 
   -if @event.active
     %div
       - if @event.accepting_registrations?
         - if @event.registrations_open?
-          = link_to "Apply to the event.", new_city_event_registration_path(@city, @event)
+          .mini= link_to "Apply to the event.", new_city_event_registration_path(@city, @event)
           \-
           %small Applications are open until the #{I18n.l(@event.registration_deadline)}
         - else
@@ -25,21 +27,25 @@
         This event has already taken place.
         =link_to "Look here ", city_path(@city)
         for upcoming events.
+        
+-if @event.active?
+  .viewschedule
+    =link_to "View event schedule", "http://railsgirls.com/#{city_slug}"
 
 %hr
 
 %section
   .row
     .span2
-      %span.highlight You learn
+      %span.highlight.bolder You learn
       designing, prototyping and coding with the help of our coaches.
 
     .span2
-      %span.highlight You need
+      %span.highlight.bolder You need
       your own laptop, curiosity and a sprinkle of imagination.
 
-    .span2
-      %span.highlight Want to help?
+    .span3
+      %span.highlight.bolder Want to help?
       We are looking for
       %strong Rails coaches
       %br
@@ -48,9 +54,6 @@
 
 =render_event_partial
 
--if @event.active?
-  =link_to "View event schedule", "http://railsgirls.com/#{city_slug}"
-
 - if @event.has_host?
   %section.host
     %h3.underline Host
@@ -58,7 +61,7 @@
       .span4 
         %div
           = link_to @event.host_website do
-            = image_tag @event.host_image_url
+            .noborder= image_tag @event.host_image_url
         %div= @event.host_description
 
       .span3
