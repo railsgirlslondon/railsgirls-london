@@ -1,67 +1,67 @@
 .page-header
-  %h2.highlight Sponsor prospectus
+  %h2.highlight== Sponsoring Rails Girls #{@city.name}
 
 .row
-  .span8
+  .span6
+    %legend Our costs
+
     .details
-      %p.description
-        Our workshop is a two-day free event targeted at women, designed to give them a great first experience in programming. We aim to impart inspiration to get started, tools to understand technology, and an open, supportive community. Rails Girls is not just about programming, it’s about building things. During the workshop, attendees will build their first Ruby on Rails application with help and guidance from their coach. We will also have inspiring lightning talks and exercises.
-  .span3= image_tag 'london-girl.png'
+      %p
+        We've managed to get some great sponsors to cover the costs of
+        the venue and catering, but we're still looking for sponsors to
+        help cover the other costs incurred when running an event.
+
+      %dl
+        %dt Merchandise
+        %dd Rails Girls branded swag bags, name badges, posters, balloons, stickers
+
+        %dt Travel subsidies
+        %dd For special guests and speakers
+
+        %dt Post-workshop support
+        %dd Frequent sessions to help keep the momentum
+
+      %p
+        Without the support of businesses within the community, we would not
+        be able to make the impact we already have. Contributions at any level are
+        welcomed.
+
+  .span4
+    = image_tag 'summer-event.jpg'
 
 %hr
-%section
-  .row
-    .span3
-      %h4.title.highlight Contact
-      Send us an
-      =mail_to @city.email, "email"
-      !
 
-    .span3
-      %h4.title.highlight Coaches
-      15 awesome developers that love teaching and volunteered their time.
+.row
+  .span6.offset4
+    %legend Sponsorship packages
 
-    .span3
-      %h4.title.highlight Attendees
-      35 excited women, with an interest in programming and making things.
+    .details
+      %p
+        We're happy to accept sponsorship at any level, for any event we run.
+        For sponsors of <strong>£500 or more</strong>, we would:
 
-  .row
-    .span10
-      %small
-        *These are only suggested sponsorships. If you would like to offer something else,
-        =mail_to @city.email, "contact us"
-        so we can talk about it.
+      %ul
+        %li Feature your logo on our website
+        %li Do social media shout outs
+        %li Give you 5 minutes talk time at the event
+        %li Distribute any swag you'd like our participants and coaches to take home
 
-%section.costs
-  %legend Our costs
+      %p
+        If you'd like to discuss sponsorship, please get in touch at
+        == #{mail_to @city.email}.
 
-  .row
-    .span3
-      %h4.title.highlight Install party drinks
+%hr
 
-      We kick off the event by installing rails and getting to know each other.
+.row
+  .span6
+    %p.lead== Hosting a Rails Girls #{@city.name} event
 
-    .span3
-      %h4.title.highlight Coffee & Breakfast
+    .details
+      %p
+        == Another way to sponsor Rails Girls #{@city.name} is to provide the venue and
+        catering for a future event. We currently run large Workshops, and small
+        Weekly meetings, and the requirements for each differ.
 
-      Everyone has a long, action packed day ahead of them so it's important to start if off right with a nutritious breakfast.
-
-    .span3
-      %h4.title.highlight Lunch
-
-      A healthy lunch will recharge everyone and keep them going through the afternoon. Brain food will be much appreciated by this point.
-
-    .span3
-      %h4.title.highlight Printed Materials
-
-      Posters help get the word out to coaches and applicants. Printed learning materials assist some of our exercises.
-
-    .span3
-      %h4.title.highlight Afterparty Refreshments
-
-      After a long day of accomplishing new feats, a party is definitely in order. Coaches and attendees can socialise.
-
-    .span3
-      %h4.title.highlight Bags & Stickers
-
-      It's great to have something to remind the attendees to keep their programming interest alive. Everyone loves swag!
+      %p
+        == If you're interested in doing this, please get in touch at
+        #{mail_to @city.email}, and we'll be happy to arrange something.
