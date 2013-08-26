@@ -29,7 +29,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.13)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.3.1.2)
+    bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
     builder (3.1.4)
     capybara (2.1.0)
@@ -160,7 +160,7 @@ GEM
       json
       oauth (~> 0.4.5)
       rest-client (~> 1.6.7)
-    sass (3.2.9)
+    sass (3.2.10)
     sass-rails (4.0.0.rc1)
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
