@@ -4,9 +4,9 @@
 
 - if sponsorable.sponsors.any?
   .row
-    %ul.nav.nav-tabs.nav-stacked.span4
+    %ul.nav.nav-tabs.nav-stacked.nav-columns
       - sponsorable.sponsors.each do |sponsor|
-        %li
+        %li.span4
           = link_to [:admin, sponsor] do
             =sponsor.name
             - if sponsor.is_host_for?(sponsorable)
