@@ -1,11 +1,12 @@
 %legend
   Coaches
   %small= link_to "Add coach", new_admin_coach_path
+
 - if coachable.coaches.any?
   .row
-    %ul.nav.nav-tabs.nav-stacked.span4
+    %ul.nav.nav-tabs.nav-stacked.nav-columns
       - coachable.coaches.each do |coach|
-        %li
+        %li.span4
           = link_to [:admin, coach] do
             = coach.name
             - if coach.is_organiser_for?(coachable)
