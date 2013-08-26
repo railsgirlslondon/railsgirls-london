@@ -1,15 +1,18 @@
 class MeetingsController < ApplicationController
   layout 'cities'
 
-  before_action :set_city, :find_all_sponsors
+  before_action :set_city
   before_action :set_meeting, only: [:show]
 
   def index
     @meetings = Meeting.where(:city => @city).announced
+    @sponsors = Meeting.all_sponsors
   end
 
   def show
-    unless @meeting.announced?
+    if @meeting.announced?
+      @sponsors = @meeting.sponsors
+    else
       redirect_to city_meetings_path(@city), notice: 'No such meeting.'
     end
   end
