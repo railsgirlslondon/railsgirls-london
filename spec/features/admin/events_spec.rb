@@ -57,11 +57,23 @@ feature "admin CRUDing events" do
 
       Then { page.has_content? "john@registrant.com" }
 
-      When { click_on 'Attend' }
-      Then { page.has_content? 'attending' }
+      When { click_link "Accept" }
+      Then { page.has_link? "Decline" }
+    end
 
-      When { click_on "Don't Attend" }
-      Then { page.has_content? 'attending' }
+    context "declining a registrant after originally marking as attending" do
+      When do
+        click_on 'Add registration'
+        fill_in 'First name', with: 'Johnny'
+        fill_in 'Last name', with: "Smithington"
+        fill_in 'Email', with: 'john@registrant.com'
+
+        click_on 'Create Registration'
+      end
+
+      When { click_link "Accept" }
+      When { click_link "Decline" }
+      Then { page.has_link? "Accept" }
     end
   end
 
