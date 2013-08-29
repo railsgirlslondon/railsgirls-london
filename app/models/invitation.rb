@@ -20,6 +20,8 @@ class Invitation < ActiveRecord::Base
   scope :accepted, -> { where(attending: true) }
   scope :waiting_list, -> { where(waiting_list: true).order('invitations.updated_at ASC') }
 
+  default_scope -> { order('updated_at DESC') }
+
   def send_invitation
     invitable.email :invite, self.member, self
   end
