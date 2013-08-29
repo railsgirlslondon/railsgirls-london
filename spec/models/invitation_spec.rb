@@ -8,7 +8,7 @@ describe Invitation do
 
   context "scopes" do
 
-    let!(:attending) { 3.times.map { Fabricate(:accepted_invitation, invitable: meeting) } }
+    let!(:attending) { 3.times.map { Fabricate(:accepted_invitation, invitable: meeting) }.reverse }
     let!(:no_reponse) { 2.times.map { Fabricate(:invitation, invitable: meeting) } }
     let!(:waiting_list) { 5.times.map { Fabricate(:waiting_invitation, invitable: meeting) } }
 
