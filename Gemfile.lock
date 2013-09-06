@@ -97,6 +97,7 @@ GEM
     mime-types (1.24)
     minitest (4.7.5)
     multi_json (1.7.9)
+    newrelic_rpm (3.6.6.147)
     nokogiri (1.5.9)
     oauth (0.4.7)
     orm_adapter (0.4.0)
@@ -225,6 +226,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   launchy
+  newrelic_rpm
   pg
   protected_attributes
   pry-debugger

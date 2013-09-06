@@ -11,6 +11,7 @@ gem 'devise', '~> 3.0.0.rc'
 gem 'protected_attributes' # temporary
 gem 'ruby-trello', require: false
 gem 'pg'
+gem 'newrelic_rpm'
 
 group :production do
   gem 'rails_12factor'
