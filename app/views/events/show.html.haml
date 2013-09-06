@@ -78,7 +78,7 @@
       - @event.non_hosting_sponsors.each do |sponsor|
         %li.span2
           %h5
-            = link_to sponsor.website do
+            = link_to sponsor.website, :class => 'sponsor-image' do
               = image_tag sponsor.image_url
           %small
             %strong
