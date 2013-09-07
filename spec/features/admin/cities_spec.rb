@@ -20,7 +20,6 @@ feature "an admin CRUDing cities" do
 
       visit root_path
 
-      expect(page).to have_content("Cities")
       expect(page).to have_content("London")
     end
   end
