@@ -31,6 +31,18 @@ describe Event do
 
     end
   end
+  context "scopes" do
+
+    context "#upcoming", wip: true do
+      it "retrieves upcoming meetings" do
+        upcoming_events = 3.times.map { Fabricate(:event) }
+        3.times.map { Fabricate(:event, :active => false) }
+        2.times { Fabricate(:event, :ends_on => Date.today-1.week) }
+
+        expect(Event.upcoming).to eq(upcoming_events.reverse)
+      end
+    end
+  end
 
   describe "registrations" do
     let(:event) { Event.new(registration_deadline: date) }
