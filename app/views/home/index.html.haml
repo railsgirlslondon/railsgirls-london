@@ -1,21 +1,19 @@
 %section#home_events
   .lead Upcoming Events
   %ul.cities
-    - @cities.each do |city|
+    - @events.each do |event|
       %li
         %h3
-          = link_to city.name, city_path(city)
+          = link_to event.city.name, city_path(event.city)
         .citybox
           %blockquote
             %p.lead
-              4-5 october 2013
-          =link_to image_tag("city.jpg"), city_path(city)
-          .details
-            .applications
-              Applications are open.
-            .mini
-              .links
-                = link_to "View details and apply", city_path(city)
-      
-
-
+              =event.dates
+          =link_to image_tag("#{event.city.slug}.jpg"), city_path(event.city)
+          - if event.accepting_registrations?
+            .details
+              .applications
+                Applications are open.
+              .mini
+                .links
+                  = link_to "View details and apply", city_path(event.city)

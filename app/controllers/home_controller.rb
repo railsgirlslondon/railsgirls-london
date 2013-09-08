@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @cities = City.all
+    @events = Event.upcoming
 
-    redirect_to @cities.first if @cities.length == 1
   end
 end
