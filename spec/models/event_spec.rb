@@ -33,7 +33,7 @@ describe Event do
   end
   context "scopes" do
 
-    context "#upcoming", wip: true do
+    context "#upcoming" do
       it "retrieves upcoming meetings" do
         upcoming_events = 3.times.map { Fabricate(:event) }
         3.times.map { Fabricate(:event, :active => false) }
