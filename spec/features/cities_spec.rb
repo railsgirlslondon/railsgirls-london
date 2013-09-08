@@ -6,10 +6,10 @@ describe "Listing cities" do
     Fabricate(:event, city: @city)
     Fabricate(:inactive_event, city: @city)
     @meeting =  Fabricate(:meeting, city: @city)
-    
+
     Fabricate(:city, name: "Na")
   end
-  
+
   specify "viewing and selecting cities" do
     visit root_path
 
@@ -23,14 +23,23 @@ describe "Listing cities" do
     check_past_events
     check_upcoming_meetings
   end
-    
+
+
+  specify "viewing city's social media" do
+    visit "/sama"
+
+    @city.social_media.each do |social_media|
+      page.has_content? social_media.name
+    end
+  end
+
   def viewing_by_url
     visit "/sama"
     page.has_content? "Rails Girls Sama"
   end
 
   def viewing_by_link
-    click_on("Sama")
+    first(:link, "Sama").click
     page.has_content? "Rails Girls Sama"
   end
 
@@ -46,6 +55,6 @@ describe "Listing cities" do
   end
 
   def check_past_events
-    find("#past_events p").text.should eq @city.past_events.first.dates    
+    find("#past_events p").text.should eq @city.past_events.first.dates
   end
 end

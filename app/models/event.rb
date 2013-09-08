@@ -24,6 +24,8 @@ class Event < ActiveRecord::Base
 
   default_scope { order('events.created_at DESC') }
 
+  scope :upcoming, -> { where("ends_on >= ? and active = ?", Date.today, true).order(:starts_on) }
+
   def accepting_registrations?
     return true if registration_deadline.present?
   end
