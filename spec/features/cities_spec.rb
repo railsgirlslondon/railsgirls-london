@@ -39,7 +39,7 @@ describe "Listing cities" do
   end
 
   def viewing_by_link
-    click_on("Sama")
+    first(:link, "Sama").click
     page.has_content? "Rails Girls Sama"
   end
 
