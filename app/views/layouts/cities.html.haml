@@ -25,8 +25,12 @@
       %notice
         %strong Want to help?
         %small
-          We are looking for coaches to help out with our meetings and workshops.
-          = link_to "Subscribe to our coaches mailing list!", "https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"
+          We are always looking for more coaches.
+          - if @city.coaches_mailing_list
+            = link_to "Subscribe to our coaches mailing list!", @city.coaches_mailing_list
+          - else
+            = mail_to @city.email, "Send us an email if your would like to get involved!",
+                                    subject: "Getting involved with Rails Girls #{@city.name}"
     #main{:role => "main"}
       .container
         .row#marginup

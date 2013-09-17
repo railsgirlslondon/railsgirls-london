@@ -12,6 +12,8 @@ feature "an admin CRUDing cities" do
       click_link "Add city"
 
       fill_in "Name", with: "Some City"
+      fill_in "Coaches mailing list", with: "http://example.com/coahes_list"
+
       click_on "Create City"
     end
 
