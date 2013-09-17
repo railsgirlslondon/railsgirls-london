@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130917215040) do
+ActiveRecord::Schema.define(version: 20130917230609) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20130917215040) do
     t.string   "slug"
     t.string   "email"
     t.string   "coaches_mailing_list"
+    t.string   "twitter_widget_id"
   end
 
   add_index "cities", ["slug"], name: "index_cities_on_slug", using: :btree
