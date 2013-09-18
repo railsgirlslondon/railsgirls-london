@@ -27,7 +27,7 @@
         This event has already taken place.
         =link_to "Look here ", city_path(@city)
         for upcoming events.
-        
+
 -if @event.active?
   .viewschedule
     =link_to "View event schedule", "http://railsgirls.com/#{city_slug}"
@@ -47,10 +47,13 @@
     .span3
       %span.highlight.bolder Want to help?
       We are looking for
-      %strong Rails coaches
-      %br
+      %strong Rails coaches.
       %small
-        %a{ href: "https://groups.google.com/forum/?fromgroups#!forum/rails-girls-london-coaches"}Subscribe to our coaches mailing list
+        - if @city.coaches_mailing_list
+          = link_to "Subscribe to our coaches mailing list!", @city.coaches_mailing_list
+        - else
+          = mail_to @city.email, "Send us an email if your would like to get involved!",
+                                  subject: "Getting involved with Rails Girls #{@city.name}"
 
 =render_event_partial
 
@@ -58,7 +61,7 @@
   %section.host
     %h3.underline Host
     .row
-      .span4 
+      .span4
         %div
           = link_to @event.host_website do
             .noborder= image_tag @event.host_image_url

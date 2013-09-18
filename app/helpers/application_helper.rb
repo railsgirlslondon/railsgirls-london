@@ -46,4 +46,14 @@ module ApplicationHelper
     Digest::MD5.hexdigest(string.strip.downcase)
   end
 
+  def twitter_widget_id
+    @city.twitter_widget_id ? @city.twitter_widget_id : railsgirls_twitter_widget_id
+  end
+
+  private
+
+  def railsgirls_twitter_widget_id
+    "380105070089490433"
+  end
+
 end
