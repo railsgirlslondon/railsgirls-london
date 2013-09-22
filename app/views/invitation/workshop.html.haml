@@ -34,7 +34,7 @@
         %h4= "Will your attend?"
         =simple_form_for @invitation, html: { class: 'form-inline' } do |f|
           =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last, required: true
-          =f.input :comment, placeholder: "if you are unable to attend, please let us know why"
+          =f.input :comment, placeholder: "Anything you want us to know?"
           %br
 
           =f.submit "RSVP", class: 'btn btn-primary'
