@@ -13,6 +13,7 @@ class Event < ActiveRecord::Base
 
   include Extentions::Sponsorable
   include Extentions::Coachable
+  include Extentions::Invitable
 
   validates :description, :city_id, :starts_on, :ends_on, presence: true
   validates :active, uniqueness: {scope: :city_id}, if: :active?
@@ -34,6 +35,14 @@ class Event < ActiveRecord::Base
     accepting_registrations? and Date.today <= registration_deadline
   end
 
+  def rsvps_available?
+    rsvp_end_date >= Date.today
+  end
+
+  def rsvp_end_date
+    starts_on-5.days
+  end
+
   def dates
     return format_date(starts_on) if starts_on.eql? ends_on
     dates = day(starts_on)
@@ -48,6 +57,14 @@ class Event < ActiveRecord::Base
   def process_applications slots=35
     application_manager = ApplicationManager.new(self, slots)
     application_manager.process!
+  end
+
+  def email email_type, registration, invitation
+    EventMailer.send(email_type.to_sym, self, registration, invitation).deliver
+  end
+
+  def invite_members
+    selected_applicants.each { |member| invite(member) }
   end
 
   def send_email_to_selected_applicants

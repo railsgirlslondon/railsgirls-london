@@ -6,6 +6,8 @@ class InvitationController < ApplicationController
   def show
     @invitable = @invitation.invitable
     @city = @invitable.city
+
+    return render 'invitation/workshop' if @invitable.is_a? Event
   end
 
   def update
@@ -27,7 +29,7 @@ class InvitationController < ApplicationController
   end
 
   def invitation_params
-    params.require(:invitation).permit(:attending, :waiting_list)
+    params.require(:invitation).permit(:attending, :waiting_list, :comment)
   end
 
 end

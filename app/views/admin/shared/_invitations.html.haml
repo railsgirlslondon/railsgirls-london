@@ -24,6 +24,6 @@
       - invitations.each do |invitation|
         %li
           =link_to [ :admin, @city, invitable, invitation] do
-            = invitation.member.name
+            = invitation.invitee.name
             - unless invitation.attending.nil?
               -invitation_attendance_label(invitation)

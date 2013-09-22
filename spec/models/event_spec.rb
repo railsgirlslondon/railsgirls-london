@@ -31,6 +31,7 @@ describe Event do
 
     end
   end
+
   context "scopes" do
 
     context "#upcoming" do
@@ -217,4 +218,5 @@ describe Event do
       event.convert_attendees_to_members!
     end
   end
+
 end

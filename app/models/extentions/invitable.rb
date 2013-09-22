@@ -17,12 +17,8 @@ module Extentions
 
   module InstanceMethods
 
-    def invite member
-      invitations.create member: member
-    end
-
-    def invite_members
-      active_members.each { |member| invite(member) }
+    def invite invitee
+      invitations.create invitee: invitee
     end
 
     def has_available_slots?

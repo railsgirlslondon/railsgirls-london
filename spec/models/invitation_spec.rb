@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Invitation do
   let(:meeting) { Fabricate(:meeting, available_slots: 1) }
-  let(:member) { Fabricate(:member) }
+  let(:invitee) { Fabricate(:member) }
   let!(:hosting) { Fabricate(:hosting, sponsorable: meeting) }
   let(:invitation) { Fabricate(:invitation, invitable: meeting) }
 
@@ -25,7 +25,7 @@ describe Invitation do
     it "#after_create" do
       Invitation.any_instance.should_receive(:send_invitation)
 
-      Invitation.create! member: member, invitable: meeting
+      Invitation.create! invitee: invitee, invitable: meeting
     end
 
     context "#after_update" do
@@ -55,13 +55,13 @@ describe Invitation do
 
   context "methods" do
     it "#send_invitation" do
-      invitation.invitable.should_receive(:email).with(:invite, invitation.member, invitation)
+      invitation.invitable.should_receive(:email).with(:invite, invitation.invitee, invitation)
 
       invitation.send_invitation
     end
 
     it "#send_attendance_confirmation" do
-      invitation.invitable.should_receive(:email).with(:confirm_attendance, invitation.member, invitation)
+      invitation.invitable.should_receive(:email).with(:confirm_attendance, invitation.invitee, invitation)
 
       invitation.send_confirmation
     end
