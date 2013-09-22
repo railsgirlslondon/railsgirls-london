@@ -13,6 +13,7 @@ class InvitationController < ApplicationController
   def update
     if @invitation.update_attributes(invitation_params)
       flash[:notice] = "Thank you for your response."
+      AdminMailer.notify(@invitation).deliver
     end
 
     redirect_to @invitation
