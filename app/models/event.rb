@@ -67,24 +67,6 @@ class Event < ActiveRecord::Base
     selected_applicants.each { |member| invite(member) }
   end
 
-  def send_email_to_selected_applicants
-    selected_applicants.each do |registration|
-      RegistrationMailer.application_accepted(self, registration).deliver
-    end
-  end
-
-  def send_email_to_waiting_list_applicants
-    waiting_list_applicants.each do |registration|
-      RegistrationMailer.application_rejected(self, registration).deliver
-    end
-  end
-
-  def send_email_invite_to_weeklies
-    weeklies_invitees.each do |registration|
-      RegistrationMailer.application_invited_to_weeklies(self, registration).deliver
-    end
-  end
-
   def selected_applicants
     registrations.where :selection_state => "accepted"
   end
