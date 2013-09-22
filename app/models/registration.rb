@@ -41,6 +41,10 @@ class Registration < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def name
+    fullname
+  end
+
   def to_s
     [:fullname,
      :gender,
