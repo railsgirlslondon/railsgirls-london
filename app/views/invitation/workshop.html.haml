@@ -8,6 +8,19 @@
     %br
     %p.lead
       =@invitable.description
+    %br
+      %strong=link_to @invitable.host.name, @invitable.host.website
+      .row
+        .span3
+          %address
+            =@invitable.host.address_line_1
+            %br
+            #{@invitable.host.address_line_2}
+            %br
+            #{@invitable.host.address_city}, #{@invitable.host.address_postcode}
+        .span3
+          - unless @invitable.host.image_url.blank?
+            = image_tag @invitable.host.image_url
   .span4
     .hero-unit
       - if !@invitation.attending.nil? or !@invitable.rsvps_available?
@@ -31,17 +44,6 @@
             %em You can RSVP until the #{I18n.l(@invitable.rsvp_end_date)}
 
 
-.row
-  .span5
-    %legend Location
-
-    %strong=link_to @invitable.host.name, @invitable.host.website
-
-    %address
-      =@invitable.host.address_line_1
-      %br
-      #{@invitable.host.address_line_2}
-      %br
-      #{@invitable.host.address_city}, #{@invitable.host.address_postcode}
-    - unless @invitable.host.image_url.blank?
-      = image_tag @invitable.host.image_url
+-if @invitable.host.map_url
+  .row
+    %iframe.span10{ frameBorder:'0', height: 200, src: @invitable.host.map_url }

@@ -1,7 +1,6 @@
 class Sponsor < ActiveRecord::Base
-  ADDRESS_FIELDS = [
+  MANDATORY_ADDRESS_FIELDS = [
     :address_line_1,
-    :address_line_2,
     :address_postcode,
     :address_city
   ]
@@ -13,11 +12,13 @@ class Sponsor < ActiveRecord::Base
                   :website,
                   :host,
                   :events,
-                  *ADDRESS_FIELDS
+                  :map_url,
+                  :address_line_2,
+                  *MANDATORY_ADDRESS_FIELDS
 
   validates :name, :website, :presence => true
 
-  validates *ADDRESS_FIELDS, :presence => true, :if => :is_host?
+  validates *MANDATORY_ADDRESS_FIELDS, :presence => true, :if => :is_host?
 
   has_many :sponsorships
 
@@ -35,7 +36,7 @@ class Sponsor < ActiveRecord::Base
   end
 
   def has_full_address?
-    ADDRESS_FIELDS.all? do |field|
+    MANDATORY_ADDRESS_FIELDS.all? do |field|
       self.send(field).present?
     end
   end
