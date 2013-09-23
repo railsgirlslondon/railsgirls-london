@@ -4,7 +4,6 @@ module Extentions
     private
 
     def setup
-      content_type =  "text/html"
       load_attachments
     end
 
