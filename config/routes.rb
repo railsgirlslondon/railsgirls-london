@@ -12,6 +12,9 @@ RailsgirlsLondon::Application.routes.draw do
 
       resources :events, only: [:show] do
         post "/convert_members" => "events#convert_attendees_to_members!", as: :convert_members
+        resources :invitations, only: [ :show ], :invitable_type => 'Event', :invitable_id => 'event_id' do
+          post 'create', on: :collection
+        end
       end
 
       resources :members

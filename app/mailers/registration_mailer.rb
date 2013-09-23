@@ -12,30 +12,6 @@ class RegistrationMailer < ActionMailer::Base
     send_email(subject)
   end
 
-  def application_accepted(event, registration)
-    setup event, registration
-
-    subject = "You're invited to Rails Girls #{@event.city_name} (#{@event.dates})"
-
-    send_email(subject)
-  end
-
-  def application_rejected(event, registration)
-    setup event, registration
-
-    subject = "Regarding Rails Girls #{@event.city_name} (#{@event.dates})"
-
-    send_email(subject)
-  end
-
-  def application_invited_to_weeklies(event, registration)
-    setup event, registration
-
-    subject = "Rails Girls #{@event.city_name} - You are invited to Weeklies"
-
-    send_email(subject)
-  end
-
   private
 
   def setup event, registration

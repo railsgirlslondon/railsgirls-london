@@ -1,9 +1,14 @@
 Fabricator(:invitation) do
-  member { Fabricate(:member) }
+  invitee { Fabricate(:member) }
 end
 
 Fabricator(:meeting_invitation, from: :invitation) do
   invitable { Fabricate(:meeting) }
+end
+
+Fabricator(:event_invitation, from: :invitation) do
+  invitable { Fabricate(:event) }
+  invitee { Fabricate(:registration) }
 end
 
 Fabricator(:accepted_invitation, from: :invitation) do

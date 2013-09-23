@@ -6,11 +6,16 @@ class InvitationController < ApplicationController
   def show
     @invitable = @invitation.invitable
     @city = @invitable.city
+
+    return render 'invitation/workshop' if @invitable.is_a? Event
   end
 
   def update
     if @invitation.update_attributes(invitation_params)
       flash[:notice] = "Thank you for your response."
+
+      AdminMailer.notify(@invitation).deliver
+      @invitation.send_confirmation if @invitation.attending
     end
 
     redirect_to @invitation
@@ -27,7 +32,7 @@ class InvitationController < ApplicationController
   end
 
   def invitation_params
-    params.require(:invitation).permit(:attending, :waiting_list)
+    params.require(:invitation).permit(:attending, :waiting_list, :comment)
   end
 
 end
