@@ -15,10 +15,20 @@ class EventMailer < ActionMailer::Base
     setup(event, registration, invitation)
 
     subject = "RG#{event.city_name.slice(0)} - You are confirmed for #{event.title} #{event.dates}"
+
+    attach_ical_file(event)
+
     send_email(subject)
   end
 
   private
+
+  def attach_ical_file event
+    ical_file = IcalAttachment::Event.new(event).to_temp_file
+    attachments["#{event.title}-#{event.starts_on}.ics"] = ical_file.read
+  ensure
+    ical_file.close!
+  end
 
   def setup event, registration, invitation
     @registration = registration
