@@ -25,7 +25,7 @@ class EventMailer < ActionMailer::Base
 
   def attach_ical_file event
     ical_file = IcalAttachment::Event.new(event).to_temp_file
-    attachments["#{event.title}-#{event.starts_on}.ical"] = ical_file.read
+    attachments["#{event.title}-#{event.starts_on}.ics"] = ical_file.read
   ensure
     ical_file.close!
   end

@@ -25,7 +25,7 @@ class MeetingMailer < ActionMailer::Base
 
   def attach_ical_file meeting
     ical_file = IcalAttachment::Meeting.new(meeting).to_temp_file
-    attachments["#{meeting.name}-#{meeting.date}.ical"] = ical_file.read
+    attachments["#{meeting.name}-#{meeting.date}.ics"] = ical_file.read
   ensure
     ical_file.close!
   end
