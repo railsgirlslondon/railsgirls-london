@@ -6,30 +6,54 @@ describe EventMailer do
   let!(:hosting) { Fabricate(:hosting, sponsor: sponsor, sponsorable: event) }
   let(:invitation) { Fabricate(:invitation, invitable: event) }
 
-  it "sends an invitation email" do
-    @email_subject = "You are invited to the Rails Girls #{event.city_name} workshop on the #{event.dates}"
+  shared_examples_for "an event email" do
+    let(:email) { ActionMailer::Base.deliveries.last }
 
-    EventMailer.invite(event, invitation.invitee, invitation).deliver
-    expect(html_body).to include(invitation.invitee.first_name)
-    expect(html_body).to include(invitation_url(invitation))
+    it "should contain content common to all event emails" do
+      expect(email.subject).to eq(subject)
+      expect(email.From.to_s).to eq("Rails Girls #{event.city_name} <#{event.city.email}>")
+
+      expect(email.to).to  include(invitation.invitee.email)
+      expect(html_body).to include(invitation.invitee.first_name)
+      expect(html_body).to include(invitation.invitee.first_name)
+    end
   end
 
-  it "sends a confirmation email when an attendee accepts the invitation" do
-    @email_subject = "RG#{event.city_name.slice(0)} - You are confirmed for #{event.title} #{event.dates}"
+  context "invitation email" do
+    let(:subject) {
+        "You are invited to the Rails Girls #{event.city_name} workshop on the #{event.dates}"
+    }
 
-    EventMailer.confirm_attendance(event, invitation.invitee, invitation).deliver
-    expect(html_body).to include(invitation.invitee.first_name)
+    before do
+      EventMailer.invite(event, invitation.invitee, invitation).deliver
+    end
+
+    it "sends an invitation email" do
+      expect(html_body).to include(invitation.invitee.first_name)
+      expect(html_body).to include(invitation_url(invitation))
+    end
+
+    include_examples "an event email"
   end
 
-  after(:each) do
-    ActionMailer::Base.deliveries.last.subject.should eq @email_subject
-    ActionMailer::Base.deliveries.last.From.to_s.should == "Rails Girls #{event.city_name} <#{event.city.email}>"
-    ActionMailer::Base.deliveries.last.To.to_s.should == invitation.invitee.email
-    expect(html_body).to include(invitation.invitee.first_name)
-    expect(html_body).to include(invitation.invitee.first_name)
+  context "confirmation email" do
+    let(:subject) {
+      "RG#{event.city_name.slice(0)} - You are confirmed for #{event.title} #{event.dates}"
+    }
+
+    before do
+      EventMailer.confirm_attendance(event, invitation.invitee, invitation).deliver
+    end
+
+    it "sends a confirmation email when an attendee accepts the invitation" do
+      expect(html_body).to include(invitation.invitee.first_name)
+    end
+
+    it_behaves_like "an event email"
   end
+
 
   def html_body
-    ActionMailer::Base.deliveries.last.body.parts.first.body
+    ActionMailer::Base.deliveries.last.html_part.body
   end
 end
