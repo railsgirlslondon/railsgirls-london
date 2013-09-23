@@ -8,7 +8,7 @@
       You are now confirmed for the Rails Girls London workshop.
 
     .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 0px 0 11px 0; padding: 0 10px;" }= @event.dates
-    =link_to "View details", full_url_for(city_event_path(@city, @event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+    =link_to "View details", full_url_for(city_event_url(@city, @event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
     %div{style: "background-color: #F7F7F7; border-radius: 5px; box-shadow: 1px 1px 0 rgba(250, 250, 250, 0.5) inset, -1px -1px 2px rgba(250, 250, 250, 0.1) inset; font-size: 18px; padding: 12px 19px; text-align: center; margin: 31px 0 25px; border: 1px solid #dddddd;"}
 
