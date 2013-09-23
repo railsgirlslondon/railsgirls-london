@@ -19,7 +19,6 @@ describe Sponsor do
         expect(subject.valid?).to eq(false)
 
         expect(subject).to have(1).error_on(:address_line_1)
-        expect(subject).to have(1).error_on(:address_line_2)
         expect(subject).to have(1).error_on(:address_city)
         expect(subject).to have(1).error_on(:address_postcode)
       end
@@ -30,7 +29,6 @@ describe Sponsor do
         subject.valid?
 
         expect(subject).not_to have(1).error_on(:address_line_1)
-        expect(subject).not_to have(1).error_on(:address_line_2)
         expect(subject).not_to have(1).error_on(:address_city)
         expect(subject).not_to have(1).error_on(:address_postcode)
       end

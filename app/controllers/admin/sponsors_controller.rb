@@ -10,6 +10,7 @@ class Admin::SponsorsController < ApplicationController
                 :address_line_2,
                 :address_city,
                 :address_postcode,
+                :map_url,
                 :host]
 
   layout 'admin'

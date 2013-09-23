@@ -24,9 +24,9 @@ module Extentions
         :subject => subject }
     end
 
-    def send_email subject
+    def send_email subject, layout="mailer"
       mail(mail_args(subject)) do |format|
-        format.html { render :layout => 'mailer' }
+        format.html { render :layout => layout }
       end
     end
   end

@@ -55,6 +55,6 @@
         - @invitable.invitations.accepted.each do |invitation|
           %li.row
             .span3
-              = image_tag gravatar_url(invitation.member.email, 35), class: 'img-polaroid'
-              =invitation.member.name
+              = image_tag gravatar_url(invitation.invitee.email, 35), class: 'img-polaroid'
+              =invitation.invitee.name
           %br

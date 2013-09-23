@@ -31,6 +31,7 @@ describe Event do
 
     end
   end
+
   context "scopes" do
 
     context "#upcoming" do
@@ -177,33 +178,6 @@ describe Event do
       event.waiting_list_applicants.should eq waiting_list
     end
 
-    it "#send_email_to_selected_applicants" do
-      accepted.each do |registration|
-        registration_mailer = mock(:registration_mailer, deliver: nil)
-        RegistrationMailer.should_receive(:application_accepted).with(event, registration).and_return(registration_mailer)
-      end
-
-      event.send_email_to_selected_applicants
-    end
-
-    it "#send_email_to_rejected_applicants" do
-      waiting_list.each do |registration|
-        registration_mailer = mock(:registration_mailer, deliver: nil)
-        RegistrationMailer.should_receive(:application_rejected).with(event, registration).and_return(registration_mailer)
-      end
-
-      event.send_email_to_waiting_list_applicants
-    end
-
-    it "#send_email_to_weeklies_applicants" do
-      weeklies.each do |registration|
-        registration_mailer = mock(:registration_mailer, deliver: nil)
-        RegistrationMailer.should_receive(:application_invited_to_weeklies).with(event, registration).and_return(registration_mailer)
-      end
-
-      event.send_email_invite_to_weeklies
-    end
-
     it "#converts_attendees_to_members!" do
       5.times.map { Fabricate(:registration, event: event) }
       attendees = 2.times.map { Fabricate(:attended_registration, event: event) }
@@ -217,4 +191,5 @@ describe Event do
       event.convert_attendees_to_members!
     end
   end
+
 end

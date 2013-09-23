@@ -1,11 +1,11 @@
 class Invitation < ActiveRecord::Base
 
-  belongs_to :member
+  belongs_to :invitee, :polymorphic => true
   belongs_to :invitable, :polymorphic => true
 
-  attr_accessible :invitable_type, :invitable_id, :member_id, :attending, :waiting_list, :invitable, :member
+  attr_accessible :invitable_type, :invitable_id, :invitee_id, :invitee_type, :attending, :waiting_list, :invitable, :invitee, :comment
 
-  validates :member_id, uniqueness: { scope: [:invitable_id, :invitable_type ] }
+  validates :invitee_id, uniqueness: { scope: [:invitee_type, :invitable_id, :invitable_type ] }
 
   before_create :generate_token
   after_create :send_invitation
@@ -23,11 +23,11 @@ class Invitation < ActiveRecord::Base
   default_scope -> { order('updated_at DESC') }
 
   def send_invitation
-    invitable.email :invite, self.member, self
+    invitable.email :invite, self.invitee, self
   end
 
   def send_confirmation
-    invitable.email :confirm_attendance, self.member, self
+    invitable.email :confirm_attendance, self.invitee, self
   end
 
   def to_param

@@ -24,7 +24,7 @@
 
     %tbody
       - registrations.each do |registration|
-        %tr{ class: registration.attending? ? "success" : "" }
+        %tr{ class: registration.selection_state.eql?("accepted") ? "success" : "" }
           %td= link_to registration.fullname, admin_event_registration_path(@event, registration)
           %td= mail_to registration.email
           - if @event.active && !@event.members_converted?

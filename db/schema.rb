@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130917230609) do
+ActiveRecord::Schema.define(version: 20130922194522) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -74,10 +74,11 @@ ActiveRecord::Schema.define(version: 20130917230609) do
     t.string   "title"
     t.boolean  "coachable"
     t.string   "image"
+    t.integer  "available_slots"
   end
 
   create_table "invitations", force: true do |t|
-    t.integer  "member_id"
+    t.integer  "invitee_id"
     t.string   "invitable_type"
     t.boolean  "attending"
     t.integer  "invitable_id"
@@ -85,9 +86,11 @@ ActiveRecord::Schema.define(version: 20130917230609) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "token"
+    t.string   "invitee_type"
+    t.text     "comment"
   end
 
-  add_index "invitations", ["member_id"], name: "index_invitations_on_member_id", using: :btree
+  add_index "invitations", ["invitee_id"], name: "index_invitations_on_invitee_id", using: :btree
 
   create_table "meeting_types", force: true do |t|
     t.string   "name"
@@ -173,6 +176,7 @@ ActiveRecord::Schema.define(version: 20130917230609) do
     t.string "address_line_2"
     t.string "address_city"
     t.string "address_postcode"
+    t.string "map_url"
   end
 
   create_table "sponsorships", force: true do |t|

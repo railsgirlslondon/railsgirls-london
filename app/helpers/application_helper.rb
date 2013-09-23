@@ -55,5 +55,4 @@ module ApplicationHelper
   def railsgirls_twitter_widget_id
     "380105070089490433"
   end
-
 end

@@ -5,7 +5,7 @@ module EventHelper
   end
 
   def accept_reject_invitation_link(event, registration)
-    if registration.attending?
+    if registration.selection_state.eql? "accepted"
       path = admin_event_registration_attendance_path(@event, registration)
       link_to "Decline", path, method: :delete, class: "btn btn-error"
     else

@@ -6,6 +6,7 @@ feature "admin CRUDing sponsors" do
   let(:email) { Faker::Internet.email }
   let(:website) { Faker::Internet.domain_name }
   let(:image_url) { Faker::Internet.domain_name }
+  let(:map_url) { Faker::Internet.domain_name }
 
   Given { admin_logged_in! }
 
@@ -21,6 +22,7 @@ feature "admin CRUDing sponsors" do
       fill_in "Primary contact email", with: email
       fill_in "Image url", with: image_url
       fill_in "Website", with: website
+      fill_in "Map url", with: map_url
 
       click_on "Create Sponsor"
     end
