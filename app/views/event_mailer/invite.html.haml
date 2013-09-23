@@ -1,0 +1,49 @@
+%h3{style: "border-bottom: 1px solid #E5E5E5; color: #434950; font-size: 26px; font-weight: 400; line-height: 30px; padding-bottom: 10px; margin-bottom: 15px;" }
+  Hi
+  #{@registration.first_name},
+
+.content
+  .left.inline{ style: "width: 100%; min-width: 260px; display: inline-block;" }
+    %p.lead{ style: "font-size: 18px; color: #333333; padding-bottom: 10px; line-height: 22px;"}
+      We're delighted to offer you a place at our #{@event.title if @event.title.present?}:
+    .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 0px 0 11px 0; padding: 0 10px;" }= @event.dates
+    =link_to "View details", full_url_for(city_event_path(@city, @event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+
+    %div{style: "background-color: #F7F7F7; border-radius: 5px; box-shadow: 1px 1px 0 rgba(250, 250, 250, 0.5) inset, -1px -1px 2px rgba(250, 250, 250, 0.1) inset; font-size: 18px; padding: 12px 19px; text-align: center; margin: 31px 0 25px; border: 1px solid #dddddd;"}
+      =link_to "Confirm your attendance status", full_url_for(city_event_path(@city, @event)), style: "color: #eb5d42; text-decoration: none; font-weight: 500; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7)"
+
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      During the free two-day workshop we'll explore the magical world of Ruby on Rails, and build an application together.
+      In order to secure your place, we ask you to confirm your attendance.
+      We require this so we can re-allocate your place if you are unable to attend and give as many people as possible the opportunity to join us.
+
+  .left.inline{ style: "width: 100%; min-width: 260px; display: inline-block;" }
+    %h3{style: "color: #333333;"} What happens next?
+
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      We start off on
+      %span{style: "font-weight: 500;"}on #{@event.starts_on.strftime("%A")} the #{@event.starts_on.day.ordinalize } of #{@event.starts_on.strftime("%B")}, with our Installation Party at 6pm.
+      Please
+      %b bring your laptop
+      with you! You should also try to pre-install Rails with
+      instructions from:
+      %br
+      %br
+      =link_to " http://guides.railsgirls.com/install", full_url_for('http://guides.railsgirls.com/install'), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      On
+      %span{style: "font-weight: 500;"}#{@event.ends_on.strftime("%A")}
+      we’ll dive into development. Our day will start at
+      %span{style: "font-weight: 500;"} 9am
+      and we’ll work in small groups of two to three people. We will wrap up
+      the group work at around 6pm so we can enjoy the After Party. There will
+      be breaks and short talks throughout the day.
+
+  .right.inline{ style: "width: 100%; min-width: 180px; margin-top: 25px; display: inline-block;" }
+    =image_tag attachments['london-girl.png'].url, width: '180px'
+    %div{style: "margin: 15px 0; "}
+      %highlight{ style: "color: #333333; text-align: center; font-weight: 500; font-size: 13px" }You learn designing, prototyping and coding with the help of our coaches.
+    %p.lead{ style: "font-size: 15px; color: #4E5563; margin-top: 25px;" }
+      %strong Thank you
+      for applying to our Rails Girls #{@city.name} workshop!
