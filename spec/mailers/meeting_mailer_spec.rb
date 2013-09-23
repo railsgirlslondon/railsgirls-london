@@ -6,29 +6,50 @@ describe MeetingMailer do
   let!(:hosting) { Fabricate(:hosting, sponsor: sponsor, sponsorable: meeting) }
   let(:invitation) { Fabricate(:invitation, invitable: meeting) }
 
-  it "sends an invitation email" do
-    @email_subject = "Rails Girls #{meeting.city_name} - You are invited to Weeklies (#{meeting.date.to_formatted_s(:long_ordinal)})"
+  shared_examples_for "a meeting email" do
+    let(:email) { ActionMailer::Base.deliveries.last }
 
-    MeetingMailer.invite(meeting, invitation.invitee, invitation).deliver
-    expect(html_body).to include(unsubscribe_url(invitation.invitee.uuid))
+    it "should contain content common to all meeting emails" do
+      expect(email.subject).to eq(subject)
+      expect(email.From.to_s).to eq("Rails Girls #{meeting.city.name} <#{meeting.city.email}>")
+
+      expect(email.to).to  include(invitation.invitee.email)
+      expect(html_body).to include(invitation.invitee.first_name)
+      expect(html_body).to include(invitation.invitee.first_name)
+      expect(html_body).to include(invitation_url(invitation))
+    end
   end
 
-  it "sends an invitation attendance confirmation email" do
-    @email_subject = "RG#{meeting.city_name.slice(0)} - You are confirmed for #{meeting.name} #{meeting.date}"
+  context "invitations" do
+    let(:subject) {
+      "Rails Girls #{meeting.city_name} - You are invited to Weeklies (#{meeting.date.to_formatted_s(:long_ordinal)})"
+    }
 
-    MeetingMailer.confirm_attendance(meeting, invitation.invitee, invitation).deliver
+    before do
+      MeetingMailer.invite(meeting, invitation.invitee, invitation).deliver
+    end
+
+    it "sends an invitation email" do
+      expect(html_body).to include(unsubscribe_url(invitation.invitee.uuid))
+    end
+
+    include_examples "a meeting email"
   end
 
-  after(:each) do
-    ActionMailer::Base.deliveries.last.subject.should eq @email_subject
-    ActionMailer::Base.deliveries.last.From.to_s.should == "Rails Girls #{meeting.city.name} <#{meeting.city.email}>"
-    ActionMailer::Base.deliveries.last.To.to_s.should == invitation.invitee.email
-    expect(html_body).to include(invitation.invitee.first_name)
-    expect(html_body).to include(invitation.invitee.first_name)
-    expect(html_body).to include(invitation_url(invitation))
+  context "attendance confirmation" do
+    let(:subject) {
+      "RG#{meeting.city_name.slice(0)} - You are confirmed for #{meeting.name} #{meeting.date}"
+    }
+
+    before do
+      MeetingMailer.confirm_attendance(meeting, invitation.invitee, invitation).deliver
+    end
+
+    it_behaves_like "a meeting email"
   end
+
 
   def html_body
-    ActionMailer::Base.deliveries.last.body.parts.first.body
+    ActionMailer::Base.deliveries.last.html_part.body
   end
 end
