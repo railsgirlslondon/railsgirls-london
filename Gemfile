@@ -12,6 +12,7 @@ gem 'protected_attributes' # temporary
 gem 'ruby-trello', require: false
 gem 'pg'
 gem 'newrelic_rpm'
+gem 'icalendar'
 
 group :production do
   gem 'rails_12factor'
