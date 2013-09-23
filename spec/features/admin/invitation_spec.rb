@@ -17,7 +17,7 @@ feature "CRUDing invitation" do
 
     Then do
       page.has_content? "Invitation"
-      page.has_content? invitation.member.name
+      page.has_content? invitation.invitee.name
       page.has_content? I18n.l(invitation.created_at, format: :short)
     end
 

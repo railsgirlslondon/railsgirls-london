@@ -58,22 +58,25 @@
 =render_event_partial
 
 - if @event.has_host?
-  %section.host
-    %h3.underline Host
+  %hr
     .row
-      .span4
-        %div
-          = link_to @event.host_website do
-            .noborder= image_tag @event.host_image_url
-        %div= @event.host_description
+      -if @event.host.map_url
+        %iframe.span5{ frameBorder:'0', height: 300, src: @event.host.map_url }
+      .span2
+        %strong=link_to @event.host.name, @event.host.website
+        %address
+          =@event.address_line_1
+          %br
+          - if @event.address_line_2
+            #{@event.address_line_2}
+            %br
+          #{@event.address_city}, #{@event.host.address_postcode}
+          - unless @event.host.image_url.blank?
+            %br
+            %br
+            = image_tag @event.host.image_url
 
-      .span3
-        %h4 Location:
-        %div= @event.host_name
-        %div= @event.address_line_1
-        %div= @event.address_line_2
-        %div= "#{@event.address_city}, #{@event.address_postcode}"
-
+%br
 %section.sponsors
   %legend Sponsors
   .row
