@@ -22,7 +22,7 @@ module Extentions
     end
 
     def send_reminders
-      invitations.pending.each do |invitation|
+      invitations.pending_response.each do |invitation|
         invitation.send_reminder
       end
     end
