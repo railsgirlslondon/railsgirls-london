@@ -21,6 +21,12 @@ module Extentions
       invitations.create invitee: invitee
     end
 
+    def send_reminders
+      invitations.pending.each do |invitation|
+        invitation.send_reminder
+      end
+    end
+
     def has_available_slots?
       available_slots and available_slots > invitations.accepted.count
     end
