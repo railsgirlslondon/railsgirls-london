@@ -36,6 +36,23 @@ describe EventMailer do
     include_examples "an event email"
   end
 
+  context "invitation_reminder email" do
+    let(:subject) {
+        "Rails Girls #{event.city_name} - Please RSVP your attendance"
+    }
+
+    before do
+      EventMailer.invitation_reminder(event, invitation.invitee, invitation).deliver
+    end
+
+    it "sends an invitation reminder email" do
+      expect(html_body).to include(invitation.invitee.first_name)
+      expect(html_body).to include(invitation_url(invitation))
+    end
+
+    include_examples "an event email"
+  end
+
   context "confirmation email" do
     let(:subject) {
       "RG#{event.city_name.slice(0)} - You are confirmed for #{event.title} #{event.dates}"

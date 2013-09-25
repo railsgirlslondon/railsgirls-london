@@ -9,7 +9,7 @@ describe Invitation do
   context "scopes" do
 
     let!(:attending) { 3.times.map { Fabricate(:accepted_invitation, invitable: meeting) }.reverse }
-    let!(:no_reponse) { 2.times.map { Fabricate(:invitation, invitable: meeting) } }
+    let!(:no_response) { 2.times.map { Fabricate(:invitation, invitable: meeting) } }
     let!(:waiting_list) { 5.times.map { Fabricate(:waiting_invitation, invitable: meeting) } }
 
     it "#accepted" do
@@ -18,6 +18,10 @@ describe Invitation do
 
     it "#waiting_list" do
       meeting.invitations.waiting_list.should eq waiting_list
+    end
+
+    it "#pending_response" do
+      meeting.invitations.pending_response.should eq no_response.reverse
     end
   end
 
@@ -64,6 +68,12 @@ describe Invitation do
       invitation.invitable.should_receive(:email).with(:confirm_attendance, invitation.invitee, invitation)
 
       invitation.send_confirmation
+    end
+
+    it "#send_reminder" do
+      invitation.invitable.should_receive(:email).with(:invitation_reminder, invitation.invitee, invitation)
+
+      invitation.send_reminder
     end
   end
 end
