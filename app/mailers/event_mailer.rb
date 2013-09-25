@@ -21,6 +21,13 @@ class EventMailer < ActionMailer::Base
     send_email(subject)
   end
 
+  def invitation_reminder event, registration, invitation
+    setup event, registration, invitation
+
+    subject = "Rails Girls #{@event.city_name} - Please RSVP your attendance"
+    send_email(subject)
+  end
+
   private
 
   def attach_ical_file event
