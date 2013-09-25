@@ -18,6 +18,8 @@ class Invitation < ActiveRecord::Base
                                  i.waiting_list_was == true }
 
   scope :accepted, -> { where(attending: true) }
+  scope :pending_response, -> { where(attending: nil, waiting_list: nil) }
+
   scope :waiting_list, -> { where(waiting_list: true).order('invitations.updated_at ASC') }
 
   default_scope -> { order('updated_at DESC') }
@@ -28,6 +30,10 @@ class Invitation < ActiveRecord::Base
 
   def send_confirmation
     invitable.email :confirm_attendance, self.invitee, self
+  end
+
+  def send_reminder
+    invitable.email :invitation_reminder, self.invitee, self
   end
 
   def to_param
