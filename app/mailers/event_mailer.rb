@@ -24,7 +24,7 @@ class EventMailer < ActionMailer::Base
   def invitation_reminder event, registration, invitation
     setup event, registration, invitation
 
-    subject = "Reminder:: Please RSVP for the Rails Girls #{event.city_name} workshop on the #{event.dates}"
+    subject = "Rails Girls #{@event.city_name} - Please RSVP your attendance"
     send_email(subject)
   end
 

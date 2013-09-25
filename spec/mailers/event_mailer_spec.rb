@@ -38,7 +38,7 @@ describe EventMailer do
 
   context "invitation_reminder email" do
     let(:subject) {
-        "Reminder:: Please RSVP for the Rails Girls #{event.city_name} workshop on the #{event.dates}"
+        "Rails Girls #{event.city_name} - Please RSVP your attendance"
     }
 
     before do
