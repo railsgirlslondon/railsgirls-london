@@ -80,16 +80,17 @@
 %section.sponsors
   %legend Sponsors
   .row
-    %ul.sponsors.inline
-      - @event.non_hosting_sponsors.each do |sponsor|
-        %li.span2
-          %h5
-            = link_to sponsor.website do
-              = image_tag sponsor.image_url
-          %small
-            %strong
-              =link_to "#{sponsor.name} -", sponsor.website  if sponsor.image_url.nil?
-            = sponsor.description
-          %br
+    %table.sponsors
+      - @event.non_hosting_sponsors.each_slice(3) do |group|
+        %tr
+          - group.each do |sponsor|
+            %td
+              %h5
+                = link_to sponsor.website do
+                  = image_tag sponsor.image_url
+              %small
+                %strong
+                  =link_to "#{sponsor.name} -", sponsor.website  if sponsor.image_url.nil?
+                = sponsor.description
 
 = render partial: "shared/coaches", locals: { coaches: @event.coaches, title: "Organisers and coaches" }
