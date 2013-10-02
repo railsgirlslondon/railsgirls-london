@@ -176,7 +176,6 @@ ActiveRecord::Schema.define(version: 20130922194522) do
     t.string "address_line_2"
     t.string "address_city"
     t.string "address_postcode"
-    t.string "map_url"
   end
 
   create_table "sponsorships", force: true do |t|

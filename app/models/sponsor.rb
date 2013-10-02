@@ -12,7 +12,6 @@ class Sponsor < ActiveRecord::Base
                   :website,
                   :host,
                   :events,
-                  :map_url,
                   :address_line_2,
                   *MANDATORY_ADDRESS_FIELDS
 
