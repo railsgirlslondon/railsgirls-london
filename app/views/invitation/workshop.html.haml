@@ -44,6 +44,10 @@
             %em You can RSVP until the #{I18n.l(@invitable.rsvp_end_date)}
 
 
--if @invitable.host.map_url
-  .row
-    %iframe.span10{ frameBorder:'0', height: 200, src: @invitable.host.map_url }
+.row
+  :javascript
+    $(function() {
+      postcode = "##{@invitable.host.address_postcode}"
+    });
+  %div{:class => "span10"}
+    %div{:id => "map-canvas"}

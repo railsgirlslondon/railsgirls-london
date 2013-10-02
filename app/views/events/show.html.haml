@@ -58,10 +58,14 @@
 =render_event_partial
 
 - if @event.has_host?
+  :javascript
+    $(function() {
+      postcode = "##{@event.host.address_postcode}"
+    });
   %hr
     .row
-      -if @event.host.map_url
-        %iframe.span5{ frameBorder:'0', height: 300, src: @event.host.map_url }
+      %div{:class => "span5"}
+        %div{:id => "map-canvas"}
       .span2
         %strong=link_to @event.host.name, @event.host.website
         %address
