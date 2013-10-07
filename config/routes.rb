@@ -50,8 +50,14 @@ RailsgirlsLondon::Application.routes.draw do
   resources :cities, path: "", only: [:show] do
     resources :events, only: [:show] do
       resources :registrations, only: [:new, :create]
+
+      resources :feedback, only: [:new, :show]
     end
     resources :meetings, only: [:show, :index]
+  end
+
+  resources :events do
+    resource :feedback,  only: [ :create ]
   end
 
   root :to => 'home#index'

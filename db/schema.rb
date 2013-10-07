@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922194522) do
+ActiveRecord::Schema.define(version: 20131006174332) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -75,6 +75,19 @@ ActiveRecord::Schema.define(version: 20130922194522) do
     t.boolean  "coachable"
     t.string   "image"
     t.integer  "available_slots"
+  end
+
+  create_table "feedbacks", force: true do |t|
+    t.string   "application_url"
+    t.string   "application_description"
+    t.string   "github_url"
+    t.string   "feelings_before"
+    t.string   "feelings_after"
+    t.string   "comments"
+    t.integer  "invitation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "confirmed"
   end
 
   create_table "invitations", force: true do |t|

@@ -1,5 +1,7 @@
 class Invitation < ActiveRecord::Base
 
+  has_one :feedback
+
   belongs_to :invitee, :polymorphic => true
   belongs_to :invitable, :polymorphic => true
 
