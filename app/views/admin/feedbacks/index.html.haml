@@ -1,0 +1,16 @@
+%legend
+  %h3 Feedback
+
+- @feedbacks.each do |feedback|
+  %table.table
+    %thead
+      %tr
+        %td Name
+        %td Application
+        %td Event
+        %td
+    %tr
+      %td= feedback.invitee.name
+      %td= link_to feedback.application_url, feedback.application_description
+      %td= feedback.invitable.to_s.html_safe
+      %td=link_to "View feedback", admin_city_feedback_path(@city, feedback)

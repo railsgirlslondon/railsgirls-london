@@ -69,6 +69,25 @@ describe EventMailer do
     it_behaves_like "an event email"
   end
 
+  context "feedback confirmation email" do
+    let(:subject) {
+      "Rails Girls #{event.city_name} - Feedback for workshop"
+    }
+    let(:invitation) { Fabricate(:event_invitation) }
+
+    before do
+      Fabricate(:feedback, invitation_id: invitation.id)
+
+      EventMailer.confirm_feedback(event, invitation.invitee, invitation).deliver
+    end
+
+    it "sends a confirmation email when an attendee accepts the invitation" do
+      expect(html_body).to include(invitation.invitee.first_name)
+    end
+
+    it_behaves_like "an event email"
+  end
+
 
   def html_body
     ActionMailer::Base.deliveries.last.html_part.body

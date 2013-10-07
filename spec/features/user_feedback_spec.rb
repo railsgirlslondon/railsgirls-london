@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'a user can provide feedback for an invitable event', wip: true do
+feature 'a user can provide feedback for an invitable event' do
   let (:event) { Fabricate(:event) }
 
   scenario "only if they have attented the event" do
@@ -25,6 +25,7 @@ feature 'a user can provide feedback for an invitable event', wip: true do
 end
 
 private
+
 def fill_in_feedback_form event, email
     visit new_city_event_feedback_path(event.city, event)
 

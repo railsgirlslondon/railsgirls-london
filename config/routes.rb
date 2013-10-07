@@ -18,6 +18,7 @@ RailsgirlsLondon::Application.routes.draw do
       end
 
       resources :members
+      resources :feedbacks, only: [ :index, :show ]
 
     end
 
@@ -25,6 +26,7 @@ RailsgirlsLondon::Application.routes.draw do
       resources :registrations, only: [:show, :new, :create] do
         resource :attendance, only: [:create, :destroy]
       end
+
     end
 
     resources :sponsorships, only: [:create, :destroy, :update]

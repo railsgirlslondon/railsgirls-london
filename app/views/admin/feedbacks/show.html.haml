@@ -1,0 +1,26 @@
+%hr
+%h3 Feedback
+%h4
+  =link_to @feedback.invitee.name, admin_event_registration_path(@feedback.invitable, @feedback.invitee)
+  .pull-right= image_tag gravatar_url(@feedback.invitee.email, 90), class: 'img-circle'
+
+.row
+  .span4
+    %ul.unstyled
+      - if @feedback.application_description.present? and @feedback.application_url.present?
+        %li
+          %strong Application
+          =link_to @feedback.application_description, @feedback.application_url
+      - if @feedback.feelings_before.present?
+        %li
+          %strong Feelings before
+          =@feedback.feelings_before
+      - if @feedback.feelings_after.present?
+        %li
+          %strong Feelings after
+          =@feedback.feelings_after
+      - if @feedback.comments.present?
+        %li
+          %strong Comments
+          =@feedback.comments
+

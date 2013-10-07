@@ -18,7 +18,7 @@ en:
     already_submitted: "Hi %{name}! You already seem to have submitted feedback for this event."
 
     confirmation:
-      successful: "Thank you for comfirming your feedback %{name}!"
+      successful: "Thank you for verifying your submission %{name}!"
     already_confirmed: "Your feedback has already been confirmed!"
 
     error:

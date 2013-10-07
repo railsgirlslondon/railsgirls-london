@@ -42,6 +42,10 @@ class Invitation < ActiveRecord::Base
     self.token
   end
 
+  def send_feedback_confirmation
+    invitable.email :confirm_attendance, self.invitee, self
+  end
+
   protected
 
   def generate_token

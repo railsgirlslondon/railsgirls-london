@@ -8,7 +8,7 @@ class FeedbackController < ApplicationController
   end
 
   def show
-    confirm_feeback if @feedback.pending_confirmation?
+    return confirm_feedback if @feedback.pending_confirmation?
 
     already_confirmed
   end
@@ -27,7 +27,9 @@ class FeedbackController < ApplicationController
     if @feedback.pending_confirmation?
       @feedback.confirm!
 
-      flash[:notice] = t("feedback.confirmation.successful")
+      flash[:notice] = t("feedback.confirmation.successful", name: @feedback.invitee.first_name)
+      redirect_to [@event.city, @event]
+      return
     end
   end
 
