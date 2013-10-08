@@ -1,5 +1,13 @@
 %legend.highlight #{@city.name} dashboard
 
+- unless @city.feedbacks.empty?
+  .row
+    .span3
+      =link_to "Attendee feedback", admin_city_feedbacks_path(@city), class: 'btn'
+      .label.label-important new
+
+  %br
+
 .row
   .span3
     %h5
@@ -38,3 +46,4 @@
             =link_to member.name, admin_city_member_path(@city, member)
 
     = link_to 'Add member', new_admin_city_member_path(@city)
+

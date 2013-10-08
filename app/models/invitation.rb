@@ -1,5 +1,7 @@
 class Invitation < ActiveRecord::Base
 
+  has_one :feedback
+
   belongs_to :invitee, :polymorphic => true
   belongs_to :invitable, :polymorphic => true
 
@@ -38,6 +40,10 @@ class Invitation < ActiveRecord::Base
 
   def to_param
     self.token
+  end
+
+  def send_feedback_confirmation
+    invitable.email :confirm_attendance, self.invitee, self
   end
 
   protected

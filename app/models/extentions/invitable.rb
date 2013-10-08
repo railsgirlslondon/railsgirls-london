@@ -9,6 +9,7 @@ module Extentions
       include InstanceMethods
 
       has_many :invitations, as: :invitable
+      has_many :feedbacks, through: :invitations
 
       attr_accessible :available_slots
 

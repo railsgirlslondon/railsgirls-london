@@ -11,11 +11,12 @@
 
       %tbody
         - @active_events.each do |event|
-          %tr
-            %td= event.host.name
-            %td= event.host.address_postcode
-            %td= event.dates
-            %td.actions= link_to 'View', admin_event_path(event)
+          - if event.has_host?
+            %tr
+              %td= event.host.name
+              %td= event.host.address_postcode
+              %td= event.dates
+              %td.actions= link_to 'View', admin_event_path(event)
 
 - unless @meetings.empty?
   %legend Upcoming Meetups

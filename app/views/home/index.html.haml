@@ -1,24 +1,41 @@
-%section#home_events
-  .lead Upcoming Events
-  %ul.cities
-    - @events.each do |event|
-      %li
-        %h3
-          = link_to event.city.name, city_path(event.city)
-        .citybox
-          %blockquote
-            %p.lead
-              =event.dates
-          =link_to image_tag("#{event.city.slug}.jpg"), city_path(event.city)
-          - if event.accepting_registrations?
-            - if event.registrations_open?
-              .details
-                .applications
-                  Applications are open.
-                .mini
-                  .links
-                    = link_to "View details and apply", city_path(event.city)
-            - else
-              .details
-                .applications
-                  Applications are now closed.
+- if @events.empty?
+  %section#home_events
+    %ul.cities
+      - @cities.each do |city|
+        %li
+          %h3
+            = link_to city.name, city_path(city)
+          .citybox
+            %blockquote
+              %p.lead
+                View #{city.name} events
+            =link_to image_tag("#{city.slug}.jpg"), city_path(city)
+
+
+
+- else
+  %section#home_events
+    .lead Upcoming Events
+
+    %ul.cities
+      - @events.each do |event|
+        %li
+          %h3
+            = link_to event.city.name, city_path(event.city)
+          .citybox
+            %blockquote
+              %p.lead
+                =event.dates
+            =link_to image_tag("#{event.city.slug}.jpg"), city_path(event.city)
+            - if event.accepting_registrations?
+              - if event.registrations_open?
+                .details
+                  .applications
+                    Applications are open.
+                  .mini
+                    .links
+                      = link_to "View details and apply", city_path(event.city)
+              - else
+                .details
+                  .applications
+                    Applications are now closed.

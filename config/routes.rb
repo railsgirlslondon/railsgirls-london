@@ -18,6 +18,7 @@ RailsgirlsLondon::Application.routes.draw do
       end
 
       resources :members
+      resources :feedbacks, only: [ :index, :show ]
 
     end
 
@@ -25,6 +26,7 @@ RailsgirlsLondon::Application.routes.draw do
       resources :registrations, only: [:show, :new, :create] do
         resource :attendance, only: [:create, :destroy]
       end
+
     end
 
     resources :sponsorships, only: [:create, :destroy, :update]
@@ -50,8 +52,14 @@ RailsgirlsLondon::Application.routes.draw do
   resources :cities, path: "", only: [:show] do
     resources :events, only: [:show] do
       resources :registrations, only: [:new, :create]
+
+      resources :feedback, only: [:new, :show]
     end
     resources :meetings, only: [:show, :index]
+  end
+
+  resources :events do
+    resource :feedback,  only: [ :create ]
   end
 
   root :to => 'home#index'

@@ -1,4 +1,6 @@
 class Registration < ActiveRecord::Base
+  has_one :invitation, foreign_key: :invitee_id
+
   REQUIRED_ATTRIBUTES = [:first_name,
                          :last_name,
                          :email]
