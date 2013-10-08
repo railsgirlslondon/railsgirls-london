@@ -8,33 +8,29 @@ class FeedbackController < ApplicationController
   end
 
   def show
-    return confirm_feedback if @feedback.pending_confirmation?
-
-    already_confirmed
+    cancel_feedback
   end
 
   private
 
   def find_event_feedback
-    @feedback = @event.feedbacks.find(params[:id])
+    begin
+      @feedback = @event.feedbacks.find(params[:id])
+    rescue
+      flash[:error] = t("feedback.already_cancelled")
+      redirect_to [@event.city, @event]
+      return
+    end
   end
 
   def set_event
     @event = Event.find(params[:event_id])
   end
 
-  def confirm_feedback
-    if @feedback.pending_confirmation?
-      @feedback.confirm!
+  def cancel_feedback
+    @feedback.destroy!
 
-      flash[:notice] = t("feedback.confirmation.successful", name: @feedback.invitee.first_name)
-      redirect_to [@event.city, @event]
-      return
-    end
-  end
-
-  def already_confirmed
-    flash[:error] = t("feedback.already_confirmed")
+    flash[:notice] = t("feedback.cancel", name: @feedback.invitee.first_name)
     redirect_to [@event.city, @event]
     return
   end

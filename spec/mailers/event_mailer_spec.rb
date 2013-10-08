@@ -71,7 +71,7 @@ describe EventMailer do
 
   context "feedback confirmation email" do
     let(:subject) {
-      "Rails Girls #{event.city_name} - Feedback for workshop"
+      "RG#{event.city_name.slice(0)} - Then you for your feedback for #{event.title} #{event.dates}!"
     }
     let(:invitation) { Fabricate(:event_invitation) }
 

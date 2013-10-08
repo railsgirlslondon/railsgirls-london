@@ -31,7 +31,7 @@ class EventMailer < ActionMailer::Base
   def confirm_feedback event, registration, invitation
     setup event, registration, invitation
 
-    subject = "Rails Girls #{@event.city_name} - Feedback for workshop"
+    subject = "RG#{@event.city_name.slice(0)} - Then you for your feedback for #{@event.title} #{@event.dates}!"
     send_email(subject)
   end
 
