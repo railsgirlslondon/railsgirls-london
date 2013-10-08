@@ -19,7 +19,7 @@ feature 'a user can provide feedback for an invitable event' do
     expect(page).to have_content "Thanks for your feedback #{registration.first_name}."
 
     fill_in_feedback_form event,  registration.email
-    expect(page).to have_content "Hi #{registration.first_name}! You already seem to have submitted feedback for this event."
+    expect(page).to have_content "Hi #{registration.first_name}! We've already received you feedback for this event"
   end
 
 end
@@ -32,6 +32,9 @@ def fill_in_feedback_form event, email
     fill_in 'Email address', with: email
     fill_in 'Application description', with: "A listing application"
     fill_in 'Application url', with: "http://some/application.url"
+
+    select "Meh", from: 'How would you rate our workshop? *'
+    check "Can we use your feedback and comments on our website?"
 
     click_on "Submit"
 end

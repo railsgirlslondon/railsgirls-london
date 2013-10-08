@@ -15,7 +15,7 @@ en:
 
   feedback:
     successful: "Thanks for your feedback %{name}. You should receive an email asking you to confirm your submission soon!"
-    already_submitted: "Hi %{name}! You already seem to have submitted feedback for this event."
+    already_submitted: "Hi %{name}! We've already received you feedback for this event!"
 
     confirmation:
       successful: "Thank you for verifying your submission %{name}!"

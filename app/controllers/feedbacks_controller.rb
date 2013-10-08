@@ -17,7 +17,7 @@ class FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.require(:feedback).permit(:email_address, :comments, :application_description, :application_url, :github_url, :feelings_before, :feelings_after)
+    params.require(:feedback).permit(:email_address, :comments, :application_description, :application_url, :github_url, :feelings_before, :feelings_after, :rating, :permission)
   end
 
   def set_event

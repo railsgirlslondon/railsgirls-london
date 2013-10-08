@@ -6,8 +6,10 @@
 
 = simple_form_for @feedback, url: event_feedback_path(@event, @feedback) do |f|
   .row
-    .span12
+    .span5
       = f.input :email_address, input_html: { class: 'span4' }, hint: "You must use the same email address you used when signing up for the workshop", required: true
+    .span5
+      .well= f.input :permission, input_html: { class: 'inline span10', rows: 5 }, label: "Can we use your feedback and comments on our website?"
   %br
   %br
   .row
@@ -26,6 +28,11 @@
   .row
     .span12
       = f.input :comments, as: :text, input_html: { class: 'span10', rows: 5 }
+
+  .row
+    .span12
+      = f.input :rating, input_html: { class: 'span2'}, label: "How would you rate our workshop?", :collection => [["Not that great", 1], ["Meh", 2 ], ["Good", 3], [ "Very good", 4 ], ["Awesome!", 5]], required: true, prompt: "Select rating"
+
 
   .form-actions
     = f.submit :Submit, class: 'btn btn-large btn-primary'

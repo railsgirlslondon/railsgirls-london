@@ -17,7 +17,9 @@ class Feedback < ActiveRecord::Base
                   :github_url,
                   :feelings_before,
                   :feelings_after,
-                  :comments
+                  :comments,
+                  :rating,
+                  :permission
 
   def pending_confirmation?
     not(self.confirmed.eql?(true))
