@@ -21,14 +21,6 @@ class Feedback < ActiveRecord::Base
                   :rating,
                   :permission
 
-  def pending_confirmation?
-    not(self.confirmed.eql?(true))
-  end
-
-  def confirm!
-    self.update_attribute(:confirmed, true)
-  end
-
   def send_feedback_confirmation
     invitable.email :confirm_feedback, invitee, invitee.invitation
   end
