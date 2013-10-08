@@ -3,6 +3,9 @@
 
 =render partial: 'upcoming_event', locals: { event: @city.upcoming_event } unless @city.upcoming_event.nil?
 
+- if allow_feedback?(@latest_event)
+  =render partial: 'shared/ask_for_feedback', locals: { event: @latest_event, city: @city }
+
 =render partial: 'upcoming_meetings', locals: { meetings: @city.meetings.upcoming } unless @city.meetings.upcoming.nil?
 
 =render partial: "past_events", locals: { events: @city.past_events } unless @city.past_events.empty?

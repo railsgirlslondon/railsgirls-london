@@ -58,17 +58,14 @@ feature "viewing an event" do
 
   end
 
-  context "when inactive" do
-    Given!(:event) { Fabricate(:inactive_event, city: city) }
+  context "when an event is in the past" do
+    let!(:event) { Fabricate(:inactive_event, city: city) }
 
-    context "when the registration deadline is set" do
+    it "makes user feedback available" do
+      visit city_event_path(city, event)
 
-      When do
-        visit city_event_path(city, event)
-      end
-
-      Then { page.has_content? "This event has already taken place." }
-
+      page.has_content? "This event has already taken place."
+      page.has_content? "Did you attend out workshop on the #{event.dates}"
     end
   end
 end

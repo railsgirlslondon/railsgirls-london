@@ -1,6 +1,9 @@
 %legend
   %h3
     Invitation
+
+    .pull-right
+      - invitation_attendance_label(@invitation)
 .row
   .span4
     %h4
@@ -9,20 +12,19 @@
         %small=invitable_date(@invitation)
 .row
   .span7
-    %p.lead= @invitation.invitable.description
+    %p.lead
+      = @invitation.invitable.description
 
 .row
   .span3
     %dd
       %dt to
-      %dl=@invitation.invitee.name
+      %dl
+        = mail_to @invitation.invitee.email, @invitation.invitee.name
   .span3
     %dd
       %dt emailed at
       %dl #{I18n.l(@invitation.created_at, format: :short)}
-
-%strong
-  - invitation_attendance_label(@invitation)
 
 - if @invitation.comment.present?
   %br

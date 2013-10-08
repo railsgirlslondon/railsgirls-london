@@ -11,6 +11,7 @@ class Admin::InvitationsController < ApplicationController
 
   def show
     @invitation = Invitation.find_by_token params[:id]
+    @feedback = @invitation.feedback
   end
 
   private

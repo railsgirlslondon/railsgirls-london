@@ -2,35 +2,38 @@
   %h1.title.highlight=@event.title if @event.title
   %blockquote
     %p.lead=@event.dates
-  .details
-    %p.description
-      = @event.description
+    .details
+      %p.description
+        = @event.description
 
-  -if @event.active
-    %div
-      - if @event.accepting_registrations?
-        - if @event.registrations_open?
-          .mini= link_to "Apply to the event.", new_city_event_registration_path(@city, @event)
-          \-
-          %small Applications are open until the #{I18n.l(@event.registration_deadline)}
+  - if @event.ends_on.future?
+    -if @event.active
+      %div
+        - if @event.accepting_registrations?
+          - if @event.registrations_open?
+            .mini= link_to "Apply to the event.", new_city_event_registration_path(@city, @event)
+            \-
+            %small Applications are open until the #{I18n.l(@event.registration_deadline)}
+          - else
+            Applications are now closed.
         - else
-          Applications are now closed.
-      - else
-        Applications are not available for this event.
+          Applications are not available for this event.
 
-      .pull-right
-        =render partial: 'shared/tweet_button', locals: { twitter: city_twitter, text: "Rails Girls #{city_name} #{@event.title}. Get excited and make things!" }
+        .pull-right
+          =render partial: 'shared/tweet_button', locals: { twitter: city_twitter, text: "Rails Girls #{city_name} #{@event.title}. Get excited and make things!" }
 
-  - else
-    %div
-      %em
-        This event has already taken place.
-        =link_to "Look here ", city_path(@city)
-        for upcoming events.
+    - else
+      %div
+        %em
+          This event has already taken place.
+          =link_to "Look here ", city_path(@city)
+          for upcoming events.
 
--if @event.active?
-  .viewschedule
-    =link_to "View event schedule", "http://railsgirls.com/#{city_slug}"
+    -if @event.active?
+      .viewschedule
+        =link_to "View event schedule", "http://railsgirls.com/#{city_slug}"
+  - elsif allow_feedback?(@event)
+    =render partial: 'shared/ask_for_feedback', locals: { event: @event, city: @city }
 
 %hr
 
