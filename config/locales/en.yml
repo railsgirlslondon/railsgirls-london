@@ -11,3 +11,16 @@ en:
         email: "%a, %d %b %Y at %H:%M"
         short: "%d/%m/%Y %H:%M "
         date: "%d %B %Y"
+
+
+  feedback:
+    cancel: "Feedback has been cancelled. Help us improve our workshops by filling in our feedback form!"
+    already_cancelled: "Feedback has already been cancelled!"
+    successful: "Thanks for your feedback %{name}. You should receive an email asking you to confirm your submission soon!"
+    already_submitted: "Hi %{name}! We've already received you feedback for this event!"
+
+    confirmation:
+      successful: "Thank you for verifying your submission %{name}!"
+
+    error:
+      cannot_find_user: "Hm.. We can't seem to find you. Are you sure you filled in your email address correctly?<br/> If you keep having trouble send us an email at <b><a href='mailto:%{email}'>%{email}</a><?b>"

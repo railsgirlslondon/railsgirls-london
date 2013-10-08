@@ -21,4 +21,8 @@ module EventHelper
       content_tag :div, registration.selection_state, class: "label label-success"
     end
   end
+
+  def allow_feedback? event
+    event.ends_on+3.months > Date.today
+  end
 end

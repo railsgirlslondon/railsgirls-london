@@ -1,0 +1,20 @@
+%h3{style: "border-bottom: 1px solid #E5E5E5; color: #434950; font-size: 26px; font-weight: 400; line-height: 30px; padding-bottom: 10px; margin-bottom: 15px;" }
+  Hi
+  #{@registration.first_name},
+
+.content
+  .left.inline{ style: "width: 100%; min-width: 260px; display: inline-block;" }
+    %p.lead{ style: "font-size: 18px; color: #333333; padding-bottom: 10px; line-height: 22px;"}
+      Thanks for submitting feedback for our workshop!
+      %span.highlight="<3"
+
+
+    %small Was the feedback not submitted by you?
+    =link_to "Remove feedback", full_url_for(city_event_feedback_url(@city, @event, @invitation.feedback)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+
+    %br
+
+    =image_tag attachments['london-girl.png'].url, width: '180px'
+    %div{style: "margin: 15px 0; "}
+      %highlight{ style: "color: #333333; text-align: center; font-weight: 500; font-size: 13px" }You learn designing, prototyping and coding with the help of our coaches.
+    %p.lead{ style: "font-size: 15px; color: #4E5563; margin-top: 25px;" }

@@ -5,6 +5,7 @@ class CitiesController < ApplicationController
 
   def show
     @upcoming_meetings = @city.meetings.upcoming.announced
+    @latest_event = @city.events.order("ends_on desc").first
   end
 
   def sponsor

@@ -4,7 +4,7 @@ describe "Listing cities" do
   before(:each) do
     @city = Fabricate(:city, name: "Sama")
     Fabricate(:event, city: @city)
-    Fabricate(:inactive_event, city: @city)
+    @inactive_event = Fabricate(:inactive_event, city: @city)
     @meeting =  Fabricate(:meeting, city: @city)
 
     Fabricate(:city, name: "Na")
@@ -22,6 +22,8 @@ describe "Listing cities" do
     check_upcoming_events
     check_past_events
     check_upcoming_meetings
+
+    check_feedback_link
   end
 
 
@@ -57,4 +59,9 @@ describe "Listing cities" do
   def check_past_events
     find("#past_events p").text.should eq @city.past_events.first.dates
   end
+
+  def check_feedback_link
+    page.has_content? "Did you attend out workshop on the #{@inactive_event.dates}"
+  end
 end
+
