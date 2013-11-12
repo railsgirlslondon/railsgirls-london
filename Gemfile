@@ -26,6 +26,7 @@ end
 group :test do
   gem 'faker'
   gem 'shoulda-matchers'
+  gem "shoulda-callback-matchers", ">=0.3.0"
   gem 'rspec-given'
   gem 'capybara'
   gem 'vcr'

@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe City do
-
+  
+  it { should callback(:generate_slug).before(:save) }
+  
   context "twitter" do
     it 'can have twitter configured' do
       city = City.new twitter: "railsgirls_ldn"
