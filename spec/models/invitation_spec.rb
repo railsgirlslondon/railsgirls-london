@@ -6,6 +6,11 @@ describe Invitation do
   let!(:hosting) { Fabricate(:hosting, sponsorable: meeting) }
   let(:invitation) { Fabricate(:invitation, invitable: meeting) }
 
+  it { should callback(:generate_token).before(:create) }
+  it { should callback(:send_invitation).after(:create) }
+  it { should callback(:give_away_spot).after(:update) }
+  it { should callback(:send_confirmation).after(:update) }
+  
   context "scopes" do
 
     let!(:attending) { 3.times.map { Fabricate(:accepted_invitation, invitable: meeting) }.reverse }
