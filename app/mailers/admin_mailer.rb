@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  default from: 'notifications@railsgirls.co.uk'
+  default from: 'railsgirlslondon@gmail.com'
   helper :email
 
   include Extentions::MailerHelper
