@@ -62,5 +62,5 @@ RailsgirlsLondon::Application.routes.draw do
     resource :feedback,  only: [ :create ]
   end
 
-  root :to => 'home#index'
+  root :to => 'cities#show', id: "london"
 end
