@@ -3,21 +3,23 @@ class Registration < ActiveRecord::Base
 
   REQUIRED_ATTRIBUTES = [:first_name,
                          :last_name,
-                         :email]
+                         :email,
+                         :gender,
+                         :phone_number,
+                         :programming_experience,
+                         :reason_for_applying,
+                         :uk_resident,
+                         :os,
+                         :os_version,
+                         :terms_of_service,
+                         :address,
+                         :spoken_languages,
+                         :preferred_language,
+                       ]
 
-  REGISTRATION_ATTRIBUTES = [:gender,
-                             :phone_number,
-                             :programming_experience,
-                             :reason_for_applying,
-                             :uk_resident,
-                             :os,
-                             :os_version,
-                             :spoken_languages,
-                             :preferred_language,
-                             :address,
+  REGISTRATION_ATTRIBUTES = [
                              :event_id,
                              :event,
-                             :terms_of_service,
                              :email_confirmation]
 
   attr_accessible(*(REQUIRED_ATTRIBUTES + REGISTRATION_ATTRIBUTES),
