@@ -12,4 +12,4 @@ branches:
     - production
 notifications:
   email:
-    - london@railsgirls.co.uk
+    - rgl-organisers@googlegroups.com

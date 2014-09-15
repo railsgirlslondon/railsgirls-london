@@ -5,6 +5,6 @@ module EmailHelper
   end
 
   def full_url_for path
-    "#{@host}#{path}"
+    "http://railsgirls.london/#{path}"
   end
 end
