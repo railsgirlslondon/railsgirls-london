@@ -1,0 +1,14 @@
+%legend
+  %h3
+    =@meeting.name
+    %small=I18n.l(@meeting.date)
+    .pull-right= link_to 'Edit', edit_admin_city_meeting_path(@city, @meeting), class: "btn"
+
+.row
+  .span7
+    %p.lead= @meeting.description
+
+
+=render partial: "admin/shared/coaches", locals:  { coachable: @meeting } if @meeting.coachable
+=render partial: "admin/shared/sponsors", locals: { sponsorable: @meeting }
+=render partial: "admin/shared/invitations", locals:  { invitable: @meeting, invitations: @meeting.invitations }

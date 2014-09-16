@@ -3,10 +3,14 @@
   %head
     %meta{:charset => "utf-8"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
-    %link{rel: 'shortcut icon', href: 'favicon.png'}
-    %title= content_for?(:title) ? yield(:title) : "Rails Girls London"
+    %link{rel: 'shortcut icon', href: '/favicon.png'}
+    %title= content_for?(:title) ? yield(:title) : page_title
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
+    %script(type="text/javascript" src="http://use.typekit.net/xaz4ocu.js")
+    %script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&sensor=true")
+    :javascript
+      try{Typekit.load();}catch(e){}
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -15,18 +19,15 @@
     %header.navbar.navbar-fixed-top
       %nav.navbar-inner
         .container
-          = render 'layouts/navigation'
+          .row
+            .span10.offset1
+              = render 'layouts/navigation'
+              = render 'layouts/fork_us'
     #main{:role => "main"}
       .container
-        .content
-          .row
-            .span9
-              = render 'layouts/messages'
-              = yield
-            .span3
-              .affix-top
-                = render 'layouts/fork_us'
-                = render 'layouts/kippt_resources'
-                = render 'layouts/twitter_snippet'
-          %footer
+        .row
+          .span10.offset1
+            = render 'layouts/messages'
+            = yield
+  =render 'layouts/footer'
 

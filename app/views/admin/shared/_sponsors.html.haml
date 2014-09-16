@@ -1,0 +1,13 @@
+%legend
+  Sponsors
+  %small= link_to "Add sponsor", new_admin_sponsor_path
+
+- if sponsorable.sponsors.any?
+  .row
+    %ul.nav.nav-tabs.nav-stacked.nav-columns
+      - sponsorable.sponsors.each do |sponsor|
+        %li.span4
+          = link_to [:admin, sponsor] do
+            =sponsor.name
+            - if sponsor.is_host_for?(sponsorable)
+              .label.label-info Host

@@ -1,0 +1,14 @@
+- if @upcoming_meetings.any?
+  %section#meetings
+    .lead Upcoming Meetings
+    .row
+      .span3
+        %ul.nav.nav-tabs.nav-stacked
+          - @upcoming_meetings.each do |meeting|
+            %li
+              =link_to [@city, meeting] do
+                %strong #{meeting.name} -
+                %small= I18n.l(meeting.date)
+    .mini
+      =link_to "View all", [@city, :meetings]
+

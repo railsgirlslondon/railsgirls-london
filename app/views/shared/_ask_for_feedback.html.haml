@@ -1,0 +1,8 @@
+.well
+  %span
+    / %small Did you attend our workshop on the #{event.dates}?
+  / %br
+  %strong
+    Give us your
+    =link_to "feedback", new_city_event_feedback_path(city, event)
+    so we can make things even better!

@@ -16,5 +16,43 @@ module ApplicationHelper
     link_to "kippt", "http://kippt.com#{link}"
   end
 
-end
+  def city_name
+    @city ? @city.name : "UK"
+  end
 
+  def page_title
+    title = "Rails Girls #{city_name}"
+    title << " -  #{@event.title}" if @event and @event.active
+    title
+  end
+
+  def city_twitter
+    @city ? @city.twitter : "railsgirls"
+  end
+
+  def city_slug
+    @city ? @city.slug : ""
+  end
+
+  def path_active?(path)
+    "active" if current_page?(path)
+  end
+
+  def gravatar_url(email,size=50)
+    "http://gravatar.com/avatar/#{md5(email)}?s=#{size}"
+  end
+
+  def md5(string)
+    Digest::MD5.hexdigest(string.strip.downcase)
+  end
+
+  def twitter_widget_id
+    @city.twitter_widget_id ? @city.twitter_widget_id : railsgirls_twitter_widget_id
+  end
+
+  private
+
+  def railsgirls_twitter_widget_id
+    "380105070089490433"
+  end
+end

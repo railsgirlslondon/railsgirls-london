@@ -1,0 +1,23 @@
+#admin_event
+  %legend
+    %h3
+      = event_title(@event)
+      %small= @event.dates
+      .pull-right= link_to 'Edit', edit_admin_event_path(@event), class: "btn"
+  %p.lead= @event.description
+
+  .highlight
+    The event is
+    = @event.active ? "active" : "not active"
+
+  %br
+  %br
+
+  =render partial: "admin/shared/sponsors", locals:  { sponsorable: @event }
+
+  =render partial: "admin/shared/coaches", locals:  { coachable: @event } if @event.coachable
+
+  =render partial: "admin/shared/invitations", locals:  { invitable: @event,  invitations: @event.invitations } unless @event.invitations.empty?
+
+  =render partial: "admin/shared/registrations", locals:  { registrations: @event.registrations }
+

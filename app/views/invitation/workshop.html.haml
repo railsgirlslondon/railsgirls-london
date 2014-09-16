@@ -1,0 +1,53 @@
+%legend
+  %h3
+    %strong=@invitable.city_name
+    %strong=@invitable.title
+    %small=@invitable.dates
+.row
+  .span6
+    %br
+    %p.lead
+      =@invitable.description
+    %br
+      %strong=link_to @invitable.host.name, @invitable.host.website
+      .row
+        .span3
+          %address
+            =@invitable.host.address_line_1
+            %br
+            #{@invitable.host.address_line_2}
+            %br
+            #{@invitable.host.address_city}, #{@invitable.host.address_postcode}
+        .span3
+          - unless @invitable.host.image_url.blank?
+            = image_tag @invitable.host.image_url
+  .span4
+    .hero-unit
+      - if !@invitation.attending.nil? or !@invitable.rsvps_available?
+        .large
+          You have RSVPed
+          %strong #{@invitation.attending ? "yes" : "no"}
+          %hr
+        - if !@invitation.attending
+          %small We are so sorry you can't make it :(
+      - if @invitable.rsvps_available? and !@invitation.attending.eql? false
+        %h4= "Will your attend?"
+        =simple_form_for @invitation, html: { class: 'form-inline' } do |f|
+          =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last, required: true
+          =f.input :comment, placeholder: "Anything you want us to know?"
+          %br
+
+          =f.submit "RSVP", class: 'btn btn-primary'
+        - if @invitable.rsvps_available? and !@invitation.attending.eql? false
+          %hr
+          %small
+            %em You can RSVP until the #{I18n.l(@invitable.rsvp_end_date)}
+
+
+.row
+  :javascript
+    $(function() {
+      postcode = "##{@invitable.host.address_postcode}"
+    });
+  %div{:class => "span10"}
+    %div{:id => "map-canvas"}

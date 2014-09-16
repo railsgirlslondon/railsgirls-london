@@ -1,0 +1,33 @@
+%section.event-details#upcoming_event
+  %h3.title.highlight= event.title if event.title.present?
+  %blockquote
+    %p.lead=event.dates
+
+  .details
+    %p.description= event.description
+
+    .applications
+      - if event.registrations_open?
+        Applications are open.
+
+  .row
+    .span3
+      %span.highlight.bolder You learn
+      designing, prototyping and coding with the help of our coaches.
+
+    .span3
+      %span.highlight.bolder You need
+      your own laptop, curiosity and a sprinkle of imagination.
+  %br
+
+  .row
+    .span7.mini
+      .links
+        %div
+        - if event.registrations_open?
+          = link_to "View details and apply", city_event_path(@city, event)
+        - else
+          = link_to "View details", city_event_path(@city, event)
+
+        .pull-right
+          =render partial: 'shared/tweet_button', locals: { twitter: city_twitter, text: "Rails Girls #{city_name} #{event.title}. Get excited and make things!" }

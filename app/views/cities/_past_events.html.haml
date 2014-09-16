@@ -1,0 +1,18 @@
+%section#past_events
+  .lead Past Events
+
+  %ul.thumbnails
+    - events.each do |event|
+      %li.span3
+        =link_to city_event_path(@city, event), class: 'thumbnail' do
+          - if event.image
+            .picture
+              =image_tag event.image
+            %p
+              %strong=event.dates
+          - else
+            .picture
+              = image_tag "london-girl.png"
+            %p
+              %strong=event.dates
+

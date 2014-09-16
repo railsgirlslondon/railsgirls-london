@@ -1,0 +1,37 @@
+
+%h3{style: "border-bottom: 1px solid #E5E5E5; padding-bottom: 10px; margin-bottom: 15px; font-size: 26.5px;" }
+  Hi #{@registration.first_name},
+
+.content
+  .left.inline{style: "width: 65%; min-width: 260px; display: inline-block;"}
+    %p.lead{style: "font-size: 18px;"}
+      A spot has opened up and as you were next on our waiting list you are now confirmed for
+      %strong
+        =link_to @meeting.name, full_url_for(city_meeting_url(@city, @meeting)), style: "color: #E0330C"
+      on #{I18n.l(@meeting.date, format: :email)}.
+
+    %p.lead{style: "font-size: 18px;"}
+      If you are unable to make it, please
+      =link_to " change you attendance status ", full_url_for(invitation_url(@invitation)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+      so that the spot can be reallocated.
+
+    %p.lead{style: "font-size: 18px;"}
+      The meeting will be at
+
+      %address{style: "font-size: 18px"}
+        =link_to @meeting.host_name, @meeting.host_website, style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+        %br
+        #{@meeting.address_line_1}<br/>
+        #{@meeting.address_line_2}<br/>
+        #{@meeting.address_city}, #{@meeting.address_postcode}<br/>
+
+    %p{ style: "color: #E0330C"}We'd love it if you could come!
+
+  .right.inline{ style: "width: 24%; min-width: 150px; vertical-align: top;  padding: 0 0 0 50px; display: inline-block;" }
+
+    %p.lead{style: "font-size: 18px;"}
+      =image_tag attachments['london-girl.png'].url, width: '180px'
+      %div
+        %highlight{ style: "color: #E0330c" }You learn
+        designing, prototyping and coding with the help of our coaches.
+

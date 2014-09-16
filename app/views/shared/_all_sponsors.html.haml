@@ -1,0 +1,14 @@
+- if sponsors.any?
+  %section
+    %legend
+      - if show_title
+        Hosts and Sponsors
+
+    %ul.unstyled.inline
+      - sponsors.each do |sponsor|
+        %li.sponsor
+          =link_to sponsor.website do
+            - if sponsor.image_url.blank?
+              %strong=sponsor.name
+            - else
+              =image_tag sponsor.image_url

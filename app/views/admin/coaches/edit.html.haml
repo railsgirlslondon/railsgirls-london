@@ -1,0 +1,12 @@
+%legend
+  %h3 Edit coach
+
+= render 'form'
+
+=render partial: "admin/shared/coachings", locals: { coachings: @coach.coachings }
+=render partial: "admin/shared/non_coachings", locals: { not_coaching: @not_coaching, coach: @coach }
+
+
+= link_to 'Show', [:admin, @coach]
+\|
+= link_to 'Back', admin_coaches_path

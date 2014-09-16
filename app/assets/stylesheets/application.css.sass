@@ -12,9 +12,85 @@
  *= require_tree .
  */
 
+@import 'partials/colors'
+
+#main
+  .container
+    min-height: 500px
+
 .affix-top
   position: fixed
 
-
 .railsgify
-  color: #D3360B
+  color: $red-tone
+
+a.rails-girls
+  line-height: 40px
+  img
+    margin-top: 15px
+    width: 30px
+
+  &:hover
+    img
+      width: 35px
+
+footer
+  color: #666
+  overflow: hidden
+  width: 100%
+  padding: 10px 0
+  background:  $gray-tone
+  line-height: 1.5
+  text-align: center
+  margin-top: 50px
+
+  a
+    color: #111
+    border-bottom: 1px dotted #111
+
+    &:hover
+      text-decoration: none
+
+  .slogan
+    font-size: 18px
+    letter-spacing: 0.5em
+    margin-top: 10px
+
+  .copyright
+    margin-top: 35px
+
+section
+  margin-bottom: 50px
+
+.fork-me
+  img
+    position: absolute
+    top: 0
+    right: 0
+    border: 0
+
+@font-face
+  font-family: "Interstate"
+  src: url('/fonts/Interstate-Black.ttf')
+  font-weight: normal
+  font-style: normal
+
+
+
+notice
+  text-align: center
+  display: block
+  font-size: 15px
+  line-height: 28px
+  padding-top: 2px
+  background-color: $gray-tone
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+  border-bottom: 1px solid $warm-gray
+
+#twitter-widget-1
+  margin-top: 100px
+
+  .var-narrow 
+    .timeline-header 
+      padding: 15px 8px 15px 15px
+

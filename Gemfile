@@ -1,37 +1,47 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.0.0'
 
-gem 'rails', '3.2.13'
-
-group :development do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-end
+gem 'rails', '~> 4.0.0'
+gem 'unicorn'
 
 gem 'haml-rails'
-gem 'simple_form'
-gem 'redcarpet'
-gem 'devise'
+gem 'simple_form', '~> 3.0.0.rc'
+gem 'devise', '~> 3.0.0.rc'
+gem 'protected_attributes' # temporary
+gem 'ruby-trello', require: false
+gem 'pg'
+gem 'newrelic_rpm'
+gem 'icalendar'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :test, :development do
+  gem 'pry-debugger'
   gem 'rspec-rails'
- #gem 'capybara-webkit'
+end
+
+group :test do
+  gem 'faker'
   gem 'shoulda-matchers'
+  gem "shoulda-callback-matchers", ">=0.3.0"
+  gem 'rspec-given'
+  gem 'capybara'
   gem 'vcr'
-  gem 'fakeweb'
-  gem 'cucumber-rails'
+  gem 'launchy'
   gem 'database_cleaner'
+  gem 'fabrication'
+  gem 'coveralls', require: false
+  gem 'webmock', "< 1.10"
 end
 
 group :assets do
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'coffee-rails', '~> 4.0.0.rc1'
+  gem 'uglifier', '>= 1.3.0'
 end
 
 gem 'jquery-rails'
-gem 'sass-rails',   '~> 3.2.3'
+gem 'sass-rails',   '~> 4.0.0.rc1'
 gem 'bootstrap-sass'

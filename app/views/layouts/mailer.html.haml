@@ -1,0 +1,54 @@
+!!!
+%html
+  %head
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
+
+  %body{ style: "font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif" }
+    %header{ style: "height: 100px; background-color:#E0330C " }
+      %nav{ style: "width: 65%; margin: 0 auto" }
+        #logo.inline{ style: "display: inline-block;" }
+          =link_to full_url_for(city_path(@city)) do
+            = image_tag attachments["railsgirls-london.png"].url, style: "background-color: #FFFFFF; margin-top: 10px; border: 10px solid #FFFFFF; "
+        %div.inline{ style: 'color: #FFF; display: inline-block;' }
+          %h2{ style: 'margin-left: 20px;' } Rails Girls #{@city.name rescue ""}
+          %br
+
+        .pull-right{ style: 'float: right' }
+          .rails-girls-heart{ style: 'margin-top: 30px;' }
+            %a.rails-girls{ href: "http://railsgirls.com", title: "Rails Girls" }
+              = image_tag attachments['railsgirls-heart.png'].url
+
+    #main{style: "width: 65%; min-width: 320px;  border: 1px solid #E5E5E5; padding: 40px; margin: 50px auto; background-color: #FFFFFF" }
+      = yield
+      %hr{ style: "border-top: 1px solid #E5E5E5" }
+      .footer{ style: "font-size: 16px; color: #555555"}
+        %p
+          If you have any questions,
+          %span=mail_to @city.email, "send us an email", style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+          %span>.
+
+          %br
+        %p
+          %br
+          %br
+          %strong The Rails Girls #{@city.name} Team
+
+          %br
+          %br
+
+        Keep in touch!
+        .social-media.text-center{ style: "margin-top: 10px;" }
+          =link_to "http://twitter.com/#{@city.twitter}", class: "btn btn-media", style:  "color: #E0330C; text-decoration: none; border-bottom: none; text-decoration: none;"  do
+            =image_tag attachments['twitter.png'].url
+          =link_to "https://plus.google.com/b/104252944343767158344", class: "btn btn-media", style: "color: #E0330C; text-decoration: none; border-bottom: none; text-decoration: none;"  do
+            =image_tag attachments['gplus.png'].url
+          =link_to "https://www.facebook.com/railsgirls#{@city.slug}", class: "btn btn-media", style: "color: #E0330C; text-decoration: none; border-bottom: none; text-decoration: none;"  do
+            =image_tag attachments['facebook.png'].url
+          =link_to "https://github.com/railsgirlslondon/railsgirls-#{@city.slug}", class: "btn btn-media", style: "color: #E0330C; text-decoration: none; border-bottom: none; text-decoration: none;"  do
+            =image_tag attachments['github.png'].url
+
+      - if @member.present?
+        %p.lead{style: "font-size: 12px"}
+          If you'd like to unsubscribe please
+          = link_to "click here", unsubscribe_url(@member.uuid)
+

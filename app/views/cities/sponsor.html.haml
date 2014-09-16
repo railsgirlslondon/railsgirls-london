@@ -1,0 +1,82 @@
+.page-header
+  %h2.highlight== Sponsoring Rails Girls #{@city.name}
+
+.row
+  .span6
+    %legend Our costs
+
+    .details
+      %p
+        Running our workshops and weekly meetings requires certain things to be
+        arranged, as well as incurring a number of extra costs. We rely on
+        the generosity of our sponsors to provide us a venue and catering, or
+        otherwise to cover the cost of making the experience memorable for our
+        attendees.
+
+      %dl
+        %dt Venues and catering
+        %dd Places to hold our workshops and meetings, food and drink for coaches and participants
+
+        %dt Merchandise
+        %dd Rails Girls branded swag bags, name badges, posters, balloons, stickers
+
+        %dt Post-workshop support
+        %dd Frequent sessions to help keep the momentum
+
+      %p
+        Without sponsorship, we would be unable to make as big an impact in the
+        community, or even run our workshops and meetings at all. Sponsorships
+        or contributions at any level are welcomed.
+
+  .span4
+    = image_tag 'summer-event.jpg'
+
+%hr
+
+.row
+  .span4
+    = image_tag 'supercat.svg'
+
+  .span6
+    %legend Sponsorship packages
+
+    .details
+      %p
+        We're happy to accept sponsorship at any level, for any event we run.
+      %p
+        For sponsors under £400, we would:
+
+      %ul
+        %li Feature your logo on our website
+        %li Do social media shout outs - thank you
+        %li Distribute any swag you'd like our participants and coaches to take home
+
+      %p
+        For sponsors for more than £400, we would:
+      %ul
+        %li Feature your logo on our website
+        %li Do social media shout outs - thank you
+        %li Distribute any swag you'd like our participants and coaches to take home
+        %li Give you 5 minutes talk time at the event
+        %li Add your logo to all event emails
+
+
+      %p
+        If you'd like to discuss sponsorship, please get in touch at
+        == #{mail_to @city.email}.
+
+%hr
+
+.row
+  .span6
+    %p.lead== Hosting a Rails Girls #{@city.name} event
+
+    .details
+      %p
+        == Another way to sponsor Rails Girls #{@city.name} is to provide the venue and
+        catering for a future event. We currently run large Workshops, and small
+        Weekly meetings, and the requirements for each differ.
+
+      %p
+        == If you're interested in doing this, please get in touch at
+        #{mail_to @city.email}, and we'll be happy to arrange something.

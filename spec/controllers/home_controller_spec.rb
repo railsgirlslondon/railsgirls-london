@@ -3,10 +3,15 @@ require 'spec_helper'
 describe HomeController do
 
   describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
+    context "when there is more than one city" do
+      Given!(:events) { 2.times.map { Fabricate(:event)  } }
+
+      When { get 'index' }
+
+      Then { expect(response).to render_template(:index) }
+      And { expect(assigns(:events)).to match_array(events) }
     end
+
   end
 
 end

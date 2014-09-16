@@ -1,0 +1,21 @@
+%legend
+  %h2
+    Cities
+    .pull-right
+      = link_to "Add city", new_admin_city_path, class: 'btn'
+
+%ul.unstyled
+  - @cities.each do |city|
+    %li.row
+      .span3
+        = link_to city.name, [:admin, city] 
+        %br
+        %strong= city.email
+      .span2
+        - if city.upcoming_event
+          %em
+            =link_to "1 upcoming event", [ :admin, city, city.upcoming_event]
+        - if city.meetings.upcoming
+          %br
+          %em
+            =link_to "#{city.meetings.upcoming.count} upcoming meetings", [ :admin, city, :meetings]

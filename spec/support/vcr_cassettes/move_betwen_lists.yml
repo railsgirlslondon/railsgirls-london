@@ -1,0 +1,309 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.trello.com/1/cards
+    body:
+      encoding: US-ASCII
+      string: name=Seven%20of%20Nine&desc=You%20will%20be%20assimilated.&idList=51bb5a02c536e0043d00513d
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="", oauth_token="",
+        oauth_version="1.0"
+      Content-Length:
+      - '90'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232771137'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '585'
+      Date:
+      - Fri, 14 Jun 2013 17:59:31 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51bb5a0338bcb86d260036aa","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":true,"due":null},"checkItemStates":[],"closed":false,"desc":"You
+        will be assimilated.","due":null,"idBoard":"51b75f57482917a9580086ff","idChecklists":[],"idList":"51bb5a02c536e0043d00513d","idMembers":[],"idShort":37,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[],"name":"Seven
+        of Nine","pos":16384,"url":"https://trello.com/card/seven-of-nine/51b75f57482917a9580086ff/37"}'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:22 GMT
+- request:
+    method: post
+    uri: https://api.trello.com/1/cards
+    body:
+      encoding: US-ASCII
+      string: name=The%20Borgue%20Queen&desc=%20Let%20us%20see%20Humanity.&idList=51bb5a02c536e0043d00513d
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="92ecebb97f3221ab11b8c145333af984", oauth_nonce="148e14d4b269881a5094b5d0495febd3",
+        oauth_signature="xYLDApGvzoCplyfym1RAYAn0OrA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232942", oauth_token="ff10e56040ae373b44f02b7862ff8471bc919556295010bf5c668c0952854fad",
+        oauth_version="1.0"
+      Content-Length:
+      - '92'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232771856'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '588'
+      Date:
+      - Fri, 14 Jun 2013 17:59:31 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51bb5a03656d15770e005a2f","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":true,"due":null},"checkItemStates":[],"closed":false,"desc":"
+        Let us see Humanity.","due":null,"idBoard":"51b75f57482917a9580086ff","idChecklists":[],"idList":"51bb5a02c536e0043d00513d","idMembers":[],"idShort":38,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[],"name":"The
+        Borgue Queen","pos":32768,"url":"https://trello.com/card/the-borgue-queen/51b75f57482917a9580086ff/38"}'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:23 GMT
+- request:
+    method: post
+    uri: https://api.trello.com/1/cards
+    body:
+      encoding: US-ASCII
+      string: name=Picard&desc=Tea%2C%20Earl%20Gray%2C%20hot!&idList=51bb5a04f83f01940e0032d3
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="", oauth_token="",
+        oauth_version="1.0"
+      Content-Length:
+      - '79'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232773354'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '567'
+      Date:
+      - Fri, 14 Jun 2013 17:59:33 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51bb5a05b079b66015005503","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":true,"due":null},"checkItemStates":[],"closed":false,"desc":"Tea,
+        Earl Gray, hot!","due":null,"idBoard":"51b75f57482917a9580086ff","idChecklists":[],"idList":"51bb5a04f83f01940e0032d3","idMembers":[],"idShort":39,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[],"name":"Picard","pos":16384,"url":"https://trello.com/card/picard/51b75f57482917a9580086ff/39"}'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:25 GMT
+- request:
+    method: put
+    uri: https://api.trello.com/1/cards/51bb5a0338bcb86d260036aa/idList
+    body:
+      encoding: US-ASCII
+      string: value=51bb5a04f83f01940e0032d3
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232945", oauth_token="",
+        oauth_version="1.0"
+      Content-Length:
+      - '30'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232774088'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '585'
+      Date:
+      - Fri, 14 Jun 2013 17:59:34 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51bb5a0338bcb86d260036aa","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":true,"due":null},"checkItemStates":[],"closed":false,"desc":"You
+        will be assimilated.","due":null,"idBoard":"51b75f57482917a9580086ff","idChecklists":[],"idList":"51bb5a04f83f01940e0032d3","idMembers":[],"idShort":37,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[],"name":"Seven
+        of Nine","pos":16384,"url":"https://trello.com/card/seven-of-nine/51b75f57482917a9580086ff/37"}'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:25 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/lists/51bb5a02c536e0043d00513d/cards?filter=open
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232945", oauth_token="",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232774751'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '718'
+      Date:
+      - Fri, 14 Jun 2013 17:59:34 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"id":"51bb5a03656d15770e005a2f","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":true,"due":null},"checkItemStates":[],"closed":false,"dateLastActivity":"2013-06-14T17:59:31.829Z","desc":"
+        Let us see Humanity.","due":null,"idBoard":"51b75f57482917a9580086ff","idChecklists":[],"idList":"51bb5a02c536e0043d00513d","idMembers":[],"idMembersVoted":[],"idShort":38,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[],"name":"The
+        Borgue Queen","pos":32768,"shortUrl":"https://trello.com/c/qtcisQGu","subscribed":false,"url":"https://trello.com/card/the-borgue-queen/51b75f57482917a9580086ff/38"}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:26 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/lists/51bb5a04f83f01940e0032d3/cards?filter=open
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1371232946", oauth_token="",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1371232775333'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '1411'
+      Etag:
+      - '"-555863311"'
+      Date:
+      - Fri, 14 Jun 2013 17:59:35 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"id":"51bb5a0338bcb86d260036aa","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":true,"due":null},"checkItemStates":[],"closed":false,"dateLastActivity":"2013-06-14T17:59:34.055Z","desc":"You
+        will be assimilated.","due":null,"idBoard":"51b75f57482917a9580086ff","idChecklists":[],"idList":"51bb5a04f83f01940e0032d3","idMembers":[],"idMembersVoted":[],"idShort":37,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[],"name":"Seven
+        of Nine","pos":16384,"shortUrl":"https://trello.com/c/dZO9MdmZ","subscribed":false,"url":"https://trello.com/card/seven-of-nine/51b75f57482917a9580086ff/37"},{"id":"51bb5a05b079b66015005503","badges":{"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"comments":0,"attachments":0,"description":true,"due":null},"checkItemStates":[],"closed":false,"dateLastActivity":"2013-06-14T17:59:33.335Z","desc":"Tea,
+        Earl Gray, hot!","due":null,"idBoard":"51b75f57482917a9580086ff","idChecklists":[],"idList":"51bb5a04f83f01940e0032d3","idMembers":[],"idMembersVoted":[],"idShort":39,"idAttachmentCover":null,"manualCoverAttachment":false,"labels":[],"name":"Picard","pos":16384,"shortUrl":"https://trello.com/c/6muqt5Fp","subscribed":false,"url":"https://trello.com/card/picard/51b75f57482917a9580086ff/39"}]'
+    http_version: 
+  recorded_at: Fri, 14 Jun 2013 18:02:27 GMT
+recorded_with: VCR 2.5.0

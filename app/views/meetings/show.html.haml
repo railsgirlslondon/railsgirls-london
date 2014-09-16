@@ -1,0 +1,20 @@
+.row
+  .span7
+    .page-header
+      %h2
+        = @meeting.name
+        %small= I18n.l(@meeting.date)
+    %p.lead
+      = @meeting.description
+
+    %em
+      This meeting is invite only. If you would like to receive an invitation,
+      =mail_to @city.email, "let us know why."
+
+    %br
+    %br
+
+
+= render partial: "shared/coaches", locals: { coaches: @meeting.coaches , title: "Attending Coaches" }
+
+= render partial: "shared/all_sponsors", locals: { sponsors: @sponsors, show_title: true }

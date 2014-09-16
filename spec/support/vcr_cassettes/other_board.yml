@@ -1,0 +1,149 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.trello.com/1/members/me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="",
+        oauth_timestamp="", oauth_token="",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1370976402982'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Length:
+      - '3303'
+      Etag:
+      - '"1812311627"'
+      Date:
+      - Tue, 11 Jun 2013 18:46:42 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"51b73c7e78623ba660007f27","avatarHash":null,"bio":"","confirmed":true,"fullName":"Rails
+        Girls","idPremOrgsAdmin":[],"initials":"RG","memberType":"normal","status":"idle","url":"https://trello.com/railsgirls","username":"railsgirls","avatarSource":"none","email":"trello@railsgirls.co.uk","gravatarHash":"f757afbffa2d334aaebcdafba62e5239","idBoards":["51b73c7e78623ba660007f28","51b7446ee3c01cdc600093ef","51b74492298f961d490086e8","51b745957982afe130007546","51b745a8d8c516b85800dc0a","51b74817110b4e004800dd68","51b7482aa146111c49009ee6","51b74846e44d25df3d007b36","51b74857e9793dea1f00be0f","51b7487b8675c5be5800e4d1","51b748b8310a40225600bbb6","51b748d18c48c90a4800e3eb","51b748f6085caab804002078","51b749fa3b44ff644900eeb7","51b74a0e78623ba6600082e9","51b74a2a7a01249a58008773","51b74a44298f961d490088cd","51b74bea356121ea6000d805","51b74cf20186f9c71200a973","51b74d094abdea174900e166","51b74d56356121ea6000d88a","51b74d9a98f3169d6f008327","51b74e1a16b7fa9435008efc","51b74e332a1191e25800e3ce","51b7509e2a1191e25800e46f","51b750bf67a6755e25006837","51b750dd63b35abf5800935e","51b751ef8675c5be5800e8e3","51b75237aa5e21976000d9fc","51b752b5ce4bdf084900ea2b","51b752eba20a92b535008fc9","51b752ff110b4e004800e0e3","51b75361fbf0592649009831","51b757bd4100fda55800e449","51b757c09cb93e354500c904","51b757d83c4f255b4900929a","51b75839942476730e00c2c0","51b75869b4b7073052007e4c","51b7588fa03c5d204900e970","51b75940e3c01cdc600099cc","51b75966928019f34800b886","51b75ba69cb93e354500ca35","51b75bc204d88c2d1400b09e","51b75c056e6d574b4a00280a","51b75c67be58ef9b5500268b","51b75f57482917a9580086ff"],"idBoardsInvited":[],"idBoardsPinned":["51b73c7e78623ba660007f28","51b7446ee3c01cdc600093ef","51b74492298f961d490086e8","51b745957982afe130007546","51b745a8d8c516b85800dc0a","51b74817110b4e004800dd68","51b7482aa146111c49009ee6","51b74846e44d25df3d007b36","51b74857e9793dea1f00be0f","51b7487b8675c5be5800e4d1","51b748b8310a40225600bbb6","51b748d18c48c90a4800e3eb","51b748f6085caab804002078","51b749fa3b44ff644900eeb7","51b74a0e78623ba6600082e9","51b74a2a7a01249a58008773","51b74a44298f961d490088cd","51b74bea356121ea6000d805","51b74cf20186f9c71200a973","51b74d094abdea174900e166","51b74d56356121ea6000d88a","51b74d9a98f3169d6f008327","51b74e1a16b7fa9435008efc","51b74e332a1191e25800e3ce","51b7509e2a1191e25800e46f","51b750bf67a6755e25006837","51b750dd63b35abf5800935e","51b751ef8675c5be5800e8e3","51b75237aa5e21976000d9fc","51b752b5ce4bdf084900ea2b","51b752eba20a92b535008fc9","51b752ff110b4e004800e0e3","51b75361fbf0592649009831","51b757bd4100fda55800e449","51b757c09cb93e354500c904","51b757d83c4f255b4900929a","51b75839942476730e00c2c0","51b75869b4b7073052007e4c","51b7588fa03c5d204900e970","51b75940e3c01cdc600099cc","51b75966928019f34800b886","51b75ba69cb93e354500ca35","51b75bc204d88c2d1400b09e","51b75c056e6d574b4a00280a","51b75c67be58ef9b5500268b","51b75f57482917a9580086ff"],"idOrganizations":[],"idOrganizationsInvited":[],"loginTypes":["google","password"],"newEmail":null,"oneTimeMessagesDismissed":[],"prefs":{"timezoneInfo":{"timezoneNext":"GMT","dateNext":"2013-10-27T01:00:00.000Z","offsetNext":0,"timezoneCurrent":"BST","offsetCurrent":-60},"sendSummaries":true,"minutesBetweenSummaries":60,"minutesBeforeDeadlineToNotify":1440,"colorBlind":false},"trophies":[],"uploadedAvatarHash":null}'
+    http_version: 
+  recorded_at: Tue, 11 Jun 2013 18:49:23 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/members/railsgirls/boards
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - OAuth oauth_consumer_key="", oauth_nonce="",
+        oauth_signature="", oauth_signature_method="",
+        oauth_timestamp="", oauth_token="",
+        oauth_version="1.0"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Express
+      X-Server-Time:
+      - '1370976403829'
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2089'
+      Etag:
+      - '"1191323978"'
+      Date:
+      - Tue, 11 Jun 2013 18:46:43 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        5GCfFTefc2T9+V+647X9W4QAAA==
+    http_version: 
+  recorded_at: Tue, 11 Jun 2013 18:49:25 GMT
+recorded_with: VCR 2.5.0
