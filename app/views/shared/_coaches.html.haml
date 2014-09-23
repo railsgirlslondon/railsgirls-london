@@ -11,6 +11,7 @@
             %small
               %strong
                 = coach.name
-              = link_to "https://twitter.com/#{coach.twitter}" do
-                %small= "@#{coach.twitter}"
+              - if coach.twitter.present?
+                = link_to "https://twitter.com/#{coach.twitter}" do
+                  %small= "@#{coach.twitter}"
             %br

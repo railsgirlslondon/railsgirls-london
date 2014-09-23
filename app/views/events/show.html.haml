@@ -88,7 +88,7 @@
   %legend Sponsors
   .row
     %table.sponsors
-      - @event.non_hosting_sponsors.each_slice(3) do |group|
+      - @event.sponsors.each_slice(3) do |group|
         %tr
           - group.each do |sponsor|
             %td
