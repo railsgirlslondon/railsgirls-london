@@ -21,6 +21,7 @@ end
 group :test, :development do
   gem 'pry-debugger'
   gem 'rspec-rails'
+  gem 'byebug'
 end
 
 group :test do
@@ -36,6 +37,7 @@ group :test do
   gem 'coveralls', require: false
   gem 'webmock', "< 1.10"
 end
+
 
 group :assets do
   gem 'coffee-rails', '~> 4.0.0.rc1'

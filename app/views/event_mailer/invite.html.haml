@@ -13,7 +13,7 @@
       =link_to "Confirm your attendance status", full_url_for(invitation_url(@invitation)), style: "color: #eb5d42; text-decoration: none; font-weight: 500; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7)"
 
     %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      During the free two-day workshop we'll explore the magical world of Ruby on Rails, and build an application together.
+      During the free 1.5-day workshop we'll explore the exciting world of Ruby on Rails, and build an application together.
       In order to secure your place, we ask you to confirm your attendance.
       We require this so we can re-allocate your place if you are unable to attend and give as many people as possible the opportunity to join us.
 
@@ -23,13 +23,14 @@
     %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
       We start off on
       %span{style: "font-weight: 500;"}on #{@event.starts_on.strftime("%A")} the #{@event.starts_on.day.ordinalize } of #{@event.starts_on.strftime("%B")}, with our Installation Party at 6pm.
+      %br
       Please
-      %b bring your laptop
+      %b bring your laptop and ID that will show a proof of your age
       with you! You should also try to pre-install Rails with
       instructions from:
       %br
       %br
-      =link_to " http://guides.railsgirls.com/install", full_url_for('http://guides.railsgirls.com/install'), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+      =link_to " http://guides.railsgirls.com/install", 'http://guides.railsgirls.com/install', style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
     %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
       On
@@ -47,3 +48,13 @@
     %p.lead{ style: "font-size: 15px; color: #4E5563; margin-top: 25px;" }
       %strong Thank you
       for applying to our Rails Girls #{@city.name} workshop!
+
+  .bottom{ style: "width: 100%; padding: 50px 0 0 0px; display: block;" }
+    %strong Sponsors:
+    %br
+    = image_tag attachments["skype.jpg"].url, width: '150px', style: "display: inline-block ; padding-right: 10px"
+    = image_tag attachments["microsoft.jpg"].url, width: '150px', style: "display: inline-block ; padding-right: 10px"
+    = image_tag attachments['yammer.jpg'].url, width: '150px', style: "display: inline-block "
+    = image_tag attachments['github_logo.png'].url, width: '150px', style: "display: inline-block "
+    = image_tag attachments['square_enix.png'].url, width: '150px', style: "display: inline-block "
+    = image_tag attachments['shutl.png'].url, width: '150px', style: "display: inline-block "
