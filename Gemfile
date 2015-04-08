@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.0'
 
 gem 'rails', '~> 4.0.0'
 gem 'unicorn'
@@ -19,7 +19,6 @@ group :production do
 end
 
 group :test, :development do
-  gem 'pry-debugger'
   gem 'rspec-rails'
   gem 'byebug'
 end
