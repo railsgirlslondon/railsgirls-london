@@ -1,6 +1,20 @@
 require "spec_helper"
 
 feature "admin CRUDing events" do
+  let(:first_name) { Faker::Name.name }
+  let(:last_name) { Faker::Name.name }
+  let(:email) { Faker::Internet.email }
+  let(:phone_number) { Faker::PhoneNumber.phone_number }
+  let(:twitter) { Faker::Name.name }
+  let(:experience) { Faker::Lorem.sentence }
+  let(:reason) { Faker::Lorem.sentence }
+  let(:gender) { "Female" }
+  let(:address) { Faker::Lorem.sentence }
+  let(:spoken_languages) { Faker::Lorem.sentence }
+  let(:preferred_language) { Faker::Lorem.sentence }
+  let(:os_version) { Faker::Lorem.sentence }
+  let(:dietary_restrictions) { Faker::Lorem.sentence }
+
   Given!(:city) { City.create! name: "London" }
   Given { admin_logged_in! }
 
@@ -50,7 +64,20 @@ feature "admin CRUDing events" do
         click_on 'Add registration'
         fill_in 'First name', with: 'Johnny'
         fill_in 'Last name', with: "Smithington"
-        fill_in 'Email', with: 'john@registrant.com'
+
+        select "Female", from: "Gender"
+        fill_in 'registration_email', with: 'john@registrant.com'
+        fill_in "Email confirmation", with: 'john@registrant.com'
+        fill_in "Phone number", with: phone_number
+        fill_in "Address", with: address
+        fill_in "Spoken languages", with: spoken_languages
+        fill_in "Preferred language", with: preferred_language
+        select "Yes", from: "UK Resident"
+        select "OS X", from: "Operating System"
+        fill_in "OS Version", with: os_version
+        fill_in "Programming experience", with: experience
+        fill_in "Reason for applying", with: reason
+        check('registration_terms_of_service')
 
         click_on 'Create Registration'
       end
@@ -66,7 +93,21 @@ feature "admin CRUDing events" do
         click_on 'Add registration'
         fill_in 'First name', with: 'Johnny'
         fill_in 'Last name', with: "Smithington"
-        fill_in 'Email', with: 'john@registrant.com'
+
+        select "Female", from: "Gender"
+        fill_in 'registration_email', with: 'john@registrant.com'
+        fill_in "Email confirmation", with: 'john@registrant.com'
+        fill_in "Phone number", with: phone_number
+        fill_in "Address", with: address
+        fill_in "Spoken languages", with: spoken_languages
+        fill_in "Preferred language", with: preferred_language
+        select "Yes", from: "UK Resident"
+        select "OS X", from: "Operating System"
+        fill_in "OS Version", with: os_version
+        fill_in "Programming experience", with: experience
+        fill_in "Reason for applying", with: reason
+        check('registration_terms_of_service')
+
 
         click_on 'Create Registration'
       end

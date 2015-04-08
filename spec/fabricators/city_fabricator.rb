@@ -1,5 +1,5 @@
 Fabricator(:city) do
-  name { Faker::Address.city }
+  name "london"
   twitter { Faker::Lorem.word }
   email { Faker::Internet.email }
   social_media { %w{github facebook}.map { |s| Fabricate(:social_medium, name: s) } }
