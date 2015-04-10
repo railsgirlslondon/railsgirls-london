@@ -5,8 +5,12 @@
       %ul.coaches.inline
         - coaches.each do |coach|
           %li.span1
-            %h5
-              = link_to "https://twitter.com/#{coach.twitter}", title: "@#{coach.twitter}" do
+            - if coach.twitter
+              %h5
+                = link_to "https://twitter.com/#{coach.twitter}", title: "@#{coach.twitter}" do
+                  .noborder= image_tag gravatar_url(coach.email), class: 'img-circle'
+            - else
+              %h5
                 .noborder= image_tag gravatar_url(coach.email), class: 'img-circle'
             %small
               %strong
