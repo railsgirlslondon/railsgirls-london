@@ -6,7 +6,7 @@ Fabricator(:city) do
 end
 
 Fabricator(:city_without_social_media, class_name: :city) do
-  name { Faker::Address.city }
+  name "london"
   twitter { Faker::Lorem.word }
   email { Faker::Internet.email }
 end

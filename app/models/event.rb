@@ -1,13 +1,15 @@
 class Event < ActiveRecord::Base
-  ATTRIBUTES = [ :title,
-                 :description,
-                 :city_id,
-                 :city,
-                 :starts_on,
-                 :ends_on,
-                 :image,
-                 :registration_deadline,
-                 :active]
+  ATTRIBUTES = [
+    :title,
+    :description,
+    :city_id,
+    :city,
+    :starts_on,
+    :ends_on,
+    :image,
+    :registration_deadline,
+    :active
+  ]
 
   attr_accessible *ATTRIBUTES
 
@@ -16,7 +18,7 @@ class Event < ActiveRecord::Base
   include Extentions::Invitable
 
   validates :description, :city_id, :starts_on, :ends_on, presence: true
-  validates :active, uniqueness: {scope: :city_id}, if: :active?
+  validates :active,      uniqueness: {scope: :city_id}, if: :active?
 
   delegate :name, to: :city, :prefix => true
 

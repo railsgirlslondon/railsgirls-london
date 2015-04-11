@@ -12,7 +12,23 @@ module Extentions
     end
 
     def load_attachments
-      %w{london-girl.png railsgirls-heart.png  railsgirls-london.png twitter.png github.png facebook.png gplus.png square_enix.png skype.jpg shutl.png lost_my_name.png}.each do |image|
+      [
+        "london-girl.png",
+        "skype.jpg",
+        "microsoft.jpg",
+        "yammer.jpg",
+        "github_logo.png",
+        "square_enix.png",
+        "shutl.png",
+        "railsgirls-heart.png",
+        "railsgirls-london.png",
+        "twitter.png",
+        "facebook.png",
+        "github.png",
+        "gplus.png",
+        "square_enix.png",
+        "lost_my_name.png"
+      ].each do |image|
         attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
       end
     end
