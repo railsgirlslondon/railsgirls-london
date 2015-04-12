@@ -6,10 +6,6 @@ script:
   - bundle exec rspec
 rvm:
   - 2.1.0
-branches:
-  only:
-    - master
-    - production
 notifications:
   email:
     - rgl-organisers@googlegroups.com
