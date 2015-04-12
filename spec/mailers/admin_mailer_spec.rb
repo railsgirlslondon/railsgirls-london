@@ -1,8 +1,7 @@
 require "spec_helper"
 
 describe AdminMailer do
-  let(:event) { Fabricate(:event) }
-  let(:invitation) { Fabricate(:invitation, invitable: event) }
+  let(:invitation) { Fabricate(:event_invitation) }
 
   it "sends an notification email" do
     @email_subject = "RSVP from #{invitation.invitee.name}"

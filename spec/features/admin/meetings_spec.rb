@@ -11,11 +11,11 @@ feature "admin CRUDing meetings" do
 
       select meeting_type.name, from: "Meeting type"
 
-      select "20", from: "meeting[date(3i)]"
-      select "November", from: "meeting[date(2i)]"
-      select "2014", from: "meeting[date(1i)]"
-      select "18", from: "meeting[date(4i)]"
-      select "30", from: "meeting[date(5i)]"
+      select "20",  from: "meeting[date(3i)]"
+      select "November",      from: "meeting[date(2i)]"
+      select Date.today.year, from: "meeting[date(1i)]"
+      select "18",            from: "meeting[date(4i)]"
+      select "30",            from: "meeting[date(5i)]"
 
       fill_in "Available slots", with: 1
 
@@ -23,7 +23,7 @@ feature "admin CRUDing meetings" do
     end
 
     Then { page.has_content? "Meeting was successfully created." }
-    And { page.has_content? "20 Nov 2014 18:30" }
+    And { page.has_content? "20 Nov #{Date.today.year} 18:30" }
 
     context "editing the meeting" do
       When do
@@ -34,7 +34,7 @@ feature "admin CRUDing meetings" do
       end
 
       Then { page.has_content? "Meeting was successfully updated." }
-      And { page.has_content? "20 Oct 2014 18:30" }
+      And { page.has_content? "20 Oct #{Date.today.year} 18:30" }
     end
 
     context "deleting a meeting" do

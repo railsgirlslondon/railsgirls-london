@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 feature 'an admin can view attendee feedback' do
-  let (:event) { Fabricate(:event) }
-  let! (:invitation) { Fabricate(:event_invitation, invitable: event) }
+  let! (:city) { Fabricate(:city) }
+  let! (:event) { Fabricate(:event, city: city) }
+  let! (:registration) { Fabricate(:registration, event: event) }
+  let! (:invitation) { Fabricate(:event_invitation, invitable: event, invitee: registration) }
   let! (:feedback) { Fabricate(:feedback, invitation_id: invitation.id) }
 
   before do

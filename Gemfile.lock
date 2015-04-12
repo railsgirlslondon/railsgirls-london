@@ -41,6 +41,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    coderay (1.1.0)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -91,6 +92,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.24)
     minitest (4.7.5)
     multi_json (1.7.9)
@@ -102,6 +104,12 @@ GEM
     polyglot (0.3.3)
     protected_attributes (1.0.1)
       activemodel (>= 4.0.0.beta, < 5.0)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -168,6 +176,7 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
+    slop (3.6.0)
     sorcerer (0.3.10)
     sprockets (2.10.0)
       hike (~> 1.2)
@@ -222,6 +231,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   protected_attributes
+  pry-rails
   rails (~> 4.0.0)
   rails_12factor
   rspec-given
