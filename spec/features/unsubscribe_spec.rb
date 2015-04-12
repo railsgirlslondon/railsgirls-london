@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 feature "Unsubscribe from emails" do
-  let(:uuid) { SecureRandom.uuid }
+
   let!(:member) { Fabricate(:member, active: true) }
+  let!(:event) { Fabricate(:event, city: member.city) }
 
   specify do
     visit unsubscribe_path(member.uuid)

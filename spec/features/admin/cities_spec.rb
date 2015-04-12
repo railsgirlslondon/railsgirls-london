@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature "an admin CRUDing cities" do
-  Given!(:city) { City.create! name: "london" }
+  Given!(:city) { Fabricate(:city) }
   Given { admin_logged_in! }
 
   context "creating cities" do
@@ -9,7 +9,7 @@ feature "an admin CRUDing cities" do
     Given { click_on "Cities" }
 
     When do
-      Fabricate(:event)
+      Fabricate(:event, city: city)
       expect(page).to_not have_content "Some City"
       click_link "Add city"
 

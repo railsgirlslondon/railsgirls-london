@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Listing cities" do
   before(:each) do
-    @city = Fabricate(:city, name: "Sama")
+    @city = Fabricate(:city, name: "London")
     Fabricate(:event, city: @city)
     @inactive_event = Fabricate(:inactive_event, city: @city)
     @meeting =  Fabricate(:meeting, city: @city)
@@ -13,7 +13,7 @@ describe "Listing cities" do
   specify "viewing and selecting cities" do
     visit root_path
 
-    page.has_content? "Sama"
+    page.has_content? "London"
     page.has_content? "Na"
 
     viewing_by_link
@@ -28,7 +28,7 @@ describe "Listing cities" do
 
 
   specify "viewing city's social media" do
-    visit "/sama"
+    visit "/london"
 
     @city.social_media.each do |social_media|
       page.has_content? social_media.name
@@ -36,12 +36,12 @@ describe "Listing cities" do
   end
 
   def viewing_by_url
-    visit "/sama"
+    visit "/london"
     page.has_content? "Rails Girls Sama"
   end
 
   def viewing_by_link
-    first(:link, "Sama").click
+    first(:link, "london").click
     page.has_content? "Rails Girls Sama"
   end
 

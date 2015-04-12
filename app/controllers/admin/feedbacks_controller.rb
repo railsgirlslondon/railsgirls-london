@@ -4,7 +4,7 @@ class Admin::FeedbacksController < ApplicationController
   before_action :authenticate_user!, :find_cities, :set_city
 
   def index
-    @feedbacks = @city.feedbacks.all
+    @feedbacks = @city.feedbacks
   end
 
   def show

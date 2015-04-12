@@ -21,10 +21,12 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'byebug'
+  gem 'pry-rails'
+  gem 'fabrication'
+  gem 'faker'
 end
 
 group :test do
-  gem 'faker'
   gem 'shoulda-matchers'
   gem "shoulda-callback-matchers", ">=0.3.0"
   gem 'rspec-given'
@@ -32,7 +34,6 @@ group :test do
   gem 'vcr'
   gem 'launchy'
   gem 'database_cleaner'
-  gem 'fabrication'
   gem 'coveralls', require: false
   gem 'webmock', "< 1.10"
 end
