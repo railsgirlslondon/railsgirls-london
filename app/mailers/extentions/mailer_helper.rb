@@ -15,9 +15,6 @@ module Extentions
       [
         "london-girl.png",
         "skype.jpg",
-        "microsoft.jpg",
-        "yammer.jpg",
-        "github_logo.png",
         "square_enix.png",
         "shutl.png",
         "railsgirls-heart.png",
@@ -26,8 +23,9 @@ module Extentions
         "facebook.png",
         "github.png",
         "gplus.png",
-        "square_enix.png",
-        "lost_my_name.png"
+        "lost_my_name.png",
+        "magnetic.png",
+        "zendesk.png"
       ].each do |image|
         attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
       end
