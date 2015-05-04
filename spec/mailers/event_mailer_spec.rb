@@ -1,10 +1,12 @@
 require "spec_helper"
 
 describe EventMailer do
-  let(:event) { Fabricate(:event) }
-  let(:sponsor) { Fabricate(:sponsor_with_address) }
+  let! (:city) { Fabricate(:city) }
+  let! (:event) { Fabricate(:event) }
+  let! (:sponsor) { Fabricate(:sponsor_with_address) }
   let!(:hosting) { Fabricate(:hosting, sponsor: sponsor, sponsorable: event) }
-  let(:invitation) { Fabricate(:invitation, invitable: event) }
+  let! (:registration) { Fabricate(:registration, event: event) }
+  let(:invitation) { Fabricate(:invitation, invitable: event, invitee: registration) }
 
   shared_examples_for "an event email" do
     let(:email) { ActionMailer::Base.deliveries.last }
@@ -73,7 +75,7 @@ describe EventMailer do
     let(:subject) {
       "RG#{event.city_name.slice(0)} - Thank you for your feedback for #{event.title} #{event.dates}!"
     }
-    let(:invitation) { Fabricate(:event_invitation) }
+    let(:invitation) { Fabricate(:event_invitation, invitable: event, invitee: registration) }
 
     before do
       Fabricate(:feedback, invitation_id: invitation.id)

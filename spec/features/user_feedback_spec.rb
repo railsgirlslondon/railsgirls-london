@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 feature 'a user can provide feedback for an invitable event' do
-  let (:event) { Fabricate(:event) }
+  let! (:event) { Fabricate(:event) }
+  let! (:sponsor) { Fabricate(:sponsor_with_address) }
+  let! (:hosting) { Fabricate(:hosting, sponsor: sponsor, sponsorable: event) }
 
   scenario "only if they have attented the event" do
     fill_in_feedback_form event, "some email"
