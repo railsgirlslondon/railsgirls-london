@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe MeetingsController do
+describe MeetingsController, :type => :controller do
   let!(:city) { Fabricate(:city) }
   let!(:meeting_type) { Fabricate(:meeting_type) }
   let(:valid_attributes) { { "date" => Date.today+1.week, "meeting_type_id" => meeting_type.to_param, "city_id" => city.id, "announced" => "true" } }

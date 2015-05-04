@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Admin::CoachesController do
+describe Admin::CoachesController, :type => :controller do
 
   let(:valid_attributes) { { "name" => "Name", "email" => "email@example" } }
 
@@ -14,7 +14,7 @@ describe Admin::CoachesController do
     it "assigns all coaches as @coaches" do
       coach = Coach.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:coaches).should eq([coach])
+      expect(assigns(:coaches)).to eq([coach])
     end
   end
 
@@ -22,14 +22,14 @@ describe Admin::CoachesController do
     it "assigns the requested coach as @coach" do
       coach = Coach.create! valid_attributes
       get :show, {:id => coach.to_param}, valid_session
-      assigns(:coach).should eq(coach)
+      expect(assigns(:coach)).to eq(coach)
     end
   end
 
   describe "GET new" do
     it "assigns a new coach as @coach" do
       get :new, {}, valid_session
-      assigns(:coach).should be_a_new(Coach)
+      expect(assigns(:coach)).to be_a_new(Coach)
     end
   end
 
@@ -37,7 +37,7 @@ describe Admin::CoachesController do
     it "assigns the requested coach as @coach" do
       coach = Coach.create! valid_attributes
       get :edit, {:id => coach.to_param}, valid_session
-      assigns(:coach).should eq(coach)
+      expect(assigns(:coach)).to eq(coach)
     end
   end
 
@@ -51,8 +51,8 @@ describe Admin::CoachesController do
 
       it "assigns a newly created coach as @coach" do
         post :create, {:coach => valid_attributes}, valid_session
-        assigns(:coach).should be_a(Coach)
-        assigns(:coach).should be_persisted
+        expect(assigns(:coach)).to be_a(Coach)
+        expect(assigns(:coach)).to be_persisted
       end
 
       it "redirects to the created coach" do
@@ -66,7 +66,7 @@ describe Admin::CoachesController do
         # Trigger the behavior that occurs when invalid params are submitted
         Coach.any_instance.stub(:save).and_return(false)
         post :create, {:coach => { "name" => "invalid value" }}, valid_session
-        assigns(:coach).should be_a_new(Coach)
+        expect(assigns(:coach)).to be_a_new(Coach)
       end
 
       it "re-renders the 'new' template" do
@@ -93,7 +93,7 @@ describe Admin::CoachesController do
       it "assigns the requested coach as @coach" do
         coach = Coach.create! valid_attributes
         put :update, {:id => coach.to_param, :coach => valid_attributes}, valid_session
-        assigns(:coach).should eq(coach)
+        expect(assigns(:coach)).to eq(coach)
       end
 
       it "redirects to the coach" do
@@ -109,7 +109,7 @@ describe Admin::CoachesController do
         # Trigger the behavior that occurs when invalid params are submitted
         Coach.any_instance.stub(:save).and_return(false)
         put :update, {:id => coach.to_param, :coach => { "name" => "invalid value" }}, valid_session
-        assigns(:coach).should eq(coach)
+        expect(assigns(:coach)).to eq(coach)
       end
 
       it "re-renders the 'edit' template" do
@@ -133,7 +133,7 @@ describe Admin::CoachesController do
     it "redirects to the coaches list" do
       coach = Coach.create! valid_attributes
       delete :destroy, {:id => coach.to_param}, valid_session
-      response.should redirect_to(admin_coaches_url)
+      response.should redirect_to(admin_coaches_path)
     end
   end
 

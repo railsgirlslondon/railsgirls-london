@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Admin::MembersController do
+describe Admin::MembersController, :type => :controller do
 
   let!(:city) { Fabricate(:city) }
   let(:valid_attributes) { { "first_name" => "Maria", "last_name" => "Doe", "phone_number" => "0123123", "email" => "email@example", "city_id" => city.id } }

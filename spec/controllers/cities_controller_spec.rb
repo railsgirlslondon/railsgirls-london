@@ -1,5 +1,5 @@
 require 'spec_helper'
-describe CitiesController do
+describe CitiesController, :type => :controller do
   let(:city) { City.create(name: 'Xanadu') }
 
   describe "GET #sponsor" do
