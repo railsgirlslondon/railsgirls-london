@@ -7,3 +7,4 @@
 .coveralls.yml
 coverage/
 pg-*
+.env
