@@ -7,11 +7,11 @@ describe Coach do
     let!(:coach) { Coach.create name: "Name", email: "email@emial.com" }
 
     it "requires phone number when organising" do
-      expect(coach.valid?).to be_true
+      expect(coach.valid?).to be true
 
       coaching = Coaching.create coachable_type: 'Event', coachable_id: event.id, coach: coach, organiser: true
 
-      expect(coaching.valid?).to be_false
+      expect(coaching.valid?).to be false
       expect(coaching).to have(1).error_on(:coach)
     end
   end

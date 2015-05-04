@@ -45,7 +45,7 @@ describe Registration do
     it 'requires all the registration attributes on registration' do
       invalid_registration = Registration.new
 
-      expect(invalid_registration.valid?(:registration)).to be_false
+      expect(invalid_registration.valid?(:registration)).to be false
       Registration::REGISTRATION_ATTRIBUTES.each do |attribute|
         expect(invalid_registration.errors[attribute]).not_to be_empty
       end

@@ -8,7 +8,7 @@ describe Meeting do
 
     context "no meeting type set" do
       let(:properties) {{ meeting_type: nil }}
-      it { should be_false }
+      it { should be false }
     end
   end
 
@@ -38,7 +38,7 @@ describe Meeting do
     let!(:meeting) { Fabricate(:meeting, city: city) }
 
     it "sends emails only to active members" do
-      mailer = double(MeetingMailer, deliver: nil)
+      mailer = double(MeetingMailer, deliver_now: nil)
       MeetingMailer.should_receive(:invite).twice.and_return(mailer)
 
       meeting.invite_members

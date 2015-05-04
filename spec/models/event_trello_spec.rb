@@ -14,15 +14,15 @@ describe EventTrello do
 
   describe "matching trello cards" do
     it "returns true if any of the cards match the given name" do
-      cards = [ mock(:card, name: "Chloe"), mock(:card, name: "Maria")]
+      cards = [ double(:card, name: "Chloe"), double(:card, name: "Maria")]
 
-      event_trello.matches_any_card?(cards, "Maria").should be_true
+      event_trello.matches_any_card?(cards, "Maria").should be true
     end
 
     it "returns false if none of the cards match the given name" do
-      cards = [ mock(:card, name: "Dave"), mock(:card, name: "Nick")]
+      cards = [ double(:card, name: "Dave"), double(:card, name: "Nick")]
 
-      event_trello.matches_any_card?(cards, "George").should be_false
+      event_trello.matches_any_card?(cards, "George").should be false
     end
   end
 
