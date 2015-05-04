@@ -34,7 +34,7 @@ class Registration < ActiveRecord::Base
   )
 
   validates *REQUIRED_ATTRIBUTES,     presence: true
-  validates *REGISTRATION_ATTRIBUTES, presence: true, on: 'registration'
+  validates *REGISTRATION_ATTRIBUTES, presence: true, on: :registration
 
   belongs_to :event
   belongs_to :member

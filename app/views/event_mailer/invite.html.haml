@@ -5,7 +5,7 @@
 .content
   .left.inline{ style: "width: 100%; min-width: 260px; display: inline-block;" }
     %p.lead{ style: "font-size: 18px; color: #333333; padding-bottom: 10px; line-height: 22px;"}
-      We're delighted to offer you a place at our #{@event.title if @event.title.present?}:
+      We're delighted to offer you a place at our #{@event.title if @event.title.present?} workshop at #{@event.host.name} offices - #{@event.host.address_line_1}, #{@event.host.address_city}, #{@event.host.address_postcode}:
     .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 0px 0 11px 0; padding: 0 10px;" }= @event.dates
     =link_to "View details", city_event_url(@city, @event), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
@@ -18,33 +18,38 @@
       We require this so we can re-allocate your place if you are unable to attend and give as many people as possible the opportunity to join us.
 
   .left.inline{ style: "width: 100%; min-width: 260px; display: inline-block;" }
-    %h3{style: "color: #333333;"} What happens next?
 
+    %h3{style: "color: #333333;"} What you need to bring?
     %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      We start off on
-      %span{style: "font-weight: 500;"}on #{@event.starts_on.strftime("%A")} the #{@event.starts_on.day.ordinalize } of #{@event.starts_on.strftime("%B")}, with our Installation Party at 6pm.
-      %br
       Please
       %b bring your laptop and ID that will show a proof of your age
-      with you! You should also try to pre-install Rails with
-      instructions from:
+      with you
+      %b (if you are under 18, you must be accompanied by an adult)!
+      You should also try to pre-install Rails with instructions from:
       %br
       %br
       =link_to " http://guides.railsgirls.com/install", 'http://guides.railsgirls.com/install', style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
+    %h3{style: "color: #333333;"} What happens next?
+
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      We start off on
+      %span{style: "font-weight: 500;"}on #{@event.starts_on.strftime("%A")} the #{@event.starts_on.day.ordinalize } of #{@event.starts_on.strftime("%B")}, with our Installation Party at 6:30pm.
+      The goal of the evening is to get you set up for the saturday workshop. We will provide dinner and drinks.
+      %br
     %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
       On
-      %span{style: "font-weight: 500;"}#{@event.ends_on.strftime("%A")}
+      %b #{@event.ends_on.strftime("%A")}
       we’ll dive into development. Our day will start at
-      %span{style: "font-weight: 500;"} 9am
-      and we’ll work in small groups of two to three people. We will wrap up
-      the group work at around 6pm so we can enjoy the After Party. There will
-      be breaks and short talks throughout the day.
+      %b{style: "font-weight: 500;"} 9am with breakfast and introduction.
+      We will then split into small groups of 3 people (2 students + 1 coach) to work on the tutorials.
+      There will be a break for lunch at 12:30 and for several lightning talks at 13:45.
+      We will wrap up the workshop at around 5:30pm and enjoy the After Party from there on.
 
   .right.inline{ style: "width: 100%; min-width: 180px; margin-top: 25px; display: inline-block;" }
     =image_tag attachments['london-girl.png'].url, width: '180px'
     %div{style: "margin: 15px 0; "}
-      %highlight{ style: "color: #333333; text-align: center; font-weight: 500; font-size: 13px" }You learn designing, prototyping and coding with the help of our coaches.
+      %highlight{ style: "color: #333333; text-align: center; font-weight: 500; font-size: 13px" }Get excited and learn to build the web!
     %p.lead{ style: "font-size: 15px; color: #4E5563; margin-top: 25px;" }
       %strong Thank you
       for applying to our Rails Girls #{@city.name} workshop!
