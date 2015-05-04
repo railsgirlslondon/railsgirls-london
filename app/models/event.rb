@@ -30,7 +30,7 @@ class Event < ActiveRecord::Base
   scope :upcoming, -> { where("ends_on >= ? and active = ?", Date.today, true).order(:starts_on) }
 
   def accepting_registrations?
-    return true if registration_deadline.present?
+    registration_deadline.present?
   end
 
   def registrations_open?
@@ -62,7 +62,7 @@ class Event < ActiveRecord::Base
   end
 
   def email email_type, registration, invitation
-    EventMailer.send(email_type.to_sym, self, registration, invitation).deliver
+    EventMailer.send(email_type.to_sym, self, registration, invitation).deliver_now
   end
 
   def invite_members

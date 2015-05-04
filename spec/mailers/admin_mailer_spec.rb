@@ -6,7 +6,7 @@ describe AdminMailer do
   it "sends an notification email" do
     @email_subject = "RSVP from #{invitation.invitee.name}"
 
-    AdminMailer.notify(invitation).deliver
+    AdminMailer.notify(invitation).deliver_now
     expect(html_body).to include(invitation.invitee.name)
   end
 
