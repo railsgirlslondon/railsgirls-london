@@ -37,7 +37,7 @@ class Meeting < ActiveRecord::Base
   end
 
   def email email_type, member, invitation
-    MeetingMailer.send(email_type.to_sym, self, member, invitation).deliver
+    MeetingMailer.send(email_type.to_sym, self, member, invitation).deliver_now
   end
 
   def invite_members

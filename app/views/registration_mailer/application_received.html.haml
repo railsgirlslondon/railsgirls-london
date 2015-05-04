@@ -9,11 +9,11 @@
       for applying to our Rails Girls #{@city.name} workshop!
       .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 15px 0; padding: 0 10px;" }= @event.dates
 
-      =link_to "View details", full_url_for(city_event_path(@city, @event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+      =link_to "View details", full_url_for(city_event_url(@city, @event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
     %p.lead
-      We will send you an email confirming whether you were successful 
-      in getting a place in the event after registrations close. To confirm 
+      We will send you an email confirming whether you were successful
+      in getting a place in the event after registrations close. To confirm
       your availability, you will have to confirm the invitation.
   .right.inline{ style: "width: 24%; padding: 0 0 0 50px; display: inline-block;" }
     =image_tag attachments['london-girl.png'].url, width: '200px'
@@ -31,5 +31,3 @@
     = image_tag attachments['magnetic.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
     = image_tag attachments["zendesk.png"].url, width: '150px', style: "display: inline-block"
     = image_tag attachments["which.png"].url, width: '150px', style: "display: inline-block"
-
-

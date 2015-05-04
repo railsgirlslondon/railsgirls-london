@@ -1,12 +1,18 @@
 require "spec_helper"
 
 describe AdminMailer do
-  let(:invitation) { Fabricate(:event_invitation) }
+  let! (:city) { Fabricate(:city) }
+  let! (:event) { Fabricate(:event) }
+  let! (:sponsor) { Fabricate(:sponsor_with_address) }
+  let! (:hosting) { Fabricate(:hosting, sponsor: sponsor, sponsorable: event) }
+  let! (:registration) { Fabricate(:registration, event: event) }
+
+  let(:invitation) { Fabricate(:event_invitation, invitable: event, invitee: registration) }
 
   it "sends an notification email" do
     @email_subject = "RSVP from #{invitation.invitee.name}"
 
-    AdminMailer.notify(invitation).deliver
+    AdminMailer.notify(invitation).deliver_now
     expect(html_body).to include(invitation.invitee.name)
   end
 

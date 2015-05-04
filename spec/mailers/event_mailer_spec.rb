@@ -1,10 +1,12 @@
 require "spec_helper"
 
 describe EventMailer do
-  let(:event) { Fabricate(:event) }
-  let(:sponsor) { Fabricate(:sponsor_with_address) }
+  let! (:city) { Fabricate(:city) }
+  let! (:event) { Fabricate(:event) }
+  let! (:sponsor) { Fabricate(:sponsor_with_address) }
   let!(:hosting) { Fabricate(:hosting, sponsor: sponsor, sponsorable: event) }
-  let(:invitation) { Fabricate(:invitation, invitable: event) }
+  let! (:registration) { Fabricate(:registration, event: event) }
+  let(:invitation) { Fabricate(:invitation, invitable: event, invitee: registration) }
 
   shared_examples_for "an event email" do
     let(:email) { ActionMailer::Base.deliveries.last }
@@ -25,12 +27,12 @@ describe EventMailer do
     }
 
     before do
-      EventMailer.invite(event, invitation.invitee, invitation).deliver
+      EventMailer.invite(event, invitation.invitee, invitation).deliver_now
     end
 
     it "sends an invitation email" do
       expect(html_body).to include(invitation.invitee.first_name)
-      expect(html_body).to include(invitation_url(invitation))
+      expect(html_body).to include(invitation_path(invitation))
     end
 
     include_examples "an event email"
@@ -42,12 +44,12 @@ describe EventMailer do
     }
 
     before do
-      EventMailer.invitation_reminder(event, invitation.invitee, invitation).deliver
+      EventMailer.invitation_reminder(event, invitation.invitee, invitation).deliver_now
     end
 
     it "sends an invitation reminder email" do
       expect(html_body).to include(invitation.invitee.first_name)
-      expect(html_body).to include(invitation_url(invitation))
+      expect(html_body).to include(invitation_path(invitation))
     end
 
     include_examples "an event email"
@@ -59,7 +61,7 @@ describe EventMailer do
     }
 
     before do
-      EventMailer.confirm_attendance(event, invitation.invitee, invitation).deliver
+      EventMailer.confirm_attendance(event, invitation.invitee, invitation).deliver_now
     end
 
     it "sends a confirmation email when an attendee accepts the invitation" do
@@ -73,12 +75,12 @@ describe EventMailer do
     let(:subject) {
       "RG#{event.city_name.slice(0)} - Thank you for your feedback for #{event.title} #{event.dates}!"
     }
-    let(:invitation) { Fabricate(:event_invitation) }
+    let(:invitation) { Fabricate(:event_invitation, invitable: event, invitee: registration) }
 
     before do
       Fabricate(:feedback, invitation_id: invitation.id)
 
-      EventMailer.confirm_feedback(event, invitation.invitee, invitation).deliver
+      EventMailer.confirm_feedback(event, invitation.invitee, invitation).deliver_now
     end
 
     it "sends a confirmation email when an attendee accepts the invitation" do

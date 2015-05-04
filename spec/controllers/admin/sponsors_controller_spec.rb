@@ -1,5 +1,5 @@
 require 'spec_helper'
-describe Admin::SponsorsController do
+describe Admin::SponsorsController, :type => :controller do
 
   let(:valid_attributes) { { name: "MyString", website: "http://some/website/com" } }
   let(:valid_session) { {} }
@@ -123,7 +123,7 @@ describe Admin::SponsorsController do
     it "redirects to the sponsors list" do
       sponsor = Sponsor.create! valid_attributes
       delete :destroy, {:id => sponsor.to_param}, valid_session
-      response.should redirect_to(admin_sponsors_url)
+      response.should redirect_to(admin_sponsors_path)
     end
   end
 

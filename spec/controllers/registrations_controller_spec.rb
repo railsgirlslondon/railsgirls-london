@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RegistrationsController do
+describe RegistrationsController, :type => :controller do
   describe "POST #create" do
     Given(:city) { Fabricate(:city) }
 

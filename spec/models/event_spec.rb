@@ -53,7 +53,7 @@ describe Event do
 
       context "no registration deadline" do
         let(:date) { nil }
-        it { should be_false }
+        it { should be false }
       end
     end
 
@@ -62,17 +62,17 @@ describe Event do
 
       context "deadline in future" do
         let(:date) { 2.days.from_now }
-        it { should be_true }
+        it { should be true }
       end
 
       context "deadline today" do
         let(:date) { Date.today }
-        it { should be_true }
+        it { should be true }
       end
 
       context "deadline in the past" do
         let(:date) { Date.yesterday }
-        it { should be_false }
+        it { should be false }
       end
     end
   end
@@ -146,7 +146,7 @@ describe Event do
     let!(:waiting_list) { 2.times.map { Fabricate(:waiting_list_registration, event: event) } }
 
     it "#export_applications_to_trello" do
-      event_trello = mock(:event_trello, export: nil)
+      event_trello = double(:event_trello, export: nil)
 
       EventTrello.should_receive(:new).and_return(event_trello)
       event_trello.should_receive(:export)
@@ -156,8 +156,8 @@ describe Event do
 
     it "processess all applications" do
       registration = Fabricate(:registration, event: event)
-      card = mock(:card, name: registration.reason_for_applying)
-      applications = mock
+      card = double(:card, name: registration.reason_for_applying)
+      applications = double
 
       event.trello.should_receive(:add_list).and_return(nil)
       event.trello.should_receive(:move_cards_to_list).and_return(nil)

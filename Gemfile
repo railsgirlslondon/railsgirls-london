@@ -2,12 +2,12 @@ source 'https://rubygems.org'
 
 ruby '2.1.0'
 
-gem 'rails', '~> 4.0.0'
+gem 'rails', '~> 4.2.1'
 gem 'unicorn'
 
 gem 'haml-rails'
 gem 'simple_form', '~> 3.0.0.rc'
-gem 'devise', '~> 3.0.0.rc'
+gem 'devise'
 gem 'protected_attributes' # temporary
 gem 'ruby-trello', require: false
 gem 'pg'
@@ -19,6 +19,9 @@ group :production do
 end
 
 group :test, :development do
+  gem 'dotenv-rails'
+  gem 'guard'
+  gem 'guard-rspec', require: false
   gem 'rspec-rails'
   gem 'byebug'
   gem 'pry-rails'
@@ -27,6 +30,7 @@ group :test, :development do
 end
 
 group :test do
+  gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
   gem "shoulda-callback-matchers", ">=0.3.0"
   gem 'rspec-given'
@@ -45,5 +49,5 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'sass-rails',   '~> 4.0.0.rc1'
-gem 'bootstrap-sass'
+gem 'sass-rails',  '~> 4.0.0.rc1'
+gem 'bootstrap-sass', '2.3.2'

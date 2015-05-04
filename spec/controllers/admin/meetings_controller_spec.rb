@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Admin::MeetingsController do
+describe Admin::MeetingsController, :type => :controller do
   let!(:city) { Fabricate(:city) }
   let!(:meeting_type) { Fabricate(:meeting_type) }
   let(:valid_attributes) { { "date" => Date.today+1.week, "meeting_type_id" => meeting_type.id, "city_id" => city.id, "announced" => "true" } }
@@ -93,7 +93,7 @@ describe Admin::MeetingsController do
       it "redirects to the meeting" do
         meeting = Meeting.create! valid_attributes
         put :update, {:city_id => city.to_param, :id => meeting.to_param, :meeting => valid_attributes}, valid_session
-        response.should redirect_to(admin_city_meetings_path)
+        response.should redirect_to(admin_city_meetings_path(city))
       end
     end
 

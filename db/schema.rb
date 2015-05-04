@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cities", force: true do |t|
+  create_table "cities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
 
   add_index "cities", ["slug"], name: "index_cities_on_slug", using: :btree
 
-  create_table "coaches", force: true do |t|
+  create_table "coaches", force: :cascade do |t|
     t.string   "name"
     t.string   "twitter"
     t.string   "email"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
     t.string   "phone_number"
   end
 
-  create_table "coachings", force: true do |t|
+  create_table "coachings", force: :cascade do |t|
     t.integer  "coach_id"
     t.string   "coachable_type"
     t.integer  "coachable_id"
@@ -49,14 +49,14 @@ ActiveRecord::Schema.define(version: 20131008213045) do
 
   add_index "coachings", ["coach_id"], name: "index_coachings_on_coach_id", using: :btree
 
-  create_table "event_coachings", force: true do |t|
+  create_table "event_coachings", force: :cascade do |t|
     t.integer "event_id", null: false
     t.integer "coach_id", null: false
   end
 
   add_index "event_coachings", ["event_id", "coach_id"], name: "index_event_coachings_on_event_id_and_coach_id", unique: true, using: :btree
 
-  create_table "event_sponsorships", force: true do |t|
+  create_table "event_sponsorships", force: :cascade do |t|
     t.integer "event_id",                   null: false
     t.integer "sponsor_id",                 null: false
     t.boolean "host",       default: false, null: false
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
   add_index "event_sponsorships", ["event_id", "sponsor_id"], name: "index_event_sponsorships_on_event_id_and_sponsor_id", unique: true, using: :btree
   add_index "event_sponsorships", ["host"], name: "index_event_sponsorships_on_host", using: :btree
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.text     "description"
     t.integer  "city_id"
     t.boolean  "active"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
     t.integer  "available_slots"
   end
 
-  create_table "feedbacks", force: true do |t|
+  create_table "feedbacks", force: :cascade do |t|
     t.string   "application_url"
     t.string   "application_description"
     t.string   "github_url"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
     t.integer  "rating"
   end
 
-  create_table "invitations", force: true do |t|
+  create_table "invitations", force: :cascade do |t|
     t.integer  "invitee_id"
     t.string   "invitable_type"
     t.boolean  "attending"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
 
   add_index "invitations", ["invitee_id"], name: "index_invitations_on_invitee_id", using: :btree
 
-  create_table "meeting_types", force: true do |t|
+  create_table "meeting_types", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.string   "frequency"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
     t.datetime "updated_at"
   end
 
-  create_table "meetings", force: true do |t|
+  create_table "meetings", force: :cascade do |t|
     t.datetime "date"
     t.boolean  "announced"
     t.integer  "city_id"
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
   add_index "meetings", ["city_id"], name: "index_meetings_on_city_id", using: :btree
   add_index "meetings", ["meeting_type_id"], name: "index_meetings_on_meeting_type_id", using: :btree
 
-  create_table "members", force: true do |t|
+  create_table "members", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone_number"
@@ -146,7 +146,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
 
   add_index "members", ["city_id"], name: "index_members_on_city_id", using: :btree
 
-  create_table "registrations", force: true do |t|
+  create_table "registrations", force: :cascade do |t|
     t.string   "first_name",                             null: false
     t.string   "last_name",                              null: false
     t.string   "email",                                  null: false
@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
   add_index "registrations", ["email"], name: "index_registrations_on_email", using: :btree
   add_index "registrations", ["last_name"], name: "index_registrations_on_last_name", using: :btree
 
-  create_table "social_media", force: true do |t|
+  create_table "social_media", force: :cascade do |t|
     t.integer  "city_id"
     t.string   "name"
     t.string   "url"
@@ -183,7 +183,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
 
   add_index "social_media", ["city_id"], name: "index_social_media_on_city_id", using: :btree
 
-  create_table "sponsors", force: true do |t|
+  create_table "sponsors", force: :cascade do |t|
     t.string "name"
     t.string "primary_contact_email"
     t.text   "description"
@@ -195,7 +195,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
     t.string "address_postcode"
   end
 
-  create_table "sponsorships", force: true do |t|
+  create_table "sponsorships", force: :cascade do |t|
     t.integer  "sponsor_id"
     t.string   "sponsorable_type"
     t.integer  "sponsorable_id"
@@ -206,7 +206,7 @@ ActiveRecord::Schema.define(version: 20131008213045) do
 
   add_index "sponsorships", ["sponsor_id"], name: "index_sponsorships_on_sponsor_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -220,8 +220,8 @@ ActiveRecord::Schema.define(version: 20131008213045) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

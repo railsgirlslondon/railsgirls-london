@@ -16,7 +16,7 @@ describe MeetingMailer do
       expect(email.to).to  include(invitation.invitee.email)
       expect(html_body).to include(invitation.invitee.first_name)
       expect(html_body).to include(invitation.invitee.first_name)
-      expect(html_body).to include(invitation_url(invitation))
+      expect(html_body).to include(invitation_path(invitation))
     end
   end
 
@@ -26,11 +26,11 @@ describe MeetingMailer do
     }
 
     before do
-      MeetingMailer.invite(meeting, invitation.invitee, invitation).deliver
+      MeetingMailer.invite(meeting, invitation.invitee, invitation).deliver_now
     end
 
     it "sends an invitation email" do
-      expect(html_body).to include(unsubscribe_url(invitation.invitee.uuid))
+      expect(html_body).to include(unsubscribe_path(invitation.invitee.uuid))
     end
 
     include_examples "a meeting email"
@@ -42,7 +42,7 @@ describe MeetingMailer do
     }
 
     before do
-      MeetingMailer.confirm_attendance(meeting, invitation.invitee, invitation).deliver
+      MeetingMailer.confirm_attendance(meeting, invitation.invitee, invitation).deliver_now
     end
 
     it_behaves_like "a meeting email"
