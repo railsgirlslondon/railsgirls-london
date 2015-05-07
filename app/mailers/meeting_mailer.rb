@@ -8,7 +8,7 @@ class MeetingMailer < ActionMailer::Base
     setup meeting, registration, invitation
 
     subject = "Rails Girls #{@meeting.city_name} - You are invited to Weeklies (#{@meeting.date.to_formatted_s(:long_ordinal)})"
-    send_email(subject)
+    send_email(subject, registration.email)
   end
 
   def confirm_attendance meeting, registration, invitation
@@ -18,7 +18,7 @@ class MeetingMailer < ActionMailer::Base
 
     attach_ical_file(meeting)
 
-    send_email(subject)
+    send_email(subject, registration.email)
   end
 
   private

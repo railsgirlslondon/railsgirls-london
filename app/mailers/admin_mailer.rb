@@ -5,17 +5,18 @@ class AdminMailer < ActionMailer::Base
   include Extentions::MailerHelper
 
   def notify invitation
+
     setup invitation
 
     subject = "RSVP from #{invitation.invitee.name}"
     content_type =  "text/html"
 
-    send_email(subject, "admin_mailer")
+    send_email(subject, 'railsgirlslondon@gmail.com', layout_view: "admin_mailer")
   end
 
   private
 
-  def mail_args(subject)
+  def mail_args(subject, participant_email="")
     { :to => @city.email,
       :subject => subject }
   end

@@ -7,6 +7,10 @@ module Extentions
       load_attachments
     end
 
+    def setup_for_coaches
+      load_attachments
+    end
+
     def email_name
       "Rails Girls #{@city.name} <#{@city.email}>"
     end
@@ -32,15 +36,17 @@ module Extentions
       end
     end
 
-    def mail_args(subject)
+    def mail_args(subject, participant_email)
       { :from => email_name,
-        :to => @registration.email,
+        :to => participant_email,
         :subject => subject }
     end
 
-    def send_email subject, layout="mailer"
-      mail(mail_args(subject)) do |format|
-        format.html { render :layout => layout }
+    def send_email(subject, participant_email, options={})
+
+      options = {layout_view: "mailer"}.merge(options)
+      mail(mail_args(subject, participant_email)) do |format|
+        format.html { render :layout => options[:layout_view] }
       end
     end
   end

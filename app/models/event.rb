@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  
   ATTRIBUTES = [
     :title,
     :description,
@@ -72,6 +73,15 @@ class Event < ActiveRecord::Base
   def selected_applicants
     registrations.where :selection_state => "accepted"
   end
+
+  def instruct_coaches
+    coaches.each {|coach| instruct(coach)}
+  end
+
+  def instruct coach
+    EventMailer.send(:coaches_instruction, self, coach).deliver_now
+  end
+
 
   def waiting_list_applicants
     registrations.where :selection_state => "waiting list"

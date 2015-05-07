@@ -9,7 +9,7 @@ class RegistrationMailer < ActionMailer::Base
 
     subject = "Thanks for applying to Rails Girls #{@event.city_name} #{@event.dates}"
 
-    send_email(subject)
+    send_email(subject, registration.email)
   end
 
   private

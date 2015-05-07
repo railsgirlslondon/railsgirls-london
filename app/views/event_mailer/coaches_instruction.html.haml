@@ -1,0 +1,120 @@
+%h3{style: "border-bottom: 1px solid #E5E5E5; color: #434950; font-size: 26px; font-weight: 400; line-height: 30px; padding-bottom: 10px; margin-bottom: 15px;" }
+  Hi
+  #{@coach.name.split(" ")[0]},
+
+.content
+  %div{ style: "width: 100%; min-width: 260px; display: inline-block;" }
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      Rails Girls London Workshop is now only days away, so we would like to talk you through a couple of things beforehand.
+      %br
+      %b The event will take place on the #{@event.dates} at #{@event.host.name} offices -
+      %b
+        =link_to "#{@event.host.address_line_1}, #{@event.host.address_city}, #{@event.host.address_postcode}", "https://goo.gl/maps/NCdeG", style: "color: #4E5563; text-decoration: none; border-bottom: 1px dotted #4E5563; "
+
+    %h4{style: "color: #333333; font-size: 16px; margin: 0; padding: 6px 0"} Getting there:
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      %b tube:
+      southwark, blackfriars, waterloo, london bridge
+      %br
+      %b train:
+      waterloo, london bridge, blackfriars
+      %br
+      %b buses:
+      100, 45, 63, 381, 343
+      %br
+
+
+
+  %div{ style: "width: 100%; min-width: 260px; display: inline-block;" }
+    %h3{style: "color: #333333; font-size: 18px;"} Friday:
+
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      %span{style: "font-weight: 500; color: red"} Please arrive on #{@event.starts_on.strftime("%A")} the #{@event.starts_on.day.ordinalize } of #{@event.starts_on.strftime("%B")} at 18:30.
+      %br
+      We will have students coming in between 18:30-19:30. We have 100 students, who confirmed attendance, so there will be a lot of people in need of your help.
+      Once you arrive, please sign in with reception, they should have your name on the list. We will be giving out name badges once you get there.
+      Take the lift to the 12th floor.
+      %br
+      %br
+      Friday is an installation party.
+      On friday you dont get students assigned to you, so you will need to look out for someone in need of help or looking confused.
+      Sometimes students are shy to ask, so try approaching a few students, introduce yourself and ask if they are doing ok with installation.
+      Please be friendly and if you see anyone who has just arrived and in need of help, give them a hand in setting up everything :)
+      %br
+      Here is the guide we recommend for the installation:
+      %br
+      =link_to "guides.railsgirls.com/install", 'http://guides.railsgirls.com/install', style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+      %br
+      We will be serving dinner and drinks, so we all can eat, chat & install ruby & rails.
+      %br
+      We will wrap up at about 21:00 on friday.
+
+  %div{ style: "width: 100%; min-width: 260px; display: inline-block;" }
+    %h3{style: "color: #333333; font-size: 18px;"} Saturday:
+
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      %span{style: "font-weight: 500; color: red"} Please arrive on #{@event.starts_on.next.strftime("%A")} the #{@event.starts_on.next.day.ordinalize } of #{@event.starts_on.next.strftime("%B")} at 9:00am.
+      %br
+      The venue is the same as on friday. Students will be coming at 9:00am as well. We will be serving light breakfast and coffee.
+
+    %h4{style: "color: #333333; font-size: 16px;"} 9:00 -~ 10:15
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      Welcome
+      %br
+      Sponsors presentations/intros
+      %br
+      We will then be splitting in groups of 3 people: 1 coach + 2 students. Some coaches might be asked to be floating coaches, to help if anyone gets stuck and needs help.
+
+    %h4{style: "color: #333333; font-size: 16px;"} ~10:15 - 12:30
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      Introduction to Ruby. Help students understand the basics with
+      =link_to "tryruby.org", 'http://tryruby.org/', style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+      %br
+      App design workshop. This is the place where you explain how to start with thinking about you app, what does a simple app require etc.
+      %br
+      The app we will be guiding students through is this:
+      %br
+      =link_to "guides.railsgirls.com/app", 'http://guides.railsgirls.com/app/', style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+
+    %h4{style: "color: #333333; font-size: 16px;"} 12:30 - 13:45
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      Lunch. We will be serving food and drinks.
+
+    %h4{style: "color: #333333; font-size: 16px;"} 13:45 - 14:15
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      Some lightning talks from our coaches (there is 1 spot left for a lightning talk, let us know if you are interested in doing one)
+
+    %h4{style: "color: #333333; font-size: 16px;"} 14:15 - 17:15
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      Continue with the application.
+
+    %h4{style: "color: #333333; font-size: 16px;"} 17:15 -~ 18:30 or till late ---> AFTERPARTY :)
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      We will have a couple of drinks in the office and then head to the pub next door.
+
+      %br
+      If you have any questions please let us know.
+
+      %br
+      Could coaches who are unable to make it email us and let us know at the latest by Monday evening.
+      For all the others, thank you for volunteering and we can't wait to see you all at the event.
+
+
+  .right.inline{ style: "width: 100%; min-width: 180px; margin-top: 25px; display: inline-block;" }
+    =image_tag attachments['london-girl.png'].url, width: '180px'
+    %div{style: "margin: 15px 0; "}
+      %highlight{ style: "color: #333333; text-align: center; font-weight: 500; font-size: 13px" }
+    %p.lead{ style: "font-size: 15px; color: #4E5563; margin-top: 25px;" }
+      %strong Thank you
+      for volunteering to be a coach at Rails Girls London!
+
+  .bottom{ style: "width: 100%; padding: 50px 0 0 0px; display: block;" }
+    %strong Sponsors:
+    %br
+    = image_tag attachments['square_enix.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px "
+    = image_tag attachments['lost_my_name.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
+    = image_tag attachments['shutl.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
+    = image_tag attachments["skype.jpg"].url, width: '150px', style: "display: inline-block; padding-right: 10px"
+    = image_tag attachments['magnetic.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
+    = image_tag attachments["zendesk.png"].url, width: '150px', style: "display: inline-block; padding-right: 10px"
+    = image_tag attachments["which.png"].url, width: '150px', style: "display: inline-block"
