@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   validates :description, :city_id, :starts_on, :ends_on, presence: true
   validates :active,      uniqueness: {scope: :city_id}, if: :active?
 
-  delegate :name, to: :city, :prefix => true
+  delegate :name, to: :city, prefix: true
 
   belongs_to :city
   has_many :registrations
@@ -70,15 +70,15 @@ class Event < ActiveRecord::Base
   end
 
   def selected_applicants
-    registrations.where :selection_state => "accepted"
+    registrations.where selection_state: "accepted"
   end
 
   def waiting_list_applicants
-    registrations.where :selection_state => "waiting list"
+    registrations.where selection_state: "waiting list"
   end
 
   def weeklies_invitees
-    registrations.where :selection_state => "RGL Weeklies"
+    registrations.where selection_state: "RGL Weeklies"
   end
 
   def trello

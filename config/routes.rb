@@ -5,14 +5,14 @@ RailsgirlsLondon::Application.routes.draw do
   namespace :admin do
     resources :cities, only: [:show, :new, :create, :index] do
       resources :meetings do
-        resources :invitations, only: [ :show ], :invitable_type => 'Meeting', :invitable_id => 'meeting_id' do
+        resources :invitations, only: [ :show ], invitable_type: 'Meeting', invitable_id: 'meeting_id' do
           post 'create', on: :collection
         end
       end
 
       resources :events, only: [:show] do
         post "/convert_members" => "events#convert_attendees_to_members!", as: :convert_members
-        resources :invitations, only: [ :show ], :invitable_type => 'Event', :invitable_id => 'event_id' do
+        resources :invitations, only: [ :show ], invitable_type: 'Event', invitable_id: 'event_id' do
           post 'create', on: :collection
         end
       end
@@ -35,7 +35,7 @@ RailsgirlsLondon::Application.routes.draw do
     resources :sponsors
     resources :coaches
 
-    root :to => 'dashboard#index'
+    root to: 'dashboard#index'
 
     get '/dashboard' => 'dashboard#index', as: :dashboard
   end
@@ -64,5 +64,5 @@ RailsgirlsLondon::Application.routes.draw do
 
   get 'home' => 'home#index'
 
-  root :to => 'cities#show', id: "london"
+  root to: 'cities#show', id: "london"
 end

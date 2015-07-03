@@ -24,7 +24,7 @@ describe Member do
 
   context "#permitted_attributes_from" do
     it "extracts the permitted attributes from another object" do
-      registration = Fabricate(:registration, :event => Fabricate(:event, city: city))
+      registration = Fabricate(:registration, event: Fabricate(:event, city: city))
 
       permitted_attributes = Member.permitted_attributes_from(registration).symbolize_keys.keys
 
@@ -34,7 +34,7 @@ describe Member do
 
   context "#create_from_registration" do
     it "creates a member from a registration" do
-      registration = Fabricate(:registration, :event => Fabricate(:event, city: city))
+      registration = Fabricate(:registration, event: Fabricate(:event, city: city))
 
       Member.create_from_registration(registration)
 

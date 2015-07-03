@@ -33,14 +33,14 @@ module Extentions
     end
 
     def mail_args(subject)
-      { :from => email_name,
-        :to => @registration.email,
-        :subject => subject }
+      { from: email_name,
+        to: @registration.email,
+        subject: subject }
     end
 
     def send_email subject, layout="mailer"
       mail(mail_args(subject)) do |format|
-        format.html { render :layout => layout }
+        format.html { render layout: layout }
       end
     end
   end

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Admin::CoachingsController, :type => :controller do
+describe Admin::CoachingsController, type: :controller do
 
   before do
     sign_in

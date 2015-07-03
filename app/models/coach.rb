@@ -4,7 +4,7 @@ class Coach < ActiveRecord::Base
   has_many :coachings
 
   validates :name, :email, presence: true
-  validates :phone_number, :presence => true, :if => :is_organiser?
+  validates :phone_number, presence: true, if: :is_organiser?
 
   def self.sorted_by_name
     all.sort do |coach_a, coach_b|

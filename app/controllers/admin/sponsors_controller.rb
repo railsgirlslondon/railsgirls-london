@@ -14,7 +14,7 @@ class Admin::SponsorsController < ApplicationController
 
   layout 'admin'
 
-  before_action :set_sponsor, :only => [:show, :edit, :update, :destroy]
+  before_action :set_sponsor, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :find_cities
 
   def index
@@ -39,15 +39,15 @@ class Admin::SponsorsController < ApplicationController
     @sponsor = Sponsor.new(sponsor_params)
 
     if @sponsor.save
-      redirect_to [:admin, @sponsor], :notice => 'Sponsor was successfully created.'
+      redirect_to [:admin, @sponsor], notice: 'Sponsor was successfully created.'
     else
-      render :action => 'new'
+      render action: 'new'
     end
   end
 
   def update
     if @sponsor.update(sponsor_params)
-      redirect_to [:admin, @sponsor], :notice => 'Sponsor was successfully updated.'
+      redirect_to [:admin, @sponsor], notice: 'Sponsor was successfully updated.'
     else
       @sponsorships = @sponsor.sponsorships
       @non_sponsored = Meeting.all + Event.all - @sponsorships.map(&:sponsorable)
@@ -57,7 +57,7 @@ class Admin::SponsorsController < ApplicationController
 
   def destroy
     @sponsor.destroy
-    redirect_to admin_sponsors_url, :notice => 'Sponsor was successfully destroyed.'
+    redirect_to admin_sponsors_url, notice: 'Sponsor was successfully destroyed.'
   end
 
   private

@@ -4,7 +4,7 @@ module Admin::InvitationsHelper
     css = invitation.attending ? "success" : "danger"
     attendance = invitation.attending ? "Attending" : "Not attending"
 
-    haml_tag :div, :class => "label label-#{css}" do
+    haml_tag :div, class: "label label-#{css}" do
       haml_concat attendance
     end
   end

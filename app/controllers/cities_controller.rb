@@ -9,7 +9,7 @@ class CitiesController < ApplicationController
   end
 
   def sponsor
-    render :layout => 'application'
+    render layout: 'application'
   end
 
   private

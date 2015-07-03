@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EventsController, :type => :controller do
+describe EventsController, type: :controller do
   describe "GET #show" do
     Given(:city) { Fabricate(:city) }
     Given(:event) { Fabricate(:event, city: city) }

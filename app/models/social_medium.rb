@@ -5,9 +5,9 @@ class SocialMedium < ActiveRecord::Base
 
   belongs_to :city
 
-  validates :name, :presence => true,
-                   :uniqueness => {:scope =>  [ :city ] }
-  validates :url, :presence => true
+  validates :name, presence: true,
+                   uniqueness: {scope:  [ :city ] }
+  validates :url, presence: true
   validate :is_name_valid?
 
   private

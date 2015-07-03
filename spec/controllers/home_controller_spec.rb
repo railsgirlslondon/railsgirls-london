@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe HomeController, :type => :controller do
+describe HomeController, type: :controller do
 
   describe "GET 'index'" do
     context "when there is more than one city" do

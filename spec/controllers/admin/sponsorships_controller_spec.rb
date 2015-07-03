@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Admin::SponsorshipsController, :type => :controller do
+describe Admin::SponsorshipsController, type: :controller do
 
   before do
     sign_in

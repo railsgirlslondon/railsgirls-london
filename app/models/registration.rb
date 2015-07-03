@@ -39,8 +39,8 @@ class Registration < ActiveRecord::Base
   belongs_to :event
   belongs_to :member
 
-  validates :terms_of_service, :acceptance => true
-  validates :email,            :confirmation => true
+  validates :terms_of_service, acceptance: true
+  validates :email,            confirmation: true
 
   scope :accepted, -> { where(selection_state: "accepted", attending: true) }
   scope :members,  -> { where(Registration.arel_table[:member_id].not_eq(nil)) }
