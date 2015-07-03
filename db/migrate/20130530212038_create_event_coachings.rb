@@ -5,6 +5,6 @@ class CreateEventCoachings < ActiveRecord::Migration
       t.references :coach, null: false
     end
 
-    add_index(:event_coachings, [:event_id, :coach_id], :unique => true)
+    add_index(:event_coachings, [:event_id, :coach_id], unique: true)
   end
 end

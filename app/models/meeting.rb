@@ -29,7 +29,7 @@ class Meeting < ActiveRecord::Base
   delegate :active_members, to: :city
 
   def self.all_sponsors
-    Sponsorship.where(:sponsorable_type => "Meeting").map(&:sponsor).uniq! or []
+    Sponsorship.where(sponsorable_type: "Meeting").map(&:sponsor).uniq! or []
   end
 
   def to_s

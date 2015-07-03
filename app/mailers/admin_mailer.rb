@@ -16,8 +16,8 @@ class AdminMailer < ActionMailer::Base
   private
 
   def mail_args(subject)
-    { :to => @city.email,
-      :subject => subject }
+    { to: @city.email,
+      subject: subject }
   end
 
     def load_attachments

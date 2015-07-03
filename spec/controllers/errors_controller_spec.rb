@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ErrorsController, :type => :controller do
+describe ErrorsController, type: :controller do
 
   describe "GET 'not_found'" do
     it "returns http not_found" do

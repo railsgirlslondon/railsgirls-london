@@ -5,6 +5,6 @@ class CreateEventSponsorships < ActiveRecord::Migration
       t.references :sponsor, null: false
     end
 
-    add_index(:event_sponsorships, [:event_id, :sponsor_id], :unique => true)
+    add_index(:event_sponsorships, [:event_id, :sponsor_id], unique: true)
   end
 end

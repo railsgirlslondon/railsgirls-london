@@ -2,8 +2,8 @@ class Invitation < ActiveRecord::Base
 
   has_one :feedback
 
-  belongs_to :invitee, :polymorphic => true
-  belongs_to :invitable, :polymorphic => true
+  belongs_to :invitee, polymorphic: true
+  belongs_to :invitable, polymorphic: true
 
   attr_accessible :invitable_type, :invitable_id, :invitee_id, :invitee_type, :attending, :waiting_list, :invitable, :invitee, :comment
 
@@ -13,10 +13,10 @@ class Invitation < ActiveRecord::Base
   after_create :send_invitation
 
   after_update :give_away_spot,
-               :if => Proc.new { |i| i.attending == false }
+               if: Proc.new { |i| i.attending == false }
 
   after_update :send_confirmation,
-               :if => Proc.new { |i| i.attending == true and i.waiting_list == false and
+               if: Proc.new { |i| i.attending == true and i.waiting_list == false and
                                  i.waiting_list_was == true }
 
   scope :accepted, -> { where(attending: true) }

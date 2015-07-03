@@ -5,7 +5,7 @@ class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show]
 
   def index
-    @meetings = Meeting.where(:city => @city).announced
+    @meetings = Meeting.where(city: @city).announced
     @sponsors = Meeting.all_sponsors
   end
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UnsubscribesController, :type => :controller do
+describe UnsubscribesController, type: :controller do
   let!(:member) { Fabricate(:member, active: true) }
 
   describe "POST #create" do

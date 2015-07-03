@@ -15,15 +15,15 @@ class Sponsor < ActiveRecord::Base
                   :address_line_2,
                   *MANDATORY_ADDRESS_FIELDS
 
-  validates :name, :website, :presence => true
+  validates :name, :website, presence: true
 
-  validates *MANDATORY_ADDRESS_FIELDS, :presence => true, :if => :is_host?
+  validates *MANDATORY_ADDRESS_FIELDS, presence: true, if: :is_host?
 
   has_many :sponsorships
 
-  with_options :through => :sponsorships, :source => :sponsorable do |tag|
-    tag.has_many :meetings, :source_type => 'Meeting'
-    tag.has_many :events, :source_type => 'Event'
+  with_options through: :sponsorships, source: :sponsorable do |tag|
+    tag.has_many :meetings, source_type: 'Meeting'
+    tag.has_many :events, source_type: 'Event'
   end
 
   def is_host?

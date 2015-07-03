@@ -8,7 +8,7 @@ class Member < ActiveRecord::Base
   PERMITTED_ATTRIBUTES = [ *REQUIRED_ATTRIBUTES, :city_id, :phone_number, :twitter ]
   ALL_ATTRIBUTES = [*PERMITTED_ATTRIBUTES, :active]
 
-  validates(*REQUIRED_ATTRIBUTES, :presence => true)
+  validates(*REQUIRED_ATTRIBUTES, presence: true)
   validates :email, uniqueness: { scope: :city_id }
 
   attr_accessible(*ALL_ATTRIBUTES)
@@ -36,12 +36,12 @@ class Member < ActiveRecord::Base
 
   def self.create_from_registration registration
     member = Member.create(permitted_attributes_from(registration))
-    registration.update_attributes(:member => member) if member.save
+    registration.update_attributes(member: member) if member.save
     member
   end
 
   def self.permitted_attributes_from registration
     attributes = registration.attributes.select { |k, v| PERMITTED_ATTRIBUTES.include? k.to_sym }
-    attributes.merge! :city_id => registration.event.city_id
+    attributes.merge! city_id: registration.event.city_id
   end
 end
