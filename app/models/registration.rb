@@ -41,6 +41,7 @@ class Registration < ActiveRecord::Base
 
   validates :terms_of_service, :acceptance => true
   validates :email,            :confirmation => true
+  validates :email, format: { with: Devise.email_regexp }
 
   scope :accepted, -> { where(selection_state: "accepted", attending: true) }
   scope :members,  -> { where(Registration.arel_table[:member_id].not_eq(nil)) }
