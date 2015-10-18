@@ -9,7 +9,7 @@ feature 'a user can provide feedback for an invitable event' do
     fill_in_feedback_form event, "some email"
 
     expect(page).to have_content "Hm.. We can't seem to find you."
-    expect(page).to have_content event.city.email
+    expect(page).to have_content "railsgirlslondon@gmail.com"
   end
 
   let! (:registration) { Fabricate(:registration, email: "some@email.com", event: event) }
@@ -29,7 +29,7 @@ end
 private
 
 def fill_in_feedback_form event, email
-    visit new_city_event_feedback_path(event.city, event)
+    visit new_event_feedback_path(event)
 
     fill_in 'Email address', with: email
     fill_in 'Application description', with: "A listing application"

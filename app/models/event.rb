@@ -2,8 +2,6 @@ class Event < ActiveRecord::Base
   ATTRIBUTES = [
     :title,
     :description,
-    :city_id,
-    :city,
     :starts_on,
     :ends_on,
     :image,
@@ -17,12 +15,8 @@ class Event < ActiveRecord::Base
   include Extentions::Coachable
   include Extentions::Invitable
 
-  validates :description, :city_id, :starts_on, :ends_on, presence: true
-  validates :active,      uniqueness: {scope: :city_id}, if: :active?
+  validates :description, :starts_on, :ends_on, presence: true
 
-  delegate :name, to: :city, :prefix => true
-
-  belongs_to :city
   has_many :registrations
 
   default_scope { order('events.created_at DESC') }

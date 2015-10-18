@@ -7,7 +7,7 @@ class RegistrationMailer < ActionMailer::Base
   def application_received(event, registration)
     setup event, registration
 
-    subject = "Thanks for applying to Rails Girls #{@event.city_name} #{@event.dates}"
+    subject = "Thanks for applying to Rails Girls London #{@event.dates}"
 
     send_email(subject)
   end
@@ -17,7 +17,6 @@ class RegistrationMailer < ActionMailer::Base
   def setup event, registration
     @registration = registration
     @event = event
-    @city = event.city
 
     super()
   end

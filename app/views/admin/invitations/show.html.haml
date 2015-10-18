@@ -7,7 +7,7 @@
 .row
   .span4
     %h4
-      =link_to [:admin, @city, @invitation.invitable] do
+      =link_to [:admin, @invitation.invitable] do
         %strong=invitable_name(@invitation)
         %small=invitable_date(@invitation)
 .row

@@ -17,10 +17,9 @@ feature "a girl registering" do
 
 
   Given!(:event) { Fabricate(:event) }
-  Given!(:city) { event.city }
 
   Given do
-    visit city_event_path(city, event)
+    visit event_path(event)
     click_on "Apply to the event"
   end
 

@@ -8,7 +8,7 @@ module Extentions
     end
 
     def email_name
-      "Rails Girls #{@city.name} <#{@city.email}>"
+      "Rails Girls London <railsgirlslondon@gmail.com>"
     end
 
     def load_attachments

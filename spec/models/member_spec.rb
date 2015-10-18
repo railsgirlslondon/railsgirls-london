@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe Member do
 
-  let(:city) { Fabricate(:city) }
-
   context "#name" do
 
     it "returns the given name and last name" do
@@ -16,25 +14,25 @@ describe Member do
   context "#latest" do
 
     it "returns the last 10 members" do
-      members = 30.times.map { Fabricate(:member, city: city) }
+      Fabricate.times(30,:member)
 
-      expect(city.members.latest).to eq(members.last(10).reverse)
+      expect(Members.latest).to eq(Members.last(10).reverse)
     end
   end
 
   context "#permitted_attributes_from" do
     it "extracts the permitted attributes from another object" do
-      registration = Fabricate(:registration, :event => Fabricate(:event, city: city))
+      registration = Fabricate(:registration, :event => Fabricate(:event))
 
       permitted_attributes = Member.permitted_attributes_from(registration).symbolize_keys.keys
 
-      expect(permitted_attributes).to include(:first_name, :last_name, :email, :twitter, :phone_number, :city_id)
+      expect(permitted_attributes).to include(:first_name, :last_name, :email, :twitter, :phone_number)
     end
   end
 
   context "#create_from_registration" do
     it "creates a member from a registration" do
-      registration = Fabricate(:registration, :event => Fabricate(:event, city: city))
+      registration = Fabricate(:registration, :event => Fabricate(:event))
 
       Member.create_from_registration(registration)
 

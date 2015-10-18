@@ -15,7 +15,6 @@ feature "admin CRUDing events" do
   let(:os_version) { Faker::Lorem.sentence }
   let(:dietary_restrictions) { Faker::Lorem.sentence }
 
-  Given!(:city) { City.create! name: "London" }
   Given { admin_logged_in! }
 
   context "creating and editing an event" do
@@ -119,11 +118,11 @@ feature "admin CRUDing events" do
   end
 
   context "converting event attendees to members" do
-    Given!(:event) { Fabricate(:event, city: city, active: false) }
+    Given!(:event) { Fabricate(:event, active: false) }
     Given!(:registration) { Fabricate(:attended_registration, event: event)}
 
     When do
-      visit admin_city_event_path(city, event)
+      visit admin_event_path(event)
 
       click_on "Convert attendees to members"
     end

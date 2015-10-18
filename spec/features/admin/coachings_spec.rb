@@ -15,7 +15,7 @@ feature "Coachings" do
 
       Then do
         page.has_content? "#{coach.name} has been assigned to #{event.to_s}."
-        visit admin_city_event_path(event.city, event)
+        visit admin_event_path(event)
         page.has_content? coach.name
       end
     end
@@ -30,7 +30,7 @@ feature "Coachings" do
 
       Then do
         page.has_content? "#{coach.name} coaching has been updated."
-        visit admin_city_event_path(event.city, event)
+        visit admin_event_path(event)
         page.has_content? coach.name
       end
       And { page.has_content? "Organiser" }
@@ -48,7 +48,7 @@ feature "Coachings" do
 
       Then do
         page.has_content? "#{coach.name} has been removed from #{event.to_s}."
-        visit admin_city_event_path(event.city, event)
+        visit admin_event_path(event)
         !page.has_content? coach.name
       end
     end
@@ -64,7 +64,7 @@ feature "Coachings" do
 
     Then do
       page.has_content? "#{coach.name} has been assigned to #{meeting.to_s}."
-      visit admin_city_meeting_path(meeting.city, meeting)
+      visit admin_meeting_path(meeting)
       page.has_content? coach.name
     end
   end
@@ -73,7 +73,7 @@ feature "Coachings" do
     Given!(:meeting) { Fabricate(:meeting) }
 
     When do
-      visit admin_city_meeting_path(meeting.city, meeting)
+      visit admin_meeting_path(meeting)
     end
 
     Then do

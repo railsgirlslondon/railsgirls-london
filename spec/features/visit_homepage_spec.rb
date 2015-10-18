@@ -12,16 +12,4 @@ feature "A user visits the homepage" do
       expect(page).to have_content "Application"
     end
   end
-
-  context "when there are no events coming up" do
-    let!(:event) { Fabricate(:event) }
-
-    scenario "he can view the cities listed" do
-      visit root_path
-
-      expect(page).to have_content event.city.name
-      expect(page).to have_content "View details and apply"
-    end
-
-  end
 end

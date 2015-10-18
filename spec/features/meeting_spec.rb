@@ -1,10 +1,9 @@
 require 'spec_helper'
 
 feature "viewing a meeting" do
-  let!(:city) { Fabricate(:city) }
 
-  let!(:announced_meeting) { Fabricate(:meeting, city: city) }
-  let!(:unannounced_meeting) { Fabricate(:unannounced_meeting, city: city) }
+  let!(:announced_meeting) { Fabricate(:meeting) }
+  let!(:unannounced_meeting) { Fabricate(:unannounced_meeting) }
 
   specify do
     viewing_announced_meeting
@@ -12,13 +11,13 @@ feature "viewing a meeting" do
   end
 
   def viewing_announced_meeting
-    visit city_meeting_path(city, announced_meeting)
-    page.has_content? announced_meeting.name 
-    page.has_content? announced_meeting.description 
+    visit meeting_path(announced_meeting)
+    page.has_content? announced_meeting.name
+    page.has_content? announced_meeting.description
   end
 
   def cant_view_unannounced_meeting
-    visit(city_meeting_path(city, unannounced_meeting))
+    visit(meeting_path(unannounced_meeting))
     page.has_content? "No such meeting."
   end
 end

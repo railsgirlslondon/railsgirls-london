@@ -15,7 +15,7 @@ class Admin::SponsorsController < ApplicationController
   layout 'admin'
 
   before_action :set_sponsor, :only => [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :find_cities
+  before_action :authenticate_user!
 
   def index
     @sponsors = Sponsor.all

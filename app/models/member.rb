@@ -1,19 +1,16 @@
 class Member < ActiveRecord::Base
   REQUIRED_ATTRIBUTES = [ :first_name,
                           :last_name,
-                          :email,
-                          :city ]
+                          :email]
 
 
-  PERMITTED_ATTRIBUTES = [ *REQUIRED_ATTRIBUTES, :city_id, :phone_number, :twitter ]
+  PERMITTED_ATTRIBUTES = [ *REQUIRED_ATTRIBUTES, :phone_number, :twitter ]
   ALL_ATTRIBUTES = [*PERMITTED_ATTRIBUTES, :active]
 
   validates(*REQUIRED_ATTRIBUTES, :presence => true)
-  validates :email, uniqueness: { scope: :city_id }
+  validates :email, uniqueness: true
 
   attr_accessible(*ALL_ATTRIBUTES)
-
-  belongs_to :city
 
   scope :latest, -> { order('members.created_at DESC').limit(10) }
 
@@ -42,6 +39,5 @@ class Member < ActiveRecord::Base
 
   def self.permitted_attributes_from registration
     attributes = registration.attributes.select { |k, v| PERMITTED_ATTRIBUTES.include? k.to_sym }
-    attributes.merge! :city_id => registration.event.city_id
   end
 end

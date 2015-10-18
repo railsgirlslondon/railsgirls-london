@@ -1,5 +1,5 @@
-%h3.underline Apply to the #{@city.name} #{@event.title} event
-= simple_form_for @registration, url: city_event_registrations_path(@city, @event), html: { class: 'form-horizontal' } do |f|
+%h3.underline Apply to the London #{@event.title} event
+= simple_form_for @registration, url: event_registrations_path(@event), html: { class: 'form-horizontal' } do |f|
   = f.input :first_name, input_html: {class: "span3"}
   = f.input :last_name, input_html: {class: "span3"}
   = f.input :gender, collection: [ "Female", "Male" ], prompt: "Select your gender", input_html: {class: "span3"}
@@ -47,7 +47,7 @@
 
         %li
           If you have any questions about the application process, please
-          =mail_to @city.email, "contact the Rails Girls #{@city.name} organisers"
+          =mail_to "railsgirlslondon@gmail.com", "contact the Rails Girls London organisers"
           , or
           =link_to "use our mailing list", "http://bit.ly/rglondon"
           \.
@@ -62,4 +62,4 @@
   .form-actions
     = f.submit "Apply", class: "btn btn-large"
 
-= link_to "Back to event", city_event_path(@city, @event)
+= link_to "Back to event", event_path(@event)

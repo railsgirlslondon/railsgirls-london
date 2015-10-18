@@ -27,11 +27,8 @@
         %strong Want to help?
         %small
           We are always looking for more coaches.
-          - if @city.coaches_mailing_list
-            = link_to "Subscribe to our coaches mailing list!", @city.coaches_mailing_list
-          - else
-            = mail_to @city.email, "Send us an email if you would like to get involved!",
-                                    subject: "Getting involved with Rails Girls #{@city.name}"
+          = mail_to "railsgirlslondon@gmail.com", "Send us an email if you would like to get involved!",
+                                    subject: "Getting involved with Rails Girls London"
     #main{:role => "main"}
       .container
         .row#marginup
@@ -42,9 +39,9 @@
             %br
             .text-center.sponsorbutton
               %strong#sponsor
-                = link_to "Become a sponsor!", city_sponsor_path(@city)
+                = link_to "Become a sponsor!", sponsor_path
             %br
-            = render 'layouts/twitter_snippet' if @city and @city.twitter
+            = render 'layouts/twitter_snippet'
           .span7
             = render 'layouts/messages'
             = yield

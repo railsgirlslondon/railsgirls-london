@@ -4,7 +4,7 @@
     %li.row
       = simple_form_for [:admin, Sponsorship.new], html: { class: "form-inline" } do |f|
         .span4
-          = link_to [:admin, object.city, object] do
+          = link_to [:admin, object] do
             =object.to_s.html_safe
         .span3
           .span1

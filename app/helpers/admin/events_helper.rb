@@ -5,8 +5,6 @@ module Admin::EventsHelper
   end
 
   def event_title event
-    title = event.city_name
-    title << " - #{event.title}" unless event.title.blank?
-    title
+    event.title
   end
 end

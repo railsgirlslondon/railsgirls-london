@@ -1,8 +1,7 @@
 require "spec_helper"
 
 feature "CRUDing invitation" do
-  Given!(:city) { Fabricate(:city_with_members) }
-  Given!(:meeting) { Fabricate(:meeting, city: city, available_slots: 1) }
+  Given!(:meeting) { Fabricate(:meeting, available_slots: 1) }
   Given!(:sponsor) { Fabricate(:sponsor_with_address) }
   Given { Fabricate(:hosting, sponsor: sponsor, sponsorable: meeting) }
 

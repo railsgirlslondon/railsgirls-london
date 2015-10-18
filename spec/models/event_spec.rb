@@ -2,33 +2,23 @@ require 'spec_helper'
 
 describe Event do
   context "validations" do
-    Given(:city) { City.create! name: "London" }
     Given do
-      Event.create! description: "something", city_id: city.id, active: true, starts_on: Time.now, ends_on: Time.now
+      Event.create! description: "something", active: true, starts_on: Time.now, ends_on: Time.now
     end
 
-    context "only one active event per city" do
-      When(:invalid_event) { Event.create description: "something", city_id: city.id, starts_on: Date.today, ends_on: Date.tomorrow,  active: true}
+    context "only one active event" do
+      When(:invalid_event) { Event.create description: "something", starts_on: Date.today, ends_on: Date.tomorrow,  active: true}
       Then { not invalid_event.valid? }
 
       And { not invalid_event.errors[:active].empty?}
 
       context "allows multiple inactive events" do
-        When(:event_1) { Event.create description: "something", city_id: city.id, active: false, starts_on: Time.now, ends_on: Time.now}
-        When(:event_2) { Event.create description: "something", city_id: city.id, active: false, starts_on: Time.now, ends_on: Time.now}
+        When(:event_1) { Event.create description: "something", active: false, starts_on: Time.now, ends_on: Time.now}
+        When(:event_2) { Event.create description: "something", active: false, starts_on: Time.now, ends_on: Time.now}
 
         Then { event_1.valid? }
         And { event_2.valid? }
       end
-
-      context "allows for other active events in other cities" do
-        Given(:other_city) { City.create! name: "Another city" }
-
-        When(:valid_event) { Event.create description: "something", city_id: other_city.id, starts_on: Date.today, ends_on: Date.tomorrow,  active: true}
-
-        Then{ valid_event.valid? }
-      end
-
     end
   end
 
@@ -140,7 +130,7 @@ describe Event do
   end
 
   describe "applications" do
-    let(:event) { Fabricate(:event, city: Fabricate(:city, name: "test-#{Time.now}")) }
+    let(:event) { Fabricate(:event) }
     let!(:accepted) { 3.times.map { Fabricate(:attended_registration, event: event) } }
     let!(:weeklies) { 2.times.map { Fabricate(:weeklies_registration, event: event) } }
     let!(:waiting_list) { 2.times.map { Fabricate(:waiting_list_registration, event: event) } }

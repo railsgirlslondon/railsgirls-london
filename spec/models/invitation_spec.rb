@@ -1,10 +1,9 @@
 require 'spec_helper'
 
 describe Invitation do
-  let(:meeting) { Fabricate(:meeting, available_slots: 1) }
   let(:invitee) { Fabricate(:member) }
-  let!(:hosting) { Fabricate(:hosting, sponsorable: meeting) }
-  let(:invitation) { Fabricate(:invitation, invitable: meeting) }
+  let!(:hosting) { Fabricate(:hosting) }
+  let(:invitation) { Fabricate(:invitation) }
 
   it { should callback(:generate_token).before(:create) }
   it { should callback(:send_invitation).after(:create) }
@@ -13,9 +12,9 @@ describe Invitation do
 
   context "scopes" do
 
-    let!(:attending) { 3.times.map { Fabricate(:accepted_invitation, invitable: meeting) }.reverse }
-    let!(:no_response) { 2.times.map { Fabricate(:invitation, invitable: meeting) } }
-    let!(:waiting_list) { 5.times.map { Fabricate(:waiting_invitation, invitable: meeting) } }
+    let!(:attending) { 3.times.map { Fabricate(:accepted_invitation) }.reverse }
+    let!(:no_response) { 2.times.map { Fabricate(:invitation) } }
+    let!(:waiting_list) { 5.times.map { Fabricate(:waiting_invitation) } }
 
     it "#accepted" do
       meeting.invitations.accepted.should eq attending

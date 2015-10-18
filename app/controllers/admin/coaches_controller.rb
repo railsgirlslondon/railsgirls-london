@@ -3,7 +3,7 @@ class Admin::CoachesController < ApplicationController
 
   before_action :set_coach, only: [:show, :edit, :update, :destroy]
   before_action :set_not_coaching, only: [:show, :edit, :update]
-  before_action :authenticate_user!, :find_cities
+  before_action :authenticate_user!
 
   def index
     @coaches = Coach.sorted_by_name

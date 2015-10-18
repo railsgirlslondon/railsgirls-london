@@ -7,14 +7,14 @@ class EventMailer < ActionMailer::Base
   def invite event, registration, invitation
     setup event, registration, invitation
 
-    subject = "You are invited to the Rails Girls #{event.city_name} workshop on the #{event.dates}"
+    subject = "You are invited to the Rails Girls London workshop on the #{event.dates}"
     send_email(subject)
   end
 
   def confirm_attendance event, registration, invitation
     setup(event, registration, invitation)
 
-    subject = "RG#{event.city_name.slice(0)} - You are confirmed for #{event.title} #{event.dates}"
+    subject = "RGL - You are confirmed for #{event.title} #{event.dates}"
 
     attach_ical_file(event)
 
@@ -24,14 +24,14 @@ class EventMailer < ActionMailer::Base
   def invitation_reminder event, registration, invitation
     setup event, registration, invitation
 
-    subject = "Rails Girls #{@event.city_name} - Please RSVP your attendance"
+    subject = "Rails Girls London - Please RSVP your attendance"
     send_email(subject)
   end
 
   def confirm_feedback event, registration, invitation
     setup event, registration, invitation
 
-    subject = "RG#{@event.city_name.slice(0)} - Thank you for your feedback for #{@event.title} #{@event.dates}!"
+    subject = "RGL - Thank you for your feedback for #{@event.title} #{@event.dates}!"
     send_email(subject)
   end
 
@@ -49,7 +49,6 @@ class EventMailer < ActionMailer::Base
     @invitation = invitation
     @invitee = invitation.invitee
     @event = event
-    @city = event.city
 
     super()
   end

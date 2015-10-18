@@ -16,22 +16,14 @@ module ApplicationHelper
     link_to "kippt", "http://kippt.com#{link}"
   end
 
-  def city_name
-    @city ? @city.name : "UK"
-  end
-
   def page_title
-    title = "Rails Girls #{city_name}"
+    title = "Rails Girls London"
     title << " -  #{@event.title}" if @event and @event.active
     title
   end
 
   def city_twitter
-    @city ? @city.twitter : "railsgirls"
-  end
-
-  def city_slug
-    @city ? @city.slug : ""
+    "railsgirls_ldn"
   end
 
   def path_active?(path)
@@ -47,7 +39,7 @@ module ApplicationHelper
   end
 
   def twitter_widget_id
-    @city.twitter_widget_id ? @city.twitter_widget_id : railsgirls_twitter_widget_id
+    railsgirls_twitter_widget_id
   end
 
   private

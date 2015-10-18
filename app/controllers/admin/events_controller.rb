@@ -1,7 +1,7 @@
 class Admin::EventsController < ApplicationController
   layout 'admin'
 
-  before_action :authenticate_user!, :find_event, :find_cities
+  before_action :authenticate_user!, :find_event
 
   def index
     @events = Event.all
@@ -45,7 +45,7 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @members = @event.convert_attendees_to_members!
 
-    redirect_to admin_city_members_path(@event.city, @members), :notice => "The following members were created."
+    redirect_to admin_members_path(@members), :notice => "The following members were created."
   end
 
   private
@@ -55,6 +55,6 @@ class Admin::EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :city_id, :active, :city, :starts_on, :ends_on, :registration_deadline, :coachable)
+    params.require(:event).permit(:title, :description, :active, :starts_on, :ends_on, :registration_deadline, :coachable)
   end
 end

@@ -1,9 +1,5 @@
 module EventHelper
 
-  def render_event_partial
-    render partial: "#{@event.city.slug}#{@event.id}" rescue ""
-  end
-
   def accept_reject_invitation_link(event, registration)
     if registration.selection_state.eql? "accepted"
       path = admin_event_registration_attendance_path(@event, registration)

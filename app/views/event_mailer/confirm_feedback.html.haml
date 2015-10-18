@@ -10,7 +10,7 @@
 
 
     %small Was the feedback not submitted by you?
-    =link_to "Remove feedback", full_url_for(city_event_feedback_url(@city, @event, @invitation.feedback)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+    =link_to "Remove feedback", full_url_for(event_feedback_url(@event, @invitation.feedback)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
     %br
 

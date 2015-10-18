@@ -3,7 +3,7 @@ require 'spec_helper'
 feature "Unsubscribe from emails" do
 
   let!(:member) { Fabricate(:member, active: true) }
-  let!(:event) { Fabricate(:event, city: member.city) }
+  let!(:event) { Fabricate(:event) }
 
   specify do
     visit unsubscribe_path(member.uuid)
