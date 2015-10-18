@@ -1,26 +1,6 @@
 require 'spec_helper'
 
 describe Event do
-  context "validations" do
-    Given do
-      Event.create! description: "something", active: true, starts_on: Time.now, ends_on: Time.now
-    end
-
-    context "only one active event" do
-      When(:invalid_event) { Event.create description: "something", starts_on: Date.today, ends_on: Date.tomorrow,  active: true}
-      Then { not invalid_event.valid? }
-
-      And { not invalid_event.errors[:active].empty?}
-
-      context "allows multiple inactive events" do
-        When(:event_1) { Event.create description: "something", active: false, starts_on: Time.now, ends_on: Time.now}
-        When(:event_2) { Event.create description: "something", active: false, starts_on: Time.now, ends_on: Time.now}
-
-        Then { event_1.valid? }
-        And { event_2.valid? }
-      end
-    end
-  end
 
   context "scopes" do
 
@@ -88,14 +68,14 @@ describe Event do
     end
 
     describe "is_host_for?" do
-      let!(:meeting) { Fabricate(:meeting) }
+      let!(:event) { Fabricate(:event) }
       let!(:sponsor) { Fabricate(:sponsor_with_address) }
       let!(:other_sponsor) { Fabricate(:event_sponsorship) }
 
-      let!(:sponsorship) { Sponsorship.create! sponsorable_id: meeting.id, sponsorable_type: 'Meeting', sponsor: sponsor, host: true }
+      let!(:sponsorship) { Sponsorship.create! sponsorable_id: event.id, sponsorable_type: 'Event', sponsor: sponsor, host: true }
 
       context "when there is a host" do
-        specify { expect(sponsor.is_host_for?(meeting)).to eq(true) }
+        specify { expect(sponsor.is_host_for?(event)).to eq(true) }
       end
 
     end
@@ -134,31 +114,6 @@ describe Event do
     let!(:accepted) { 3.times.map { Fabricate(:attended_registration, event: event) } }
     let!(:weeklies) { 2.times.map { Fabricate(:weeklies_registration, event: event) } }
     let!(:waiting_list) { 2.times.map { Fabricate(:waiting_list_registration, event: event) } }
-
-    it "#export_applications_to_trello" do
-      event_trello = double(:event_trello, export: nil)
-
-      EventTrello.should_receive(:new).and_return(event_trello)
-      event_trello.should_receive(:export)
-
-      event.export_applications_to_trello
-    end
-
-    it "processess all applications" do
-      registration = Fabricate(:registration, event: event)
-      card = double(:card, name: registration.reason_for_applying)
-      applications = double
-
-      event.trello.should_receive(:add_list).and_return(nil)
-      event.trello.should_receive(:move_cards_to_list).and_return(nil)
-      event.trello.should_receive(:applications).and_return(applications)
-      applications.should_receive(:take).and_return([card])
-      applications.should_receive(:drop).and_return([])
-
-      event.process_applications 2
-
-      registration.reload.selection_state.should eq "accepted"
-    end
 
     it "#selected_applicants" do
       event.selected_applicants.should eq accepted

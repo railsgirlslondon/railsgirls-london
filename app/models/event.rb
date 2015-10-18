@@ -46,10 +46,6 @@ class Event < ActiveRecord::Base
     dates << until_day_month_and_year(ends_on)
   end
 
-  def export_applications_to_trello
-    trello.export "Applications"
-  end
-
   def process_applications slots=35
     application_manager = ApplicationManager.new(self, slots)
     application_manager.process!
@@ -73,10 +69,6 @@ class Event < ActiveRecord::Base
 
   def weeklies_invitees
     registrations.where :selection_state => "RGL Weeklies"
-  end
-
-  def trello
-    @trello ||= EventTrello.new(self)
   end
 
   def to_s
