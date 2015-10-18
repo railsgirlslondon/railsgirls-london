@@ -5,7 +5,7 @@ class Admin::MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
-    Member.all
+    @members = Member.all
   end
 
   def show

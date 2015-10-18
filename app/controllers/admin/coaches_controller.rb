@@ -52,6 +52,6 @@ class Admin::CoachesController < ApplicationController
     end
 
     def set_not_coaching
-      @not_coaching = Meeting.coachable + Event.coachable - @coach.coachings.map(&:coachable)
+      @not_coaching = Event.coachable - @coach.coachings.map(&:coachable)
     end
 end
