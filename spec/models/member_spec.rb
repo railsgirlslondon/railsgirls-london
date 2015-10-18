@@ -16,7 +16,7 @@ describe Member do
     it "returns the last 10 members" do
       Fabricate.times(30,:member)
 
-      expect(Members.latest).to eq(Members.last(10).reverse)
+      expect(Member.latest).to eq(Member.last(10).reverse)
     end
   end
 

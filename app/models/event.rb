@@ -46,11 +46,6 @@ class Event < ActiveRecord::Base
     dates << until_day_month_and_year(ends_on)
   end
 
-  def process_applications slots=35
-    application_manager = ApplicationManager.new(self, slots)
-    application_manager.process!
-  end
-
   def email email_type, registration, invitation
     EventMailer.send(email_type.to_sym, self, registration, invitation).deliver_now
   end
