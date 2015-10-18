@@ -5,7 +5,7 @@
     - coachings.each do |coaching|
       %li.row
         .span4
-          =link_to [:admin, coaching.coachable.city, coaching.coachable] do
+          =link_to [:admin, coaching.coachable] do
             =coaching.coachable.to_s.html_safe
         .span3
           = simple_form_for [:admin, coaching], html: { class: "form-inline" } do |f|

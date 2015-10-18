@@ -47,15 +47,6 @@ feature "admin CRUDing members" do
         And { page.has_content? new_email }
       end
 
-      context "viewing that member on the dashboard" do
-        When do
-          click_on "Back"
-        end
-
-        Then { page.has_content? first_name }
-        Then { page.has_content? last_name }
-      end
-
       context "Adding a member with the same email" do
         let(:other_first_name) { Faker::Name.name }
         let(:other_last_name) { Faker::Name.name }

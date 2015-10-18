@@ -22,7 +22,6 @@ feature "admin CRUDing events" do
       visit new_admin_event_path
       fill_in "Title", with: "Autumn Workshop"
       fill_in "Description", with: "Second RG workshop"
-      select "London", from: "City"
       check "Active"
       click_on "Create Event"
     end
@@ -117,20 +116,4 @@ feature "admin CRUDing events" do
     end
   end
 
-  context "converting event attendees to members" do
-    Given!(:event) { Fabricate(:event, active: false) }
-    Given!(:registration) { Fabricate(:attended_registration, event: event)}
-
-    When do
-      visit admin_event_path(event)
-
-      click_on "Convert attendees to members"
-    end
-
-    Then do
-      !page.has_content? "Convert attendees to members"
-      page.has_content? "member"
-    end
-
-  end
 end

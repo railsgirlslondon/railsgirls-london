@@ -22,7 +22,6 @@
           .row
             .span10.offset1
               = render 'layouts/navigation'
-              = render 'layouts/fork_us'
       %notice
         %strong Want to help?
         %small
@@ -39,7 +38,7 @@
             %br
             .text-center.sponsorbutton
               %strong#sponsor
-                = link_to "Become a sponsor!", sponsor_path
+                = link_to "Become a sponsor!", nil
             %br
             = render 'layouts/twitter_snippet'
           .span7

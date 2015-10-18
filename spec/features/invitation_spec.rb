@@ -1,12 +1,11 @@
 require "spec_helper"
 
 feature "CRUDing invitation" do
-  Given!(:meeting) { Fabricate(:meeting, available_slots: 1) }
   Given!(:sponsor) { Fabricate(:sponsor_with_address) }
-  Given { Fabricate(:hosting, sponsor: sponsor, sponsorable: meeting) }
+  Given { Fabricate(:hosting, sponsor: sponsor) }
 
-  Given!(:invitation) { Fabricate(:invitation, invitable: meeting) }
-  Given!(:other_invitation) { Fabricate(:invitation, invitable: meeting) }
+  Given!(:invitation) { Fabricate(:invitation) }
+  Given!(:other_invitation) { Fabricate(:invitation) }
 
   context "rsvp to the invitation" do
 

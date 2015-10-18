@@ -12,6 +12,7 @@ describe Invitation do
   it { should callback(:send_confirmation).after(:update) }
 
   context "scopes" do
+<<<<<<< Updated upstream
 
     let!(:attending) { 3.times.map { Fabricate(:accepted_invitation, invitable: event) }.reverse }
     let!(:no_response) { 2.times.map { Fabricate(:invitation, invitable: event) } }
@@ -29,12 +30,18 @@ describe Invitation do
     it "#pending_response" do
       event.invitations.pending_response.should eq no_response.reverse
     end
+=======
+    let!(:attending) { 3.times.map { Fabricate(:accepted_invitation) }.reverse }
+    let!(:no_response) { 2.times.map { Fabricate(:invitation) } }
+    let!(:waiting_list) { 5.times.map { Fabricate(:waiting_invitation) } }
+>>>>>>> Stashed changes
   end
 
   context "hooks" do
     it "#after_create" do
       Invitation.any_instance.should_receive(:send_invitation)
 
+<<<<<<< Updated upstream
       Invitation.create! invitee: invitee, invitable: event
     end
 
@@ -44,6 +51,17 @@ describe Invitation do
       context "attendance is false" do
         it "processess the waiting list" do
           other_invitation = Fabricate(:invitation, invitable: event, waiting_list: true)
+=======
+      Invitation.create! invitee: invitee
+    end
+
+    context "#after_update" do
+      let(:invitation) { Fabricate(:invitation, attending: true) }
+
+      context "attendance is false" do
+        it "processess the waiting list" do
+          other_invitation = Fabricate(:invitation, waiting_list: true)
+>>>>>>> Stashed changes
 
           invitation.invitable.should_receive(:process_waiting_list)
 
@@ -52,7 +70,11 @@ describe Invitation do
       end
 
       context "attendance is true and waiting_list is false" do
+<<<<<<< Updated upstream
         let(:invitation) { Fabricate(:invitation, invitable: event, waiting_list: true) }
+=======
+        let(:invitation) { Fabricate(:invitation, waiting_list: true) }
+>>>>>>> Stashed changes
 
         it "sends a confirmation email" do
           invitation.should_receive(:send_confirmation)

@@ -24,6 +24,9 @@ RailsgirlsLondon::Application.routes.draw do
     get '/dashboard' => 'dashboard#index', as: :dashboard
 
     resources :events do
+      resources :invitations, only: [ :show ], :invitable_type => 'Event', :invitable_id => 'event_id' do
+        post 'create', on: :collection
+      end
       resources :registrations, only: [:show, :new, :create] do
         resource :attendance, only: [:create, :destroy]
       end

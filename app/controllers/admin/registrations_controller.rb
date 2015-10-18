@@ -1,7 +1,7 @@
 class Admin::RegistrationsController < ApplicationController
   layout 'admin'
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :find_event
 
   def new
     @registration = Registration.new

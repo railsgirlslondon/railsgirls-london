@@ -70,7 +70,6 @@ feature "admin CRUDing coaches" do
       Given!(:event) do
         Event.create! description: "an event name", starts_on: Time.now, ends_on: Time.now, coachable: true
       end
-      Given!(:non_coachable_meeting) { Fabricate(:meeting) }
       Given { Fabricate(:coach, name: "a coach") }
 
       When do
@@ -80,7 +79,6 @@ feature "admin CRUDing coaches" do
 
       context "non coachable cannot be assigned" do
         Then { page.has_content? "Not coaching" }
-        Then { !page.has_content? non_coachable_meeting.to_s }
       end
 
       context "with no coach currently assigned" do

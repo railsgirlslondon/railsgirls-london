@@ -5,6 +5,5 @@ class Admin::DashboardController < ApplicationController
 
   def index
     @active_events = Event.where(:active => true)
-    @meetings = Meeting.upcoming
   end
 end
