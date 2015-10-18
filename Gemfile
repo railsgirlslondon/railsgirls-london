@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.2.2'
 
-gem 'rails', '~> 4.2.1'
+gem 'rails', '~> 4.2.4'
 gem 'unicorn'
 
 gem 'haml-rails'
-gem 'simple_form', '~> 3.0.0.rc'
+gem 'simple_form', '~> 3.2.0'
 gem 'devise'
 gem 'protected_attributes' # temporary
 gem 'ruby-trello', require: false
@@ -32,16 +32,15 @@ end
 group :test do
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
-  gem "shoulda-callback-matchers", ">=0.3.0"
+  gem 'shoulda-callback-matchers', '>=0.3.0'
   gem 'rspec-given'
   gem 'capybara'
   gem 'vcr'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'coveralls', require: false
-  gem 'webmock', "< 1.10"
+  gem 'webmock', '< 1.10'
 end
-
 
 group :assets do
   gem 'coffee-rails', '~> 4.0.0.rc1'
