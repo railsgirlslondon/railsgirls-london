@@ -70,26 +70,6 @@ describe EventMailer do
     it_behaves_like "an event email"
   end
 
-  context "feedback confirmation email" do
-    let(:subject) {
-      "RGL - Thank you for your feedback for #{event.title} #{event.dates}!"
-    }
-    let(:invitation) { Fabricate(:event_invitation, invitable: event, invitee: registration) }
-
-    before do
-      Fabricate(:feedback, invitation_id: invitation.id)
-
-      EventMailer.confirm_feedback(event, invitation.invitee, invitation).deliver_now
-    end
-
-    it "sends a confirmation email when an attendee accepts the invitation" do
-      expect(html_body).to include(invitation.invitee.first_name)
-    end
-
-    it_behaves_like "an event email"
-  end
-
-
   def html_body
     ActionMailer::Base.deliveries.last.html_part.body
   end
