@@ -23,8 +23,3 @@ Fabricator(:event_sponsorship, from: :sponsorship) do
   sponsorable_type { 'Event' }
   sponsorable_id { Fabricate(:event).id }
 end
-
-Fabricator(:meeting_sponsorship, from: :sponsorship) do
-  sponsorable_type { 'Meeting' }
-  sponsorable_id { Fabricate(:meeting).id }
-end
