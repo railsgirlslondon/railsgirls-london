@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def landing_page_anchor_link(anchor)
+    params[:controller] == "home" ?  "##{anchor}" : "#{root_path}##{anchor}"
+  end
+
   def display_base_errors resource
     return '' if (resource.errors.empty?) or (resource.errors[:base].empty?)
     messages = resource.errors[:base].map { |msg| content_tag(:p, msg) }.join
@@ -24,6 +28,10 @@ module ApplicationHelper
 
   def city_twitter
     "railsgirls_ldn"
+  end
+
+  def city_facebook
+    "railsgirlslondon"
   end
 
   def path_active?(path)

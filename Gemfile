@@ -20,6 +20,8 @@ end
 
 group :test, :development do
   gem 'dotenv-rails'
+  gem 'binding_of_caller'
+  gem "better_errors"
   gem 'guard'
   gem 'guard-rspec', require: false
   gem 'rspec-rails'
@@ -49,4 +51,5 @@ end
 
 gem 'jquery-rails'
 gem 'sass-rails',  '~> 4.0.0.rc1'
-gem 'bootstrap-sass', '2.3.2'
+gem 'bootstrap-sass'
+gem 'bourbon'

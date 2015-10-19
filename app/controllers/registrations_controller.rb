@@ -1,5 +1,4 @@
 class RegistrationsController < ApplicationController
-  layout 'cities'
 
   before_filter :setup_properties
 

@@ -38,9 +38,22 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (6.0.3)
+    autoprefixer-rails (6.0.3)
+      execjs
+      json
     bcrypt (3.1.10)
-    bootstrap-sass (2.3.2.0)
+    better_errors (2.0.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.5)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
+    bourbon (3.2.3)
       sass (~> 3.2)
+      thor
     builder (3.2.2)
     byebug (6.0.2)
     capybara (2.5.0)
@@ -66,6 +79,7 @@ GEM
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     database_cleaner (1.5.1)
+    debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -304,7 +318,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (= 2.3.2)
+  better_errors
+  binding_of_caller
+  bootstrap-sass
+  bourbon
   byebug
   capybara
   coffee-rails (~> 4.0.0.rc1)
@@ -338,6 +355,3 @@ DEPENDENCIES
   unicorn
   vcr
   webmock (< 1.10)
-
-BUNDLED WITH
-   1.10.6

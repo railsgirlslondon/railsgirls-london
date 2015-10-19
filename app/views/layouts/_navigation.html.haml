@@ -1,9 +1,18 @@
-#logo
-  =link_to root_path do
-    = image_tag "railsgirls-london.png", class: 'brand'
-    Rails Girls London
-
-.pull-right
-  .rails-girls-heart
-    %a.rails-girls{ href: "http://railsgirls.com", title: "Rails Girls" }
-      =image_tag "railsgirls-heart.png"
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+      =link_to root_path do
+        = image_tag "logo.svg", class: 'navbar-brand'
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li.active
+          = link_to "ABOUT", landing_page_anchor_link("about")
+        %li
+          = link_to "EVENTS", landing_page_anchor_link("events")
+        %li
+          = link_to "SPONSORS", landing_page_anchor_link("sponsors")
+        %li
+          =link_to "CONTACT", root_path

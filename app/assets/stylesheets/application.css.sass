@@ -12,27 +12,45 @@
  *= require_tree .
  */
 
+@import 'bourbon'
+@import 'mixins/buttons'
+@import 'mixins/images'
 @import 'partials/colors'
+@import 'partials/settings'
+@import 'bootstrap-sprockets'
 
-#main
-  .container
-    min-height: 500px
+.splash
+  color: white
+  padding: 25rem $site-padding 18rem
+  h1
+    font-size: 58px
+  h1, h2
+    margin: 0
+    text-align: center
+    b
+      font-weight: 600
+  p
+    text-align: center
 
-.affix-top
-  position: fixed
+.landing
+  +splash(asset_path("bg_img.jpg"), $secondary-rg-color, red)
 
-.railsgify
-  color: $red-tone
+.event-page
+  +splash(asset_path("bg_img1.jpg"), $secondary-rg-color, red)
 
-a.rails-girls
-  line-height: 40px
-  img
-    margin-top: 15px
-    width: 30px
 
-  &:hover
-    img
-      width: 35px
+
+
+.next-event
+  // background-color: rgba(255, 255, 255, 0.76)
+  border-radius: 3px
+  h3
+    color: white
+  h1
+    color: white
+    font-weight: 600
+    // padding-bottom: 2rem
+
 
 footer
   color: #666
@@ -48,16 +66,6 @@ footer
     color: #111
     border-bottom: 1px dotted #111
 
-    &:hover
-      text-decoration: none
-
-  .slogan
-    font-size: 18px
-    letter-spacing: 0.5em
-    margin-top: 10px
-
-  .copyright
-    margin-top: 35px
 
 section
   margin-bottom: 50px
@@ -69,13 +77,6 @@ section
     right: 0
     border: 0
 
-@font-face
-  font-family: "Interstate"
-  src: url('/fonts/Interstate-Black.ttf')
-  font-weight: normal
-  font-style: normal
-
-
 
 notice
   text-align: center
@@ -86,11 +87,3 @@ notice
   background-color: $gray-tone
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
   border-bottom: 1px solid $warm-gray
-
-#twitter-widget-1
-  margin-top: 100px
-
-  .var-narrow 
-    .timeline-header 
-      padding: 15px 8px 15px 15px
-
