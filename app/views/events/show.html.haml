@@ -48,6 +48,67 @@
                 #{@event.address_city}, #{@event.host.address_postcode}
                 - unless @event.host.image_url.blank?
                   = image_tag @event.host.image_url, class: "img-responsive thumbnail no-border"
+          .row
+            .col-md-12
+              %h2 Timetable:
+              .row
+                .col-md-5
+                  %h3 Friday
+                  %p
+                    %b 18:30 - 21:00
+                    %br
+                    %b Installation party
+                    %br
+                    Get to know the attendees a little bit beforehand. Bring your laptop if you can, so we can install Ruby on Rails for you.
+                .col-md-7
+                  %h3 Saturday
+                  %p
+                    %b 9:00 - 9:30
+                    %br
+                    %b Registration & coffee
+                  %p
+                    %b 9:30 - 10:00
+                    %br
+                    %b Welcome
+                    %br
+                    We'll let you know the schedule for the day.
+                  %p
+                    %b 10:00 - 13:00
+                    %br
+                    %b Introduction to Ruby
+                    Practise coding with
+                    %a{ href: "http://tryruby.org/" } tryruby.org
+                    %br
+                    %b App design workshop
+                    Your application will start to take form.
+                    %br
+                    %b Coaches give lightning talks I
+                    %br
+                    %b Getting started with Ruby on Rails
+                    Kickstart your first web application on Rails.
+                    %br
+                    %b Coaches give lightning talks II
+                  %p
+                    %b 13:00 - 14:00
+                    %br
+                    %b Lunch
+                  %p
+                    %b 14:00 - 18:00
+                    %br
+                    %b Application workshop
+                    %br
+                    Extend your application.
+                  %p
+                    %b 18:00 - late
+                    %br
+                    %b Afterparty
+
+
+
+
+
+
+
 
       .col-md-4
         .row
