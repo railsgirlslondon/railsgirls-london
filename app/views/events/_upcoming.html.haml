@@ -52,7 +52,7 @@
           .col-md-6
             = link_to "Apply as a student", event_path(@upcoming_event.first), class: "btn btn-primary btn-lg btn-hero"
           .col-md-6
-            = link_to "I want to be a coach", event_path(@upcoming_event.first), class: "btn btn-primary btn-lg btn-hero"
+            %a{ href: "mailto:railsgirlslondon@gmail.com?Subject=I want to coach at the next Rails Girls London event&body=I would love to coach because...", class: "btn btn-primary btn-lg btn-hero" } I want to be a coach
         %br
         .row
           .col-md-12

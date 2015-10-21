@@ -5,7 +5,7 @@ ready = function() {
 };
 
 function scrollNav() {
-  $('.nav a').click(function(){
+  $('.nav a, #apply-student-btn').click(function(){
     $(".active").removeClass("active");
     $(this).closest('li').addClass("active");
     var theClass = $(this).attr("class");

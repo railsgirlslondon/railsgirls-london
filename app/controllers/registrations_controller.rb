@@ -17,9 +17,10 @@ class RegistrationsController < ApplicationController
       @registration.save!
       RegistrationMailer.application_received(@event, @registration).deliver_now
       flash[:notice] = "Thanks for applying to our workshop.You should receive a confirmation email soon!"
-      redirect_to event_path(@event)
+      redirect_to(event_path(@event), notice: notice) and return
     else
-      render :action => :new
+      flash[:error] = "Please correct the errors"
+      render template: "events/show"
     end
   end
 

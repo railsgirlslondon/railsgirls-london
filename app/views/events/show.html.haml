@@ -6,7 +6,7 @@
         - if @event.accepting_registrations?
           - if @event.registrations_open?
             %br
-            = link_to "Apply to the event", new_event_registration_path(@event), class: "btn btn-primary btn-lg"
+            = link_to "Apply to the event", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
             %br
             %h4.text-center
               Applications are open until the #{I18n.l(@event.registration_deadline)}
@@ -79,3 +79,15 @@
 %br
 
   = render partial: "shared/coaches", locals: { coaches: @event.coaches, title: "Organisers and coaches" }
+
+  - if @event.registrations_open?
+    .section.separator.title
+      .container#apply-student
+        .row
+          .col-md-12
+            %h1
+              Apply now
+
+    .section
+      .container#application-student
+        = render partial: "registrations/student_form"
