@@ -3,7 +3,7 @@
     .container
       %h1 Rails Girls London
       %h2 Making technology more approachable for women
-      = if @upcoming_event.any?
+      - if @upcoming_event.any?
         .next-event.text-center
           %h3
             Next Event:

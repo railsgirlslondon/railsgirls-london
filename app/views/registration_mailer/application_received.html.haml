@@ -9,7 +9,7 @@
       for applying to our Rails Girls London workshop!
       .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 15px 0; padding: 0 10px;" }= @event.dates
 
-      =link_to "View details", full_url_for(event_url(@event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+      =link_to "View details", event_url(@event), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
     %p.lead
       We will send you an email confirming whether you were successful
