@@ -29,10 +29,7 @@
     .row
       .col-md-8
         - if @event.has_host?
-          :javascript
-            $(function() {
-              postcode = "##{@event.host.address_postcode}"
-            });
+          = hidden_field_tag 'address', @event.host.full_address
           .row
             .col-md-6
               %div{:class => "span5"}
