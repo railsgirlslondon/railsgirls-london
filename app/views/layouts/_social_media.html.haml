@@ -1,7 +1,10 @@
-.social-media.text-center
-  =link_to "http://twitter.com/#{city_twitter}", class: "btn btn-media" do
-    =image_tag "twitter.png"
-
-  - @city.social_media.each do |social_medium|
-    =link_to social_medium.url, class: "btn btn-media" do
-      =image_tag "#{social_medium.name}.png"
+.col-md-12.social-media
+  .col-md-4
+    .text-center
+      =link_to "", "http://twitter.com/#{city_twitter}", class: "btn btn-media icon twitter"
+  .col-md-4
+    .text-center
+      =link_to "", "http://www.facebook.com/#{city_facebook}", class: "btn btn-media icon facebook"
+  .col-md-4
+    .text-center
+      =link_to "", "https://plus.google.com/b/104252944343767158344", class: "btn btn-media icon google-plus"

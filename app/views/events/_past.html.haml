@@ -1,0 +1,13 @@
+
+.section.separator
+  .container
+    .row
+      .col-md-12
+        %h1 Past Rails Girls London Events:
+        - @past_events.each_slice(3) do |events|
+          .row
+            - events.each do |event|
+              .col-md-4
+                .thumbnail
+                  = link_to event_path(event) do
+                    = image_tag event.image ? event.image : "london-girl.png"

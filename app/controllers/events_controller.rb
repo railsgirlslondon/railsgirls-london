@@ -1,9 +1,17 @@
 class EventsController < ApplicationController
-  layout 'cities'
+
+  before_filter :setup_properties
 
   def show
-    @city = City.find_by_slug(params[:city_id])
+    @event = Event.find params[:id]
+    if @event.registrations_open?
+      @registration = @event.registrations.build
+    end
+  end
+
+  private
+  def setup_properties
     @event = Event.find params[:id]
   end
-end
 
+end

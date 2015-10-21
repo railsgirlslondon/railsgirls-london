@@ -12,25 +12,20 @@ module Extentions
     end
 
     def email_name
-      "Rails Girls #{@city.name} <#{@city.email}>"
+      "Rails Girls London <railsgirlslondon@gmail.com>"
     end
 
     def load_attachments
       [
         "london-girl.png",
         "skype.jpg",
-        "square_enix.png",
-        "shutl.png",
+        "skyscanner.png",
         "railsgirls-heart.png",
         "railsgirls-london.png",
         "twitter.png",
         "facebook.png",
         "github.png",
-        "gplus.png",
-        "lost_my_name.png",
-        "magnetic.png",
-        "zendesk.png",
-        "which.png"
+        "gplus.png"
       ].each do |image|
         attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
       end

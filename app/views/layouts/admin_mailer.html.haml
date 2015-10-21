@@ -7,10 +7,8 @@
     %header{ style: "height: 100px; background-color:#E0330C " }
       %nav{ style: "width: 65%; margin: 0 auto" }
         #logo.inline{ style: "display: inline-block;" }
-          =link_to full_url_for(city_url(@city)) do
-            = image_tag attachments["railsgirls-london.png"].url, style: "background-color: #FFFFFF; margin-top: 10px; border: 10px solid #FFFFFF; "
         %div.inline{ style: 'color: #FFF; display: inline-block;' }
-          %h2{ style: 'margin-left: 20px;' } Rails Girls #{@city.name rescue ""}
+          %h2{ style: 'margin-left: 20px;' } Rails Girls London
           %br
 
         .pull-right{ style: 'float: right' }

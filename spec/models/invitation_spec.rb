@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe Invitation do
-  let(:meeting) { Fabricate(:meeting, available_slots: 1) }
+  let(:event) { Fabricate(:event) }
   let(:invitee) { Fabricate(:member) }
-  let!(:hosting) { Fabricate(:hosting, sponsorable: meeting) }
-  let(:invitation) { Fabricate(:invitation, invitable: meeting) }
+  let!(:hosting) { Fabricate(:hosting, sponsorable: event) }
+  let(:invitation) { Fabricate(:invitation, invitable: event) }
 
   it { should callback(:generate_token).before(:create) }
   it { should callback(:send_invitation).after(:create) }
@@ -13,38 +13,38 @@ describe Invitation do
 
   context "scopes" do
 
-    let!(:attending) { 3.times.map { Fabricate(:accepted_invitation, invitable: meeting) }.reverse }
-    let!(:no_response) { 2.times.map { Fabricate(:invitation, invitable: meeting) } }
-    let!(:waiting_list) { 5.times.map { Fabricate(:waiting_invitation, invitable: meeting) } }
+    let!(:attending) { 3.times.map { Fabricate(:accepted_invitation, invitable: event) }.reverse }
+    let!(:no_response) { 2.times.map { Fabricate(:invitation, invitable: event) } }
+    let!(:waiting_list) { 5.times.map { Fabricate(:waiting_invitation, invitable: event) } }
 
     it "#accepted" do
-      meeting.invitations.accepted.should eq attending
+      event.invitations.accepted.should eq attending
     end
 
     it "#waiting_list" do
-      #we dont currently have meetings
-      # meeting.invitations.waiting_list.should eq waiting_list
+      #we dont currently have events
+      # event.invitations.waiting_list.should eq waiting_list
     end
 
     it "#pending_response" do
-      meeting.invitations.pending_response.should eq no_response.reverse
+      event.invitations.pending_response.should eq no_response.reverse
     end
+
   end
 
   context "hooks" do
     it "#after_create" do
       Invitation.any_instance.should_receive(:send_invitation)
 
-      Invitation.create! invitee: invitee, invitable: meeting
+      Invitation.create! invitee: invitee, invitable: event
     end
 
     context "#after_update" do
-      let(:invitation) { Fabricate(:invitation, invitable: meeting, attending: true) }
+      let(:invitation) { Fabricate(:invitation, invitable: event, attending: true) }
 
       context "attendance is false" do
         it "processess the waiting list" do
-          other_invitation = Fabricate(:invitation, invitable: meeting, waiting_list: true)
-
+          other_invitation = Fabricate(:invitation, invitable: event, waiting_list: true)
           invitation.invitable.should_receive(:process_waiting_list)
 
           invitation.update_attribute(:attending, false)
@@ -52,7 +52,7 @@ describe Invitation do
       end
 
       context "attendance is true and waiting_list is false" do
-        let(:invitation) { Fabricate(:invitation, invitable: meeting, waiting_list: true) }
+        let(:invitation) { Fabricate(:invitation, invitable: event, waiting_list: true) }
 
         it "sends a confirmation email" do
           invitation.should_receive(:send_confirmation)

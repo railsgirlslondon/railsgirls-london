@@ -15,7 +15,7 @@ class Admin::SponsorsController < ApplicationController
   layout 'admin'
 
   before_action :set_sponsor, :only => [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :find_cities
+  before_action :authenticate_user!
 
   def index
     @sponsors = Sponsor.all
@@ -23,7 +23,7 @@ class Admin::SponsorsController < ApplicationController
 
   def show
     @sponsorships = @sponsor.sponsorships
-    @non_sponsored = Meeting.all + Event.all - @sponsorships.map(&:sponsorable)
+    @non_sponsored = Event.all - @sponsorships.map(&:sponsorable)
   end
 
   def new
@@ -32,7 +32,7 @@ class Admin::SponsorsController < ApplicationController
 
   def edit
     @sponsorships = @sponsor.sponsorships
-    @non_sponsored = Meeting.all + Event.all - @sponsorships.map(&:sponsorable)
+    @non_sponsored = Event.all - @sponsorships.map(&:sponsorable)
   end
 
   def create
@@ -50,7 +50,7 @@ class Admin::SponsorsController < ApplicationController
       redirect_to [:admin, @sponsor], :notice => 'Sponsor was successfully updated.'
     else
       @sponsorships = @sponsor.sponsorships
-      @non_sponsored = Meeting.all + Event.all - @sponsorships.map(&:sponsorable)
+      @non_sponsored = Event.all - @sponsorships.map(&:sponsorable)
       render action: 'edit'
     end
   end

@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe Admin::EventsController, :type => :controller do
-  let(:city) { City.create! name: "some city" }
   let(:valid_attributes) do
-    {"description" => "MyString", city_id: city.id, active: true, starts_on: Time.now, ends_on: Time.now}
+    {"description" => "MyString", active: true, starts_on: Time.now, ends_on: Time.now}
   end
 
   before do

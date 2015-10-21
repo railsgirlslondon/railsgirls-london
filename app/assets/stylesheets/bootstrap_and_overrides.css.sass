@@ -1,148 +1,43 @@
+@import 'bourbon'
+@import 'mixins/buttons'
 @import 'partials/colors'
+@import 'partials/settings'
+
 $baseFontSize: 16px
 
 @import "bootstrap"
 
-body
-  padding-top: 110px
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif
 
-@import "bootstrap-responsive"
-
-.navbar-inner
-  background-color: #d3360b
-  min-height: 75px
-  background-image: none
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#d3360b', GradientType=0)
 
 .navbar
-
-  a
-    color: $red-tone
-    border-bottom: none
-
-  #logo
-    margin-left: 10px
-    margin-top: 5px
-    color: #FFF
-    vertical-align: bottom
-    display: inline-block
-
-    a
-      color: #FFF
-      font-size: 31px
-      font-weight: 600
-      line-height: 70px
-      letter-spacing: 0.03em
-      padding-left: 20px
-
-    img
-      background-color: #FFF
-      border-color: #EEEEEE
-      border-style: solid
-      border-width: 0 0 1px
-      padding: 14px 15px 10px
-      width: 70px
-      position: relative
-      bottom: -1px
-
-  .rails-girls-heart
-    width: 50px
-    line-height: 60px
-    text-align: center
-
-@media (max-width: 979px)
-  .navbar
-    #logo img
-      bottom: -6px
-
-.form-actions
-  background: transparent
-
-.btn-media
-  padding: 4px
-
-a
-  color: $red-tone
-  border-bottom: 1px dotted  $red-tone
-
-  &:hover
-    color: $red-tone
-    text-decoration: none
-
-.hero-unit
-  padding: 20px 50px
-
-table td.actions
-  text-align: right
-
-table.table-balanced
-  td
-    vertical-align: middle
-
-i
-  font-size: 1%
-
-.btn
-  background-color: #FFFFFF
-  border: 1px solid #E5E9EC
-  border-radius: 5px
-  box-shadow: 0 1px 0 rgba(186, 178, 187, 0.1), 1px 0 1px rgba(186, 178, 187, 0.2)
-  color: #333333
-  cursor: pointer
-  display: inline-block
-  font-size: 16px
-  line-height: 20px
-  margin-bottom: 0
-  margin-left: 2px
-  padding: 6px 7px
-  text-align: center
-  vertical-align: middle
-  background-image: none
-  background-repeat: none
-
-form
-  margin: 0 0 12px
-
-.navbar
-  .brand
-    margin-left: -8px
-
-.lead
-  font-size: 26px
-  font-weight: 400
-  line-height: 30px
-  margin-bottom: 20px
-  color: $date-gray-color
-
-#meetings,
-#past_events,
-#home_events
-  padding-top: 15px
-  .lead
-    border-bottom: 1px solid $gray-tone
-    padding-bottom: 17px
-
-.details
-  p
-    font-size: 17px
-    line-height: 24px
-
-.offset1
-  margin-left: 100px
-
-
-.span7
-  padding-left: 20px
-
-.mini
-  padding-left: 0
-  margin-top: 10px
-  font-weight: 600
-  margin-bottom: 20px
-
-ul.nav-columns li
-  float: left
-
-.noborder
   border: none
+  margin-bottom: 0
+
+.navbar-brand
+  padding: 6px 15px
+
+.separator
+  border-bottom: 1px solid $gray-lighter
+  padding: 2rem 0 3rem
+
+.thumbnail.no-border
+  border: none
+
+.btn.icon
+  font-size: 50px
+  +darker-button($rails-girls-color)
+
+.btn-hero
+  padding: 20px 40px
+  font-size: 22px
+
+.title
+  background-color: #fcfcfc
+  h1
+    color: #F78F77
+    // border-bottom: 1px solid $gray-lighter
+    letter-spacing: -1px
+    font-weight: normal
+
+.error-message
+  color: red

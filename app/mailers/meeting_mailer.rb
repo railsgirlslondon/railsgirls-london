@@ -6,15 +6,14 @@ class MeetingMailer < ActionMailer::Base
 
   def invite meeting, registration, invitation
     setup meeting, registration, invitation
-
-    subject = "Rails Girls #{@meeting.city_name} - You are invited to Weeklies (#{@meeting.date.to_formatted_s(:long_ordinal)})"
-    send_email(subject, registration.email)
+    subject = "Rails Girls London - You are invited to Weeklies (#{@meeting.date.to_formatted_s(:long_ordinal)})"
+    send_email(subject)
   end
 
   def confirm_attendance meeting, registration, invitation
     setup(meeting, registration, invitation)
 
-    subject = "RG#{meeting.city_name.slice(0)} - You are confirmed for #{meeting.name} #{meeting.date}"
+    subject = "RGL - You are confirmed for #{meeting.name} #{meeting.date}"
 
     attach_ical_file(meeting)
 
@@ -35,7 +34,6 @@ class MeetingMailer < ActionMailer::Base
     @invitation = invitation
     @member = invitation.invitee
     @meeting = meeting
-    @city = meeting.city
 
     super()
   end

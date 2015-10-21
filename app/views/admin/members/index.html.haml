@@ -2,7 +2,7 @@
   %h3
     Members
     .pull-right
-      %strong= link_to 'Add Member', new_admin_city_member_path, class: "btn"
+      %strong= link_to 'Add Member', new_admin_member_path, class: "btn"
 
 %ul.unstyled
   - @members.each do |member|
@@ -10,12 +10,12 @@
       .span1
         .pull-right= image_tag gravatar_url(member.email), class: 'img-circle'
       .span3
-        =link_to  member.name, [:admin, @city, member]
+        =link_to  member.name, [:admin, member]
         %br
         = member.email
       .span2.offset1
         .pull-right
-          = link_to 'Edit', edit_admin_city_member_path(@city, member), class: "btn"
+          = link_to 'Edit', edit_admin_member_path(member), class: "btn"
     %hr
 
-= link_to 'Back', admin_city_path(@city)
+= link_to 'Back', admin_root_path

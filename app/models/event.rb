@@ -3,8 +3,6 @@ class Event < ActiveRecord::Base
   ATTRIBUTES = [
     :title,
     :description,
-    :city_id,
-    :city,
     :starts_on,
     :ends_on,
     :image,
@@ -18,17 +16,14 @@ class Event < ActiveRecord::Base
   include Extentions::Coachable
   include Extentions::Invitable
 
-  validates :description, :city_id, :starts_on, :ends_on, presence: true
-  validates :active,      uniqueness: {scope: :city_id}, if: :active?
+  validates :description, :starts_on, :ends_on, presence: true
 
-  delegate :name, to: :city, :prefix => true
-
-  belongs_to :city
   has_many :registrations
 
   default_scope { order('events.created_at DESC') }
 
   scope :upcoming, -> { where("ends_on >= ? and active = ?", Date.today, true).order(:starts_on) }
+  scope :past, -> { where("ends_on <= ? and active = ?", Date.today, false).order(:starts_on) }
 
   def accepting_registrations?
     registration_deadline.present?
@@ -51,15 +46,6 @@ class Event < ActiveRecord::Base
     dates = day(starts_on)
     dates << month(starts_on) unless starts_on.month.eql? ends_on.month
     dates << until_day_month_and_year(ends_on)
-  end
-
-  def export_applications_to_trello
-    trello.export "Applications"
-  end
-
-  def process_applications slots=35
-    application_manager = ApplicationManager.new(self, slots)
-    application_manager.process!
   end
 
   def email email_type, registration, invitation
@@ -89,10 +75,6 @@ class Event < ActiveRecord::Base
 
   def weeklies_invitees
     registrations.where :selection_state => "RGL Weeklies"
-  end
-
-  def trello
-    @trello ||= EventTrello.new(self)
   end
 
   def to_s

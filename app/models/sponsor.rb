@@ -39,4 +39,9 @@ class Sponsor < ActiveRecord::Base
       self.send(field).present?
     end
   end
+
+  def full_address
+    "#{address_line_1} #{address_line_1} #{address_postcode} #{address_city}"
+  end
+
 end

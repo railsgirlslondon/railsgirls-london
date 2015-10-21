@@ -1,0 +1,19 @@
+=splash($image, $background, $border)
+  +tinted-image-background($image, $background)
+
+=tinted-image-background($image, $colour, $opacity: 0.6)
+  background: url($image) center center no-repeat
+  background-size: cover
+  position: relative
+  &:after
+    content: ""
+    background: transparentize($colour, $opacity)
+    display: block
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+  .container
+    position: relative
+    z-index: 1

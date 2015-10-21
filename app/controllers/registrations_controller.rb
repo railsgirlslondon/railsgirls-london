@@ -1,5 +1,4 @@
 class RegistrationsController < ApplicationController
-  layout 'cities'
 
   before_filter :setup_properties
 
@@ -7,7 +6,7 @@ class RegistrationsController < ApplicationController
     if @event.registrations_open?
       @registration = @event.registrations.build
     else
-      redirect_to city_event_path(@city, @event)
+      redirect_to event_path(@event)
     end
   end
 
@@ -18,15 +17,15 @@ class RegistrationsController < ApplicationController
       @registration.save!
       RegistrationMailer.application_received(@event, @registration).deliver_now
       flash[:notice] = "Thanks for applying to our workshop.You should receive a confirmation email soon!"
-      redirect_to city_path(params[:city_id])
+      redirect_to(event_path(@event), notice: notice) and return
     else
-      render :action => :new
+      flash[:error] = "Please correct the errors"
+      render template: "events/show"
     end
   end
 
   private
   def setup_properties
-    @city = City.find_by_slug params[:city_id]
     @event = Event.find params[:event_id]
   end
 end

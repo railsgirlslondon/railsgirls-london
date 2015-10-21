@@ -1,21 +1,31 @@
 - if coaches.any?
-  %section.coaches
-    %legend= title
-    .row
-      %ul.coaches.inline
-        - coaches.each do |coach|
-          %li.span1
-            - if coach.twitter
-              %h5
-                = link_to "https://twitter.com/#{coach.twitter}", title: "@#{coach.twitter}" do
-                  .noborder= image_tag gravatar_url(coach.email), class: 'img-circle'
-            - else
-              %h5
-                .noborder= image_tag gravatar_url(coach.email), class: 'img-circle'
-            %small
-              %strong
-                = coach.name
-              - if coach.twitter.present?
-                = link_to "https://twitter.com/#{coach.twitter}" do
-                  %small= "@#{coach.twitter}"
-            %br
+  .section.separator.title
+    .container
+      .row
+        .col-md-12
+          %h1
+            Organisers & Coaches
+
+  .section
+    .container
+      .row
+        .col-md-12
+          - coaches.each_slice(6) do |group|
+            .row
+              - group.each do |coach|
+                .col-md-2
+                  - if coach.twitter
+                    %h5
+                      = link_to "https://twitter.com/#{coach.twitter}", title: "@#{coach.twitter}" do
+                        .noborder= image_tag gravatar_url(coach.email), class: 'img-circle'
+                  - else
+                    %h5
+                      .noborder= image_tag gravatar_url(coach.email), class: 'img-circle'
+                  %small
+                    %strong
+                      = coach.name
+                    - if coach.twitter.present?
+                      %br
+                      = link_to "https://twitter.com/#{coach.twitter}" do
+                        %small= "@#{coach.twitter}"
+                  %br

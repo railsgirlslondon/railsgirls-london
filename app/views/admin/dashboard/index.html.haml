@@ -17,21 +17,3 @@
               %td= event.host.address_postcode
               %td= event.dates
               %td.actions= link_to 'View', admin_event_path(event)
-
-- unless @meetings.empty?
-  %legend Upcoming Meetups
-  .row
-    %table.table.table-striped.span7
-      %thead
-        %tr
-          %th Host
-          %th Location
-          %th Date
-          %th
-      %tbody
-        - @meetings.each do |meeting|
-          %tr
-            %td= meeting.host.name
-            %td= meeting.host.address_postcode
-            %td= l(meeting.date)
-            %td.actions= link_to 'View', admin_city_meeting_path(meeting.city, meeting)

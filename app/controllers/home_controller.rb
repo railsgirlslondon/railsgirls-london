@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @events = Event.upcoming
-    @cities = City.all if @events.empty?
+    @upcoming_event = Event.upcoming
+    @past_events = Event.past
+    @sponsors = Sponsor.all
   end
 end

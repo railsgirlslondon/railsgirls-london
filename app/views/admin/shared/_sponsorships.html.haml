@@ -3,7 +3,7 @@
   - @sponsorships.each do |sponsorship|
     %li.row
       .span4
-        = link_to [:admin, sponsorship.sponsorable.city, sponsorship.sponsorable] do
+        = link_to [:admin, sponsorship.sponsorable] do
           =sponsorship.sponsorable.to_s.html_safe
       .span3
         = simple_form_for [:admin, sponsorship], html: { class: "form-inline" } do |f|

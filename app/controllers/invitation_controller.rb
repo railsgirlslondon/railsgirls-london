@@ -1,11 +1,9 @@
 class InvitationController < ApplicationController
 
-  before_action :set_city
   before_action :find_invitation
 
   def show
     @invitable = @invitation.invitable
-    @city = @invitable.city
 
     return render 'invitation/workshop' if @invitable.is_a? Event
   end
@@ -25,10 +23,6 @@ class InvitationController < ApplicationController
 
   def find_invitation
     @invitation = Invitation.find_by_token params[:token]
-  end
-
-  def set_city
-    @city = City.find_by_slug(params[:city_id])
   end
 
   def invitation_params

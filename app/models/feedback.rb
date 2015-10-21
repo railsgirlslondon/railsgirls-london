@@ -4,8 +4,6 @@ class Feedback < ActiveRecord::Base
   has_one :invitable, through: :invitation, source: :invitable, source_type: "Event"
   has_one :invitee, through: :invitation, source: :invitee, source_type: "Registration"
 
-  has_one :city, through: :invitable
-
   after_create :send_feedback_confirmation
 
   attr_accessor :email_address

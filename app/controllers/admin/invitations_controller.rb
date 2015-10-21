@@ -1,7 +1,7 @@
 class Admin::InvitationsController < ApplicationController
   layout 'admin'
 
-  before_action :authenticate_user!, :find_cities, :set_city
+  before_action :authenticate_user!
 
   def create
     invitable.invite_members
@@ -11,7 +11,6 @@ class Admin::InvitationsController < ApplicationController
 
   def show
     @invitation = Invitation.find_by_token params[:id]
-    @feedback = @invitation.feedback
   end
 
   private
@@ -23,7 +22,4 @@ class Admin::InvitationsController < ApplicationController
     klass ? klass.find(params[id].to_i) : nil
   end
 
-  def set_city
-    @city = City.find_by_slug(params[:city_id])
-  end
 end

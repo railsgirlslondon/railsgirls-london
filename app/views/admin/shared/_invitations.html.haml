@@ -12,7 +12,7 @@
 - if invitations.empty?
   -if invitable.has_host?
     =link_to "Invite members",
-              [ :admin, invitable.city, invitable, :invitations],
+              [ :admin, invitable, :invitations],
               method: :post,
               class: "btn btn-large btn-primary"
   - else

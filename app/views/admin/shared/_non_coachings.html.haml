@@ -5,7 +5,7 @@
       %li.row
         = simple_form_for [:admin, Coaching.new] do |f|
           .span6
-            =link_to [:admin, coachable.city, coachable] do
+            =link_to [:admin, coachable] do
               =coachable.to_s.html_safe
           .span1
             = f.hidden_field :coachable_type, value: coachable.class.name.humanize

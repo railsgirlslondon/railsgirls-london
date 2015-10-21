@@ -72,9 +72,8 @@ feature "admin CRUDing sponsors" do
   end
 
   context "assigning a sponsor to an event" do
-    Given!(:city) { City.create! name: "A city" }
     Given!(:event) do
-      Event.create! city_id: city.id, description: "an event name", starts_on: Time.now, ends_on: Time.now
+      Event.create! description: "an event name", starts_on: Time.now, ends_on: Time.now
     end
     Given { Sponsor.create! name: "a sponsor", website: website }
 

@@ -1,8 +1,0 @@
-%section#subscribe
-  %h2 Subscribe
-  = simple_form_for :subscription, url: "https://groups.google.com/group/rails-girls-london/boxsubscribe", method: :get do |f|
-    = f.input :email, label: false
-
-  .info
-    Join our mailing list to stay up to date with Rails Girls #{@city.name} events
-%hr

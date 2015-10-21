@@ -1,11 +1,11 @@
 class Admin::MembersController < ApplicationController
   layout 'admin'
 
-  before_action :authenticate_user!, :set_city, :find_cities
+  before_action :authenticate_user!
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
-    @members = @city.members
+    @members = Member.all
   end
 
   def show
@@ -19,10 +19,10 @@ class Admin::MembersController < ApplicationController
   end
 
   def create
-    @member = @city.members.create(member_params)
+    @member = Member.create(member_params)
 
     if @member.save
-      redirect_to admin_city_members_path(@city), notice: 'Member was successfully created.'
+      redirect_to admin_members_path, notice: 'Member was successfully created.'
     else
       render action: 'new'
     end
@@ -30,7 +30,7 @@ class Admin::MembersController < ApplicationController
 
   def update
     if @member.update(member_params)
-      redirect_to admin_city_members_path(@city), notice: 'Member was successfully updated.'
+      redirect_to admin_members_path, notice: 'Member was successfully updated.'
     else
       render action: 'edit'
     end
@@ -39,10 +39,6 @@ class Admin::MembersController < ApplicationController
   private
     def set_member
       @member = Member.find(params[:id])
-    end
-
-    def set_city
-      @city = City.find_by_slug(params[:city_id])
     end
 
     def member_params

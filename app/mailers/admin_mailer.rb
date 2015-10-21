@@ -16,8 +16,9 @@ class AdminMailer < ActionMailer::Base
 
   private
 
-  def mail_args(subject, participant_email="")
-    { :to => @city.email,
+
+  def mail_args(subject)
+    { :to => "railsgirlslondon@gmail.com",
       :subject => subject }
   end
 
@@ -29,8 +30,6 @@ class AdminMailer < ActionMailer::Base
 
   def setup invitation
     @invitation = invitation
-    @city = invitation.invitable.city
-
     super()
   end
 end

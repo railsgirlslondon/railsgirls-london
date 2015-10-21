@@ -6,10 +6,10 @@
   .left.inline{ style: "width: 65%; display: inline-block;" }
     %p.lead{ style: "font-size: 22px;" }
       %strong Thank you
-      for applying to our Rails Girls #{@city.name} workshop!
+      for applying to our Rails Girls London workshop!
       .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 15px 0; padding: 0 10px;" }= @event.dates
 
-      =link_to "View details", full_url_for(city_event_url(@city, @event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+      =link_to "View details", full_url_for(event_url(@event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
     %p.lead
       We will send you an email confirming whether you were successful
@@ -24,10 +24,5 @@
   .bottom{ style: "width: 100%; padding: 50px 0 0 0px; display: block;" }
     %strong Sponsors:
     %br
-    = image_tag attachments['square_enix.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px "
-    = image_tag attachments['lost_my_name.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['shutl.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
     = image_tag attachments["skype.jpg"].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['magnetic.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments["zendesk.png"].url, width: '150px', style: "display: inline-block"
-    = image_tag attachments["which.png"].url, width: '150px', style: "display: inline-block"
+    = image_tag attachments["skyscanner.png"].url, width: '150px', style: "display: inline-block; padding-right: 10px"

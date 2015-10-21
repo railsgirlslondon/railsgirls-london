@@ -2,10 +2,6 @@
   Registrations
   %small= link_to "Add registration", new_admin_event_registration_path(@event)
 
-  - if not(@event.active) and not(@event.members_converted?)
-    .pull-right
-      =link_to "Convert attendees to members", admin_city_event_convert_members_path(@event.city, @event), class: "btn btn-danger", method: :post
-
 - if @event.registrations.any?
   .well
     .span3

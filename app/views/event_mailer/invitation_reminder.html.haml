@@ -7,7 +7,7 @@
     %p.lead{ style: "font-size: 18px; color: #333333; padding-bottom: 10px; line-height: 22px;"}
       We noticed that you have not yet RSVPed in order to claim your place at our #{@event.title if @event.title.present?} workshop!
     .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 0px 0 11px 0; padding: 0 10px;" }= @event.dates
-    =link_to "View details", full_url_for(city_event_url(@city, @event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+    =link_to "View details", full_url_for(event_url(@event)), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
     %p.lead{ style: "font-size: 18px; color: #333333; padding-bottom: 10px; line-height: 22px;"}
       Please note your place will be reallocated if you don't respond by <strong> #{@event.rsvp_end_date.strftime("%A")} the #{@event.rsvp_end_date.day.ordinalize} of #{@event.rsvp_end_date.strftime("%B %Y")}</strong>.

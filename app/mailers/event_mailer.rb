@@ -7,38 +7,32 @@ class EventMailer < ActionMailer::Base
   def invite event, registration, invitation
     setup event, registration, invitation
 
-    subject = "You are invited to the Rails Girls #{event.city_name} workshop on the #{event.dates}"
-    send_email(subject, registration.email)
-  end
-
-  def coaches_instruction event, coach
-    setup_for_coaches event, coach
-    subject = "Coaching at Rails Girls London #{event.city_name} workshop on the #{event.dates}"
-    send_email(subject, coach.email)
+    subject = "You are invited to the Rails Girls London workshop on the #{event.dates}"
+    send_email(subject)
   end
 
   def confirm_attendance event, registration, invitation
     setup(event, registration, invitation)
 
-    subject = "RG#{event.city_name.slice(0)} - You are confirmed for #{event.title} #{event.dates}"
+    subject = "RGL - You are confirmed for #{event.title} #{event.dates}"
 
     attach_ical_file(event)
 
-    send_email(subject, registration.email)
+    send_email(subject)
   end
 
   def invitation_reminder event, registration, invitation
     setup event, registration, invitation
 
-    subject = "Rails Girls #{@event.city_name} - Please RSVP your attendance"
-    send_email(subject, registration.email)
+    subject = "Rails Girls London - Please RSVP your attendance"
+    send_email(subject)
   end
 
   def confirm_feedback event, registration, invitation
     setup event, registration, invitation
 
-    subject = "RG#{@event.city_name.slice(0)} - Thank you for your feedback for #{@event.title} #{@event.dates}!"
-    send_email(subject, registration.email)
+    subject = "RGL - Thank you for your feedback for #{@event.title} #{@event.dates}!"
+    send_email(subject)
   end
 
   private
@@ -55,17 +49,7 @@ class EventMailer < ActionMailer::Base
     @invitation = invitation
     @invitee = invitation.invitee
     @event = event
-    @city = event.city
 
     super()
   end
-
-  def setup_for_coaches event, coach
-    @event = event
-    @city = event.city
-    @coach = coach
-
-    super()
-  end
-
 end

@@ -1,7 +1,6 @@
 require "spec_helper"
 
 describe AdminMailer do
-  let! (:city) { Fabricate(:city) }
   let! (:event) { Fabricate(:event) }
   let! (:sponsor) { Fabricate(:sponsor_with_address) }
   let! (:hosting) { Fabricate(:hosting, sponsor: sponsor, sponsorable: event) }
@@ -19,7 +18,7 @@ describe AdminMailer do
 
   after(:each) do
     ActionMailer::Base.deliveries.last.subject.should eq @email_subject
-    ActionMailer::Base.deliveries.last.to.first.to_s.should == invitation.invitable.city.email
+    ActionMailer::Base.deliveries.last.to.first.to_s.should == "railsgirlslondon@gmail.com"
   end
 
   def html_body

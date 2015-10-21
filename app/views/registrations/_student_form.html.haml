@@ -1,0 +1,69 @@
+.row
+  .col-md-6
+    = render 'layouts/messages'
+    = simple_form_for @registration, url: event_registrations_path(@event), html: { class: 'form-horizontal' } , remote: true do |f|
+      = f.input :first_name, input_html: {class: "form-control"}
+      = f.input :last_name, input_html: {class: "form-control"}
+      = f.input :gender, collection: [ "Female", "Male" ], prompt: "Select your gender", input_html: {class: "form-control"}
+      %hr
+      = f.input :email, input_html: {class: "form-control"}
+      = f.input :email_confirmation, input_html: {class: "form-control"}
+      = f.input :phone_number, input_html: {class: "form-control"}
+
+      = f.input :twitter, :wrapper => :prepend do
+        = content_tag :span, "@", class: "add-on"
+        = f.input_field :twitter, input_html: {class: "form-control"}
+      = f.input :address, input_html: { class: "form-control"}, placeholder: "eg. 3/4, 5 Oxford Crescent, W2 7FD"
+      %hr
+
+      = f.input :spoken_languages, input_html: {class: "form-control"}, placeholder: "eg. English, Spanish"
+      = f.input :preferred_language, input_html: {class: "form-control"}
+      = f.input :uk_resident, collection: [ "Yes", "No" ], prompt: "Select option", input_html: {class: "form-control"}, label: "UK Resident"
+
+      %hr
+      = f.input :os, collection: [ "OS X", "Windows", "Linux" ], prompt: "Select operating system", input_html: {class: "form-control"}, label: "Operating System"
+      = f.input :os_version, input_html: {class: "form-control"}, placeholder: "e.g. 10.8 or Windows 7 or Ubuntu 12.04", label: "OS Version"
+      = f.input :programming_experience, input_html: {rows: 3, class: "form-control"}
+      = f.input :reason_for_applying, input_html: {rows: 3, class: "form-control"}
+      = f.input :dietary_restrictions, input_html: {rows: 3, class: "form-control"}
+
+
+      %hr
+      %div
+        %small
+          %strong Important Notice
+
+          %ul.unstyled
+            %li One of Rails Girls London’s main goals is to run workshops where women in London and the rest of the UK have the opportunity to learn Ruby on Rails. The workshops are the result of the efforts of many volunteers who care about getting women involved in programming. This is one area where women have shown much aptitude, but represent only a small portion of working programmers.
+            %li Rails Girls London workshops are divided into several events that take place over a couple of days.
+            %ul
+              %li The “Installation Party” is an event where attendees bring in their laptops and have the coaches install Ruby on Rails on them or confirm that Ruby on Rails is already installed on the attendee’s laptops.
+              %li The “Workshop” is a day-long event where attendees are introduced to Ruby on Rails.
+              %li The “After Party” is a social event that takes place directly after the Workshop.
+
+            %li In order to ensure a fair process for all applicants, we ask you to submit only one application per event.
+
+            %li We expect a great demand for our workshop and would like to make sure all available spaces are filled. If you receive an invitation, we ask that you confirm it within a few days of it being sent out. If you cannot attend for any reason, then please let us know as soon as possible.
+
+            %li We also ask that you set aside time for all of the events that make up the workshop, including the Installation Party and After Party. We want to get to know you!
+
+            %li
+              If you have any questions about the application process, please
+              =mail_to "railsgirlslondon@gmail.com", "contact the Rails Girls London organisers"
+              , or
+              =link_to "use our mailing list", "http://bit.ly/rglondon"
+              \.
+
+
+        -# .checkbox
+        -#   = f.input :terms_of_service, as: :boolean, inline_label: "I have read this notice.", required: false
+
+        .pull-left
+          I have read this notice.
+        = f.input :terms_of_service, as: :boolean, label: false, required: false, input_html: {class: 'pull-left'}
+
+      %br
+      %hr
+
+      .form-actions
+        = f.submit "Apply", class: "btn btn-primary btn-lg btn-hero"

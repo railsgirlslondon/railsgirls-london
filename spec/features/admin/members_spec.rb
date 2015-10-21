@@ -8,12 +8,11 @@ feature "admin CRUDing members" do
   let(:phone_number) { Faker::Lorem.word }
 
 
-  Given!(:city) { Fabricate(:city) }
   Given { admin_logged_in! }
 
   context "creating a member" do
     Given do
-      visit admin_city_members_path(city)
+      visit admin_members_path
 
       click_on "Add Member"
     end
@@ -46,15 +45,6 @@ feature "admin CRUDing members" do
 
         Then { page.has_content? 'Member was successfully updated.' }
         And { page.has_content? new_email }
-      end
-
-      context "viewing that member on the city dashboard" do
-        When do
-          click_on "Back"
-        end
-
-        Then { page.has_content? first_name }
-        Then { page.has_content? last_name }
       end
 
       context "Adding a member with the same email" do
