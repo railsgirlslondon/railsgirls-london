@@ -2,6 +2,7 @@ class Admin::RegistrationsController < ApplicationController
   layout 'admin'
 
   before_filter :authenticate_user!, :find_event
+  before_filter :find_registration, only: [:show, :destroy]
 
   def new
     @registration = Registration.new
@@ -20,12 +21,20 @@ class Admin::RegistrationsController < ApplicationController
   end
 
   def show
-    @registration = Registration.find params[:id]
+  end
+
+  def destroy
+    @registration.destroy
+    redirect_to [:admin, @event], :notice => 'Registration was deleted'
   end
 
   private
 
   def find_event
     @event = Event.find(params[:event_id]) if params[:event_id]
+  end
+
+  def find_registration
+    @registration = Registration.find params[:id]
   end
 end

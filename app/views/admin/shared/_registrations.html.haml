@@ -27,3 +27,4 @@
             %td= accept_reject_invitation_link(@event, registration)
           - else
             %td= registration_selection_state(registration)
+          %td= link_to 'Destroy', [:admin, @event, registration], class: "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' }

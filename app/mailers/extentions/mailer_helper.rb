@@ -19,7 +19,9 @@ module Extentions
       [
         "london-girl.png",
         "skype.jpg",
+        "shutl.png",
         "skyscanner.png",
+        "cake.png",
         "railsgirls-heart.png",
         "railsgirls-london.png",
         "twitter.png",

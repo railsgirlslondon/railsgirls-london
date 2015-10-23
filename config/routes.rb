@@ -27,7 +27,7 @@ RailsgirlsLondon::Application.routes.draw do
       resources :invitations, only: [ :show ], :invitable_type => 'Event', :invitable_id => 'event_id' do
         post 'create', on: :collection
       end
-      resources :registrations, only: [:show, :new, :create] do
+      resources :registrations, only: [:show, :new, :create, :destroy] do
         resource :attendance, only: [:create, :destroy]
       end
     end
