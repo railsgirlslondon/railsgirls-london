@@ -5,7 +5,6 @@ class AdminMailer < ActionMailer::Base
   include Extentions::MailerHelper
 
   def notify invitation
-
     setup invitation
 
     subject = "RSVP from #{invitation.invitee.name}"
@@ -16,17 +15,16 @@ class AdminMailer < ActionMailer::Base
 
   private
 
-
-  def mail_args(subject)
+  def mail_args(subject, participant_email = nil)
     { :to => "railsgirlslondon@gmail.com",
       :subject => subject }
   end
 
-    def load_attachments
-      %w{railsgirls-heart.png  railsgirls-london.png}.each do |image|
-        attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
-      end
+  def load_attachments
+    %w{railsgirls-heart.png  railsgirls-london.png}.each do |image|
+      attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
     end
+  end
 
   def setup invitation
     @invitation = invitation
