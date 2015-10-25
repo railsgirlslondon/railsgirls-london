@@ -4,6 +4,7 @@ RailsgirlsLondon::Application.routes.draw do
 
   get 'home' => 'home#index'
   get "/404", to: "errors#not_found"
+  get "/london(/:slug)", to: redirect("/"), slug: /.*/
 
   #get "/:id/sponsor" => "home#sponsors", as: :city_sponsor
 
