@@ -16,7 +16,7 @@ describe RegistrationsController, :type => :controller do
               registration: {}
       }
 
-      Then { expect(response).to render_template(:new) }
+      Then { expect(response).to render_template('events/show') }
       And  { expect(assigns(:registration).errors).not_to be_empty }
     end
 

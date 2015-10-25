@@ -12,6 +12,11 @@
             %br
             = link_to "View more details & apply", event_path(@upcoming_event.first), class: "btn btn-primary btn-lg btn-hero"
 
+.container
+  .row
+    .col-md-12
+      = render 'layouts/messages'
+
 .section.separator.title
   .container
     .row
