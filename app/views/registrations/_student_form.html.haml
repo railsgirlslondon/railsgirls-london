@@ -24,8 +24,11 @@
       = f.input :os, collection: [ "OS X", "Windows", "Linux" ], prompt: "Select operating system", input_html: {class: "form-control"}, label: "Operating System"
       = f.input :os_version, input_html: {class: "form-control"}, placeholder: "e.g. 10.8 or Windows 7 or Ubuntu 12.04", label: "OS Version"
       = f.input :programming_experience, input_html: {rows: 3, class: "form-control"}
-      = f.input :reason_for_applying, input_html: {rows: 3, class: "form-control"}
-      = f.input :dietary_restrictions, input_html: {rows: 3, class: "form-control"}
+
+      %hr
+      = f.input :reason_for_applying, input_html: {rows: 3, class: "form-control"}, label: "Why are you applying?"
+      = f.input :how_did_you_hear_about_us, input_html: {rows: 3, class: "form-control"}, label: "How did you hear about us?"
+      = f.input :dietary_restrictions, input_html: {rows: 3, class: "form-control"}, label: "What are your dietary restrictions (if any)?"
 
 
       %hr
