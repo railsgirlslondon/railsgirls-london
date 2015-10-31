@@ -14,6 +14,7 @@ feature "a girl registering" do
   let(:preferred_language) { Faker::Lorem.sentence }
   let(:os_version) { Faker::Lorem.sentence }
   let(:dietary_restrictions) { Faker::Lorem.sentence }
+  let(:how_you_heard) { Faker::Lorem.sentence }
 
 
   Given!(:event) { Fabricate(:event) }
@@ -38,7 +39,8 @@ feature "a girl registering" do
       select "OS X", from: "Operating System"
       fill_in "OS Version", with: os_version
       fill_in "Programming experience", with: experience
-      fill_in "Reason for applying", with: reason
+      fill_in "Why are you applying?", with: reason
+      fill_in "How did you hear about us?", with: how_you_heard
       check('registration_terms_of_service')
 
       click_on "Apply"
