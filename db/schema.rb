@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008213045) do
+ActiveRecord::Schema.define(version: 20151029023554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,9 +147,9 @@ ActiveRecord::Schema.define(version: 20131008213045) do
   add_index "members", ["city_id"], name: "index_members_on_city_id", using: :btree
 
   create_table "registrations", force: :cascade do |t|
-    t.string   "first_name",                             null: false
-    t.string   "last_name",                              null: false
-    t.string   "email",                                  null: false
+    t.string   "first_name",                                null: false
+    t.string   "last_name",                                 null: false
+    t.string   "email",                                     null: false
     t.string   "twitter"
     t.string   "gender"
     t.string   "phone_number"
@@ -166,8 +166,9 @@ ActiveRecord::Schema.define(version: 20131008213045) do
     t.integer  "event_id"
     t.string   "dietary_restrictions"
     t.string   "selection_state"
-    t.boolean  "attending",              default: false, null: false
+    t.boolean  "attending",                 default: false, null: false
     t.integer  "member_id"
+    t.text     "how_did_you_hear_about_us"
   end
 
   add_index "registrations", ["email"], name: "index_registrations_on_email", using: :btree

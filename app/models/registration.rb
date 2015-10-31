@@ -15,6 +15,7 @@ class Registration < ActiveRecord::Base
     :phone_number,
     :programming_experience,
     :reason_for_applying,
+    :how_did_you_hear_about_us,
     :uk_resident,
     :os,
     :os_version,
