@@ -1,5 +1,5 @@
 %legend
-  Registrations
+  Registrations (#{@event.registrations.count})
   %small= link_to "Add registration", new_admin_event_registration_path(@event)
 
 - if @event.registrations.any?
