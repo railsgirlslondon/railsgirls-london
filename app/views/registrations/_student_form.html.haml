@@ -4,7 +4,7 @@
     = simple_form_for @registration, url: event_registrations_path(@event), html: { class: 'form-horizontal' } , remote: true do |f|
       = f.input :first_name, input_html: {class: "form-control"}
       = f.input :last_name, input_html: {class: "form-control"}
-      = f.input :gender, collection: [ "Female", "Male" ], prompt: "Select your gender", input_html: {class: "form-control"}
+      = f.input :gender, collection: [ "Female", "Male", "Other", "I prefer not to say" ], prompt: "Select your gender", input_html: {class: "form-control"}
       %hr
       = f.input :email, input_html: {class: "form-control"}
       = f.input :email_confirmation, input_html: {class: "form-control"}
