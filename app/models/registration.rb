@@ -41,7 +41,8 @@ class Registration < ActiveRecord::Base
   belongs_to :member
 
   validates :terms_of_service, :acceptance => true
-  validates :email,            :confirmation => true
+  validates :email, confirmation: true
+  validates :email, uniqueness: { scope: :event_id, message: "can only register once per event" }
 
   scope :accepted, -> { where(selection_state: "accepted", attending: true) }
   scope :members,  -> { where(Registration.arel_table[:member_id].not_eq(nil)) }
