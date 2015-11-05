@@ -47,8 +47,26 @@ describe Registration do
 
       expect(invalid_registration.valid?(:registration)).to be false
       Registration::REGISTRATION_ATTRIBUTES.each do |attribute|
+        next if attribute == :gender
         expect(invalid_registration.errors[attribute]).not_to be_empty
       end
+    end
+
+    it "Only allows one registration per email address for each event" do
+      member = Fabricate(:member)
+      event = Fabricate(:event)
+      first_registration = Fabricate(:registration, event: event, email: member.email)
+      expect(first_registration).to be_valid
+
+      second_registration = Fabricate.build(:registration, event: event, email: member.email)
+      expect(second_registration).not_to be_valid
+    end
+
+    it "Allows an email address to register for multiple events" do
+      member = Fabricate(:member)
+      event_1, event_2 = Fabricate.times(2, :event)
+      expect(Fabricate(:registration, event: event_1, email: member.email)).to be_valid
+      expect(Fabricate(:registration, event: event_2, email: member.email)).to be_valid
     end
   end
 
