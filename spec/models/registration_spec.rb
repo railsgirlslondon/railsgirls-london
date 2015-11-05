@@ -50,6 +50,9 @@ describe Registration do
         expect(invalid_registration.errors[attribute]).not_to be_empty
       end
     end
+
+    it { should allow_value("jane@gmail.com").for(:email) }
+    it { should_not allow_value("jane@gmail").for(:email) }
   end
 
   describe "#members" do
