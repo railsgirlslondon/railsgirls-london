@@ -22,6 +22,8 @@ module Extentions
         "shutl.png",
         "skyscanner.png",
         "cake.png",
+        "friday.png",
+        "which.png",
         "railsgirls-heart.png",
         "railsgirls-london.png",
         "twitter.png",
