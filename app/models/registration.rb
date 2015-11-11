@@ -47,6 +47,8 @@ class Registration < ActiveRecord::Base
   scope :accepted, -> { where(selection_state: "accepted", attending: true) }
   scope :members,  -> { where(Registration.arel_table[:member_id].not_eq(nil)) }
 
+  default_scope -> { order(created_at: :desc) }
+
   def fullname
     "#{first_name} #{last_name}"
   end
