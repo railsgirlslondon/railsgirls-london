@@ -1,14 +1,19 @@
 var map;
 function initialize() {
-  geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(0, 0);
-  var mapOptions = {
-    zoom: 12,
-    center: latlng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+  var map_element = document.getElementById('map-canvas');
+
+  if (map_element) {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(0, 0);
+    var mapOptions = {
+      zoom: 12,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+
+    map = new google.maps.Map(map_element, mapOptions);
+    codeAddress();
   }
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  codeAddress();
 }
 
 function codeAddress() {
