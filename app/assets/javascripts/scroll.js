@@ -1,11 +1,5 @@
-var ready;
-
-ready = function() {
-  scrollNav();
-};
-
 function scrollNav() {
-  $('.nav a, #apply-student-btn').click(function(){
+  $('.nav a, #apply-student-btn').click(function() {
     $(".active").removeClass("active");
     $(this).closest('li').addClass("active");
     var theClass = $(this).attr("class");
@@ -18,5 +12,5 @@ function scrollNav() {
   $('.scrollTop a').scrollTop();
 }
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
+$(document).ready(scrollNav);
+$(document).on('page:load', scrollNav);
