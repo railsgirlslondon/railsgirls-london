@@ -29,7 +29,7 @@
     .row
       .col-md-8
         - if @event.has_host?
-          = hidden_field_tag 'address', @event.host.full_address
+          = hidden_field_tag 'address', @event.host.address_postcode
           .row
             .col-md-6
               %div{:class => "span5"}

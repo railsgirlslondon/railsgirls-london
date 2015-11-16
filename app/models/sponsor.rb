@@ -41,7 +41,7 @@ class Sponsor < ActiveRecord::Base
   end
 
   def full_address
-    "#{address_line_1} #{address_line_1} #{address_postcode} #{address_city}"
+    "#{address_line_1} #{address_postcode} #{address_city}"
   end
 
 end
