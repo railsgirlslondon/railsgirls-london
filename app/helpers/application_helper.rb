@@ -53,6 +53,6 @@ module ApplicationHelper
   private
 
   def railsgirls_twitter_widget_id
-    "380105070089490433"
+    "668501816531922944"
   end
 end
