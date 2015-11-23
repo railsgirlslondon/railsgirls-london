@@ -11,7 +11,9 @@
             %h4.text-center
               Applications are open until the #{I18n.l(@event.registration_deadline)}
           - else
-            Applications are now closed.
+            %br
+            %h4.text-center
+              Applications are now closed.
         - else
           Applications are not available for this event.
 

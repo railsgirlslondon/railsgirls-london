@@ -8,7 +8,7 @@ class EventMailer < ActionMailer::Base
     setup event, registration, invitation
 
     subject = "You are invited to the Rails Girls London workshop on the #{event.dates}"
-    send_email(subject)
+    send_email(subject, registration.email)
   end
 
   def confirm_attendance event, registration, invitation
@@ -18,7 +18,7 @@ class EventMailer < ActionMailer::Base
 
     attach_ical_file(event)
 
-    send_email(subject)
+    send_email(subject, registration.email)
   end
 
   def invitation_reminder event, registration, invitation

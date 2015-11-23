@@ -1,53 +1,61 @@
-%legend
-  %h3
-    %strong London
-    %strong=@invitable.title
-    %small=@invitable.dates
-.row
-  .span6
-    %br
-    %p.lead
-      =@invitable.description
-    %br
-      %strong=link_to @invitable.host.name, @invitable.host.website
+#rsvp
+  .section.separator.title
+    .container
       .row
-        .span3
-          %address
-            =@invitable.host.address_line_1
-            %br
-            #{@invitable.host.address_line_2}
-            %br
-            #{@invitable.host.address_city}, #{@invitable.host.address_postcode}
-        .span3
-          - unless @invitable.host.image_url.blank?
-            = image_tag @invitable.host.image_url
-  .span4
-    .hero-unit
-      - if !@invitation.attending.nil? or !@invitable.rsvps_available?
-        .large
-          You have RSVPed
-          %strong #{@invitation.attending ? "yes" : "no"}
-          %hr
-        - if !@invitation.attending
-          %small We are so sorry you can't make it :(
-      - if @invitable.rsvps_available? and !@invitation.attending.eql? false
-        %h4= "Will your attend?"
-        =simple_form_for @invitation, html: { class: 'form-inline' } do |f|
-          =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last, required: true
-          =f.input :comment, placeholder: "Anything you want us to know?"
-          %br
-
-          =f.submit "RSVP", class: 'btn btn-primary'
-        - if @invitable.rsvps_available? and !@invitation.attending.eql? false
-          %hr
-          %small
-            %em You can RSVP until the #{I18n.l(@invitable.rsvp_end_date)}
+        .col-md-12
+          #events
+            %h1
+              Rails Girls London,
+              =@invitable.dates
 
 
-.row
-  :javascript
-    $(function() {
-      postcode = "##{@invitable.host.address_postcode}"
-    });
-  %div{:class => "span10"}
-    %div{:id => "map-canvas"}
+  .section.separator
+    .container
+      .row
+        .col-md-12
+          .hero-unit
+            - if !@invitation.attending.nil? or !@invitable.rsvps_available?
+              .rsvp-status
+                You have RSVPed:
+                %h3
+                  %strong
+                    =@invitation.attending ? "YES" : "NO"
+                %hr
+              - if !@invitation.attending
+                %h4 We are so sorry you can &#x27; t make it :(
+            - if @invitable.rsvps_available? and !@invitation.attending.eql? false
+              %h3
+                %strong= "Will your attend?"
+              =simple_form_for @invitation, html: { class: 'form-inline' } do |f|
+                =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last, required: true
+                =f.input :comment, placeholder: "Anything you want us to know?"
+                %br
+
+                =f.submit "RSVP", class: 'btn btn-primary btn-lg btn-hero'
+              - if @invitable.rsvps_available? and !@invitation.attending.eql? false
+                %hr
+                %small
+                  %em You can RSVP until the #{I18n.l(@invitable.rsvp_end_date)}
+
+
+  .section.separator
+    .container
+      .row
+        .col-md-8
+          - if @invitable.has_host?
+            = hidden_field_tag 'address', @invitable.host.address_postcode
+            .row
+              .col-md-6
+                %div{:class => "span5"}
+                  %div{:id => "map-canvas"}
+              .col-md-6
+                %strong=link_to @invitable.host.name, @invitable.host.website
+                %address
+                  =@invitable.address_line_1
+                  %br
+                  - if @invitable.address_line_2
+                    #{@invitable.address_line_2}
+                    %br
+                  #{@invitable.address_city}, #{@invitable.host.address_postcode}
+                  - unless @invitable.host.image_url.blank?
+                    = image_tag @invitable.host.image_url, class: "img-responsive thumbnail no-border"

@@ -17,7 +17,7 @@ class AdminMailer < ActionMailer::Base
   private
 
 
-  def mail_args(subject)
+  def mail_args(subject, default_email)
     { :to => "railsgirlslondon@gmail.com",
       :subject => subject }
   end
