@@ -13,6 +13,7 @@ gem 'ruby-trello', require: false
 gem 'pg'
 gem 'newrelic_rpm'
 gem 'icalendar'
+gem 'evil_icons' # SVG icon set
 
 group :production do
   gem 'rails_12factor'

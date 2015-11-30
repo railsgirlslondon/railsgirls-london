@@ -96,6 +96,7 @@ GEM
       dotenv (= 2.0.2)
       railties (~> 4.0)
     erubis (2.7.0)
+    evil_icons (1.7.8)
     execjs (2.6.0)
     fabrication (2.14.1)
     faker (1.5.0)
@@ -329,6 +330,7 @@ DEPENDENCIES
   database_cleaner
   devise
   dotenv-rails
+  evil_icons
   fabrication
   faker
   guard
@@ -355,3 +357,6 @@ DEPENDENCIES
   unicorn
   vcr
   webmock (< 1.10)
+
+BUNDLED WITH
+   1.10.6

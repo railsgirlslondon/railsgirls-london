@@ -9,6 +9,7 @@
     %meta{:content => "", :name => "author"}
     %script(type="text/javascript" src="http://use.typekit.net/xaz4ocu.js")
     %script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&sensor=true")
+    = evil_icons_sprite
     :javascript
       try{Typekit.load();}catch(e){}
     = stylesheet_link_tag "application", :media => "all"
