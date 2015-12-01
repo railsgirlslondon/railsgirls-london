@@ -21,6 +21,13 @@ class EventMailer < ActionMailer::Base
     send_email(subject, registration.email)
   end
 
+  def coaches_instruction event, coach
+    setup_for_coaches event, coach
+
+    subject = "Coaches instructions for RAILS GIRLS LONDON on #{event.dates}"
+    send_email(subject, coach.email)
+  end
+
   def invitation_reminder event, registration, invitation
     setup event, registration, invitation
 
@@ -48,6 +55,13 @@ class EventMailer < ActionMailer::Base
     @registration = registration
     @invitation = invitation
     @invitee = invitation.invitee
+    @event = event
+
+    super()
+  end
+
+  def setup_for_coaches event, coach
+    @coach = coach
     @event = event
 
     super()
