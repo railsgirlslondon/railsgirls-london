@@ -32,7 +32,7 @@ class EventMailer < ActionMailer::Base
     setup event, registration, invitation
 
     subject = "Rails Girls London - Please RSVP your attendance"
-    send_email(subject)
+    send_email(subject, registration.email)
   end
 
   def confirm_feedback event, registration, invitation

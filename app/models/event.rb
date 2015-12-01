@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  
+
   ATTRIBUTES = [
     :title,
     :description,
@@ -38,7 +38,7 @@ class Event < ActiveRecord::Base
   end
 
   def rsvp_end_date
-    starts_on-5.days
+    starts_on-2.days
   end
 
   def dates
