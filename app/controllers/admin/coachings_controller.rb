@@ -29,6 +29,6 @@ class Admin::CoachingsController < ApplicationController
 
   private
     def event_coaching_params
-      params.require(:coaching).permit(:coachable_id, :coachable_type, :coach_id, :organiser)
+      params.require(:coaching).permit(:coachable_id, :coachable_type, :coach_id, :organiser, :attended, :attendance_note)
     end
 end

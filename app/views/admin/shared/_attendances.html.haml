@@ -1,0 +1,39 @@
+%h1 Attendance Manager
+
+%form
+  %input.attendance-filter{placeholder: "Start typing to filter..."}
+
+%table.table.table-striped.table-condensed.attendees
+  %thead
+    %tr
+      %td Name
+      %td Email
+      %td Type
+      %td Attendance
+  %tbody
+    - event.attendees.each do |att|
+      %tr
+        %td.name= att.name
+        %td= att.email
+        %td
+          - if att.is_a? Registration
+            Student
+          - elsif att.is_a? Coaching
+            Coach
+        %td
+          - registration_path_elements = att.is_a?(Registration) ? [:admin, event, att] : [:admin, att]
+          = simple_form_for registration_path_elements, html: { class: "form-inline" } do |f|
+            .row
+              = f.select :attended, att.class.attendeds.keys.to_a.map { |w| [w.humanize, w] }
+              = f.submit "Save", class: "btn"
+            .row
+              - if att.attendance_note.blank?
+                = link_to "Add note...", "#", class: "add-note"
+              - else
+                .add-note
+                  Note:
+                  = att.attendance_note
+                  = link_to "Edit...", "#", class: "add-note"
+              = f.text_area :attendance_note, placeholder: "Add a note...", class: "hidden"
+
+

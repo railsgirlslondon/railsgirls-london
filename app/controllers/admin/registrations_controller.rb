@@ -20,6 +20,17 @@ class Admin::RegistrationsController < ApplicationController
     end
   end
 
+  def update
+    @registration = Registration.find(params[:id])
+    if @registration.update_attributes(registration_params)
+      flash[:notice] = "Registration has been updated."
+    else
+      flash[:error] = @registration.errors.full_messages.join("\n")
+    end
+
+    redirect_to(:back)
+  end
+
   def show
   end
 
@@ -36,5 +47,9 @@ class Admin::RegistrationsController < ApplicationController
 
   def find_registration
     @registration = Registration.find params[:id]
+  end
+
+  def registration_params
+    params.require(:registration).permit(:attended, :attendance_note)
   end
 end

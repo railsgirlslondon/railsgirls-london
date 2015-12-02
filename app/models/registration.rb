@@ -1,6 +1,8 @@
 class Registration < ActiveRecord::Base
   has_one :invitation, foreign_key: :invitee_id
 
+  include Extentions::Attendable # Allows for tracking whether a student showed up (and why/why not)
+
   REQUIRED_ATTRIBUTES = [
     :first_name,
     :last_name,

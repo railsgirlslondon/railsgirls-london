@@ -60,6 +60,10 @@ class Event < ActiveRecord::Base
     registrations.where :selection_state => "accepted"
   end
 
+  def attendees
+    (selected_applicants + coachings).sort_by(&:name)
+  end
+
   def instruct_coaches
     coaches.each {|coach| instruct(coach)}
   end
