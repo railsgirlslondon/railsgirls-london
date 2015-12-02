@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  
+
   ATTRIBUTES = [
     :title,
     :description,
@@ -58,6 +58,10 @@ class Event < ActiveRecord::Base
 
   def selected_applicants
     registrations.where :selection_state => "accepted"
+  end
+
+  def attendees
+    (selected_applicants + coachings).sort_by(&:name)
   end
 
   def instruct_coaches
