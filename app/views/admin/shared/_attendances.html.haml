@@ -1,9 +1,9 @@
 %h1 Attendance Manager
 
 %form
-  %input{placeholder: "Start typing to filter..."}
+  %input.attendance-filter{placeholder: "Start typing to filter..."}
 
-%table.table.table-striped.table-condensed
+%table.table.table-striped.table-condensed.attendees
   %thead
     %tr
       %td Name
@@ -13,7 +13,7 @@
   %tbody
     - event.attendees.each do |att|
       %tr
-        %td= att.name
+        %td.name= att.name
         %td= att.email
         %td
           - if att.is_a? Registration
