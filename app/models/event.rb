@@ -76,11 +76,6 @@ class Event < ActiveRecord::Base
     EventMailer.send(:coaches_instruction, self, coach).deliver_now
   end
 
-
-  def waiting_list_applicants
-    registrations.where :selection_state => "waiting list"
-  end
-
   def weeklies_invitees
     registrations.where :selection_state => "RGL Weeklies"
   end

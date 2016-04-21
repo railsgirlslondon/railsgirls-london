@@ -136,11 +136,7 @@ describe Event do
     let!(:waiting_list) { 2.times.map { Fabricate(:waiting_list_registration, event: event) } }
 
     it "#selected_applicants" do
-      expect(event.selected_applicants).to eq(accepted)
-    end
-
-    it "#waiting_list_applicants" do
-      expect(event.waiting_list_applicants).to eq(waiting_list)
+      expect(event.selected_applicants).to match_array(accepted)
     end
 
     it "#converts_attendees_to_members!" do
