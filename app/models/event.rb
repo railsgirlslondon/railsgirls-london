@@ -22,8 +22,8 @@ class Event < ActiveRecord::Base
 
   default_scope { order('events.created_at DESC') }
 
-  scope :upcoming, -> { where("ends_on >= ? and active = ?", Date.today, true).order(:starts_on) }
-  scope :past, -> { where("ends_on <= ? and active = ?", Date.today, false).order(:starts_on) }
+  scope :upcoming, -> { where("ends_on >= ? and active = ?", Date.today, true).reorder(:starts_on) }
+  scope :past, -> { where("ends_on <= ? and active = ?", Date.today, false).reorder(:starts_on) }
 
   def accepting_registrations?
     registration_deadline.present?
