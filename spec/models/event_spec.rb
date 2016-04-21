@@ -56,7 +56,7 @@ describe Event do
 
       context "no registration deadline" do
         let(:date) { nil }
-        it { should be false }
+        it { is_expected.to be false }
       end
     end
 
@@ -65,17 +65,17 @@ describe Event do
 
       context "deadline in future" do
         let(:date) { 2.days.from_now }
-        it { should be true }
+        it { is_expected.to be true }
       end
 
       context "deadline today" do
         let(:date) { Date.today }
-        it { should be true }
+        it { is_expected.to be true }
       end
 
       context "deadline in the past" do
         let(:date) { Date.yesterday }
-        it { should be false }
+        it { is_expected.to be false }
       end
     end
   end

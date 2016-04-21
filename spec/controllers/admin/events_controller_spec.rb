@@ -13,7 +13,7 @@ describe Admin::EventsController, :type => :controller do
     it "assigns all events as @events" do
       event = Event.create! valid_attributes
       get :index, {}
-      assigns(:events).should eq([event])
+      expect(assigns(:events)).to eq([event])
     end
   end
 
@@ -21,14 +21,14 @@ describe Admin::EventsController, :type => :controller do
     it "assigns the requested event as @event" do
       event = Event.create! valid_attributes
       get :show, {:id => event.to_param}
-      assigns(:event).should eq(event)
+      expect(assigns(:event)).to eq(event)
     end
   end
 
   describe "GET new" do
     it "assigns a new event as @event" do
       get :new, {}
-      assigns(:event).should be_a_new(Event)
+      expect(assigns(:event)).to be_a_new(Event)
     end
   end
 
@@ -36,7 +36,7 @@ describe Admin::EventsController, :type => :controller do
     it "assigns the requested event as @event" do
       event = Event.create! valid_attributes
       get :edit, {:id => event.to_param}
-      assigns(:event).should eq(event)
+      expect(assigns(:event)).to eq(event)
     end
   end
 
@@ -50,7 +50,7 @@ describe Admin::EventsController, :type => :controller do
 
       it "redirects to the created event" do
         post :create, {:event => valid_attributes}
-        response.should redirect_to([:admin, Event.last])
+        expect(response).to redirect_to([:admin, Event.last])
       end
     end
 
@@ -61,11 +61,11 @@ describe Admin::EventsController, :type => :controller do
       end
 
       it "assigns a newly created but unsaved event as @event" do
-        assigns(:event).should be_a_new(Event)
+        expect(assigns(:event)).to be_a_new(Event)
       end
 
       it "re-renders the 'new' template" do
-        response.should render_template("new")
+        expect(response).to render_template("new")
       end
     end
   end
@@ -81,13 +81,13 @@ describe Admin::EventsController, :type => :controller do
       it "assigns the requested event as @event" do
         event = Event.create! valid_attributes
         put :update, {:id => event.to_param, :event => valid_attributes}
-        assigns(:event).should eq(event)
+        expect(assigns(:event)).to eq(event)
       end
 
       it "redirects to the event" do
         event = Event.create! valid_attributes
         put :update, {:id => event.to_param, :event => valid_attributes}
-        response.should redirect_to([:admin, event])
+        expect(response).to redirect_to([:admin, event])
       end
     end
 
@@ -97,14 +97,14 @@ describe Admin::EventsController, :type => :controller do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Event).to receive(:save).and_return(false)
         put :update, {:id => event.to_param, :event => { "description" => "invalid value" }}
-        assigns(:event).should eq(event)
+        expect(assigns(:event)).to eq(event)
       end
 
       it "re-renders the 'edit' template" do
         event = Event.create! valid_attributes
         allow_any_instance_of(Event).to receive(:save).and_return(false)
         put :update, {:id => event.to_param, :event => { "description" => "invalid value" }}
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
@@ -120,7 +120,7 @@ describe Admin::EventsController, :type => :controller do
     it "redirects to the events list" do
       event = Event.create! valid_attributes
       delete :destroy, {:id => event.to_param}
-      response.should redirect_to(admin_events_path)
+      expect(response).to redirect_to(admin_events_path)
     end
   end
 

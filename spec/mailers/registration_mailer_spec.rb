@@ -7,11 +7,11 @@ describe RegistrationMailer do
     registration = Fabricate(:registration)
 
     RegistrationMailer.application_received(event, registration).deliver_now
-    ActionMailer::Base.deliveries.last.From.to_s.should == "Rails Girls London <railsgirlslondon@gmail.com>"
-    ActionMailer::Base.deliveries.last.To.to_s.should == registration.email
-    ActionMailer::Base.deliveries.last.subject.to_s.should include event.dates
-    ActionMailer::Base.deliveries.last.body.encoded.should include registration.first_name
-    ActionMailer::Base.deliveries.last.body.encoded.should include event.dates
+    expect(ActionMailer::Base.deliveries.last.From.to_s).to eq("Rails Girls London <railsgirlslondon@gmail.com>")
+    expect(ActionMailer::Base.deliveries.last.To.to_s).to eq(registration.email)
+    expect(ActionMailer::Base.deliveries.last.subject.to_s).to include event.dates
+    expect(ActionMailer::Base.deliveries.last.body.encoded).to include registration.first_name
+    expect(ActionMailer::Base.deliveries.last.body.encoded).to include event.dates
   end
 
 end
