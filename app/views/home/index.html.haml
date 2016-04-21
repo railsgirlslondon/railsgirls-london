@@ -3,17 +3,17 @@
     .container
       %h1 Rails Girls London
       %h2 Making technology more approachable for women
-      - if @upcoming_event.any?
+      - if @next_event.present?
         .next-event.text-center
           %h3
             Next Event:
           %h1
-            = @upcoming_event.first.dates
+            = @next_event.dates
             %br
-            - if @upcoming_event.first.accepting_registrations? && @upcoming_event.first.registrations_open?
-              = link_to "View more details & apply", event_path(@upcoming_event.first), class: "btn btn-primary btn-lg btn-hero"
+            - if @next_event.accepting_registrations? && @next_event.registrations_open?
+              = link_to "View more details & apply", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
             - else
-              = link_to "View more details", event_path(@upcoming_event.first), class: "btn btn-primary btn-lg btn-hero"
+              = link_to "View more details", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
 
 
 .section.separator.title
@@ -46,7 +46,7 @@
 
 
 
-= render @upcoming_event.any? ? "events/upcoming" : "events/next_expected"
+= render @next_event.present? ? "events/upcoming" : "events/next_expected"
 = render "events/past"
 
 

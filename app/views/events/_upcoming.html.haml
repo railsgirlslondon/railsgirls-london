@@ -13,7 +13,7 @@
       .col-md-6
         %blockquote
           %h1
-            = @upcoming_event.first.dates
+            = @next_event.dates
 
         %p
           Join us for our next Rails Girls London event: a free 1.5-day workshop where participants will discover the exciting world of web development through Ruby on Rails.
@@ -26,10 +26,10 @@
               %b Where:
               %br
               %b
-                = "#{@upcoming_event.first.host.name } offices, #{@upcoming_event.first.host.address_city}"
+                = "#{@next_event.host.name } offices, #{@next_event.host.address_city}"
 
             .thumbnail.no-border
-              = image_tag @upcoming_event.first.host.image_url
+              = image_tag @next_event.host.image_url
 
           .col-md-6
             %h5
@@ -50,14 +50,14 @@
         %h1 Want to join?
         .row
           .col-md-6
-            = link_to "Apply as a student", event_path(@upcoming_event.first), class: "btn btn-primary btn-lg btn-hero"
+            = link_to "Apply as a student", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
           .col-md-6
             %a{ href: "mailto:railsgirlslondon@gmail.com?Subject=I want to coach at the next Rails Girls London event&body=I would love to coach because...", class: "btn btn-primary btn-lg btn-hero" } I want to be a coach
         %br
         .row
           .col-md-12
-            = link_to event_path(@upcoming_event.first), class: "thumbnail" do
-              = image_tag @upcoming_event.first.image ? @upcoming_event.first.image : "london-profile.svg"
+            = link_to event_path(@next_event), class: "thumbnail" do
+              = image_tag @next_event.image ? @next_event.image : "london-profile.svg"
     .row
       .col-md-12
-        = link_to "View more details & apply", event_path(@upcoming_event.first), class: "btn btn-primary btn-lg"
+        = link_to "View more details & apply", event_path(@next_event), class: "btn btn-primary btn-lg"

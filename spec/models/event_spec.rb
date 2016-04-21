@@ -15,6 +15,26 @@ describe Event do
     end
   end
 
+  describe ".next_event" do
+    let(:next_event) { Event.next_event }
+
+    context "with no upcoming events" do
+      it "is nil" do
+        expect(next_event).to be_nil
+      end
+    end
+
+    context "with upcoming events" do
+      # let!(:past_event) { Fabricate(:event, ends_on: Date.today-1.week) }
+      let!(:next_upcoming_event) { Fabricate(:event, starts_on: Date.today+1.week) }
+      let!(:future_event) { Fabricate(:event, starts_on: Date.today+2.week) }
+
+      it "is the next event" do
+        expect(next_event).to eql(next_upcoming_event)
+      end
+    end
+  end
+
   describe "registrations" do
     let(:event) { Event.new(registration_deadline: date) }
 

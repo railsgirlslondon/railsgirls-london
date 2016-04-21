@@ -25,6 +25,10 @@ class Event < ActiveRecord::Base
   scope :upcoming, -> { where("ends_on >= ? and active = ?", Date.today, true).reorder(:starts_on) }
   scope :past, -> { where("ends_on <= ? and active = ?", Date.today, false).reorder(:starts_on) }
 
+  def self.next_event
+    Event.upcoming.first
+  end
+
   def accepting_registrations?
     registration_deadline.present?
   end
