@@ -109,7 +109,7 @@ describe Event do
                         starts_on: Date.new(2013,7,13),
                         ends_on: Date.new(2013,7,14))
 
-      event.dates.should eq "13-14 July 2013"
+      expect(event.dates).to eq("13-14 July 2013")
     end
 
     it "two days over two months" do
@@ -117,7 +117,7 @@ describe Event do
                         starts_on: Date.new(2013,11,30),
                         ends_on: Date.new(2013,12,1))
 
-      event.dates.should eq "30 November-1 December 2013"
+      expect(event.dates).to eq("30 November-1 December 2013")
     end
 
     it "one day" do
@@ -125,7 +125,7 @@ describe Event do
                         starts_on: Date.new(2013,8,3),
                         ends_on: Date.new(2013,8,3))
 
-      event.dates.should eq "August 3, 2013"
+      expect(event.dates).to eq("August 3, 2013")
     end
   end
 
@@ -136,11 +136,11 @@ describe Event do
     let!(:waiting_list) { 2.times.map { Fabricate(:waiting_list_registration, event: event) } }
 
     it "#selected_applicants" do
-      event.selected_applicants.should eq accepted
+      expect(event.selected_applicants).to eq(accepted)
     end
 
     it "#waiting_list_applicants" do
-      event.waiting_list_applicants.should eq waiting_list
+      expect(event.waiting_list_applicants).to eq(waiting_list)
     end
 
     it "#converts_attendees_to_members!" do
@@ -148,10 +148,10 @@ describe Event do
       attendees = 2.times.map { Fabricate(:attended_registration, event: event) }
 
       registrations = event.registrations
-      event.should_receive(:registrations).and_return(registrations)
-      registrations.should_receive(:accepted).and_return(attendees)
+      expect(event).to receive(:registrations).and_return(registrations)
+      expect(registrations).to receive(:accepted).and_return(attendees)
 
-      attendees.each { |attendee| Member.should_receive(:create_from_registration).with(attendee) }
+      attendees.each { |attendee| expect(Member).to receive(:create_from_registration).with(attendee) }
 
       event.convert_attendees_to_members!
     end
