@@ -56,7 +56,7 @@ describe Admin::EventsController, :type => :controller do
 
     describe "with invalid params" do
       before do
-        Event.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Event).to receive(:save).and_return(false)
         post :create, {:event => { :wrong_params => true  }}
       end
 
@@ -74,7 +74,7 @@ describe Admin::EventsController, :type => :controller do
     describe "with valid params" do
       it "updates the requested event" do
         event = Event.create! valid_attributes
-        Event.any_instance.should_receive(:update_attributes).with({ "description" => "MyString" })
+        expect_any_instance_of(Event).to receive(:update_attributes).with({ "description" => "MyString" })
         put :update, {:id => event.to_param, :event => { "description" => "MyString" }}
       end
 
@@ -95,14 +95,14 @@ describe Admin::EventsController, :type => :controller do
       it "assigns the event as @event" do
         event = Event.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Event.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Event).to receive(:save).and_return(false)
         put :update, {:id => event.to_param, :event => { "description" => "invalid value" }}
         assigns(:event).should eq(event)
       end
 
       it "re-renders the 'edit' template" do
         event = Event.create! valid_attributes
-        Event.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Event).to receive(:save).and_return(false)
         put :update, {:id => event.to_param, :event => { "description" => "invalid value" }}
         response.should render_template("edit")
       end

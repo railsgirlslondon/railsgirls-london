@@ -34,7 +34,7 @@ describe Invitation do
 
   context "hooks" do
     it "#after_create" do
-      Invitation.any_instance.should_receive(:send_invitation)
+      expect_any_instance_of(Invitation).to receive(:send_invitation)
 
       Invitation.create! invitee: invitee, invitable: event
     end

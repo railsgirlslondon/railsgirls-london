@@ -1,11 +1,11 @@
 module ControllerHelpers
   def sign_in(user = double('user'))
     if user.nil?
-      request.env['warden'].stub(:authenticate!).
+      allow(request.env['warden']).to receive(:authenticate!).
         and_throw(:warden, {:scope => :user})
-        allow(controller).to receive_messages(:current_user =>  nil)
+      allow(controller).to receive_messages(:current_user =>  nil)
     else
-      request.env['warden'].stub :authenticate! => user
+      allow(request.env['warden']).to receive(:authenticate!).and_return(user)
       allow(controller).to receive_messages(:current_user =>  user)
     end
   end

@@ -66,14 +66,14 @@ describe Admin::MembersController, :type => :controller do
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved member as @member" do
-        Member.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Member).to receive(:save).and_return(false)
         post :create, {:member => { "name" => "invalid value" }}, valid_session
 
         assigns(:member).should be_a_new(Member)
       end
 
       it "re-renders the 'new' template" do
-        Member.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Member).to receive(:save).and_return(false)
         post :create, {:member => { "name" => "invalid value" }}, valid_session
 
         response.should render_template("new")
@@ -85,7 +85,7 @@ describe Admin::MembersController, :type => :controller do
     describe "with valid params" do
       it "updates the requested member" do
         member = Member.create! valid_attributes
-        Member.any_instance.should_receive(:update).with({ "first_name" => "MyString" })
+        expect_any_instance_of(Member).to receive(:update).with({ "first_name" => "MyString" })
 
         put :update, {:id => member.to_param, :member => { "first_name" => "MyString" }}, valid_session
       end
@@ -108,7 +108,7 @@ describe Admin::MembersController, :type => :controller do
     describe "with invalid params" do
       it "re-renders the 'edit' template" do
         member = Member.create! valid_attributes
-        Member.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Member).to receive(:save).and_return(false)
         put :update, {:id => member.to_param, :member => { "wrong_param" => "invalid value" }}, valid_session
 
         response.should render_template("edit")

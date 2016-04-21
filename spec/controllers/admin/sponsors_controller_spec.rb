@@ -61,13 +61,13 @@ describe Admin::SponsorsController, :type => :controller do
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved sponsor as @sponsor" do
-        Sponsor.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Sponsor).to receive(:save).and_return(false)
         post :create, {:sponsor => { "name" => "invalid value" }}, valid_session
         assigns(:sponsor).should be_a_new(Sponsor)
       end
 
       it "re-renders the 'new' template" do
-        Sponsor.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Sponsor).to receive(:save).and_return(false)
         post :create, {:sponsor => { "name" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
@@ -78,7 +78,7 @@ describe Admin::SponsorsController, :type => :controller do
     describe "with valid params" do
       it "updates the requested sponsor" do
         sponsor = Sponsor.create! valid_attributes
-        Sponsor.any_instance.should_receive(:update).with({ "name" => "MyString" })
+        expect_any_instance_of(Sponsor).to receive(:update).with({ "name" => "MyString" })
         put :update, {:id => sponsor.to_param, :sponsor => { "name" => "MyString" }}, valid_session
       end
 
@@ -98,14 +98,14 @@ describe Admin::SponsorsController, :type => :controller do
     describe "with invalid params" do
       it "assigns the sponsor as @sponsor" do
         sponsor = Sponsor.create! valid_attributes
-        Sponsor.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Sponsor).to receive(:save).and_return(false)
         put :update, {:id => sponsor.to_param, :sponsor => { "name" => "invalid value" }}, valid_session
         assigns(:sponsor).should eq(sponsor)
       end
 
       it "re-renders the 'edit' template" do
         sponsor = Sponsor.create! valid_attributes
-        Sponsor.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Sponsor).to receive(:save).and_return(false)
         put :update, {:id => sponsor.to_param, :sponsor => { "name" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
