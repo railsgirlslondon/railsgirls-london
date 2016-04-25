@@ -22,8 +22,12 @@ class Event < ActiveRecord::Base
 
   default_scope { order('events.created_at DESC') }
 
-  scope :upcoming, -> { where("ends_on >= ? and active = ?", Date.today, true).order(:starts_on) }
-  scope :past, -> { where("ends_on <= ? and active = ?", Date.today, false).order(:starts_on) }
+  scope :upcoming, -> { where("ends_on >= ? and active = ?", Date.today, true).reorder(:starts_on) }
+  scope :past, -> { where("ends_on <= ? and active = ?", Date.today, false).reorder(:starts_on) }
+
+  def self.next_event
+    Event.upcoming.first
+  end
 
   def accepting_registrations?
     registration_deadline.present?
@@ -70,11 +74,6 @@ class Event < ActiveRecord::Base
 
   def instruct coach
     EventMailer.send(:coaches_instruction, self, coach).deliver_now
-  end
-
-
-  def waiting_list_applicants
-    registrations.where :selection_state => "waiting list"
   end
 
   def weeklies_invitees
