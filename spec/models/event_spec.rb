@@ -35,6 +35,19 @@ describe Event do
     end
   end
 
+  describe "#coaches.who_attended" do
+    let!(:event) { Fabricate(:event) }
+    let!(:coaching_nil) { Fabricate(:event_coaching, coachable_id: event.id) }
+    let!(:coaching_unknown) { Fabricate(:event_coaching, coachable_id: event.id, attended: :unknown) }
+    let!(:coaching_attended) { Fabricate(:event_coaching, coachable_id: event.id, attended: :attended) }
+    let!(:coaching_cancelled) { Fabricate(:event_coaching, coachable_id: event.id, attended: :cancelled) }
+    let!(:coaching_no_show) { Fabricate(:event_coaching, coachable_id: event.id, attended: :no_show) }
+
+    it "lists only unknown and attending coaches" do
+      expect(event.coaches.who_attended).to eq([coaching_nil.coach, coaching_unknown.coach, coaching_attended.coach])
+    end
+  end
+
   describe "registrations" do
     let(:event) { Event.new(registration_deadline: date) }
 

@@ -138,7 +138,7 @@
                   = sponsor.description
 %br
 
-  = render partial: "shared/coaches", locals: { coaches: @event.coaches, title: "Organisers and coaches" }
+  = render partial: "shared/coaches", locals: { coaches: @event.coaches.who_attended, title: "Organisers and coaches" }
 
   - if @event.registrations_open?
     .section.separator.title
