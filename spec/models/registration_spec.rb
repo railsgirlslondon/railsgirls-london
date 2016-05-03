@@ -4,7 +4,7 @@ describe Registration do
   let(:registration) { Fabricate(:registration) }
 
   it '#fullname' do
-    registration.fullname.should eq "#{registration.first_name} #{registration.last_name}"
+    expect(registration.fullname).to eq "#{registration.first_name} #{registration.last_name}"
   end
 
   it '#to_s' do
@@ -14,7 +14,7 @@ describe Registration do
      :programming_experience,
      :spoken_languages,
      :preferred_language].each do |information|
-      registration.to_s.should include registration.send information
+      expect(registration.to_s).to include registration.send information
     end
   end
 
@@ -23,14 +23,14 @@ describe Registration do
                                                  selection_state: "accepted",
                                                  attending: true) }
 
-    Registration.accepted.to_a.should eq accepted_registrations
+    expect(Registration.accepted.to_a).to eq accepted_registrations
   end
 
   it "#mark_selection" do
     registration.mark_selection "accepted"
 
 
-    registration.selection_state.should eq "accepted"
+    expect(registration.selection_state).to eq "accepted"
   end
 
   describe "validation contexts" do

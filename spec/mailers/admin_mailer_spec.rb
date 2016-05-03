@@ -17,8 +17,8 @@ describe AdminMailer do
 
 
   after(:each) do
-    ActionMailer::Base.deliveries.last.subject.should eq @email_subject
-    ActionMailer::Base.deliveries.last.to.first.to_s.should == "railsgirlslondon@gmail.com"
+    expect(ActionMailer::Base.deliveries.last.subject).to eq @email_subject
+    expect(ActionMailer::Base.deliveries.last.to.first.to_s).to eq("railsgirlslondon@gmail.com")
   end
 
   def html_body

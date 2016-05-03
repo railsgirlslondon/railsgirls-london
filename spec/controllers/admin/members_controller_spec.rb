@@ -14,7 +14,7 @@ describe Admin::MembersController, :type => :controller do
     it "assigns all members as @members" do
       member = Member.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:members).should eq([member])
+      expect(assigns(:members)).to eq([member])
     end
   end
 
@@ -22,14 +22,14 @@ describe Admin::MembersController, :type => :controller do
     it "assigns the requested member as @member" do
       member = Member.create! valid_attributes
       get :show, {:id => member.to_param}, valid_session
-      assigns(:member).should eq(member)
+      expect(assigns(:member)).to eq(member)
     end
   end
 
   describe "GET new" do
     it "assigns a new member as @member" do
       get :new, {}, valid_session
-      assigns(:member).should be_a_new(Member)
+      expect(assigns(:member)).to be_a_new(Member)
     end
   end
 
@@ -38,7 +38,7 @@ describe Admin::MembersController, :type => :controller do
       member = Member.create! valid_attributes
       get :edit, {:id => member.to_param}, valid_session
 
-      assigns(:member).should eq(member)
+      expect(assigns(:member)).to eq(member)
     end
   end
 
@@ -53,30 +53,30 @@ describe Admin::MembersController, :type => :controller do
       it "assigns a newly created member as @member" do
         post :create, {:member => valid_attributes}, valid_session
 
-        assigns(:member).should be_a(Member)
-        assigns(:member).should be_persisted
+        expect(assigns(:member)).to be_a(Member)
+        expect(assigns(:member)).to be_persisted
       end
 
       it "redirects to the members index" do
         post :create, {:member => valid_attributes}, valid_session
 
-        response.should redirect_to([:admin, :members])
+        expect(response).to redirect_to([:admin, :members])
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved member as @member" do
-        Member.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Member).to receive(:save).and_return(false)
         post :create, {:member => { "name" => "invalid value" }}, valid_session
 
-        assigns(:member).should be_a_new(Member)
+        expect(assigns(:member)).to be_a_new(Member)
       end
 
       it "re-renders the 'new' template" do
-        Member.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Member).to receive(:save).and_return(false)
         post :create, {:member => { "name" => "invalid value" }}, valid_session
 
-        response.should render_template("new")
+        expect(response).to render_template("new")
       end
     end
   end
@@ -85,7 +85,7 @@ describe Admin::MembersController, :type => :controller do
     describe "with valid params" do
       it "updates the requested member" do
         member = Member.create! valid_attributes
-        Member.any_instance.should_receive(:update).with({ "first_name" => "MyString" })
+        expect_any_instance_of(Member).to receive(:update).with({ "first_name" => "MyString" })
 
         put :update, {:id => member.to_param, :member => { "first_name" => "MyString" }}, valid_session
       end
@@ -94,24 +94,24 @@ describe Admin::MembersController, :type => :controller do
         member = Member.create! valid_attributes
         put :update, {:id => member.to_param, :member => valid_attributes}, valid_session
 
-        assigns(:member).should eq(member)
+        expect(assigns(:member)).to eq(member)
       end
 
       it "redirects to the member" do
         member = Member.create! valid_attributes
         put :update, {:id => member.to_param, :member => valid_attributes}, valid_session
 
-        response.should redirect_to([:admin, :members])
+        expect(response).to redirect_to([:admin, :members])
       end
     end
 
     describe "with invalid params" do
       it "re-renders the 'edit' template" do
         member = Member.create! valid_attributes
-        Member.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Member).to receive(:save).and_return(false)
         put :update, {:id => member.to_param, :member => { "wrong_param" => "invalid value" }}, valid_session
 
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
