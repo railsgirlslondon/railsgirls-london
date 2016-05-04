@@ -1,5 +1,12 @@
 module EventHelper
 
+  def invitation_link(event, registration)
+    if registration.selection_state.eql? "accepted"
+      path = admin_event_registration_invite_path(event, registration)
+      link_to "Send invite", path, method: :post, class: "btn"
+    end
+  end
+
   def accept_reject_invitation_link(event, registration)
     if registration.selection_state.eql? "accepted"
       path = admin_event_registration_attendance_path(@event, registration)

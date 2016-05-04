@@ -29,6 +29,7 @@ RailsgirlsLondon::Application.routes.draw do
 
       resources :registrations, only: [:show, :new, :create, :update, :destroy] do
         resource :attendance, only: [:create, :destroy]
+        resource :invite, only: [:create], controller: :registration_invite
       end
     end
 
