@@ -17,6 +17,28 @@ feature "admin CRUDing events" do
 
   Given { admin_logged_in! }
 
+  def fill_out_registration!
+    click_on 'Add registration'
+    fill_in 'First name', with: 'Johnny'
+    fill_in 'Last name', with: "Smithington"
+
+    select "Female", from: "Gender"
+    fill_in 'registration_email', with: 'john@registrant.com'
+    fill_in "Email confirmation", with: 'john@registrant.com'
+    fill_in "Phone number", with: phone_number
+    fill_in "Address", with: address
+    fill_in "Spoken languages", with: spoken_languages
+    fill_in "Preferred language", with: preferred_language
+    select "Yes", from: "UK Resident"
+    select "OS X", from: "Operating System"
+    fill_in "OS Version", with: os_version
+    fill_in "Programming experience", with: experience
+    fill_in "Reason for applying", with: reason
+    check('registration_terms_of_service')
+
+    click_on 'Create Registration'
+  end
+
   context "creating and editing an event" do
     When do
       visit new_admin_event_path
@@ -57,62 +79,33 @@ feature "admin CRUDing events" do
       Then { !page.has_content? "Second RG workshop" }
     end
 
-    context "adding a registrant to the event and marking as attending" do
-      When do
-        click_on 'Add registration'
-        fill_in 'First name', with: 'Johnny'
-        fill_in 'Last name', with: "Smithington"
+    scenario "adding a registrant to the event and marking as attending" do
+      fill_out_registration!
 
-        select "Female", from: "Gender"
-        fill_in 'registration_email', with: 'john@registrant.com'
-        fill_in "Email confirmation", with: 'john@registrant.com'
-        fill_in "Phone number", with: phone_number
-        fill_in "Address", with: address
-        fill_in "Spoken languages", with: spoken_languages
-        fill_in "Preferred language", with: preferred_language
-        select "Yes", from: "UK Resident"
-        select "OS X", from: "Operating System"
-        fill_in "OS Version", with: os_version
-        fill_in "Programming experience", with: experience
-        fill_in "Reason for applying", with: reason
-        check('registration_terms_of_service')
+      click_link "Accept"
 
-        click_on 'Create Registration'
-      end
-
-      Then { page.has_content? "john@registrant.com" }
-
-      When { click_link "Accept" }
-      Then { page.has_link? "Decline" }
+      expect(page).to have_content "john@registrant.com"
+      expect(page).to have_link "Send invite"
+      expect(page).to have_link "Decline"
     end
 
-    context "declining a registrant after originally marking as attending" do
-      When do
-        click_on 'Add registration'
-        fill_in 'First name', with: 'Johnny'
-        fill_in 'Last name', with: "Smithington"
+    scenario "declining a registrant after originally marking as attending" do
+      fill_out_registration!
 
-        select "Female", from: "Gender"
-        fill_in 'registration_email', with: 'john@registrant.com'
-        fill_in "Email confirmation", with: 'john@registrant.com'
-        fill_in "Phone number", with: phone_number
-        fill_in "Address", with: address
-        fill_in "Spoken languages", with: spoken_languages
-        fill_in "Preferred language", with: preferred_language
-        select "Yes", from: "UK Resident"
-        select "OS X", from: "Operating System"
-        fill_in "OS Version", with: os_version
-        fill_in "Programming experience", with: experience
-        fill_in "Reason for applying", with: reason
-        check('registration_terms_of_service')
+      click_link "Accept"
+      click_link "Decline"
 
+      expect(page).to have_link "Accept"
+      expect(page).not_to have_link "Send invite"
+    end
 
-        click_on 'Create Registration'
-      end
+    scenario "sending an invite" do
+      fill_out_registration!
 
-      When { click_link "Accept" }
-      When { click_link "Decline" }
-      Then { page.has_link? "Accept" }
+      expect(EventMailer).to receive(:invite)
+
+      click_link "Accept"
+      click_link "Send invite"
     end
   end
 
