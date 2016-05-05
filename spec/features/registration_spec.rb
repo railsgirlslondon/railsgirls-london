@@ -21,7 +21,7 @@ feature "a girl registering" do
 
   Given do
     visit event_path(event)
-    click_on "Apply to the event"
+    click_on "Apply for the event"
   end
 
   context "with the minimum required information" do

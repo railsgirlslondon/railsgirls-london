@@ -6,10 +6,10 @@
         - if @event.accepting_registrations?
           - if @event.registrations_open?
             %br
-            = link_to "Apply to the event", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
+            = link_to "Apply for the event", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
             %br
             %h4.text-center
-              Applications are open until the #{I18n.l(@event.registration_deadline)}
+              Applications are open until #{I18n.l(@event.registration_deadline)}
           - else
             %br
             %h4.text-center
@@ -41,10 +41,12 @@
               %address
                 =@event.address_line_1
                 %br
-                - if @event.address_line_2
+                - if @event.address_line_2.present?
                   #{@event.address_line_2}
                   %br
-                #{@event.address_city}, #{@event.host.address_postcode}
+                #{@event.address_city},
+                %br
+                #{@event.host.address_postcode}
                 - unless @event.host.image_url.blank?
                   = image_tag @event.host.image_url, class: "img-responsive thumbnail no-border"
           .row
@@ -58,7 +60,7 @@
                     %br
                     %b Installation party
                     %br
-                    Get to know the attendees a little bit beforehand. Bring your laptop if you can, so we can install Ruby on Rails for you.
+                    Get to know the other attendees a bit beforehand. Bring your laptop if you can, so we can install Ruby on Rails for you. Fun opportunity for networking.
                 .col-md-7
                   %h3 Saturday
                   %p
@@ -70,23 +72,28 @@
                     %br
                     %b Welcome
                     %br
-                    We'll let you know the schedule for the day.
+                    We'll let you know the schedule for the day
                   %p
                     %b 10:00 - 13:00
                     %br
                     %b Introduction to Ruby
+                    %br
                     Practise coding with
                     %a{ href: "http://tryruby.org/" } tryruby.org
                     %br
-                    %b App design workshop
-                    Your application will start to take form.
+                    %b App Design Workshop
                     %br
-                    %b Coaches give lightning talks I
+                    Your application will start to take form
                     %br
-                    %b Getting started with Ruby on Rails
-                    Kickstart your first web application on Rails.
+                    %b Lightning Talks I by the coaches
                     %br
-                    %b Coaches give lightning talks II
+                    Plus words from our sponsors
+                    %br
+                    %b Getting Started with Ruby on Rails
+                    %br
+                    Kickstart your first web application on Rails
+                    %br
+                    %b Lightning Talks II by the coaches
                   %p
                     %b 13:00 - 14:00
                     %br
@@ -94,13 +101,16 @@
                   %p
                     %b 14:00 - 18:00
                     %br
-                    %b Application workshop
+                    %b Application Workshop
                     %br
-                    Extend your application.
+                    Extend your application
                   %p
                     %b 18:00 - late
                     %br
                     %b Afterparty
+                    %br
+                    Mingling with all the participants
+
 
 
 
