@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Invitation do
+xdescribe Invitation do
   let(:event) { Fabricate(:event) }
   let(:invitee) { Fabricate(:member) }
   let!(:hosting) { Fabricate(:hosting, sponsorable: event) }
@@ -19,11 +19,6 @@ describe Invitation do
 
     it "#accepted" do
       expect(event.invitations.accepted).to eq attending
-    end
-
-    it "#waiting_list" do
-      #we dont currently have events
-      # event.invitations.waiting_list.should eq waiting_list
     end
 
     it "#pending_response" do
