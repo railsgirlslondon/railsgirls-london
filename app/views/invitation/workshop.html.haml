@@ -13,6 +13,7 @@
     .container
       .row
         .col-md-12
+          = render 'layouts/messages'
           .hero-unit
             - if !@invitation.attending.nil? or !@invitable.rsvps_available?
               .rsvp-status
@@ -25,7 +26,7 @@
                 %h4 We are so sorry you can &#x27; t make it :(
             - if @invitable.rsvps_available? and !@invitation.attending.eql? false
               %h3
-                %strong= "Will your attend?"
+                %strong= "Will you attend?"
               =simple_form_for @invitation, html: { class: 'form-inline' } do |f|
                 =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last, required: true
                 =f.input :comment, placeholder: "Anything you want us to know?"
