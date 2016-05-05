@@ -39,7 +39,7 @@ class EventMailer < ActionMailer::Base
     setup event, registration, invitation
 
     subject = "RGL - Thank you for your feedback for #{@event.title} #{@event.dates}!"
-    send_email(subject)
+    send_email(subject, registration.email)
   end
 
   private

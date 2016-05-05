@@ -23,7 +23,7 @@ describe Registration do
                                                  selection_state: "accepted",
                                                  attending: true) }
 
-    expect(Registration.accepted.to_a).to eq accepted_registrations
+    expect(Registration.accepted.to_a).to match_array(accepted_registrations)
   end
 
   it "#mark_selection" do

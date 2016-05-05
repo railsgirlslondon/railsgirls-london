@@ -13,21 +13,16 @@ describe Invitation do
 
   context "scopes" do
 
-    let!(:attending) { 3.times.map { Fabricate(:accepted_invitation, invitable: event) }.reverse }
-    let!(:no_response) { 2.times.map { Fabricate(:invitation, invitable: event) } }
-    let!(:waiting_list) { 5.times.map { Fabricate(:waiting_invitation, invitable: event) } }
+    let!(:attending) { Fabricate(:accepted_invitation, invitable: event) }
+    let!(:no_response) { Fabricate(:invitation, invitable: event) }
+    let!(:waiting_list) { Fabricate(:waiting_invitation, invitable: event) }
 
     it "#accepted" do
-      expect(event.invitations.accepted).to eq attending
-    end
-
-    it "#waiting_list" do
-      #we dont currently have events
-      # event.invitations.waiting_list.should eq waiting_list
+      expect(event.invitations.accepted).to eq([attending])
     end
 
     it "#pending_response" do
-      expect(event.invitations.pending_response).to eq no_response.reverse
+      expect(event.invitations.pending_response).to eq([no_response])
     end
 
   end
