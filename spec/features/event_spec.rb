@@ -24,7 +24,7 @@ feature "viewing an event" do
         visit event_path(event)
       end
 
-      Then { page.has_content? "Apply to the event" }
+      Then { page.has_content? "Apply for the event" }
       And { page.has_content? host.name }
       And { page.has_content? "A house" }
       And { page.has_content? "123 Street st" }
