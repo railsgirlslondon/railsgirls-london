@@ -147,6 +147,8 @@ GEM
     kgio (2.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -339,6 +341,7 @@ DEPENDENCIES
   icalendar
   jquery-rails
   launchy
+  letter_opener
   newrelic_rpm
   pg
   protected_attributes
@@ -359,4 +362,4 @@ DEPENDENCIES
   webmock (< 1.10)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

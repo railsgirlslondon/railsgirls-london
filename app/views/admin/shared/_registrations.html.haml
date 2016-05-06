@@ -24,6 +24,7 @@
           %td= link_to registration.fullname, admin_event_registration_path(@event, registration)
           %td= mail_to registration.email
           - if @event.active && !@event.members_converted?
+            %td= invitation_link(@event, registration)
             %td= accept_reject_invitation_link(@event, registration)
           - else
             %td= registration_selection_state(registration)
