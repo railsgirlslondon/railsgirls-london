@@ -19,6 +19,7 @@ module Extentions
       [
         "london-girl.png",
         "funding-circle.jpg",
+        "shutl.png",
         "railsgirls-heart.png",
         "railsgirls-london.png",
         "twitter.png",

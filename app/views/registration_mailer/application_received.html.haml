@@ -4,17 +4,16 @@
 
 .content
   .left.inline{ style: "width: 65%; display: inline-block;" }
-    %p.lead{ style: "font-size: 22px;" }
-      %strong Thank you
-      for applying to our Rails Girls London workshop!
+    %p.lead{ style: "font-size: 22px; line-height: 26px" }
+      Thank you for applying for the Rails Girls London Workshop.
       .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 15px 0; padding: 0 10px;" }= @event.dates
 
       =link_to "View details", event_url(@event), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
     %p.lead
-      We will send you an email confirming whether you were successful
-      in getting a place in the event after registrations close. To confirm
-      your availability, you will have to confirm the invitation.
+      An email confirmation will be sent out to the successful applicants on
+      #{I18n.l(@event.registration_deadline+1.day)}
+      You are requested to confirm your participation within 3 days after receiving the invitation.
   .right.inline{ style: "width: 24%; padding: 0 0 0 50px; display: inline-block;" }
     =image_tag attachments['london-girl.png'].url, width: '200px'
     %div
