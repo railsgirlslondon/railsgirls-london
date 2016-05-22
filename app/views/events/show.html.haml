@@ -43,9 +43,7 @@
                 %br
                 - if @event.address_line_2.present?
                   #{@event.address_line_2}
-                  %br
                 #{@event.address_city},
-                %br
                 #{@event.host.address_postcode}
                 - unless @event.host.image_url.blank?
                   = image_tag @event.host.image_url, class: "img-responsive thumbnail no-border"
@@ -58,7 +56,7 @@
                   %p
                     %b 18:30 - 21:00
                     %br
-                    %b Installation party
+                    %b Installation Party
                     %br
                     Get to know the other attendees a bit beforehand. Bring your laptop if you can, so we can install Ruby on Rails for you. Fun opportunity for networking.
                 .col-md-7
@@ -66,13 +64,14 @@
                   %p
                     %b 9:00 - 9:30
                     %br
-                    %b Registration & coffee
+                    %b Registration & Coffee
                   %p
                     %b 9:30 - 10:00
                     %br
                     %b Welcome
                     %br
-                    We'll let you know the schedule for the day
+                    We'll let you know the schedule for the day.
+                    Plus, a word from our sponsors.
                   %p
                     %b 10:00 - 13:00
                     %br
@@ -83,17 +82,19 @@
                     %br
                     %b App Design Workshop
                     %br
-                    Your application will start to take form
+                    Your application will start to take form.
                     %br
-                    %b Lightning Talks I by the coaches
+                    %b Lightning Talks I
                     %br
-                    Plus words from our sponsors
+                    Presented by our coaches.
                     %br
                     %b Getting Started with Ruby on Rails
                     %br
-                    Kickstart your first web application on Rails
+                    Kickstart your first web application on Rails.
                     %br
-                    %b Lightning Talks II by the coaches
+                    %b Lightning Talks II
+                    %br
+                    Presented by our coaches.
                   %p
                     %b 13:00 - 14:00
                     %br
@@ -101,15 +102,15 @@
                   %p
                     %b 14:00 - 18:00
                     %br
-                    %b Application Workshop
+                    %b Application Design Workshop
                     %br
-                    Extend your application
+                    Extend your application.
                   %p
                     %b 18:00 - late
                     %br
                     %b Afterparty
                     %br
-                    Mingling with all the participants
+                    Mingling with all the participants.
 
 
 
