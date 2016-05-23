@@ -34,6 +34,21 @@ describe SponsorComparator do
         end
       end
     end
+
+    context "with no upcoming event" do
+      let(:subject) { SponsorComparator.new(nil) }
+
+      let!(:sponsorship1) { Fabricate(:event_sponsorship) }
+      let!(:sponsorship2) { Fabricate(:event_sponsorship) }
+      let!(:sponsorship3) { Fabricate(:event_sponsorship, sponsor: sponsorship2.sponsor, sponsorable_id: event.id) }
+
+      let!(:sponsor1) { sponsorship1.sponsor }
+      let!(:sponsor2) { sponsorship2.sponsor }
+
+      it "returns more frequent sponsors above less frequent" do
+        expect(subject.sponsors_for_logos).to eql([sponsor2, sponsor1])
+      end
+    end
   end
 
 end

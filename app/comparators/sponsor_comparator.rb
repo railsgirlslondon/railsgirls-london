@@ -22,7 +22,7 @@ class SponsorComparator
   attr_reader :event
 
   def event_sponsors
-    @event_sponsors ||= event.sponsors
+    @event_sponsors ||= (event.present? ? event.sponsors : [])
   end
 
   def event_sponsor?(sponsor)
