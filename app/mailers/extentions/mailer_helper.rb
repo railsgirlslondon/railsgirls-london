@@ -18,10 +18,11 @@ module Extentions
     def load_attachments
       [
         "london-girl.png",
-        "funding-circle.jpg",
+        "funding_circle.png",
         "shutl.png",
         "railsgirls-heart.png",
         "railsgirls-london.png",
+        "deliveroo.png",
         "twitter.png",
         "facebook.png",
         "github.png",
