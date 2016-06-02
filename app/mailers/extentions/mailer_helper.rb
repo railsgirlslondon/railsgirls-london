@@ -23,6 +23,7 @@ module Extentions
         "railsgirls-heart.png",
         "railsgirls-london.png",
         "deliveroo.png",
+        "thoughtworks.jpg",
         "twitter.png",
         "facebook.png",
         "github.png",
