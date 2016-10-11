@@ -7,6 +7,8 @@ class Sponsorship < ActiveRecord::Base
   validate :host_must_have_address, if: :host?
   validate :host_must_be_unique, if: :host?
 
+  scope :most_recent, -> { order(created_at: :asc).first }
+
   def host_must_have_address
     return if sponsor.has_full_address?
 
