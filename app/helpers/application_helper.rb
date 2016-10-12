@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def landing_page_anchor_link(anchor)
-    params[:controller] == "home" ?  "##{anchor}" : "#{root_path}##{anchor}"
+    "#{root_path}##{anchor}"
   end
 
   def display_base_errors resource
