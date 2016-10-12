@@ -6,7 +6,7 @@ RailsgirlsLondon::Application.routes.draw do
   get "/404", to: "errors#not_found"
   get "/london(/:slug)", to: redirect("/"), slug: /.*/
 
-  #get "/:id/sponsor" => "home#sponsors", as: :city_sponsor
+  get "/code_of_conduct" => 'home#code_of_conduct'
 
   get "/unsubscribe/:member_uuid" => "unsubscribes#new", as: :unsubscribe
   post "/unsubscribe/:member_uuid" => "unsubscribes#create"

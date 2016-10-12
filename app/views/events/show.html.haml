@@ -47,6 +47,9 @@
                 #{@event.host.address_postcode}
                 - unless @event.host.image_url.blank?
                   = image_tag @event.host.image_url, class: "img-responsive thumbnail no-border"
+                = link_to "http://railsgirlslondon.herokuapp.com/", class: "slack slack-event-details" do
+                  = image_tag "slack.png"
+                  %b Join Rails Girls London on Slack
           .row
             .col-md-12
               %h2 Timetable:
