@@ -26,7 +26,8 @@ module Extentions
         "twitter.png",
         "facebook.png",
         "github.png",
-        "gplus.png"
+        "gplus.png",
+        "honeycomb.png"
       ].each do |image|
         attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
       end
