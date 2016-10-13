@@ -140,7 +140,7 @@
   .container
     .row
       .col-md-12
-        - @event.sponsors.each_slice(4) do |group|
+        - sponsors.each_slice(4) do |group|
           .row
             - group.each do |sponsor|
               .col-md-3

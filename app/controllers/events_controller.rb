@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
   before_filter :setup_properties
+  helper_method :sponsors
 
   def show
     @event = Event.find params[:id]
@@ -12,6 +13,10 @@ class EventsController < ApplicationController
   private
   def setup_properties
     @event = Event.find params[:id]
+  end
+
+  def sponsors
+    @sponsors ||= @event.sponsors.shuffle
   end
 
 end
