@@ -120,12 +120,4 @@
       %strong Thank you
       for volunteering to be a coach at Rails Girls London!
 
-  .bottom{ style: "width: 100%; padding: 50px 0 0 0px; display: block;" }
-    %strong Sponsors:
-    %br
-    = image_tag attachments["skype.jpg"].url, width: '180px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments["skyscanner.png"].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['shutl.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['cake.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['friday.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['which.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
+  = render 'sponsor/email_logos'
