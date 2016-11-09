@@ -5,9 +5,12 @@
 .content
   .left.inline{ style: "width: 100%; min-width: 260px; display: inline-block;" }
     %p.lead{ style: "font-size: 18px; color: #333333; padding-bottom: 10px; line-height: 22px;"}
-      We're delighted to offer you a place at our #{@event.title if @event.title.present?} workshop at #{@event.host.name}.
+      We're delighted to offer you a place at our #{@event.title if @event.title.present?} workshop at
+      %b
+        #{@event.host.name}.
       %br
-      %span{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      %br
+      %b{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
         Address: #{@event.host.address_line_1}, #{@event.host.address_city}, #{@event.host.address_postcode}
     .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 0px 0 11px 0; padding: 0 10px;" }= @event.dates
     =link_to "View details", event_url(@event), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
@@ -33,6 +36,13 @@
       You should also try to pre-install Rails. For instructions:
       %br
       =link_to " http://guides.railsgirls.com/install", 'http://guides.railsgirls.com/install', style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      Also
+      %b join us on SLACK,
+      so you can ask questions or just chat to other attendees and coaches:
+      %br
+        =link_to "http://slack.railsgirls.london/", "http://slack.railsgirls.london/", style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
 
     %h3{style: "color: #333333;"} What happens at the event?
 

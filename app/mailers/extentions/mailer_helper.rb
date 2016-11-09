@@ -22,6 +22,7 @@ module Extentions
         "railsgirls-london.png",
         "king_.png",
         "carwow_.png",
+        "teespring.jpg",
         "heroku.png",
         "twitter.png",
         "facebook.png",
