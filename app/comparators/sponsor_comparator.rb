@@ -5,16 +5,18 @@ class SponsorComparator
   end
 
   def sponsors_for_logos
-    Sponsor.all.sort { |a, b|
-      a_is_sponsor = current_event_sponsor?(a)
-      b_is_sponsor = current_event_sponsor?(b)
+    Sponsor.all
+      .reject { |sponsor| sponsor.sponsorships.empty? }
+      .sort { |a, b|
+        a_is_sponsor = current_event_sponsor?(a)
+        b_is_sponsor = current_event_sponsor?(b)
 
-      if a_is_sponsor == b_is_sponsor
-        sort_sponsors_by_relevance(a, b)
-      else
-        a_is_sponsor ? +1 : -1
-      end
-    }.reverse
+        if a_is_sponsor == b_is_sponsor
+          sort_sponsors_by_relevance(a, b)
+        else
+          a_is_sponsor ? +1 : -1
+        end
+      }.reverse
   end
 
   private
