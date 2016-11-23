@@ -14,10 +14,10 @@ RailsgirlsLondon::Application.routes.draw do
 
   resources :events, only: [:show] do
     resources :registrations, only: [:new, :create]
-    resources :feedback, only: [:new, :show]
+    resources :feedbacks, only: [:new, :show]
   end
   resources :events do
-    resource :feedback,  only: [ :create ]
+    resource :feedbacks,  only: [ :create ]
   end
 
   namespace :admin do

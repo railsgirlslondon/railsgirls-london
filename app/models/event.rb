@@ -7,7 +7,8 @@ class Event < ActiveRecord::Base
     :ends_on,
     :image,
     :registration_deadline,
-    :active
+    :active,
+    :accepting_feedback
   ]
 
   attr_accessible *ATTRIBUTES
@@ -19,6 +20,7 @@ class Event < ActiveRecord::Base
   validates :description, :starts_on, :ends_on, presence: true
 
   has_many :registrations
+  has_many :feedbacks
 
   default_scope { order('events.created_at DESC') }
 
@@ -35,6 +37,10 @@ class Event < ActiveRecord::Base
 
   def registrations_open?
     accepting_registrations? and Date.today <= registration_deadline
+  end
+
+  def accepting_feedback?
+    accepting_feedback
   end
 
   def rsvps_available?
@@ -78,6 +84,12 @@ class Event < ActiveRecord::Base
 
   def weeklies_invitees
     registrations.where :selection_state => "RGL Weeklies"
+  end
+
+  def ask_for_feedback
+    selected_applicants.each { |registration|
+      EventMailer.send(:ask_for_feedback, self, registration).deliver_now
+    }
   end
 
   def to_s
