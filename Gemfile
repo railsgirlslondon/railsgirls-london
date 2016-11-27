@@ -1,19 +1,27 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.3.3'
 
-gem 'rails', '~> 4.2.4'
+gem 'rails', '~> 5.0.0'
 gem 'unicorn'
-
-gem 'haml-rails'
-gem 'simple_form', '~> 3.2.0'
-gem 'devise'
-gem 'protected_attributes' # temporary
-gem 'ruby-trello', require: false
 gem 'pg'
-gem 'newrelic_rpm'
-gem 'icalendar'
+gem 'sass-rails'
+gem 'jquery-rails'
+gem 'haml-rails'
+gem 'devise'
+
+gem 'bootstrap-sass'
+gem 'bourbon'
+gem 'neat'
+gem 'simple_form'
 gem 'evil_icons' # SVG icon set
+
+gem 'icalendar'
+gem 'ruby-trello', require: false
+gem 'newrelic_rpm'
+
+gem 'premailer-rails'
+gem 'nokogiri'
 
 group :production do
   gem 'rails_12factor'
@@ -46,11 +54,6 @@ group :test do
 end
 
 group :assets do
-  gem 'coffee-rails', '~> 4.0.0.rc1'
-  gem 'uglifier', '>= 1.3.0'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
-
-gem 'jquery-rails'
-gem 'sass-rails',  '~> 4.0.0.rc1'
-gem 'bootstrap-sass'
-gem 'bourbon'
