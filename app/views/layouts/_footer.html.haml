@@ -1,16 +1,33 @@
-%footer
+%footer#contact
   .container
-    .row
-      .span2.offset2
-        =image_tag "london-girl.png"
-      .span6
-        .copyright
-          2013, Rails Girls London.
-          %a{ href: "mailto:rgl-organisers@googlegroups.com" } Contact us,
-          join us on
-          %a{ href: "http://slack.railsgirls.london/" } Slack
-          or follow us on
-          %a{ href: "http://www.twitter.com/#{city_twitter}" } Twitter
-          and
-          %a{ href: "http://www.facebook.com/#{city_facebook}" } Facebook
-          .slogan Get excited and make things!
+    .content.rg-footer
+      .london-cats
+        =image_tag "london_cats.png"
+      .copyright
+        2016, Rails Girls London.
+        %br
+        Contact us
+        %a{ href: "mailto:railsgirlslondon@gmail.com" } via email
+        , join us on
+        %a{ href: "http://slack.railsgirls.london/" } Slack
+        or follow us on
+        %a{ href: "http://www.twitter.com/#{city_twitter}" } Twitter
+        and
+        %a{ href: "http://www.facebook.com/#{city_facebook}" } Facebook
+        %h4
+          Get excited and make things!
+
+-#
+-# .section
+-#   .container
+-#     %h1 Keep in touch with us!
+-#     = evil_icon "ei-envelope", size: :m, class: "pull-left ei-icon"
+-#     You can #{link_to "email us", "mailto:railsgirlslondon@gmail.com"} at #{link_to "railsgirlslondon@gmail.com", "mailto:railsgirlslondon@gmail.com"}.
+-#     = evil_icon "ei-like", size: :m, class: "pull-left ei-icon"
+-#     Join the Rails Girls community on
+-#     #{link_to "Twitter", "https://twitter.com/railsgirls_ldn"},
+-#     #{link_to "Facebook", "http://www.facebook.com/railsgirlslondon"},
+-#     #{link_to "Google+", "https://plus.google.com/104252944343767158344/"}
+-#     or #{link_to "Slack", "http://slack.railsgirls.london/"}.
+-#     = evil_icon "ei-comment", size: :m, class: "pull-left ei-icon"
+-#     Join #{link_to "our student mailing list", "https://groups.google.com/forum/#!forum/rails-girls-london"} or #{link_to "our coach mailing list", "https://groups.google.com/forum/#!forum/rails-girls-london-coaches"} to stay up to date about our future events.

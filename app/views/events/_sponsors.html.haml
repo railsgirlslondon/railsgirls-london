@@ -1,0 +1,13 @@
+.section.separator
+  .container
+    .content-title
+      %h1.block-title
+        Our Sponsors
+
+.section.separator.sponsor-block
+  .container
+    - sponsors.each_slice(4) do |group|
+      - group.each do |sponsor|
+        .sponsor__block--item
+          = link_to sponsor.website, class: "thumbnail no-border" do
+            = image_tag sponsor.image_url

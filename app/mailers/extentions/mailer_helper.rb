@@ -17,18 +17,21 @@ module Extentions
 
     def load_attachments
       [
-        "london-girl.png",
-        "railsgirls-heart.png",
-        "railsgirls-london.png",
+        "rails_girls_london_logo.png",
         "king_.png",
         "carwow_.png",
         "teespring.jpg",
+        "monzo.png",
         "heroku.png",
-        "twitter.png",
-        "facebook.png",
-        "github.png",
-        "gplus.png",
-        "honeycomb.png"
+        # "twitter.png",
+        # "facebook.png",
+        # "github.png",
+        # "gplus.png",
+        "honeycomb.png",
+        "mongodb.jpg",
+        "friday_logo.png",
+        "zendesk_logo.jpg",
+        "google_logo.jpg"
       ].each do |image|
         attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
       end

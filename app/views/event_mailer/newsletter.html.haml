@@ -1,0 +1,60 @@
+%h3{style: "border-bottom: 1px solid #E5E5E5; color: #434950; font-size: 26px; font-weight: 400; line-height: 30px; padding-bottom: 10px; margin-bottom: 15px;" }
+  Hi
+  #{@registration.first_name},
+
+.content
+  .left.inline{ style: "width: 100%; min-width: 260px; display: inline-block;" }
+    %p.lead{ style: "font-size: 18px; color: #333333; padding-bottom: 10px; line-height: 22px;"}
+      We're delighted to offer you a place at our #{@event.title if @event.title.present?} workshop at #{@event.host.name}.
+      %br
+      %span{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+        Address: #{@event.host.address_line_1}, #{@event.host.address_city}, #{@event.host.address_postcode}
+    .title{ style: "border-left: 4px solid #E5E5E5; font-size: 26.5px; margin: 0px 0 11px 0; padding: 0 10px;" }= @event.dates
+    =link_to "View details", event_url(@event), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+
+    %div{style: "background-color: #F7F7F7; border-radius: 5px; box-shadow: 1px 1px 0 rgba(250, 250, 250, 0.5) inset, -1px -1px 2px rgba(250, 250, 250, 0.1) inset; font-size: 18px; padding: 12px 19px; text-align: center; margin: 31px 0 25px; border: 1px solid #dddddd;"}
+      =link_to "Confirm your attendance status", invitation_url(@invitation), style: "color: #eb5d42; text-decoration: none; font-weight: 500; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7)"
+
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      %b In order to secure your place, we ask you to confirm your attendance.
+      We require this so we can re-allocate your place if you are unable to attend and give as many people as possible the opportunity to join us.
+
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      During the free 1.5-day workshop, you will learn about the exciting world of Ruby on Rails and build a web application.
+
+  .left.inline{ style: "width: 100%; min-width: 260px; display: inline-block;" }
+
+    %h3{style: "color: #333333;"} What you need:
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      Please
+      %b bring your laptop and ID (to prove you are over 18).
+      %b Attendees under 18 must be accompanied by an adult.
+      %br
+      You should also try to pre-install Rails. For instructions:
+      %br
+      =link_to " http://guides.railsgirls.com/install", 'http://guides.railsgirls.com/install', style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+
+    %h3{style: "color: #333333;"} What happens at the event?
+
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      The Installation Party will kick off
+      %span{style: "font-weight: 500;"}on #{@event.starts_on.strftime("%A")} the #{@event.starts_on.day.ordinalize } of #{@event.starts_on.strftime("%B")} at 6:30pm.
+      The goal of the evening is to get you set up for the Saturday workshop and meet other attendees. We will provide food and drinks.
+      %br
+    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
+      %b #{@event.ends_on.strftime("%A")}
+      will be about developing your web application. The workshop will start
+      %b{style: "font-weight: 500;"} at 9am with breakfast and introduction.
+      You will then be split into small groups of 3 people (2 students + 1 coach) to work on the tutorials.
+      There will be a break for lunch at 12:30, and lightning talks 13:45.
+      We will wrap up the workshop at around 5:30pm and enjoy the After Party.
+
+  .right.inline{ style: "width: 100%; min-width: 180px; margin-top: 25px; display: inline-block;" }
+    =image_tag attachments['london-girl.png'].url, width: '180px'
+    %div{style: "margin: 15px 0; "}
+      %highlight{ style: "color: #333333; text-align: center; font-weight: 500; font-size: 13px" }Get excited and learn to build the web!
+    %p.lead{ style: "font-size: 15px; color: #4E5563; margin-top: 25px;" }
+      %strong Thank you
+      for applying to our Rails Girls London workshop!
+
+  = render 'sponsor/email_logos'

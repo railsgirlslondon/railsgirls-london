@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
     :accepting_feedback
   ]
 
-  attr_accessible *ATTRIBUTES
+  # attr_accessible *ATTRIBUTES
 
   include Extentions::Sponsorable
   include Extentions::Coachable
@@ -74,6 +74,10 @@ class Event < ActiveRecord::Base
     (selected_applicants + coachings).sort_by(&:name)
   end
 
+  def attended_students
+    selected_applicants.where(attended: :attended)
+  end
+
   def instruct_coaches
     coaches.each {|coach| instruct(coach)}
   end
@@ -87,7 +91,7 @@ class Event < ActiveRecord::Base
   end
 
   def ask_for_feedback
-    selected_applicants.each { |registration|
+    attended_students.each { |registration|
       EventMailer.send(:ask_for_feedback, self, registration).deliver_now
     }
   end

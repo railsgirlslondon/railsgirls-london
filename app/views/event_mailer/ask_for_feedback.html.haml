@@ -1,18 +1,129 @@
-%h3{style: "border-bottom: 1px solid #E5E5E5; color: #434950; font-size: 26px; font-weight: 400; line-height: 30px; padding-bottom: 10px; margin-bottom: 15px;" }
-  Hi
-  #{@registration.first_name},
+.ask-for-feedback
+  .section.separator
+    .container
+      .content-title
+        %h1.block-title
+          Thank you for coming to Rails Girls London last weekend :)
 
-.content
-  .left.inline{ style: "width: 100%; min-width: 260px; display: inline-block;" }
-    %p.lead{ style: "font-size: 18px; color: #333333; padding-bottom: 10px; line-height: 22px;"}
-      Thank you for coming to Rails Girls London!
+  .section.separator
+    .container
+      .content
+        %h3
+          Hi
+          #{@registration.first_name},
 
-    %p
-      We would appreciate your feedback on the event, so we can make the next one better!
 
-    %p
-      =link_to "Submit feedback", new_event_feedback_url(@event), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+        %p
+          Thank you for coming to Rails Girls London!
+        %br
+          We hope you enjoyed the experience and already tried coding a little on your own during this week.
+          If you have any further questions there is always someone on our
+          = link_to "Slack channel", "http://slack.railsgirls.london"
+          ready to help you.
 
-    %p
-      Stay in touch with the event's attendees and coaches by
-      =link_to "Joining our Slack channel", "http://slack.railsgirls.london", style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
+        %p
+          We would really appreciate your feedback on the workshop, so we can make the next one better!
+
+        %p
+          =link_to "Submit feedback", new_event_feedback_url(@event), class: 'button-primary'
+
+  .section.separator
+    .container
+      .content-title
+        %h1.block-title
+          A word from our sponsors:
+
+  .section
+    .container
+      .content
+        %article
+          .logo_image__block
+            =link_to "https://king.com/" do
+              = image_tag attachments["king_.png"].url, alt: "King Games"
+          %p.blockquote
+            A big thank you for joining us last weekend! We hope you had as good of a time as we did!
+            Before you go, a quick note especially to all you students:
+            Don’t miss the chance to go to San Francisco on our King GDC Scholarship for Aspiring Women in Games.
+            The scholarship is open to female (cis/trans) students, in their last or penultimate year of study with a permanent EU residency. For more info and to apply:
+            =link_to "www.diversi.nu/gdcscholarship", "http://www.diversi.nu/gdcscholarship/"
+            And of course, if you’re interested in joining the Kingdom…
+            From Designers to Developers to Data Scientists. We’re hiring them all. Not to mention all those vacancies that don’t begin with ‘D’.
+            A great saga needs all sorts of heroes: Get to know us at:
+            =link_to "jobs.king.com", "https://jobs.king.com/"
+
+        %article
+          .logo_image__block
+            =link_to "https://www.carwow.co.uk/" do
+              = image_tag attachments["carwow_.png"].url, alt: "Carwow"
+          %p.blockquote
+            We're not petrol-heads, we're just relentlessly driven and passionate about creating the best car buying experience. You can learn more about our tech team at our blog
+            =link_to "medium.com/carwow-product-engineering", "https://medium.com/carwow-product-engineering"
+            and see our open positions at
+            =link_to "www.carwow.co.uk/jobs", "https://www.carwow.co.uk/jobs"
+
+        %article
+          .logo_image__block
+            =link_to "https://www.honeycomb.tv/" do
+              = image_tag attachments["honeycomb.png"].url, alt: "Honeycomb"
+          %p.blockquote
+            Thank you for making Honeycomb part of Rails Girls London. An inspiring event that shows the value of inclusive collaboration. We are smarter together.
+            If you want to follow up on the 'Design Thinking' ideas from my slides check out IDEO:
+            =link_to "designthinking.ideo.com/?p=51", "https://designthinking.ideo.com/?p=51"
+
+        %article
+          .logo_image__block
+            =link_to "https://teespring.com/" do
+              = image_tag attachments["teespring.jpg"].url, alt: "Teespring"
+          %p.blockquote
+            Teespring - The best way to sell custom apparel online!
+            Teespring makes it easier than ever to sell custom printed apparel. Leverage the power of your network to earn money with absolutely no cost.
+            =link_to "teespring.com/direct", "https://teespring.com/direct"
+
+        %article
+          .logo_image__block
+            =link_to "https://monzo.com/" do
+              = image_tag attachments["monzo.png"].url, alt: "Monzo"
+          %p.blockquote
+            Monzo is building a bank designed for your smartphone. A bank for the 21st century, with no unnecessary fees and no hidden charges. A bank that actually helps people spend less and live more.
+            Join the Beta (iOS and Android) and help us build our bank. You'll get a contactless debit card that works with our beautiful app, and fee-free spending abroad.
+            Sign up through this special Rails Girls link and skip our waiting list of thousands:
+            =link_to "goo.gl/dbAfJv", "https://goo.gl/dbAfJv"
+            Find out more:
+            =link_to "monzo.com", "https://monzo.com/"
+
+  .section.separator
+    .container
+
+  .section.separator
+    .container
+      .content
+        .event-sponsor-logos
+          = image_tag attachments["king_.png"].url
+          = image_tag attachments['heroku.png'].url
+          = image_tag attachments['carwow_.png'].url
+          = image_tag attachments['honeycomb.png'].url
+          = image_tag attachments['teespring.jpg'].url
+          = image_tag attachments["mongodb.jpg"].url
+          = image_tag attachments['friday_logo.png'].url
+          = image_tag attachments['zendesk_logo.jpg'].url
+          = image_tag attachments['google_logo.jpg'].url
+          = image_tag attachments['monzo.png'].url
+
+  .section.separator
+    .container
+      .content
+        %p
+          Stay in touch with the event's attendees, coaches and all the updates:
+        %ul
+          %li
+            = link_to "Slack", "http://slack.railsgirls.london"
+          %li
+            = link_to "Twitter", "https://twitter.com/railsgirls_ldn"
+          %li
+            = link_to "Facebook", "https://www.facebook.com/RailsGirlsLondon/"
+
+  .section
+    .container
+      .content
+        %p
+          Rails Girls London team :)
