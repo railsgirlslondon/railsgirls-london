@@ -1,110 +1,25 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+@import "bourbon"
+@import "neat"
 
-@import 'bourbon'
-@import 'mixins/buttons'
-@import 'mixins/images'
-@import 'partials/colors'
-@import 'partials/settings'
-@import 'bootstrap-sprockets'
-@import 'evil-icons'
+@import "mixins/buttons"
+@import "mixins/images"
 
-.splash
-  color: white
-  padding: 25rem $site-padding 18rem
-  h1
-    font-size: 58px
-  h1, h2
-    margin: 0
-    text-align: center
-    b
-      font-weight: 600
-  p
-    text-align: center
+@import "evil-icons"
 
-.landing
-  +splash(asset_path("bg_img.jpg"), $secondary-rg-color, red)
+@import "partials/colors"
+@import "partials/variables"
+@import "partials/breakpoints"
+@import "partials/common"
+@import "partials/forms"
+@import "partials/typography"
+@import "partials/buttons"
 
-.event-page
-  +splash(asset_path("bg_img1.jpg"), $secondary-rg-color, red)
+@import "admin"
+  
+@import "partials/header"
+@import "partials/footer"
+@import "partials/splash"
 
-
-
-
-.next-event
-  // background-color: rgba(255, 255, 255, 0.76)
-  border-radius: 3px
-  h3
-    color: white
-  h1
-    color: white
-    font-weight: 600
-    // padding-bottom: 2rem
-
-.ei-icon
-  color: $secondary-rg-color
-
-
-footer
-  color: #666
-  overflow: hidden
-  width: 100%
-  padding: 10px 0
-  background:  $gray-tone
-  line-height: 1.5
-  text-align: center
-  margin-top: 50px
-
-  a
-    color: #111
-    border-bottom: 1px dotted #111
-
-
-section
-  margin-bottom: 50px
-
-.fork-me
-  img
-    position: absolute
-    top: 0
-    right: 0
-    border: 0
-
-
-notice
-  text-align: center
-  display: block
-  font-size: 15px
-  line-height: 28px
-  padding-top: 2px
-  background-color: $gray-tone
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
-  border-bottom: 1px solid $warm-gray
-
-#map-canvas
-  height: 300px
-
-.hidden
-  display: none
-
-.slack
-  margin-top: 30px
-  display: block
-  img
-    height: 50px
-
-.slack-event-details
-  margin-top: 60px
-  img
-    height: 20px
+@import "pages/home/*"
+@import "pages/event/*"
+@import "pages/feedback"

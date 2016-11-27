@@ -1,0 +1,39 @@
+.main-navigation
+  background-color: $primary-brand-color
+  padding: 0 $site-padding
+  .container
+    height: $header-height
+    position: relative
+  img
+    height: $header-height
+    padding: $header-height/4 0
+  h1
+    position: absolute
+    bottom: 0
+    left: 0
+    line-height: 0
+    margin: 0
+  a
+    letter-spacing: 0.1em
+    +link-setup(white, $nav-hover-color)
+  nav
+    position: absolute
+    right: 0
+    bottom: 0
+    margin: 0
+  ul
+    margin: 0
+  li
+    display: inline-block
+    margin: 0 0 0 2rem
+    line-height: $header-height
+
+.subnav__blurb
+  background-color: $secondary-color
+  h2
+    font-size: 1.76rem
+    font-weight: 700
+    margin: 0
+    color: $secondary-darker-color
+    padding: 0.4em 0
+    letter-spacing: 0.09em

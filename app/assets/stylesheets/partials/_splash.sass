@@ -1,0 +1,44 @@
+.splash
+  color: white
+  padding: 17rem $site-padding 14rem
+  text-align: center
+  &.home-page-next-event-banner
+    +splash(asset_path("bg_img1.jpg"), $various-title-color-2, $various-title-color-2)
+  &.hero-banner
+    +splash(asset_path("bg_img.jpg"), $grey-blue, $grey-blue)
+  &.event-banner
+    +splash(asset_path("event_img.jpg"), $cool-purple, $cool-purple)
+  h1
+    margin: 0
+    font-size: 2rem
+    font-weight: 200
+  h2
+    font-size: modular-scale(2)
+    letter-spacing: 0.09em
+    font-weight: 300
+    text-transform: uppercase
+  &.with-subtitle
+    padding: 24rem $site-padding 0
+    h2
+      font-size: 1.8rem
+      background: #8880d8
+      position: absolute
+      bottom: 0
+      left: 0
+      margin: 0
+      padding: 2rem 4rem
+      border-radius: 4px 4px 0 0
+
+  .default
+    max-width: 50rem
+    h1
+      font-size: 3rem
+      font-weight: 400
+    p
+      font-size: 1.8rem
+      font-weight: 400
+      margin: 0
+    a
+      color: $primary-brand-color
+      font-weight: 600
+      text-decoration: underline
