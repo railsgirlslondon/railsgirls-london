@@ -1,0 +1,81 @@
+$max-width: 120rem
+$small-max-width: 102rem
+$grid-columns: 12
+$fg-gutter: 2.5em
+
+$site-padding: 5%
+
+// $em-base: 16
+
+$header-height: 9rem
+$footer-height: 22rem
+
+*, *:before, *:after
+  box-sizing: border-box
+
+html, body
+  height: 100%
+  margin: 0
+
+#page
+  position: relative
+  min-height: 100%
+  margin-bottom: -$footer-height
+  &:after
+    display: block
+    content: ""
+    height: $footer-height
+
+main
+  margin: 0 auto
+  padding: 0
+
+main > header, main > section
+  padding: 0 $site-padding
+
+.container
+  @include outer-container
+
+.content
+  padding: 2rem $site-padding/2 6rem
+
+.content-title
+  padding: 4rem $site-padding/2
+
+a
+  +link-setup($default-link-color, darken($default-link-color, 10%) )
+  font-weight: 500
+  img
+    border: 0
+
+figure
+  margin: 1.6rem 0
+  figcaption
+    font-size: 1.25rem
+    font-style: italic
+    line-height: 1em
+    color: #666
+  img
+    max-width: 100%
+    display: block
+    height: auto
+    margin-left: auto
+    margin-right: auto
+
+.thumbnail__image
+  padding: 4px
+  margin-bottom: 2rem
+  background-color: white
+  border: 1px solid $border-color
+
+article
+  ul
+    list-style: disc
+  ol
+    list-style: decimal
+
+pre
+  border-radius: 2px
+
+.separator
+  border-bottom: 1px solid #f2f2f2

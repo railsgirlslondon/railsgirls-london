@@ -1,4 +1,20 @@
-=darker-button($text, $hover: darken($text, 10%))
-  color: $text
+=link-setup($color, $hover-color, $text-decoration: none, $text-decoration-hover: underline )
+  @include transition(color 0.1s, background 0.1s)
+  color: $color
+  text-decoration: $text-decoration
   &:hover
-    color: $hover
+    color: $hover-color
+    text-decoration: $text-decoration-hover
+
+
+=button-setup($color, $bg-color, $hover-color, $hover-bg-color, $border-color, $hover-border-color )
+  @include transition(color 0.1s, background 0.1s)
+  color: $color
+  background-color: $bg-color
+  border: 1px solid $border-color
+  border-radius: 4px
+  cursor: pointer
+  &:hover
+    color: $hover-color
+    background-color: $hover-bg-color
+    border-color: $hover-border-color

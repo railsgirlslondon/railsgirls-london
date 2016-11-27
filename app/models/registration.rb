@@ -27,14 +27,14 @@ class Registration < ActiveRecord::Base
     :preferred_language
   ]
 
-  attr_accessible(
-    *(REQUIRED_ATTRIBUTES + REGISTRATION_ATTRIBUTES),
-    :twitter,
-    :dietary_restrictions,
-    :selection_state,
-    :attending,
-    :member
-  )
+  # attr_accessible(
+  #   *(REQUIRED_ATTRIBUTES + REGISTRATION_ATTRIBUTES),
+  #   :twitter,
+  #   :dietary_restrictions,
+  #   :selection_state,
+  #   :attending,
+  #   :member
+  # )
 
   validates *REQUIRED_ATTRIBUTES,     presence: true
   validates *(REGISTRATION_ATTRIBUTES - [:gender]), presence: true, on: :registration

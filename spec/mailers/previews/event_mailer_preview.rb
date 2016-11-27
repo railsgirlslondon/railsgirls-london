@@ -13,5 +13,19 @@ class EventMailerPreview < ActionMailer::Preview
     EventMailer.invitation_reminder(event, registration, invitation)
   end
 
+  def newsletter
+  end
 
+  def invite
+    event = Event.find(8)
+    registration = Registration.find(945)
+    invitation = Invitation.find(1540)
+    EventMailer.invite(event, registration, invitation)
+  end
+
+  def ask_for_feedback
+    event = Event.find(8)
+    registration = Registration.find(945)
+    EventMailer.ask_for_feedback(event, registration)
+  end
 end

@@ -17,11 +17,10 @@
     = csrf_meta_tags
     = yield(:head)
   %body
-    = render 'layouts/navigation'
+    #page
+      = render 'layouts/navigation'
 
-    #main{:role => "main"}
-      = yield
+      %main{:role => "main", class: "#{yield(:main_class)}page" }
+        = yield
 
-
-
-  =render 'layouts/footer'
+    =render 'layouts/footer'

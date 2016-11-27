@@ -9,7 +9,7 @@ module Extentions
 
     included do
       enum attended: [:unknown, :attended, :cancelled, :no_show]
-      attr_accessible :attended, :attendance_note
+      # attr_accessible :attended, :attendance_note
     end
   end
 end

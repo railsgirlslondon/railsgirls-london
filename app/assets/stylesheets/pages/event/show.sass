@@ -1,0 +1,37 @@
+.eventpage
+  #map-canvas
+    height: 30rem
+    width: 30rem
+
+  .event-host
+    @include span-columns(4)
+    img
+      width: 30rem
+      height: auto
+
+  .event-timetable
+    @include span-columns(8)
+    .friday, .saturday
+      @include span-columns(4 of 8)
+      @include omega
+
+
+  .coach-img__item
+    @include span-columns(2)
+    height: 15rem
+    text-align: center
+    &:nth-child(6n+0)
+      @include omega
+
+  .sponsor-block
+    .sponsor__block--item
+      @include span-columns(3)
+      @include omega()
+      padding: 1rem
+      height: auto
+      img
+        display: block
+        max-width: 100%
+        height: auto
+        margin-left: auto
+        margin-right: auto

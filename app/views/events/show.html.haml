@@ -1,167 +1,79 @@
+- content_for :main_class, 'event'
+
 .section
-  .splash.event-page
+  .splash.event-banner.with-subtitle
     .container
-      %h1
+      %h2
         = @event.dates
-        - if @event.accepting_registrations?
-          - if @event.registrations_open?
-            %br
-            = link_to "Apply for the event", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
-            %br
-            %h4.text-center
-              Applications are open until #{I18n.l(@event.registration_deadline)}
-          - else
-            %br
-            %h4.text-center
-              Applications are now closed.
-        - else
-          Applications are not available for this event.
 
+-# .section.separator
+-#   .container
+-#     .content-title
+-#       %h1.block-title
+-#         = @event.dates
+-#         - if @event.accepting_registrations?
+-#           - if @event.registrations_open?
+-#             %br
+-#             = link_to "Apply for the event", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
+-#             %br
+-#             %h4.text-center
+-#               Applications are open until #{I18n.l(@event.registration_deadline)}
+-#           - else
+-#             %br
+-#             %h4.text-center
+-#               Applications are now closed.
+-#         - else
+-#           Applications are not available for this event.
 
-.section.separator.title
-  .container
-    .row
-      .col-md-12
-        #about
-          %h1
-            Event Details:
 
 .section.separator
   .container
-    .row
-      .col-md-8
-        - if @event.has_host?
-          = hidden_field_tag 'address', @event.host.address_postcode
-          .row
-            .col-md-6
-              %div{:class => "span5"}
-                %div{:id => "map-canvas"}
-            .col-md-6
-              %strong=link_to @event.host.name, @event.host.website
-              %address
-                =@event.address_line_1
-                %br
-                - if @event.address_line_2.present?
-                  #{@event.address_line_2}
-                #{@event.address_city},
-                #{@event.host.address_postcode}
-                - unless @event.host.image_url.blank?
-                  = image_tag @event.host.image_url, class: "img-responsive thumbnail no-border"
-                = link_to "http://slack.railsgirls.london/", class: "slack slack-event-details" do
-                  = image_tag "slack.png"
-                  %b Join Rails Girls London on Slack
-          .row
-            .col-md-12
-              %h2 Timetable:
-              .row
-                .col-md-5
-                  %h3 Friday
-                  %p
-                    %b 18:30 - 21:00
-                    %br
-                    %b Installation Party
-                    %br
-                    Get to know the other attendees a bit beforehand. Bring your laptop if you can, so we can install Ruby on Rails for you. Fun opportunity for networking.
-                .col-md-7
-                  %h3 Saturday
-                  %p
-                    %b 9:00 - 9:30
-                    %br
-                    %b Registration & Coffee
-                  %p
-                    %b 9:30 - 10:00
-                    %br
-                    %b Welcome
-                    %br
-                    We'll let you know the schedule for the day.
-                    Plus, a word from our sponsors.
-                  %p
-                    %b 10:00 - 13:00
-                    %br
-                    %b Introduction to Ruby
-                    %br
-                    Practise coding with
-                    %a{ href: "http://tryruby.org/" } tryruby.org
-                    %br
-                    %b App Design Workshop
-                    %br
-                    Your application will start to take form.
-                    %br
-                    %b Lightning Talks I
-                    %br
-                    Presented by our coaches.
-                    %br
-                    %b Getting Started with Ruby on Rails
-                    %br
-                    Kickstart your first web application on Rails.
-                    %br
-                    %b Lightning Talks II
-                    %br
-                    Presented by our coaches.
-                  %p
-                    %b 13:00 - 14:00
-                    %br
-                    %b Lunch
-                  %p
-                    %b 14:00 - 18:00
-                    %br
-                    %b Application Design Workshop
-                    %br
-                    Extend your application.
-                  %p
-                    %b 18:00 - late
-                    %br
-                    %b Afterparty
-                    %br
-                    Mingling with all the participants.
+    .content-title
+      %h1.block-title
+        Event Details
 
-
-
-
-
-
-
-
-
-      .col-md-4
-        .row
-          = render 'layouts/social_media'
-        .row
-          = render 'layouts/twitter_snippet'
-
-.section.separator.title
+.section.separator
   .container
-    .row
-      .col-md-12
-        %h1
-          Sponsors
+    .content.event-host
+      %h3
+        Sponsor Host
+      .event-host__logo
+        = image_tag @event.host.image_url
+      .event-host__name
+        = link_to "#{@event.host.name} #{@event.host.website}", @event.host.website
+      .event-host__map
+        = hidden_field_tag 'address', @event.host.address_postcode
+        %div{id: 'map-canvas'}
+      .event-host__address
+        %address
+          Address:
+          =@event.address_line_1
+          - if @event.address_line_2.present?
+            "#{@event.address_line_2}"
+          "#{@event.address_city},"
+          "#{@event.host.address_postcode}"
 
-.section
-  .container
-    .row
-      .col-md-12
-        - sponsors.each_slice(4) do |group|
-          .row
-            - group.each do |sponsor|
-              .col-md-3
-                = link_to sponsor.website, class: "thumbnail no-border" do
-                  = image_tag sponsor.image_url
-                %small
-                  %strong
-                    =link_to "#{sponsor.name} -", sponsor.website  if sponsor.image_url.nil?
-                  = sponsor.description
-%br
 
-  = render partial: "shared/coaches", locals: { coaches: @event.coaches.who_attended, title: "Organisers and coaches" }
+        -# = link_to "http://slack.railsgirls.london/", class: "slack slack-event-details" do
+        -#   = image_tag "slack.png"
+        -#   Join Rails Girls London on Slack
 
-  - if @event.registrations_open?
-    .section.separator.title
-      .container#apply-student
-        .row
-          .col-md-12
-            %h1
-              Apply now
 
-    .section
-      .container#application-student
-        = render partial: "registrations/student_form"
+    = render 'timetable'
+
+    -# = render 'layouts/twitter_snippet'
+
+= render 'sponsors'
+
+
+= render partial: "shared/coaches", locals: { coaches: @event.coaches.who_attended, title: "Organisers and coaches" }
+
+- if @event.registrations_open?
+  .section
+    .container
+      %h1
+        Apply now
+
+  .section
+    .container
+      = render "registrations/student_form"

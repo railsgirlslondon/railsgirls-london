@@ -1,26 +1,31 @@
-.row
-  .col-md-8
-    %h1 Sponsor's info
-    %p
-      We rely on the generosity of our sponsors to provide us with a venue, catering and refreshments, while also covering the costs of making the whole experience memorable for our attendees. Without this, we would be unable to continue to make such a big impact in the community. Sponsorships and contributions at any level are most welcome. We have several
-      %b sponsorship packs
-      that can be viewed
+.section.separator#sponsors
+  .container
+    .content-title
+      %h1.block-title
+        Sponsor's info
+
+.section.separator.next_event
+  .container
+    .content
+      %h3
+        Helping us with the workshop financially
+      %p
+        We rely on the generosity of our sponsors to provide us with a venue, catering and refreshments, while also covering the costs of making the whole experience memorable for our attendees. Without this, we would be unable to continue to make such a big impact in the community. Sponsorships and contributions at any level are most welcome. We have several
+        %b sponsorship packs
+        that can be viewed
       = link_to "here.", "https://s3-us-west-2.amazonaws.com/railsgirlslondon/rails_girls_london_sponsorship.pdf", target: "_blank"
 
-  .col-md-4
-    %br
-      = mail_to "railsgirlslondon@gmail.com", "Become a sponsor", class: "btn btn-primary btn-lg pull-right btn-hero"
-
-
-.row
-  .col-md-12
-    %h3
-      Hosting Rails Girls
-    %p
-      Another way to sponsor Rails Girls London is to provide the venue and catering for a future event.
       %br
-        We currently run workshops for for 200-220 people.
+        = mail_to "railsgirlslondon@gmail.com", "Become a sponsor", class: "btn btn-primary"
 
-      %br
-        %b Lets talk:
-        = mail_to "rgl-organisers@googlegroups.com", "rgl-organisers@googlegroups.com"
+    .content
+      %h3
+        Hosting Rails Girls
+      %p
+        Another way to sponsor Rails Girls London is to provide the venue and catering for a future event.
+        %br
+        We currently run workshops for for 200-240 people.
+
+        %br
+          %b Lets talk:
+          = mail_to "rgl-organisers@googlegroups.com", "rgl-organisers@googlegroups.com"

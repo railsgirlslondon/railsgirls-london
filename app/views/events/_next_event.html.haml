@@ -1,80 +1,60 @@
-
-.section.separator.title
+.section.separator#events
   .container
-    .row
-      .col-md-12
-        #events
+    .content-title
+      %h1.block-title
+        Next Rails Girls London Event
+
+- if @next_event
+  .section.separator.next_event
+    .container
+      .content
+        %blockquote
           %h1
-            Next Rails Girls London Event:
-
-.section.separator
-  .container
-    - if @next_event
-      .row
-        .col-md-6
-          %blockquote
-            %h1
-              = @next_event.dates
-
+            = @next_event.dates
           %p
             Join us for the upcoming Rails Girls London event. A free 1.5-day workshop where participants will discover the exciting world of web development through Ruby on Rails.
             With the help and guidance of our experienced coaches, attendees will create a real web application in a fun and relaxed atmosphere.
           %br
 
-          .row
-            .col-md-6
-              %h5
-                %b Where:
-                %br
-                %b
-                  = "#{@next_event.host.name } offices, #{@next_event.host.address_city}"
+          %h5
+            Where:
+            = "#{@next_event.host.name } offices, #{@next_event.host.address_city}"
 
-              .thumbnail.no-border
-                = image_tag @next_event.host.image_url
+            .thumbnail.no-border
+              = image_tag @next_event.host.image_url
 
-            .col-md-6
-              %h5
-                %b
-                  What you need:
-              %p
-                Your own laptop, curiosity and a sprinkle of imagination.
-              %br
-              %h5
-                %b
-                  What you learn:
-              %p
-                Designing, prototyping and coding with the help of our coaches.
+            %h5
+              What you need:
+            %p
+              Your own laptop, curiosity and a sprinkle of imagination.
+            %br
+            %h5
+              %b
+                What you learn:
+            %p
+              Designing, prototyping and coding with the help of our coaches.
 
 
 
-        .col-md-6
           %h1 Want to join?
-          .row
-            .col-md-6
-              = link_to "Apply as a student", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
-            .col-md-6
-              %a{ href: "mailto:railsgirlslondon@gmail.com?Subject=I want to coach at the next Rails Girls London event&body=I would love to coach because...", class: "btn btn-primary btn-lg btn-hero" } Apply to be a coach
+          = link_to "Apply as a student", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
+          %a{ href: "mailto:railsgirlslondon@gmail.com?Subject=I want to coach at the next Rails Girls London event&body=I would love to coach because...", class: "btn btn-primary btn-lg btn-hero" } Apply to be a coach
           %br
-          .row
-            .col-md-12
-              = link_to event_path(@next_event), class: "thumbnail" do
-                = image_tag @next_event.image ? @next_event.image : "london-profile.svg"
-      .row
-        .col-md-12
+            = link_to event_path(@next_event), class: "thumbnail" do
+              = image_tag @next_event.image ? @next_event.image : "london-profile.svg"
           = link_to "View more details & apply", event_path(@next_event), class: "btn btn-primary btn-lg"
-    - else
-      .row
-        .col-md-5
-          .thumbnail
-            = image_tag "london-girl.png"
-
-        .col-md-7
-          %h4 Stay tuned!
-          %p
-            We run events roughly every six months.
-          %p
-            Follow us on
-            %a{ href: "http://www.twitter.com/#{city_twitter}" } Twitter
-            or
-            %a{ href: "http://www.facebook.com/#{city_facebook}" } Facebook
-            to get notified when we open registration for our next event.
+- else
+  .section
+    .splash.home-page-next-event-banner
+      .container.default
+        %h1 Stay tuned!
+        %p
+          We run events roughly every six months.
+        %p
+          Follow us on
+          %a{ href: "http://www.twitter.com/#{city_twitter}" } Twitter
+          or
+          %a{ href: "http://www.facebook.com/#{city_facebook}" } Facebook
+          or join us on
+          = link_to "Slack channel", "http://slack.railsgirls.london"
+          to get notified when we open registration for our next event.

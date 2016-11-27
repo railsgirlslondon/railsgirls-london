@@ -1,0 +1,71 @@
+html, body
+  height: 100%
+  margin: 0
+
+// #page
+//   position: relative
+//   min-height: 100%
+//   margin-bottom: -$footer-height
+//   &:after
+//     display: block
+//     content: ""
+//     height: $footer-height
+
+.main
+  margin: 0 auto
+  padding: 0
+
+.main > section
+  padding: 0 $site-padding
+
+.container
+  @include outer-container
+
+.content
+  padding: 2rem $site-padding/2 2rem
+
+.content-title
+  padding: 4rem $site-padding/2
+
+a
+  color: $default-link-color
+  text-decoration: none
+  font-weight: 500
+  &:hover
+    color: red
+    text-decoration: underline
+  img
+    border: 0
+
+
+figure
+  margin: 1.6rem 0
+  figcaption
+    font-size: 1.25rem
+    font-style: italic
+    line-height: 1em
+    color: #666
+  img
+    max-width: 100%
+    display: block
+    height: auto
+    margin-left: auto
+    margin-right: auto
+
+.thumbnail__image
+  padding: 4px
+  margin-bottom: 2rem
+  background-color: white
+  border: 1px solid $border-color
+
+article
+  ul
+    list-style: disc
+  ol
+    list-style: decimal
+
+pre
+  border-radius: 2px
+
+.separator
+  border-bottom: 1px solid #f2f2f2

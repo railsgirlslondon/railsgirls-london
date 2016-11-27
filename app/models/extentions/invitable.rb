@@ -11,7 +11,7 @@ module Extentions
       has_many :invitations, as: :invitable
       has_many :feedbacks, through: :invitations
 
-      attr_accessible :available_slots
+      # attr_accessible :available_slots
 
     end
   end

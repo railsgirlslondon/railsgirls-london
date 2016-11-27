@@ -2,7 +2,7 @@ class Invitation < ActiveRecord::Base
   belongs_to :invitee, :polymorphic => true
   belongs_to :invitable, :polymorphic => true
 
-  attr_accessible :invitable_type, :invitable_id, :invitee_id, :invitee_type, :attending, :waiting_list, :invitable, :invitee, :comment
+  # attr_accessible :invitable_type, :invitable_id, :invitee_id, :invitee_type, :attending, :waiting_list, :invitable, :invitee, :comment
 
   validates :invitee_id, uniqueness: { scope: [:invitee_type, :invitable_id, :invitable_type ] }
 

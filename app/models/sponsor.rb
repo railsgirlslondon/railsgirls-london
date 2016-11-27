@@ -5,15 +5,15 @@ class Sponsor < ActiveRecord::Base
     :address_city
   ]
 
-  attr_accessible :name,
-                  :description,
-                  :primary_contact_email,
-                  :image_url,
-                  :website,
-                  :host,
-                  :events,
-                  :address_line_2,
-                  *MANDATORY_ADDRESS_FIELDS
+  # attr_accessible :name,
+  #                 :description,
+  #                 :primary_contact_email,
+  #                 :image_url,
+  #                 :website,
+  #                 :host,
+  #                 :events,
+  #                 :address_line_2,
+  #                 *MANDATORY_ADDRESS_FIELDS
 
   validates :name, :website, :presence => true
 
