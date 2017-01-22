@@ -1,12 +1,11 @@
 - content_for :main_class, 'event'
 
-.section
-  .splash.event-banner.with-subtitle
-    .container
-      %h2
-        = @event.dates
+%section.splash.event-banner.with-subtitle
+  .container
+    %h2
+      = @event.dates
 
--# .section.separator
+-# %section.separator
 -#   .container
 -#     .content-title
 -#       %h1.block-title
@@ -26,13 +25,13 @@
 -#           Applications are not available for this event.
 
 
-.section.separator
+%section.separator
   .container
     .content-title
       %h1.block-title
         Event Details
 
-.section.separator
+%section.separator
   .container
     .content.event-host
       %h3
@@ -69,11 +68,11 @@
 = render partial: "shared/coaches", locals: { coaches: @event.coaches.who_attended, title: "Organisers and coaches" }
 
 - if @event.registrations_open?
-  .section
+  %section
     .container
       %h1
         Apply now
 
-  .section
+  %section
     .container
       = render "registrations/student_form"

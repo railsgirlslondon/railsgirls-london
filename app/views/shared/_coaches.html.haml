@@ -1,11 +1,11 @@
 - if coaches.any?
-  .section.separator
+  %section.separator
     .container
       .content-title
         %h1.block-title
           Organisers & Coaches
 
-  .section.separator
+  %section.separator
     .container
       .content
         - coaches.each_slice(6) do |group|
@@ -14,10 +14,10 @@
               - if coach.twitter
                 %h5
                   = link_to "https://twitter.com/#{coach.twitter}", title: "@#{coach.twitter}" do
-                    .noborder= image_tag gravatar_url(coach.email), class: 'img-circle'
+                    = image_tag gravatar_url(coach.email), class: 'img-circle'
               - else
                 %h5
-                  .noborder= image_tag gravatar_url(coach.email), class: 'img-circle'
+                  = image_tag gravatar_url(coach.email), class: 'img-circle'
               %small
                 %strong
                   = coach.name

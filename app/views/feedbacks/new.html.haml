@@ -1,18 +1,17 @@
 - content_for :main_class, 'feedback'
 
-.section
-  .splash.event-banner.with-subtitle
-    .container
-      %h2
-        = @event.dates
+%section.splash.event-banner.with-subtitle
+  .container
+    %h2
+      = @event.dates
 
-.section.separator
+%section.separator
   .container
     .content-title
       %h1.block-title
         Feedback
 
-.section.separator
+%section.separator
   .container
     .content
       = simple_form_for [@event, Feedback.new] do |f|

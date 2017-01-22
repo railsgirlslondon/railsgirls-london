@@ -1,11 +1,11 @@
-.section.separator#events
+%section.separator#events
   .container
     .content-title
       %h1.block-title
         Next Rails Girls London Event
 
 - if @next_event
-  .section.separator.next_event
+  %section.separator.next_event
     .container
       .content
         %blockquote
@@ -44,17 +44,16 @@
               = image_tag @next_event.image ? @next_event.image : "london-profile.svg"
           = link_to "View more details & apply", event_path(@next_event), class: "btn btn-primary btn-lg"
 - else
-  .section
-    .splash.home-page-next-event-banner
-      .container.default
-        %h1 Stay tuned!
-        %p
-          We run events roughly every six months.
-        %p
-          Follow us on
-          %a{ href: "http://www.twitter.com/#{city_twitter}" } Twitter
-          or
-          %a{ href: "http://www.facebook.com/#{city_facebook}" } Facebook
-          or join us on
-          = link_to "Slack channel", "http://slack.railsgirls.london"
-          to get notified when we open registration for our next event.
+  %section.splash.home-page-next-event-banner
+    .container.default
+      %h1 Stay tuned!
+      %p
+        We run events roughly every six months.
+      %p
+        Follow us on
+        %a{ href: "http://www.twitter.com/#{city_twitter}" } Twitter
+        or
+        %a{ href: "http://www.facebook.com/#{city_facebook}" } Facebook
+        or join us on
+        = link_to "Slack channel", "http://slack.railsgirls.london"
+        to get notified when we open registration for our next event.

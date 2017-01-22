@@ -1,24 +1,23 @@
 - content_for :main_class, 'home'
 
-.section
-  .splash.hero-banner
-    .container
-      - if @next_event.present?
-        .next-event.text-center
-          %h3
-            Next Event:
-          %h1
-            = @next_event.dates
-            %br
-            - if @next_event.accepting_registrations? && @next_event.registrations_open?
-              = link_to "View more details & apply", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
-            - else
-              = link_to "View more details", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
-      - else
+%section.splash.hero-banner
+  .container
+    - if @next_event.present?
+      .next-event.text-center
+        %h3
+          Next Event:
         %h1
-          NEXT EVENT:
-        %h2
-          Spring/Summer 2017
+          = @next_event.dates
+          %br
+          - if @next_event.accepting_registrations? && @next_event.registrations_open?
+            = link_to "View more details & apply", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
+          - else
+            = link_to "View more details", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
+    - else
+      %h1
+        NEXT EVENT:
+      %h2
+        Spring/Summer 2017
 
 = render 'about_us'
 
