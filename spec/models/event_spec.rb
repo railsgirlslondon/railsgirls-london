@@ -74,7 +74,7 @@ describe Event do
       end
 
       context "deadline in the past" do
-        let(:date) { Date.yesterday }
+        let(:date) { Date.today - 1.day }
         it { is_expected.to be false }
       end
     end

@@ -21,7 +21,10 @@
             = "#{@next_event.host.name } offices, #{@next_event.host.address_city}"
 
             .thumbnail.no-border
-              = image_tag @next_event.host.image_url
+              - if @next_event.host&.image_url
+                = image_tag(@next_event.host&.image_url)
+              - else
+                = image_tag("london-girl.png")
 
             %h5
               What you need:

@@ -76,10 +76,14 @@ describe Admin::SponsorsController, :type => :controller do
 
   describe "PUT update" do
     describe "with valid params" do
+      before do
+        allow(Sponsor).to receive(:update).with({ "name" => "MyString" })
+      end
+
       it "updates the requested sponsor" do
         sponsor = Sponsor.create! valid_attributes
-        expect_any_instance_of(Sponsor).to receive(:update).with({ "name" => "MyString" })
         put :update, {:id => sponsor.to_param, :sponsor => { "name" => "MyString" }}, valid_session
+        expect(response).to redirect_to([:admin, sponsor])
       end
 
       it "assigns the requested sponsor as @sponsor" do

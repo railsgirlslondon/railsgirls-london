@@ -83,11 +83,14 @@ describe Admin::MembersController, :type => :controller do
 
   describe "PUT update" do
     describe "with valid params" do
+      before do
+        allow(Member).to receive(:update).with({ "first_name" => "MyString" })
+      end
+
       it "updates the requested member" do
         member = Member.create! valid_attributes
-        expect_any_instance_of(Member).to receive(:update).with({ "first_name" => "MyString" })
-
-        put :update, {:id => member.to_param, :member => { "first_name" => "MyString" }}, valid_session
+        put :update, {:id => member.to_param, member: { "first_name" => "MyString" }}
+        expect(response).to redirect_to admin_members_path
       end
 
       it "assigns the requested member as @member" do

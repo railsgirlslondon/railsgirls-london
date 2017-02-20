@@ -11,7 +11,7 @@ feature "A user visits the homepage" do
 
       expect(page).to have_content event.dates
       expect(page).to have_content "Rails Girls London"
-      expect(page).to have_content "Making technology more approachable for women"
+      expect(page).to have_content "::making technology more approachable for women...since 2013!"
     end
   end
 end
