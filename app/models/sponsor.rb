@@ -24,6 +24,7 @@ class Sponsor < ActiveRecord::Base
   with_options :through => :sponsorships, :source => :sponsorable do |tag|
     tag.has_many :meetings, :source_type => 'Meeting'
     tag.has_many :events, :source_type => 'Event'
+    tag.has_many :meetups, :source_type => 'Meetup'
   end
 
   def is_host?

@@ -23,6 +23,7 @@ module Extentions
         "teespring.jpg",
         "monzo.png",
         "heroku.png",
+        "london-girl.png",
         # "twitter.png",
         # "facebook.png",
         # "github.png",

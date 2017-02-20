@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
 
-  before_filter :setup_properties
+  before_action :setup_properties
 
   def new
     if @event.registrations_open?

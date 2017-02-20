@@ -1,0 +1,36 @@
+- content_for :main_class, 'meetup'
+
+%section.splash.event-banner.with-subtitle
+  .container
+    %h2
+      = @meetup.dates
+
+%section.separator
+  .container
+    .content-title
+      %h1.block-title
+        Meetup Details
+
+%section.separator
+  .container
+    .content.meetup-location
+      %span Location:
+      .meetup-location-detail
+        = image_tag @meetup.image, class: 'location_logo'
+        = link_to "#{@meetup.location_name}", @meetup.location_website
+      .meetup-location__map
+        = hidden_field_tag 'address', @meetup.postcode
+        %div{id: 'map-canvas'}
+      .meetup-location__address
+        %address
+          Address:
+          %br
+          #{@meetup.address_postcode},
+          %br
+          = @meetup.postcode
+
+    .content.meetup-content
+      %h3= @meetup.title
+      %p= @meetup.description.html_safe
+
+      = render partial: "shared/sponsors", locals: { sponsors: @meetup.sponsors}

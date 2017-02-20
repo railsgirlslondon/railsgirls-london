@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 ruby '2.3.3'
 
@@ -27,20 +27,24 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :development do
+  gem "better_errors"
+  gem 'binding_of_caller'
+end
+
 group :test, :development do
   gem 'dotenv-rails'
-  gem 'binding_of_caller'
-  gem "better_errors"
   gem 'guard'
   gem 'guard-rspec', require: false
   gem 'rspec-rails'
   gem 'byebug'
   gem 'pry-rails'
-  gem 'fabrication'
   gem 'faker'
 end
 
 group :test do
+  gem 'rails-controller-testing'
+  gem 'fabrication'
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers', '>=0.3.0'

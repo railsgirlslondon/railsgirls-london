@@ -31,5 +31,7 @@ module RailsgirlsLondon
 
     # invoke router when an exceptino occurs
     config.exceptions_app = self.routes
+
+    config.autoload_paths += %W( lib )
   end
 end

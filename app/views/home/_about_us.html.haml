@@ -58,4 +58,6 @@
             We provide a tutorial for you to explaing to your two students at the workshop. You can be very creative and make cool things. Its awesome :)
 
     %aside.content
+      - if @upcoming_things.any?
+        = render 'shared/join_us'
       = render 'layouts/twitter_snippet'

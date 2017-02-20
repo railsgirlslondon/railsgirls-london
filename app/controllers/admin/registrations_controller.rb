@@ -1,8 +1,8 @@
 class Admin::RegistrationsController < ApplicationController
   layout 'admin'
 
-  before_filter :authenticate_user!, :find_event
-  before_filter :find_registration, only: [:show, :destroy]
+  before_action :authenticate_user!, :find_event
+  before_action :find_registration, only: [:show, :destroy]
 
   def new
     @registration = Registration.new

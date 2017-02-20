@@ -1,0 +1,13 @@
+%div.calendar
+  %h3.brand-color-title
+    Calendar:
+  %ul.calendar-list
+    - @upcoming_things.each do |up_next|
+      %li
+        =link_to meetup_path(up_next) do
+          %b= up_next.dates
+          %br
+          #{up_next.title}
+        %p #{up_next.short_blurb.html_safe}
+        .join-btn
+          =link_to "Join us", meetup_path(up_next), class: "btn btn-primary"

@@ -46,11 +46,11 @@
       .event-host__address
         %address
           Address:
-          =@event.address_line_1
+          #{@event.address_line_1},
           - if @event.address_line_2.present?
-            "#{@event.address_line_2}"
-          "#{@event.address_city},"
-          "#{@event.host.address_postcode}"
+            #{@event.address_line_2},
+          #{@event.address_city},
+          #{@event.host.address_postcode}
 
 
         -# = link_to "http://slack.railsgirls.london/", class: "slack slack-event-details" do
@@ -62,7 +62,7 @@
 
     -# = render 'layouts/twitter_snippet'
 
-= render 'sponsors'
+= render partial: "shared/sponsors", locals: { sponsors: @event.sponsors}
 
 
 = render partial: "shared/coaches", locals: { coaches: @event.coaches.who_attended, title: "Organisers and coaches" }

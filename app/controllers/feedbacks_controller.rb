@@ -1,6 +1,6 @@
 class FeedbacksController < ApplicationController
 
-  before_filter :setup_properties
+  before_action :setup_properties
 
   def new
     if !@event.accepting_feedback?

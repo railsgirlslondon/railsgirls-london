@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-  before_filter :setup_properties
+  before_action :setup_properties
   helper_method :sponsors
 
   def show

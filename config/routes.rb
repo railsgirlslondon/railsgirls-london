@@ -20,6 +20,8 @@ RailsgirlsLondon::Application.routes.draw do
     resource :feedbacks,  only: [ :create ]
   end
 
+  resources :meetups, only: :show
+
   namespace :admin do
     root :to => 'dashboard#index'
     get '/dashboard' => 'dashboard#index', as: :dashboard
@@ -32,7 +34,7 @@ RailsgirlsLondon::Application.routes.draw do
         resource :attendance, only: [:create, :destroy]
       end
     end
-
+    resources :meetups
     resources :sponsorships, only: [:create, :destroy, :update]
     resources :coachings, only: [:create, :destroy, :update]
     resources :sponsors
