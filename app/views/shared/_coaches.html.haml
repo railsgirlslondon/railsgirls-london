@@ -5,21 +5,19 @@
         Organisers & Coaches
 
   %section.separator
-    .container
-      - coaches.each_slice(6) do |group|
-        .coaches--container
-          - group.each do |coach|
-            .coach-img__item
-              .coach-details
-                - if coach.twitter
-                  = link_to "https://twitter.com/#{coach.twitter}", title: "@#{coach.twitter}" do
-                    = image_tag gravatar_url(coach.email), class: 'img-circle'
-                - else
-                  = image_tag gravatar_url(coach.email), class: 'img-circle'
-                %small
-                  %strong
-                    = coach.name
-                  - if coach.twitter.present?
-                    %br
-                    = link_to "https://twitter.com/#{coach.twitter}" do
-                      %small= "@#{coach.twitter}"
+    .container.coaches--container
+      - coaches.each do |coach|
+        .coach-img__item
+          .coach-details
+            - if coach.twitter
+              = link_to "https://twitter.com/#{coach.twitter}", title: "@#{coach.twitter}" do
+                = image_tag gravatar_url(coach.email), class: 'img-circle'
+            - else
+              = image_tag gravatar_url(coach.email), class: 'img-circle'
+            %small
+              %strong
+                = coach.name
+              - if coach.twitter.present?
+                %br
+                = link_to "https://twitter.com/#{coach.twitter}" do
+                  %small= "@#{coach.twitter}"
