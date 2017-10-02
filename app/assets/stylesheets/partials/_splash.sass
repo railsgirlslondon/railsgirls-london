@@ -28,7 +28,6 @@
       a
         display: inline-block
     h1
-      white-space: nowrap
       font-size: 2rem
       text-align: left
       font-weight: 700
@@ -36,7 +35,7 @@
     span
       display: block
       font-weight: 300
-      font-size: 5rem
+      font-size: 4rem
       padding: 1rem 0 2rem 0
       +breakpoint(medium_small down)
         font-size: 2rem
@@ -45,8 +44,12 @@
     z-index: 99
     padding: 4rem 8rem
     width: 100%
+    +breakpoint(medium_small down)
+      padding: 0
     .btn-block
       a
         display: inline-block
     h1
       margin: 2rem auto
+      +breakpoint(medium_small down)
+        font-size: 4rem
