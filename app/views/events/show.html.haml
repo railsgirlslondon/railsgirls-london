@@ -49,7 +49,7 @@
               #{@event.address_city},
               #{@event.host.address_postcode}
         .event-host__url
-          %a{ href: "http://#{@event.host.website}" } 
+          %a{ href: "#{@event.host.website}", target: :_blank } 
             = @event.host.website
         .event-host__map
           = hidden_field_tag 'address', @event.host.address_postcode
