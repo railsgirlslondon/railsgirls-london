@@ -1,20 +1,105 @@
-.eventpage
-  .event-host
-    @include span-columns(4)
-    img
-      width: 30rem
-      height: auto
+.event-page
+  .splash
+    height: 20rem
+    +splash(asset_path("bg_img1.jpg"), $various-title-color-2, $various-title-color-2)
 
-  .event-timetable
-    @include span-columns(8)
-    .friday, .saturday
-      @include span-columns(4 of 8)
-      @include omega
+  .student-form
+    h5
+      background-color: #fde8e8
+      padding: 2rem
+      color: #056565
+      line-height: 2rem
+    background-color: #f7f7f7
+    padding: 2rem 2rem
+    flex: 2
+    padding: 2rem $site-padding/2
+    +breakpoint(large down)
+      flex: 1 100%
+  .other-info
+    flex: 1
+    padding: 0 $site-padding/5
 
+  .event
+    &-host
+      img
+        width: 100%
+        height: 30rem
+    &-host__logo
+      img
+        max-width: 30rem
+    &-host--blurb, &-host__url, &-host__address
+      margin: 1.5rem auto
+    &-host--blurb
+      font-weight: 600
+      color: $dark-blue-gray
+    &-host--block
+      flex: 1
+      +breakpoint(tablet down)
+        flex: 1 100%
+    &-description--block
+      padding-left: $site-padding
+      flex: 3
+      > * 
+        max-width: 90%
+      .btn
+        margin: 1rem 0
+      +breakpoint(tablet down)
+        flex: 1 100%
+        padding-left: 0
+        > * 
+          max-width: 100%
+    &-contacts
+      flex: 1
+      +breakpoint(mlarge down)
+        display: none
 
-  .coach-img__item
-    @include span-columns(2)
-    height: 15rem
-    text-align: center
-    &:nth-child(6n+0)
-      @include omega
+  .coaches--container
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    .coach-img__item
+      flex: 1
+      text-align: center
+      padding-bottom: 1.5rem
+      .coach-details
+        margin: 0 auto
+        max-width: 10rem
+      a
+        padding: 3px
+        display: block
+      img
+        width: 100%
+        display: block
+
+  .timetable--day
+    padding-right: 5rem
+    +breakpoint(large down)
+      flex: 1 100%
+      padding: 0
+    .timetable--item
+      max-width: 70%
+      margin-bottom: 5rem
+      +breakpoint(tablet down)
+        max-width: 100%
+      &__description
+        color: $dark-blue-gray
+        p
+          margin: 1.5rem 0
+      &__timeslot
+        h4
+          font-size: 1.6rem
+          font-weight: 800
+          margin-bottom: 1rem
+          span
+            font-size: 1.5rem
+            display: block
+            padding-bottom: 0.5rem
+    .notice
+      font-size: 1.4rem
+      font-weight: 700
+
+  .useful-info
+    aside
+      padding-left: $site-padding*1.4
+      +breakpoint(above_tablet down)
+        padding-left: 0

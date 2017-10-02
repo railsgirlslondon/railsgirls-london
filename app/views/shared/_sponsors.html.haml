@@ -1,16 +1,14 @@
-%section.separator
+%section.separator#sponsors--anchor
   .container
-    .content-title
-      %h1.block-title
-        Our Sponsors
+    %h1.block-title
+      Our Sponsors
 
-%section.separator.supporters-block
-  .container
-    - sponsors.each_slice(4) do |group|
-      - group.each do |sponsor|
-        .supporters__block--item
-          = link_to sponsor.website, class: "thumbnail no-border" do
-            - if sponsor&.image_url
-              = image_tag sponsor&.image_url
-            - else
-              = image_tag("london-girl.png")
+%section.separator
+  .container.supporters__block
+    - sponsors.each do |sponsor|
+      .supporters__block--item
+        = link_to sponsor.website, target: :_blank, class: "" do
+          - if sponsor&.image_url
+            = image_tag sponsor&.image_url
+          - else
+            = image_tag("london-girl.png")

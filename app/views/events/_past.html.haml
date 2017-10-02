@@ -1,17 +1,15 @@
 %section.separator
   .container
-    .content-title
-      %h1.block-title
-        Previous Events
+    %h1.block-title
+      Previous Events
 
 %section.separator.past-events__block
-  .container
-    .content
-      - @past_events.each_slice(3) do |events|
-        - events.each do |event|
-          %figure.thumbnail
-            = link_to event_path(event) do
-              .thumbnail__image
-                = image_tag event.image ? event.image : "thumb-past-event-default.jpg"
-              %figcaption
-                = event.dates
+  .container.flex--container
+    - @past_events.each_slice(3) do |events|
+      - events.each do |event|
+        %figure.thumbnail
+          = link_to event_path(event) do
+            .thumbnail__image
+              = image_tag event.image ? event.image : "thumb-past-event-default.jpg"
+            %figcaption
+              = event.dates

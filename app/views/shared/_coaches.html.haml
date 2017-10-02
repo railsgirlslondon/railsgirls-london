@@ -1,27 +1,25 @@
 - if coaches.any?
-  %section.separator
+  %section.separator#coaches--anchor
     .container
-      .content-title
-        %h1.block-title
-          Organisers & Coaches
+      %h1.block-title
+        Organisers & Coaches
 
   %section.separator
     .container
-      .content
-        - coaches.each_slice(6) do |group|
+      - coaches.each_slice(6) do |group|
+        .coaches--container
           - group.each do |coach|
             .coach-img__item
-              - if coach.twitter
-                %h5
+              .coach-details
+                - if coach.twitter
                   = link_to "https://twitter.com/#{coach.twitter}", title: "@#{coach.twitter}" do
                     = image_tag gravatar_url(coach.email), class: 'img-circle'
-              - else
-                %h5
+                - else
                   = image_tag gravatar_url(coach.email), class: 'img-circle'
-              %small
-                %strong
-                  = coach.name
-                - if coach.twitter.present?
-                  %br
-                  = link_to "https://twitter.com/#{coach.twitter}" do
-                    %small= "@#{coach.twitter}"
+                %small
+                  %strong
+                    = coach.name
+                  - if coach.twitter.present?
+                    %br
+                    = link_to "https://twitter.com/#{coach.twitter}" do
+                      %small= "@#{coach.twitter}"

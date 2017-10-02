@@ -1,0 +1,6 @@
+.sponsors--block
+  %strong Our sponsors:
+  %br
+  - @event.sponsors.shuffle.each do |sponsor|
+    .sponsor--item
+      = image_tag sponsor.image_url

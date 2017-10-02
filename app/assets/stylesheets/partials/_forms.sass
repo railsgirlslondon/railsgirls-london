@@ -4,6 +4,28 @@
     margin: 1em 0 0.5em
     color: $input-labels
 
+.form-horizontal
+  label
+    font-weight: 600
+    color: #505559
+    line-height: 3rem
+
+  .flex--container
+    border-bottom: 1px solid #d9d9d9
+    padding-bottom: 3rem
+    margin-bottom: 4rem
+  .flex--item
+    flex: 1 50%
+    +breakpoint(above_tablet down)
+      flex: 1 100%
+  .padding-right
+    padding-right: 3rem
+  abbr
+    text-decoration: none
+  .control-group
+    margin-bottom: 1rem
+  .with-separator
+    border-bottom: 1px solid #d9d9d9
 
 input, textarea
   border: 1px solid $form-input-border
@@ -13,34 +35,19 @@ input, textarea
   padding: 0.94em 0.8em
   word-break: normal
   font-size: 14px
-
+  &::placeholder
+    color: #d9d9d9 
 
   .field
     color: #666666
 
 .checkbox-wrapper
-  display: table
-  width: 100%
-  padding: 3rem 0
-  & >
-    padding: 0
-    margin: 0
-  .controls
-    display: table-cell
-    white-space: nowrap
-    padding-right: 0.75em
+  margin-bottom: 5rem
+  input[type=checkbox]
+    width: 20px
+    display: inline-block
   label
-    display: table-cell
-    width: 100%
-    vertical-align: top
-  .checkbox__input
-    border: 1px solid $border-color
-    border-radius: 4px
-    width: 18px
-    height: 18px
-    position: relative
-    cursor: pointer
-    outline: 0
+    display: inline-block
 
 .help-block
   margin-top: 1rem
@@ -50,17 +57,7 @@ input, textarea
   font-weight: 600
   line-height: 1
 
-// .text-input
-//   @include transition(all .2s ease-in-out)
-//   vertical-align: middle
-//   border-radius: 4px
-//   border: 1px solid rgba(0, 0, 0, 0.05)
-//   color: #95a5a6
-//   @include placeholder
-//     color: rgba(black, 0.75)
-//
-//
-//
-// .fluid-input-wrapper
-//   display: block
-//   overflow: hidden
+select
+  height: 4rem
+  width: 20rem
+  background-color: white
