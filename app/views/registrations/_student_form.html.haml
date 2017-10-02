@@ -55,4 +55,4 @@
       = f.input :terms_of_service, as: :boolean, wrapper: :checkbox_inline, label: 'I have read the terms of service'
 
     .form-actions
-    = f.submit "Apply", class: "btn btn-primary btn-lg btn-hero", data: { disable_with: "Please wait..." }
+    = f.button :submit, 'Apply', class: "btn btn-primary btn-lg btn-hero", data: { disable_with: "Please wait..." }
