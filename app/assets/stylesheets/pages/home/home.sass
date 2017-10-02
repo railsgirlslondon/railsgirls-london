@@ -1,0 +1,57 @@
+.home-page
+  .next-event
+    aside
+      max-width: 30%
+      +breakpoint(tablet down)
+        max-width: 100%
+    .pull-left
+      +breakpoint(tablet down)
+        flex: 1 100%
+    .next-event-details--container
+      padding-bottom: 2rem
+      border-left: 2px solid $primary-brand-color
+      flex-direction: column
+    .flex--item
+      &.next-event-dates
+        h1
+          padding-left: 3rem
+          margin-bottom: 0
+      &.next-event-host
+        h3
+          padding-left: 3rem
+          margin-top: 0
+          color: $dark-blue-gray
+    img.host-logo
+      width: 100%
+      max-width: 25rem
+      margin: 2rem 0
+    .gutter-right
+      padding-right: 3rem
+      +breakpoint(tablet down)
+        padding-right: 0
+        flex: 100%
+  h3
+    margin-bottom: 0.5rem
+  
+  .supporters__block
+    justify-content: center
+    display: flex
+    flex-wrap: wrap
+    padding: 5rem $site-padding
+  .supporters__block--item
+    flex: 1 18%
+    +breakpoint(xlarge down)
+      flex: 1 23%
+    a
+      width: 15rem
+      display: block
+      margin: 1rem auto
+      height: 100%
+      +breakpoint(xlarge down)
+        width: 12rem
+      +breakpoint(tablet down)
+        width: 9rem
+    img
+      width: 100%
+      display: block
+

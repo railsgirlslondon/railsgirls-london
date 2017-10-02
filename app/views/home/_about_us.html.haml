@@ -1,23 +1,22 @@
-%section.separator#about
+%section.separator
   .container
-    .content-title
-      %h1.block-title
-        About Rails Girls London
+    %h1.block-title
+      About Rails Girls London
 
-%section.about-us.separator
-  .container
-    -# = image_tag "rails_girls_london_june_2016.jpg", class: "img-responsive"
-    .about-us__block.content
+%section.separator.about-us--section
+  .container.flex--container
+    .flex--item.grid-gutter
       %p
         %strong We are making technology more approachable for women.
         %br
         Workshop participants can learn sketching, prototyping, basic programming and get introduced to the world of technology.
         Our aim is to give tools and a community for women to understand technology and to build their ideas. We do this by providing a great experience on building things and by making technology more approachable.
         We've got an amazing group of coaches and students who are always happy to answer questions and share their experiences on our
-        = link_to "Slack channel", "http://slack.railsgirls.london/"
-      .details
-        %article.who
-          %h1 WHO?
+        = link_to "Slack channel.", "http://slack.railsgirls.london/"
+
+      .flex--container.mini-descriptions--block
+        .flex--item.half-width--item.grid-gutter
+          %h5 WHO?
           %p
             %span.students Students:
             %br
@@ -26,8 +25,8 @@
             %span.coaches Coaches:
             %br
             Everyone is a volunteer, coaches are all developers working in all kinds of companies. Some of our coaches were once our students, since then they pursued a career in web development. They want to make a difference! :)
-        %article.why
-          %h1 WHY?
+        .flex--item.half-width--item
+          %h5 WHY?
           %p
             %span.students Students:
             %br
@@ -36,8 +35,8 @@
             %span.coaches Coaches:
             %br
             You want to promote the idea and help us teach our students to understand the basics of programming.
-        %article.what
-          %h1 WHAT?
+        .flex--item.half-width--item.grid-gutter
+          %h5 WHAT?
           %p
             %span.students Students:
             %br
@@ -46,8 +45,8 @@
             %span.coaches Coaches:
             %br
             You get to help students with everything from installation to deployment of the app during the 1.5 day.
-        %article.how
-          %h1 HOW?
+        .flex--item.half-width--item
+          %h5 HOW?
           %p
             %span.students Students:
             %br
@@ -57,7 +56,7 @@
             %br
             We provide a tutorial for you to explain to your two students at the workshop. You can be very creative and make cool things. Its awesome :)
 
-    %aside.content
-      - if @upcoming_things.any?
+    %aside
+      - if @upcoming_meetups.any?
         = render 'shared/join_us'
       = render 'layouts/twitter_snippet'

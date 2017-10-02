@@ -32,9 +32,11 @@ main
 
 main > header, main > section
   padding: 0 $site-padding
+  +breakpoint(medium down)
+    padding: 0 $site-padding/4
 
 .container
-  @include outer-container
+  padding: 2rem $site-padding/2 1.3rem
 
 .content
   padding: 2rem $site-padding/2 6rem
@@ -84,25 +86,103 @@ pre
   border: 1px solid #e6e6e6
   border-radius: 100%
 
-.supporters-block
-  .supporters__block--item
-    @include span-columns(3)
-    @include omega()
-    padding: 1rem
-    height: 9rem
-    img
-      display: block
-      max-width: 100%
-      max-height: 100%
-      margin-left: auto
-      margin-right: auto
+.supporters__block
+  justify-content: center
+  display: flex
+  flex-wrap: wrap
+  padding: 5rem $site-padding
+.supporters__block--item
+  flex: 1 20%
+  +breakpoint(xlarge down)
+    flex: 1 30%
+  a
+    width: 25rem
+    display: block
+    margin: 1rem auto
+    height: 100%
+    +breakpoint(xlarge down)
+      width: 22rem
+    +breakpoint(tablet down)
+      width: 15rem
+  img
+    width: 100%
+    display: block
 
 #map-canvas
   height: 30rem
   width: 30rem
+  +breakpoint(tablet down)
+    width: 100%
 
 .brand-color-title
   color: $primary-brand-color
   font-size: 2rem
   font-weight: 600
   text-transform: uppercase
+
+.flex--container
+  display: flex
+  flex-direction: row
+  justify-content: space-evenly
+  flex-wrap: wrap
+.flex--container__column
+  flex-direction: column
+.flex--item
+  flex: 1
+.align-left
+  justify-content: flex-start
+hr
+  border-color: #eee
+  border-style: dashed
+  margin-top: 4rem
+  margin-bottom: 4rem
+  +breakpoint(above_tablet down)
+    margin: 1.7rem auto
+
+.bg-success
+  background-color: green
+.bg-danger
+  background-color: red
+.alert
+  margin: 2rem auto
+  > * 
+    display: inline-block
+    padding: 1.7rem 1.3rem
+    color: white
+    font-weight: 500
+    font-size: 1.6rem
+.close
+  cursor: pointer
+  &:hover
+    opacity: .6
+    text-decoration: none
+.error-message
+  color: red
+  font-weight: 700
+  font-size: 1.4rem
+
+.sidebar--info-item
+  width: 100%
+  margin-bottom: 3rem
+  +breakpoint(above_tablet down)
+    width: 30rem
+    display: inline-block
+  +breakpoint(small only)
+    width: 10rem
+  a
+    display: block
+    &:hover
+      text-decoration: none
+      opacity: .7
+    img
+      max-width: 5rem
+      display: inline-block
+      margin-right: 2rem
+      vertical-align: middle
+    span
+      display: inline-block
+      +breakpoint(small only)
+        display: none
+
+#twitter-widget-0
+  height: 100% !important

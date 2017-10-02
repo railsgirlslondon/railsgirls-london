@@ -1,0 +1,42 @@
+%h3 Got a question?
+%p 
+  We are always happy to answer it!
+  %br
+  We have multiple channels and many awesome people to help you. 
+
+%h4 Join Rails Girls London on:
+
+.sidebar--info-item
+  = mail_to "railsgirlslondon@gmail.com", target: :_blank do
+    = image_tag "social_media_icons/email.svg"
+    %span Email us 
+
+.sidebar--info-item
+  = link_to "http://slack.railsgirls.london/", target: :_blank do
+    = image_tag "social_media_icons/slack.png"
+    %span Talk to us on Slack
+
+.sidebar--info-item
+  = link_to "http://facebook.com/railsgirlslondon", target: :_blank  do
+    = image_tag "social_media_icons/facebook.svg"
+    %span Like us on Facebook
+
+.sidebar--info-item
+  = link_to "http://twitter.com/railsgirls_ldn", target: :_blank do
+    = image_tag "social_media_icons/twitter.svg"
+    %span Follow us on Twitter 
+
+.sidebar--info-item
+  = link_to "https://www.instagram.com/rails_girls_london", target: :_blank do
+    = image_tag "social_media_icons/instagram.svg"
+    %span Our brand new Instagram
+
+.sidebar--info-item
+  = link_to "https://www.linkedin.com/company/11157516", target: :_blank do
+    = image_tag "social_media_icons/linkedin.svg"
+    %span Add us on Linkedin
+
+.sidebar--info-item
+  = link_to "https://github.com/railsgirlslondon/railsgirls-london", target: :_blank do
+    = image_tag "social_media_icons/github.svg"
+    %span Github

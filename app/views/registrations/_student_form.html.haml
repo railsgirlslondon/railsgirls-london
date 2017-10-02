@@ -1,67 +1,58 @@
-.row
-  .col-md-6
-    = render 'layouts/messages'
-    = simple_form_for @registration, url: event_registrations_path(@event), html: { class: 'form-horizontal' } , remote: true do |f|
-      = f.input :first_name, input_html: {class: "form-control"}
-      = f.input :last_name, input_html: {class: "form-control"}
-      = f.input :gender, collection: [ "Female", "Male", "Other", "I prefer not to say" ], prompt: "Select your gender", input_html: {class: "form-control"}
-      %hr
-      = f.input :email, input_html: {class: "form-control"}
-      = f.input :email_confirmation, input_html: {class: "form-control"}
-      = f.input :phone_number, input_html: {class: "form-control"}
+%h3 Student appication form
+%h5
+  IMPORTANT NOTICE:
+  %br
+  First round of accepted students will receive emails on #{I18n.l(@event.registration_deadline-1.month)}, please confirm your place as soon as you see the invite, the invite will expire in 7 days.
+  %br
+  If you apply after #{I18n.l(@event.registration_deadline-1.month)}, you should expect your invite by #{I18n.l(@event.registration_deadline+1.day)}.
+  We are trying really hard to fit everyone in, but unfortunatelly we have limited amount of places, so if you dont receive the invite, you will be placed on the waiting list. We will be in touch if a place becomes available.
 
-      = f.input :twitter, :wrapper => :prepend do
-        = content_tag :span, "@", class: "add-on"
-        = f.input_field :twitter, input_html: {class: "form-control"}
-      = f.input :address, input_html: { class: "form-control"}, placeholder: "eg. 3/4, 5 Oxford Crescent, W2 7FD"
-      %hr
+= render 'layouts/messages'
+= simple_form_for @registration, url: event_registrations_path(@event, anchor: 'apply-student'), html: { class: 'form-horizontal' } do |f|
+  .flex--container
+    .flex--item.padding-right
+      = f.input :first_name, required: true, input_html: {class: "form--item"}
+      = f.input :last_name, required: true, input_html: {class: "form--item"}
+      = f.input :email, required: true, input_html: {class: "form-control"}
+      = f.input :phone_number, required: true, input_html: {class: "form-control"}
+      = f.input :twitter, input_html: {class: "form-control"}, placeholder: "e.g. @emma_jonson"
 
-      = f.input :spoken_languages, input_html: {class: "form-control"}, placeholder: "eg. English, Spanish"
-      = f.input :preferred_language, input_html: {class: "form-control"}
+    .flex--item
+      = f.input :gender, required: true, collection: [ "Female", "Male", "Other", "I prefer not to say" ], prompt: "Select your gender"
+      %hr
+      = f.input :address, required: true, input_html: { class: "form-control"}, placeholder: "eg. 3/4, 5 Oxford Crescent, W2 7FD"
       = f.input :uk_resident, collection: [ "Yes", "No" ], prompt: "Select option", input_html: {class: "form-control"}, label: "UK Resident"
-
       %hr
-      = f.input :os, collection: [ "OS X", "Windows", "Linux" ], prompt: "Select operating system", input_html: {class: "form-control"}, label: "Operating System"
-      = f.input :os_version, input_html: {class: "form-control"}, placeholder: "e.g. 10.8 or Windows 7 or Ubuntu 12.04", label: "OS Version"
+
+  .flex--container
+    .flex--item.padding-right
+      = f.input :reason_for_applying, required: true, input_html: {rows: 7, class: "form-control"}, label: "Why are you applying?", placeholder: "Please write a couple of words on why you want to learn to code"
       = f.input :programming_experience, input_html: {rows: 3, class: "form-control"}
-
-      %hr
-      = f.input :reason_for_applying, input_html: {rows: 3, class: "form-control"}, label: "Why are you applying?"
+      = f.input :os, collection: [ "OS X", "Windows", "Linux" ], prompt: "Select operating system", input_html: {class: "form-control"}, label: "Operating System"
+  
+    .flex--item
       = f.input :how_did_you_hear_about_us, input_html: {rows: 3, class: "form-control"}, label: "How did you hear about us?"
+      = f.input :spoken_languages, input_html: {class: "form-control"}, placeholder: "eg. English, Spanish"
+
+  .flex--container
+    .flex--item
       = f.input :dietary_restrictions, input_html: {rows: 3, class: "form-control"}, label: "What are your dietary restrictions (if any)?"
 
+  .flex--container.align-left
+    %div
+      %small
+        %strong Terms of service
 
-      %hr
-      %div
-        %small
-          %strong Important Notice
+        %ul.unstyled
+          %li We never share your information with anyone.
+          %li Women of all ages are welcome. If you are under 18, you will need to be accompanied by an adult. (Please advise us if this is the case)
+          %li In order to ensure a fair process for all applicants, we kindly ask you to submit only one application per event.
+          %li We expect a great demand for our workshop and would like to make sure all available spaces are filled. If you receive an invitation, we ask that you confirm your attendance within a few days of it being sent out. If, for any reason, you cannot attend, then please let us know as soon as possible and we will allocate your place to the next person on the waiting list.
+          %li We also ask that you set aside time for all of the events that make up the workshop, including the Installation Party and the Afterparty. We want to get to know you!
 
-          %ul.unstyled
-            %li One of Rails Girls London’s main goals is to run workshops where women in London and the rest of the UK have the opportunity to learn Ruby on Rails. The workshops are the result of the effort of many volunteers, who care about getting women involved in programming. This is one area where women have shown much aptitude, but represent only a small portion of working programmers.
-            %li Women of all ages are welcome. If you are under 18, you will need to be accompanied by an adult. (Please advise us if this is the case)
-            %ul
-              %li The “Installation Party” is an event where attendees bring in their laptops, so the coaches can install Ruby on Rails on them or confirm that Ruby on Rails is already installed on the attendee’s laptops.
-              %li The “Workshop” is a day-long event where attendees are introduced to Ruby on Rails.
-              %li The “Afterparty” is a social event that takes place directly after the Workshop.
 
-            %li In order to ensure a fair process for all applicants, we kindly ask you to submit only one application per event.
+    .checkbox-wrapper
+      = f.input :terms_of_service, as: :boolean, wrapper: :checkbox_inline, label: 'I have read the terms of service'
 
-            %li We expect a great demand for our workshop and would like to make sure all available spaces are filled. If you receive an invitation, we ask that you confirm your attendance within a few days of it being sent out. If, for any reason, you cannot attend, then please let us know as soon as possible.
-
-            %li We also ask that you set aside time for all of the events that make up the workshop, including the Installation Party and the Afterparty. We want to get to know you!
-
-            %li
-              If you have any questions about the application process, please
-              =mail_to "railsgirlslondon@gmail.com", "contact the Rails Girls London organisers"
-              or
-              =link_to "use our mailing list.", "http://bit.ly/rglondon"
-
-        .pull-left
-          I have read this notice &nbsp;
-        = f.input :terms_of_service, as: :boolean, label: false, required: false, input_html: {class: 'pull-left'}
-
-      %br
-      %hr
-
-      .form-actions
-        = f.submit "Apply", class: "btn btn-primary btn-lg btn-hero", data: { disable_with: "Please wait..." }
+    .form-actions
+    = f.submit "Apply", class: "btn btn-primary btn-lg btn-hero", data: { disable_with: "Please wait..." }

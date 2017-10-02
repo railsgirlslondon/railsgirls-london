@@ -2,43 +2,54 @@
   color: white
   padding: 17rem $site-padding 14rem
   text-align: center
+  display: flex
+  flex-wrap: no-wrap
+  justify-content: center
+  align-items: center
+  flex-direction: column
   &.home-page-next-event-banner
     +splash(asset_path("bg_img1.jpg"), $various-title-color-2, $various-title-color-2)
   &.hero-banner
     +splash(asset_path("bg_img.jpg"), $grey-blue, $grey-blue)
+    +breakpoint(medium_small down)
+      font-size: 1rem
+      padding: 0
   &.event-banner
     +splash(asset_path("event_img.jpg"), $cool-purple, $cool-purple)
-  h1
-    margin: 0
-    font-size: 2rem
-    font-weight: 200
-  h2
-    font-size: modular-scale(2)
-    letter-spacing: 0.09em
-    font-weight: 300
-    text-transform: uppercase
-  &.with-subtitle
-    padding: 24rem $site-padding 0
-    h2
-      font-size: 1.8rem
-      background: #8880d8
-      position: absolute
-      bottom: 0
-      left: 0
-      margin: 0
-      padding: 2rem 4rem
-      border-radius: 4px 4px 0 0
 
-  .default
-    max-width: 50rem
+  .hero-info
+    z-index: 99
+    background: rgba(159, 178, 197, 0.29)
+    border: 1px solid white
+    border-radius: 1px
+    padding: 4rem 8rem
+    width: 100%
+    .btn-block
+      a
+        display: inline-block
     h1
-      font-size: 3rem
-      font-weight: 400
-    p
-      font-size: 1.8rem
-      font-weight: 400
-      margin: 0
-    a
-      color: $primary-brand-color
-      font-weight: 600
-      text-decoration: underline
+      font-size: 2rem
+      text-align: left
+      font-weight: 700
+      margin: 0.5rem
+    span
+      display: block
+      font-weight: 300
+      font-size: 4rem
+      padding: 1rem 0 2rem 0
+      +breakpoint(medium_small down)
+        font-size: 2rem
+
+  .splash-info
+    z-index: 99
+    padding: 4rem 8rem
+    width: 100%
+    +breakpoint(medium_small down)
+      padding: 0
+    .btn-block
+      a
+        display: inline-block
+    h1
+      margin: 2rem auto
+      +breakpoint(medium_small down)
+        font-size: 4rem

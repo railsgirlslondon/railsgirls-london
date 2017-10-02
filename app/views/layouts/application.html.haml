@@ -20,7 +20,7 @@
     #page
       = render 'layouts/navigation'
 
-      %main{:role => "main", class: "#{yield(:main_class)}page" }
+      %main{:role => "main", class: "#{yield(:main_class)}-page" }
         = yield
 
     =render 'layouts/footer'

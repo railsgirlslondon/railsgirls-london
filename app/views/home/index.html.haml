@@ -2,29 +2,23 @@
 
 %section.splash.hero-banner
   .container
-    - if @next_event.present?
-      .next-event.text-center
-        %h3
-          Next Event:
+    .hero-info
+      - if @next_event.present?
         %h1
-          = @next_event.dates
-          %br
+          Next Event:
+          %span= @next_event.dates
+        .application-btn
           - if @next_event.accepting_registrations? && @next_event.registrations_open?
             = link_to "View more details & apply", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
           - else
             = link_to "View more details", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
-    - else
-      %h1
-        NEXT EVENT:
-      %h2
-        Spring/Summer 2017
+      - else
+        %h1
+          Next workshop:
+        %h2
+          Spring/Summer 2017
 
 = render 'about_us'
-
-
--# = link_to "http://slack.railsgirls.london/", class: "slack" do
--#   = image_tag "slack.png", class: "slack-img"
--# %b Join us on Slack
 
 = render "events/next_event"
 = render "events/past"

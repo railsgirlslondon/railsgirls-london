@@ -7,7 +7,6 @@
   %body.main
     .main-navigation
       .container
-        %h1
-          =link_to root_url do
-            = image_tag attachments["rails_girls_london_logo.png"].url, alt: "Rails Girls London"
+        =link_to root_url do
+          = image_url_for "rails_girls_london_logo.png", alt: "Rails Girls London"
     = yield

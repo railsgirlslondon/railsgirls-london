@@ -1,5 +1,11 @@
 class EventMailerPreview < ActionMailer::Preview
 
+  def application_received
+    event = Event.next_event
+    registration = Registration.find(945) 
+    RegistrationMailer.application_received(event, registration) 
+  end
+
   def coaches_instruction
     event = Event.next_event
     coach = event.coaches.first

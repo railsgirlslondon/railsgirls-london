@@ -2,14 +2,8 @@ html, body
   height: 100%
   margin: 0
 
-// #page
-//   position: relative
-//   min-height: 100%
-//   margin-bottom: -$footer-height
-//   &:after
-//     display: block
-//     content: ""
-//     height: $footer-height
+*, *:before, *:after
+  box-sizing: border-box
 
 .main
   margin: 0 auto
@@ -17,6 +11,9 @@ html, body
 
 .main > section
   padding: 0 $site-padding
+
+.main-content
+  padding: 3rem 0 4rem
 
 .container
   @include outer-container
@@ -69,3 +66,28 @@ pre
 
 .separator
   border-bottom: 1px solid #f2f2f2
+
+.social-media--block
+  .social-media--item
+    display: inline-block
+    padding: 3px
+    img
+      height: 30px
+
+.sponsors--block
+  padding: 5px 0 40px
+  .sponsor--item
+    display: inline-block
+    padding: 10px
+    width: 30%
+    min-width: 140px
+    max-width: 175px
+    img
+      width: 100%
+      +breakpoint(tablet down)
+        height: 130px
+
+.important-info
+  background-color: #fde8e8
+  padding: 2rem
+  color: #056565

@@ -1,78 +1,80 @@
 - content_for :main_class, 'event'
 
-%section.splash.event-banner.with-subtitle
-  .container
-    %h2
+%section.splash
+  .splash-info
+    %h1
       = @event.dates
-
--# %section.separator
--#   .container
--#     .content-title
--#       %h1.block-title
--#         = @event.dates
--#         - if @event.accepting_registrations?
--#           - if @event.registrations_open?
--#             %br
--#             = link_to "Apply for the event", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
--#             %br
--#             %h4.text-center
--#               Applications are open until #{I18n.l(@event.registration_deadline)}
--#           - else
--#             %br
--#             %h4.text-center
--#               Applications are now closed.
--#         - else
--#           Applications are not available for this event.
-
+    - if @event.accepting_registrations?
+      - if @event.registrations_open?
+        .btn-block
+          = link_to "Apply for the event", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
+          %h4
+            Applications are open until #{I18n.l(@event.registration_deadline)}
+      - else
+        %h4
+          Applications are now closed.
+    - else
+      Applications are not available for this event.
 
 %section.separator
   .container
-    .content-title
-      %h1.block-title
-        Event Details
+    %h1.block-title
+      Event Details
 
 %section.separator
-  .container
-    .content.event-host
-      %h3
-        Sponsor Host
-      .event-host__logo
-        = image_tag @event.host.image_url
-      .event-host__name
-        = link_to "#{@event.host.name} #{@event.host.website}", @event.host.website
-      .event-host__map
-        = hidden_field_tag 'address', @event.host.address_postcode
-        %div{id: 'map-canvas'}
-      .event-host__address
-        %address
-          Address:
-          #{@event.address_line_1},
-          - if @event.address_line_2.present?
-            #{@event.address_line_2},
-          #{@event.address_city},
-          #{@event.host.address_postcode}
+  .container.flex--container__column
+    .event--container.flex--container.flex--item
+      .event-host--block.flex--item
+        .event-host
+          %h3
+            Sponsor host
+        .event-host--blurb
+          The venue for Rails Girls London
+          %br
+          #{@event.dates}
+          %br
+          is kindly provided by
+          %br
+          #{@event.host.name}.
+        .event-host__logo
+          = image_tag @event.host.image_url
+        .event-host__address
+          %address
+            Venue address:
+            %br
+            %b
+              #{@event.address_line_1},
+              - if @event.address_line_2.present?
+                #{@event.address_line_2},
+              #{@event.address_city},
+              #{@event.host.address_postcode}
+        .event-host__url
+          %a{ href: "http://#{@event.host.website}" } 
+            = @event.host.website
+        .event-host__map
+          = hidden_field_tag 'address', @event.host.address_postcode
+          %div{id: 'map-canvas'}
+      .event-description--block.flex--item
+        = render 'events/workshop_description'
+      .event-contacts.flex--item
+        = render 'events/sidebar'
 
+    .timetable--container.flex--container#timetable--anchor
+      = render 'events/timetable'
 
-        -# = link_to "http://slack.railsgirls.london/", class: "slack slack-event-details" do
-        -#   = image_tag "slack.png"
-        -#   Join Rails Girls London on Slack
-
-
-    = render 'timetable'
-
-    -# = render 'layouts/twitter_snippet'
-
-= render partial: "shared/sponsors", locals: { sponsors: @event.sponsors}
-
+= render partial: "shared/sponsors", locals: { sponsors: @event.sponsors.shuffle }
 
 = render partial: "shared/coaches", locals: { coaches: @event.coaches.who_attended, title: "Organisers and coaches" }
 
 - if @event.registrations_open?
-  %section
+  %section.separator
     .container
-      %h1
-        Apply now
+      %h1.block-title
+        Join us at the event
 
-  %section
-    .container
-      = render "registrations/student_form"
+  %section#apply-student
+    .container.flex--container
+      .student-form.flex--item
+        = render "registrations/student_form"
+      .useful-info.flex--item
+        = render "events/other_info"

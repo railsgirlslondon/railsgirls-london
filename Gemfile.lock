@@ -152,6 +152,8 @@ GEM
     kgio (2.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -337,6 +339,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   better_errors
   binding_of_caller
   bootstrap-sass
@@ -357,6 +360,7 @@ DEPENDENCIES
   icalendar
   jquery-rails
   launchy
+  letter_opener (~> 1.4)
   neat
   newrelic_rpm
   nokogiri
@@ -383,4 +387,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.14.4
+   1.14.6

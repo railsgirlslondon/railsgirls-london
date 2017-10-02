@@ -1,0 +1,40 @@
+%h3 About the workshop
+%p 
+  %b 
+    Want to learn to code? We can teach you, and we do this for free 😃 
+    %br
+    All, to make technology more approachable for women.
+
+%h4 How it works:
+%p
+  Rails Girls London is an event (well actually its a hands on workshop!), that runs over a day and a half, friday evening, from 18:30 (we finish around 21:30)  and saturday from 9:00 to 18:00. To understand how we split the time of the event you can see the 
+  = link_to 'timetable below.', '#timetable--anchor'
+
+%p
+  We are now expanded to 300 people per event!, that is around 110 coaches and 190 students ( you can imagine how much networking one can do with that 😉 ).
+  %br
+  Students come from all kinds of professions, backgrounds and even countries, yes, amazingly people fly over to UK just for our event (a lot of times we even get coaches coming from different countries just for this, we love you guys!).
+
+%p
+  Our coaches, are all volunteers, in their day to day jobs they are all software engineers, working hard on making all that awesomeness you see online. You can see 
+  = link_to 'list of coaches are coming to the event below.', '#coaches--anchor'
+  We are adding new ones every day, so check again after.
+  Some of our coaches have attended Rails Girls London as students at some point, since then they got a job as a developer, and now they come back to teach others 😃
+
+%p
+  At the event, we put students in pairs, and assign them a coach. Dont panic, we make sure that the two students in a pair are of the same level.
+  And no, you dont need to have any previous knowledge of programming. Your coach will explain everything starting from the basics.
+  By the end of the workshop you will have your own website online (and you will have that proud feeling of achievement probably as well)  😃
+
+%p
+  And to make this all is even more awesome, we have amazing support from our sponsors! 
+  Thanks to them, we can make this all happen, and have beautiful comfortable venues, full catering and the cool goodies (you ll see what we mean) .
+  You can 
+  = link_to 'see the list of our sponsors', '#sponsors--anchor'
+  below, and talk to them all at the event, they are incredible!
+
+.flex--container.flex--container__column
+  %div
+    = link_to 'I want to become a student, take me to the application now', '#apply-student', class: 'btn btn-primary'
+  %div
+    = mail_to 'railsgirlslondon@gmail.com', 'I want to be a coach', subject: "I want to coach @ Rails Girls London #{@event.dates}", body: 'My name is ___________ <br><br> My twitter is ___________ <br><br> My phone number is ___________ <br> <br> I would love to coach because ___________', class: 'btn btn-orange'
