@@ -38,7 +38,7 @@
           = link_to "Apply as a student", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
         %div
           %p.gutter-right
-            We are also always looking for coaches. You dont need to have any previous teaching experience, we'll show you everything you need to know.
+            We are also always looking for coaches. You don't need to have any previous teaching experience, we'll show you everything you need to know.
           = mail_to 'railsgirlslondon@gmail.com', 'Apply as a coach', subject: "I want to coach @ Rails Girls London #{@next_event.dates}", body: 'My name is ___________ <br><br> My twitter is ___________ <br><br> My phone number is ___________ <br> <br> I would love to coach because ___________', class: 'btn btn-orange'
       - else
         %h1 Stay tuned!
