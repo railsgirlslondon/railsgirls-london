@@ -15,6 +15,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'simple_form'
 gem 'evil_icons' # SVG icon set
+gem 'autoprefixer-rails'
 
 gem 'icalendar'
 gem 'ruby-trello', require: false
@@ -22,6 +23,7 @@ gem 'newrelic_rpm'
 
 gem 'premailer-rails'
 gem 'nokogiri'
+gem 'letter_opener', '~> 1.4'
 
 group :production do
   gem 'rails_12factor'
