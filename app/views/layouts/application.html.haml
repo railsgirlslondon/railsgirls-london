@@ -1,12 +1,47 @@
 !!!
-%html
+%html{:itemscope => "", :itemtype => "http://schema.org/Article"}
   %head
     %meta{:charset => "utf-8"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
     %link{rel: 'shortcut icon', href: '/favicon.png'}
     %title= content_for?(:title) ? yield(:title) : page_title
-    %meta{:content => "", :name => "description"}
-    %meta{:content => "", :name => "author"}
+    %meta{name: 'description', content: 'Want to learn to code? We can teach you, and we do this for free 😃. All, to make technology more approachable for women.'}
+    %meta{name: 'author', content: 'The RailsGirls London Team'}
+
+    - if content_for?(:media_metatags)
+      = yield(:media_metatags)
+    - else
+      / Schema.org markup for Google+
+      %meta{itemprop: 'name',        content: content_for?(:title) ? yield(:title) : page_title }
+      %meta{itemprop: 'description', content: 'Want to learn to code? We can teach you, and we do this for free 😃. All, to make technology more approachable for women.'}
+      %meta{itemprop: 'image',       content: image_url('bg_img1.jpg')}
+
+      / Twitter Card data
+      %meta{name: 'twitter:card',        content: 'summary_large_image'}
+      %meta{name: 'twitter:site',        content: '@railsgirls_ldn'}
+      %meta{name: 'twitter:title',       content: content_for?(:title) ? yield(:title) : page_title}
+      %meta{name: 'twitter:description', content: 'Want to learn to code? We can teach you, and we do this for free 😃. All, to make technology more approachable for women.'}
+      %meta{name: 'twitter:creator',     content: '@railsgirls_ldn'}
+      / Twitter summary card with large image must be at least 280x150px
+      %meta{name: 'twitter:image:src',   content:  image_url('bg_img1.jpg')}
+
+      / Open Graph data
+      %meta{property: 'og:title',        content: content_for?(:title) ? yield(:title) : page_title}
+      %meta{property: 'og:type',         content: 'article'}
+      %meta{property: 'og:url',          content: root_url}
+      %meta{property: 'og:image',        content: image_url('bg_img1.jpg')}
+      %meta{property: 'og:description',  content: 'Want to learn to code? We can teach you, and we do this for free 😃. All, to make technology more approachable for women.'}
+      %meta{property: 'og:site_name',    content: 'RailsGirls London'}
+      %meta{property: 'article:section', content: 'Tech'}
+      %meta{property: 'article:tag',     content: 'Events'}
+
+      - if content_for?(:timestamp_media_metatags)
+        = yield(:timestamp_media_metatags)
+      - else
+        %meta{property: 'article:published_time', content: Event.next_event&.created_at || Event.first.created_at}
+        %meta{property: 'article:modified_time',  content: Event.next_event&.updated_at || Event.first.updated_at}
+
+
     %script(type="text/javascript" src="http://use.typekit.net/xaz4ocu.js")
     %script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&sensor=true")
     = evil_icons_sprite
@@ -23,4 +58,4 @@
       %main{:role => "main", class: "#{yield(:main_class)}-page" }
         = yield
 
-    =render 'layouts/footer'
+    = render 'layouts/footer'
