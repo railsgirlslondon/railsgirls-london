@@ -7,7 +7,7 @@ class Coaching < ActiveRecord::Base
   delegate :name, to: :coach
   delegate :email, to: :coach
 
-  attr_accessible :coachable_type, :coachable_id, :coach_id, :coach, :organiser
+  # attr_accessible :coachable_type, :coachable_id, :coach_id, :coach, :organiser
 
   validate :coach_must_have_phone, if: :organiser?
 

@@ -47,7 +47,7 @@
       %br
       We will be serving dinner and drinks, so we all can eat, chat & install ruby & rails.
       %br
-      We will wrap up at about 21:00 on friday.
+      We will wrap up at about 21:00 on Friday.
 
   %div{ style: "width: 100%; min-width: 260px; display: inline-block;" }
     %h3{style: "color: #333333; font-size: 18px;"} Saturday:
@@ -55,7 +55,7 @@
     %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
       %span{style: "font-weight: 500; color: red"} Please arrive on #{@event.starts_on.next.strftime("%A")} the #{@event.starts_on.next.day.ordinalize } of #{@event.starts_on.next.strftime("%B")} at 9:00am.
       %br
-      The venue is the same as on friday. Students will be coming at 9:00am as well. We will be serving light breakfast and coffee.
+      The venue is the same as on Friday. Students will be coming at 9:00am as well. We will be serving light breakfast and coffee.
 
     %h4{style: "color: #333333; font-size: 16px;"} 9:00 -~ 10:15
     %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
@@ -120,12 +120,4 @@
       %strong Thank you
       for volunteering to be a coach at Rails Girls London!
 
-  .bottom{ style: "width: 100%; padding: 50px 0 0 0px; display: block;" }
-    %strong Sponsors:
-    %br
-    = image_tag attachments["skype.jpg"].url, width: '180px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments["skyscanner.png"].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['shutl.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['cake.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['friday.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['which.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
+  = render 'sponsor/email_logos'

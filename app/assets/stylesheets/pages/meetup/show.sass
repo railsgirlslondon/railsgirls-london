@@ -1,0 +1,19 @@
+.meetuppage
+  .meetup-location
+    @include span-columns(4)
+  .meetup-location-detail
+    margin: 2rem 0
+    a
+      color: $default-text-color
+      text-decoration: underline
+      +link-setup($default-text-color, $default-link-color)
+      font-weight: 600
+      font-size: 2rem
+    img.location_logo
+      width: 6rem
+      vertical-align: middle
+  .meetup-location__address
+    margin-top: 5rem
+
+  .meetup-content
+    @include span-columns(8)

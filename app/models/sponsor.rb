@@ -5,15 +5,15 @@ class Sponsor < ActiveRecord::Base
     :address_city
   ]
 
-  attr_accessible :name,
-                  :description,
-                  :primary_contact_email,
-                  :image_url,
-                  :website,
-                  :host,
-                  :events,
-                  :address_line_2,
-                  *MANDATORY_ADDRESS_FIELDS
+  # attr_accessible :name,
+  #                 :description,
+  #                 :primary_contact_email,
+  #                 :image_url,
+  #                 :website,
+  #                 :host,
+  #                 :events,
+  #                 :address_line_2,
+  #                 *MANDATORY_ADDRESS_FIELDS
 
   validates :name, :website, :presence => true
 
@@ -24,6 +24,7 @@ class Sponsor < ActiveRecord::Base
   with_options :through => :sponsorships, :source => :sponsorable do |tag|
     tag.has_many :meetings, :source_type => 'Meeting'
     tag.has_many :events, :source_type => 'Event'
+    tag.has_many :meetups, :source_type => 'Meetup'
   end
 
   def is_host?

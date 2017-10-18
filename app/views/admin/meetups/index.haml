@@ -1,0 +1,7 @@
+- content_for :main_class, 'meeetup'
+
+=link_to "New Meetup", new_admin_meetup_path
+
+%h2 Meetups
+- @meetups.each do |meetup|
+  =link_to "#{meetup.title} #{meetup.dates}", admin_meetup_path(meetup)

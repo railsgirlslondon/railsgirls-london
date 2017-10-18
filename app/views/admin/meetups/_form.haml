@@ -1,0 +1,18 @@
+= simple_form_for([:admin, @meetup], html: {class: "form-horizontal"}) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title, input_html: { class: "span6" }, placeholder: 'e.g. Catch up drinks'
+    = f.input :description, input_html: {rows: 5, class: "span6"}
+    = f.input :short_blurb
+    = f.input :location_website
+    = f.input :location_name
+    = f.input :starts_on, start_year: Date.today.year,
+                                     end_year: Date.today.year + 1,
+                                     order: [:day, :month, :year], input_html: { class: "span1" }
+    = f.input :image, input_html: { class: 'span4' }
+    = f.input :address
+    = f.input :postcode
+    = f.input :available_slots
+  .form-actions
+    = f.button :submit, class: 'btn btn-large'

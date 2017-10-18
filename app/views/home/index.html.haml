@@ -1,86 +1,27 @@
-.section
-  .splash.landing
-    .container
-      %h1 Rails Girls London
-      %h2 Making technology more approachable for women
-      - if @upcoming_event.any?
-        .next-event.text-center
-          %h3
-            Next Event:
-          %h1
-            = @upcoming_event.first.dates
-            %br
-            - if @upcoming_event.first.accepting_registrations? && @upcoming_event.first.registrations_open?
-              = link_to "View more details & apply", event_path(@upcoming_event.first), class: "btn btn-primary btn-lg btn-hero"
-            - else
-              = link_to "View more details", event_path(@upcoming_event.first), class: "btn btn-primary btn-lg btn-hero"
+- content_for :main_class, 'home'
 
-
-.section.separator.title
+%section.splash.hero-banner
   .container
-    .row
-      .col-md-12
-        #about
-          %h1
-            About Rails Girls
+    .hero-info
+      - if @next_event.present?
+        %h1
+          Next Event:
+          %span= @next_event.dates
+        .application-btn
+          - if @next_event.accepting_registrations? && @next_event.registrations_open?
+            = link_to "View more details & apply", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
+          - else
+            = link_to "View more details", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
+      - else
+        %h1
+          Next workshop:
+        %h2
+          Spring/Summer 2017
 
-.section.separator
-  .container
-    .row
-      .col-md-8
-        .about-img
-          .thumbnail
-            = image_tag "rails_girls_may_2015_large.jpg", class: "img-responsive"
-        %h4
-          Making technology more approachable for women.
-          Learn sketching, prototyping, basic programming and get introduced to the world of technology.
-          %br
-          %br
-          Our aim is to give tools and a community for women to understand technology and to build their ideas. We do this by providing a great experience on building things and by making technology more approachable.
+= render 'about_us'
 
-      .col-md-4
-        .row
-          = render 'layouts/social_media'
-        .row
-          = render 'layouts/twitter_snippet'
-
-
-
-= render @upcoming_event.any? ? "events/upcoming" : "events/next_expected"
+= render "events/next_event"
 = render "events/past"
 
-
-.section.separator
-  .container
-    #sponsors
-      .row
-        .col-md-12
-          %h1 Sponsors
-          - @sponsors.each_slice(6) do |sponsors|
-            .row
-              - sponsors.each do |sponsor|
-                .col-md-2
-                  .thumbnail.no-border
-                    = image_tag sponsor.image_url
-
-
-.section.separator
-  .container
-    = render "sponsor/info"
-
-.section
-  .container
-    #contact
-      .row
-        .col-md-12
-          %h1 Keep in touch with us!
-          .row
-            .col-md-4
-              = evil_icon "ei-envelope", size: :m, class: "pull-left ei-icon"
-              You can #{link_to "email us", "mailto:railsgirlslondon@gmail.com"} at #{link_to "railsgirlslondon@gmail.com", "mailto:railsgirlslondon@gmail.com"}.
-            .col-md-4
-              = evil_icon "ei-like", size: :m, class: "pull-left ei-icon"
-              Join the Rails Girls community on #{link_to "Twitter", "https://twitter.com/railsgirls_ldn"}, #{link_to "Facebook", "http://www.facebook.com/railsgirlslondon"}, or #{link_to "Google+", "https://plus.google.com/104252944343767158344/"}.
-            .col-md-4
-              = evil_icon "ei-comment", size: :m, class: "pull-left ei-icon"
-              Join #{link_to "our student mailing list", "https://groups.google.com/forum/#!forum/rails-girls-london"} or #{link_to "our coach mailing list", "https://groups.google.com/forum/#!forum/rails-girls-london-coaches"} to stay up to date about our future events.
+= render "sponsor/info"
+= render partial: "shared/sponsors", locals: { sponsors: @sponsors}

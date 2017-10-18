@@ -1,14 +1,11 @@
-%nav.navbar.navbar-default.navbar-fixed-top
-  .container-fluid
-    / Brand and toggle get grouped for better mobile display
-    .navbar-header
-      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
+%header.main-navigation
+  .container
+    %h1
       =link_to root_path do
-        = image_tag "logo.svg", class: 'navbar-brand'
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav.navbar-right
-        %li.active
+        = image_tag "logo.svg", alt: "Rails Girls London"
+    %nav
+      %ul
+        %li
           = link_to "ABOUT", landing_page_anchor_link("about")
         %li
           = link_to "EVENTS", landing_page_anchor_link("events")
@@ -16,3 +13,7 @@
           = link_to "SPONSORS", landing_page_anchor_link("sponsors")
         %li
           = link_to "CONTACT", landing_page_anchor_link("contact")
+
+.subnav__blurb
+  %h2
+    \::making technology more approachable for women...since 2013! <3 <3 :)

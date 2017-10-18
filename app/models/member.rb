@@ -10,7 +10,7 @@ class Member < ActiveRecord::Base
   validates(*REQUIRED_ATTRIBUTES, :presence => true)
   validates :email, uniqueness: true
 
-  attr_accessible(*ALL_ATTRIBUTES)
+  # attr_accessible(*ALL_ATTRIBUTES)
 
   scope :latest, -> { order('members.created_at DESC').limit(10) }
 

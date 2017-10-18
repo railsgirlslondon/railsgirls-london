@@ -7,22 +7,22 @@
     %title= content_for?(:title) ? yield(:title) : page_title
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+    %script(type="text/javascript" src="http://use.typekit.net/xaz4ocu.js")
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield(:head)
-  %body
-    %header.navbar.navbar-fixed-top
-      %nav.navbar-inner
+    %body
+    #page
+      %header.main-navigation
         .container
-          .row
-            .span10.offset1
-              = render 'layouts/navigation'
-    #main{:role => "main"}
-      .container
-        .row
-          .span3.offset1
-            %ul.nav.nav-tabs.nav-stacked
+          %h1
+            =link_to root_path do
+              = image_tag "logo.svg", alt: "Rails Girls London"
+          %nav
+            %ul
               %li{ class: path_active?(admin_dashboard_path) }
                 =link_to "Dashboard", admin_dashboard_path
               %li{ class: path_active?(admin_events_path) }
@@ -31,7 +31,12 @@
                 =link_to "Coaches", admin_coaches_path
               %li{ class: path_active?(admin_sponsors_path) }
                 =link_to "Sponsors", admin_sponsors_path
-          .span8
-            = render 'layouts/messages'
+              %li{ class: path_active?(admin_meetups_path) }
+                =link_to "Meetups", admin_meetups_path
+
+      %main{:role => "main", class: "#{yield(:main_class)}page" }
+        %section
+          .container
             = yield
-  =render 'layouts/footer'
+
+    =render 'layouts/footer'

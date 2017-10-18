@@ -13,12 +13,9 @@ RailsgirlsLondon::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-
-  # Raise exception on mass assignment protection for Active Record models
-  config.active_record.mass_assignment_sanitizer = :strict
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+  config.log_level = :info
 
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
@@ -28,15 +25,18 @@ RailsgirlsLondon::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # for mailcatcher
-    config.action_mailer.smtp_settings = {
-    :port =>           587,
-    :address =>        'smtp.mandrillapp.com',
-    :user_name =>      ENV['MANDRILL_USERNAME'],
-    :password =>       ENV['MANDRILL_APIKEY']
+  config.action_mailer.smtp_settings = {
+    :port =>           '587',
+    :address =>        'smtp.sendgrid.net',
+    :user_name =>      ENV['SENDGRID_USERNAME'],
+    :password =>       ENV['SENDGRID_PASSWORD'],
+    :domain =>         'heroku.com',
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
   ActionMailer::Base.delivery_method = :smtp
   # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }

@@ -1,153 +1,83 @@
-.section
-  .splash.event-page
-    .container
-      %h1
-        = @event.dates
-        - if @event.accepting_registrations?
-          - if @event.registrations_open?
-            %br
-            = link_to "Apply to the event", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
-            %br
-            %h4.text-center
-              Applications are open until the #{I18n.l(@event.registration_deadline)}
-          - else
-            %br
-            %h4.text-center
-              Applications are now closed.
-        - else
-          Applications are not available for this event.
+- content_for :main_class, 'event'
+- content_for :timestamp_media_metatags do
+  %meta{property: 'article:published_time', content: @event.created_at}
+  %meta{property: 'article:modified_time',  content: @event.updated_at}
 
+%section.splash
+  .splash-info
+    %h1
+      = @event.dates
+    - if @event.accepting_registrations?
+      - if @event.registrations_open?
+        .btn-block
+          = link_to "Apply for the event", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
+          %h4
+            Applications are open until #{I18n.l(@event.registration_deadline)}
+      - else
+        %h4
+          Applications are now closed.
+    - else
+      Applications are not available for this event.
 
-.section.separator.title
+%section.separator
   .container
-    .row
-      .col-md-12
-        #about
-          %h1
-            Event Details:
+    %h1.block-title
+      Event Details
 
-.section.separator
-  .container
-    .row
-      .col-md-8
-        - if @event.has_host?
+%section.separator
+  .container.flex--container__column
+    .event--container.flex--container.flex--item
+      .event-host--block.flex--item
+        .event-host
+          %h3
+            Sponsor host
+        .event-host--blurb
+          The venue for Rails Girls London
+          %br
+          #{@event.dates}
+          %br
+          is kindly provided by
+          %br
+          #{@event.host.name}.
+        .event-host__logo
+          = image_tag @event.host.image_url
+        .event-host__address
+          %address
+            Venue address:
+            %br
+            %b
+              #{@event.address_line_1},
+              - if @event.address_line_2.present?
+                #{@event.address_line_2},
+              #{@event.address_city},
+              #{@event.host.address_postcode}
+        .event-host__url
+          %a{ href: "#{@event.host.website}", target: :_blank } 
+            = @event.host.website
+        .event-host__map
           = hidden_field_tag 'address', @event.host.address_postcode
-          .row
-            .col-md-6
-              %div{:class => "span5"}
-                %div{:id => "map-canvas"}
-            .col-md-6
-              %strong=link_to @event.host.name, @event.host.website
-              %address
-                =@event.address_line_1
-                %br
-                - if @event.address_line_2
-                  #{@event.address_line_2}
-                  %br
-                #{@event.address_city}, #{@event.host.address_postcode}
-                - unless @event.host.image_url.blank?
-                  = image_tag @event.host.image_url, class: "img-responsive thumbnail no-border"
-          .row
-            .col-md-12
-              %h2 Timetable:
-              .row
-                .col-md-5
-                  %h3 Friday
-                  %p
-                    %b 18:30 - 21:00
-                    %br
-                    %b Installation party
-                    %br
-                    Get to know the attendees a little bit beforehand. Bring your laptop if you can, so we can install Ruby on Rails for you.
-                .col-md-7
-                  %h3 Saturday
-                  %p
-                    %b 9:00 - 9:30
-                    %br
-                    %b Registration & coffee
-                  %p
-                    %b 9:30 - 10:00
-                    %br
-                    %b Welcome
-                    %br
-                    We'll let you know the schedule for the day.
-                  %p
-                    %b 10:00 - 13:00
-                    %br
-                    %b Introduction to Ruby
-                    Practise coding with
-                    %a{ href: "http://tryruby.org/" } tryruby.org
-                    %br
-                    %b App design workshop
-                    Your application will start to take form.
-                    %br
-                    %b Coaches give lightning talks I
-                    %br
-                    %b Getting started with Ruby on Rails
-                    Kickstart your first web application on Rails.
-                    %br
-                    %b Coaches give lightning talks II
-                  %p
-                    %b 13:00 - 14:00
-                    %br
-                    %b Lunch
-                  %p
-                    %b 14:00 - 18:00
-                    %br
-                    %b Application workshop
-                    %br
-                    Extend your application.
-                  %p
-                    %b 18:00 - late
-                    %br
-                    %b Afterparty
+          %div{id: 'map-canvas'}
+      .event-description--block.flex--item
+        = render 'events/workshop_description'
+      .event-contacts.flex--item
+        = render 'events/sidebar'
 
+    .timetable--container.flex--container#timetable--anchor
+      = render 'events/timetable'
 
+= render partial: "shared/sponsors", locals: { sponsors: @event.sponsors.shuffle }
 
+= render partial: "shared/coaches", locals: { coaches: @event.coaches.who_attended, title: "Organisers and coaches" }
 
+- if @event.registrations_open?
+  %section.separator
+    .container
+      %h1.block-title
+        Join us at the event
 
-
-
-
-      .col-md-4
-        .row
-          = render 'layouts/social_media'
-        .row
-          = render 'layouts/twitter_snippet'
-
-.section.separator.title
-  .container
-    .row
-      .col-md-12
-        %h1
-          Sponsors
-
-.section
-  .container
-    .row
-      .col-md-12
-        - @event.sponsors.each_slice(4) do |group|
-          .row
-            - group.each do |sponsor|
-              .col-md-3
-                = link_to sponsor.website, class: "thumbnail no-border" do
-                  = image_tag sponsor.image_url
-                %small
-                  %strong
-                    =link_to "#{sponsor.name} -", sponsor.website  if sponsor.image_url.nil?
-                  = sponsor.description
-%br
-
-  = render partial: "shared/coaches", locals: { coaches: @event.coaches, title: "Organisers and coaches" }
-
-  - if @event.registrations_open?
-    .section.separator.title
-      .container#apply-student
-        .row
-          .col-md-12
-            %h1
-              Apply now
-
-    .section
-      .container#application-student
-        = render partial: "registrations/student_form"
+  %section#apply-student
+    .container.flex--container
+      .student-form.flex--item
+        = render "registrations/student_form"
+      .useful-info.flex--item
+        = render "events/other_info"

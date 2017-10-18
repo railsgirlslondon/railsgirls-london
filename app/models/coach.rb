@@ -1,5 +1,5 @@
 class Coach < ActiveRecord::Base
-  attr_accessible :name, :twitter, :email, :phone_number
+  # attr_accessible :name, :twitter, :email, :phone_number
 
   has_many :coachings
 

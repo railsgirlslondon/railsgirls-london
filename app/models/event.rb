@@ -7,10 +7,11 @@ class Event < ActiveRecord::Base
     :ends_on,
     :image,
     :registration_deadline,
-    :active
+    :active,
+    :accepting_feedback
   ]
 
-  attr_accessible *ATTRIBUTES
+  # attr_accessible *ATTRIBUTES
 
   include Extentions::Sponsorable
   include Extentions::Coachable
@@ -19,11 +20,16 @@ class Event < ActiveRecord::Base
   validates :description, :starts_on, :ends_on, presence: true
 
   has_many :registrations
+  has_many :feedbacks
 
   default_scope { order('events.created_at DESC') }
 
-  scope :upcoming, -> { where("ends_on >= ? and active = ?", Date.today, true).order(:starts_on) }
-  scope :past, -> { where("ends_on <= ? and active = ?", Date.today, false).order(:starts_on) }
+  scope :upcoming, -> { where("ends_on >= ? and active = ?", Date.today, true).reorder(:starts_on) }
+  scope :past, -> { where("ends_on <= ? and active = ?", Date.today, false).reorder(:starts_on) }
+
+  def self.next_event
+    Event.upcoming.first
+  end
 
   def accepting_registrations?
     registration_deadline.present?
@@ -31,6 +37,10 @@ class Event < ActiveRecord::Base
 
   def registrations_open?
     accepting_registrations? and Date.today <= registration_deadline
+  end
+
+  def accepting_feedback?
+    accepting_feedback
   end
 
   def rsvps_available?
@@ -64,6 +74,10 @@ class Event < ActiveRecord::Base
     (selected_applicants + coachings).sort_by(&:name)
   end
 
+  def attended_students
+    selected_applicants.where(attended: :attended)
+  end
+
   def instruct_coaches
     coaches.each {|coach| instruct(coach)}
   end
@@ -72,13 +86,14 @@ class Event < ActiveRecord::Base
     EventMailer.send(:coaches_instruction, self, coach).deliver_now
   end
 
-
-  def waiting_list_applicants
-    registrations.where :selection_state => "waiting list"
-  end
-
   def weeklies_invitees
     registrations.where :selection_state => "RGL Weeklies"
+  end
+
+  def ask_for_feedback
+    attended_students.each { |registration|
+      EventMailer.send(:ask_for_feedback, self, registration).deliver_now
+    }
   end
 
   def to_s

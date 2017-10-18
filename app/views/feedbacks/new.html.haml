@@ -1,0 +1,39 @@
+- content_for :main_class, 'feedback'
+
+%section.splash.event-banner.with-subtitle
+  .container
+    %h2
+      = @event.dates
+
+%section.separator
+  .container
+    .content-title
+      %h1.block-title
+        Feedback
+
+%section.separator
+  .container
+    .content
+      = simple_form_for [@event, Feedback.new] do |f|
+        .workshop__feedback.span6.content
+          .input-form
+            = f.input :email_address, hint: "Please use the same email address you used when signing up for the workshop. We will not display it anywhere.", required: true
+          .input-form
+            = f.input :feelings_before, as: :text, input_html: { rows: 4 }, label: "How did you feel before/after the workshop?"
+          .input-form
+            = f.input :comments, as: :text, input_html: { rows: 5 }
+          .input-form.checkbox-wrapper
+            = f.input :permission, input_html: {checked: true, class: 'checkbox__input'}, label: false
+            = f.label :permission, "Can we use your feedback and comments on our website? Tick the box if we can. "
+
+        .finished_app.span6.content
+          .input-form
+            = f.input :application_description, as: :text, input_html: { rows: 5 }
+          .input-form
+            = f.input :application_url
+            = f.input :github_url
+          .input-form
+            = f.input :rating, label: "How would you rate our workshop?", :collection => [["Not that great", 1], ["Meh", 2 ], ["Good", 3], [ "Very good", 4 ], ["Awesome!", 5]], required: true, prompt: "Select rating"
+
+        .form-actions.content
+          = f.submit :Submit, class: 'btn btn-large btn-primary'

@@ -6,7 +6,7 @@ RailsgirlsLondon::Application.routes.draw do
   get "/404", to: "errors#not_found"
   get "/london(/:slug)", to: redirect("/"), slug: /.*/
 
-  #get "/:id/sponsor" => "home#sponsors", as: :city_sponsor
+  get "/code_of_conduct" => 'home#code_of_conduct'
 
   get "/unsubscribe/:member_uuid" => "unsubscribes#new", as: :unsubscribe
   post "/unsubscribe/:member_uuid" => "unsubscribes#create"
@@ -14,11 +14,13 @@ RailsgirlsLondon::Application.routes.draw do
 
   resources :events, only: [:show] do
     resources :registrations, only: [:new, :create]
-    resources :feedback, only: [:new, :show]
+    resources :feedbacks, only: [:new, :show]
   end
   resources :events do
-    resource :feedback,  only: [ :create ]
+    resource :feedbacks,  only: [ :create ]
   end
+
+  resources :meetups, only: :show
 
   namespace :admin do
     root :to => 'dashboard#index'
@@ -32,7 +34,7 @@ RailsgirlsLondon::Application.routes.draw do
         resource :attendance, only: [:create, :destroy]
       end
     end
-
+    resources :meetups
     resources :sponsorships, only: [:create, :destroy, :update]
     resources :coachings, only: [:create, :destroy, :update]
     resources :sponsors

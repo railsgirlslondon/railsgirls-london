@@ -1,38 +1,52 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.3.3'
 
-gem 'rails', '~> 4.2.4'
+gem 'rails', '~> 5.0.0'
 gem 'unicorn'
-
-gem 'haml-rails'
-gem 'simple_form', '~> 3.2.0'
-gem 'devise'
-gem 'protected_attributes' # temporary
-gem 'ruby-trello', require: false
 gem 'pg'
-gem 'newrelic_rpm'
-gem 'icalendar'
+gem 'sass-rails'
+gem 'jquery-rails'
+gem 'haml-rails'
+gem 'devise'
+
+gem 'bootstrap-sass'
+gem 'bourbon'
+gem 'neat'
+gem 'simple_form'
 gem 'evil_icons' # SVG icon set
+gem 'autoprefixer-rails'
+
+gem 'icalendar'
+gem 'ruby-trello', require: false
+gem 'newrelic_rpm'
+
+gem 'premailer-rails'
+gem 'nokogiri'
+gem 'letter_opener', '~> 1.4'
 
 group :production do
   gem 'rails_12factor'
 end
 
+group :development do
+  gem "better_errors"
+  gem 'binding_of_caller'
+end
+
 group :test, :development do
   gem 'dotenv-rails'
-  gem 'binding_of_caller'
-  gem "better_errors"
   gem 'guard'
   gem 'guard-rspec', require: false
   gem 'rspec-rails'
   gem 'byebug'
   gem 'pry-rails'
-  gem 'fabrication'
   gem 'faker'
 end
 
 group :test do
+  gem 'rails-controller-testing'
+  gem 'fabrication'
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers', '>=0.3.0'
@@ -46,11 +60,6 @@ group :test do
 end
 
 group :assets do
-  gem 'coffee-rails', '~> 4.0.0.rc1'
-  gem 'uglifier', '>= 1.3.0'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
-
-gem 'jquery-rails'
-gem 'sass-rails',  '~> 4.0.0.rc1'
-gem 'bootstrap-sass'
-gem 'bourbon'

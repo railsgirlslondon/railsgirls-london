@@ -16,23 +16,7 @@ module Extentions
     end
 
     def load_attachments
-      [
-        "london-girl.png",
-        "skype.jpg",
-        "shutl.png",
-        "skyscanner.png",
-        "cake.png",
-        "friday.png",
-        "which.png",
-        "railsgirls-heart.png",
-        "railsgirls-london.png",
-        "twitter.png",
-        "facebook.png",
-        "github.png",
-        "gplus.png"
-      ].each do |image|
-        attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
-      end
+      #FIXME add calendar event
     end
 
     def mail_args(subject, participant_email)

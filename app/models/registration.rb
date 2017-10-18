@@ -6,38 +6,15 @@ class Registration < ActiveRecord::Base
   REQUIRED_ATTRIBUTES = [
     :first_name,
     :last_name,
-    :email
-  ]
-
-  REGISTRATION_ATTRIBUTES = [
-    :event_id,
-    :event,
-    :email_confirmation,
-    :gender,
+    :email,
     :phone_number,
-    :programming_experience,
-    :reason_for_applying,
-    :how_did_you_hear_about_us,
-    :uk_resident,
-    :os,
-    :os_version,
-    :terms_of_service,
+    :gender,
     :address,
-    :spoken_languages,
-    :preferred_language
+    :reason_for_applying,
+    :terms_of_service
   ]
 
-  attr_accessible(
-    *(REQUIRED_ATTRIBUTES + REGISTRATION_ATTRIBUTES),
-    :twitter,
-    :dietary_restrictions,
-    :selection_state,
-    :attending,
-    :member
-  )
-
-  validates *REQUIRED_ATTRIBUTES,     presence: true
-  validates *(REGISTRATION_ATTRIBUTES - [:gender]), presence: true, on: :registration
+  validates *REQUIRED_ATTRIBUTES, presence: true
 
   belongs_to :event
   belongs_to :member

@@ -32,6 +32,14 @@ We use [Kippt](https://kippt.com/) for collecting resources. The mainpage dynami
 
 Please stick to Github's [style guide](https://github.com/styleguide/ruby)
 
+### Getting up and running for development and testing
+
+- `bin/rake db:setup`
+- `bin/rake db:setup RAILS_ENV=test`
+- `bin/rake db:seed`. The application assumes you have at least one city and
+  one Event in your database and the seeds will create these for you.
+- `bin/bundle exec rspec`. This will run all the tests.
+
 ## Deployment
 
 Make sure you have access to the Heroku app. One of the organisers can arrange that.

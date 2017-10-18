@@ -1,0 +1,86 @@
+$media_query_small  : 430px;
+$media_query_medium_small  : 590px;
+$media_query_medium : 690px;
+$media_query_tablet : 768px;
+$media_query_above_tablet : 980px;
+$media_query_large  : 1024px;
+$media_query_mlarge : 1250px;
+$media_query_xlarge : 1440px;
+$media_query_xxlarge : 1600px;
+$media_query_compact_nav: 980px;
+
+$bb-breakpoints: (
+  'small'  : $media_query_small,
+  'medium_small'  : $media_query_medium_small,
+  'medium' : $media_query_medium,
+  'tablet' : $media_query_tablet,
+  'above_tablet' : $media_query_above_tablet,
+  'large'  : $media_query_large,
+  'mlarge' : $media_query_mlarge,
+  'xlarge' : $media_query_xlarge,
+  'xxlarge' : $media_query_xxlarge,
+);
+
+$bb-nav-breakpoints: (
+  'compact' : $media_query_compact_nav,
+);
+
+
+@mixin breakpoint($val, $type: "") {
+  $scope: if(length($val) > 1, nth($val, 2), only); /* [1] */
+  $size: nth($val, 1);
+
+  @if $type == nav and $size == compact {
+    @media only screen and ( max-width: map-get($bb-nav-breakpoints, compact) ) { @content; }
+  } @else if $type == nav and $size == full {
+    @media only screen and ( min-width: map-get($bb-nav-breakpoints, compact) + 1px ) { @content; }
+  } @else if $size == small and $scope == only {
+    @media only screen and ( max-width: map-get($bb-breakpoints, small) ) { @content; }
+  } @else if $size == medium_small and $scope == down {
+    @media only screen and ( max-width: map-get($bb-breakpoints, medium_small) ) { @content; }
+  } @else if $size == medium_small and $scope == only {
+    @media only screen and ( min-width: map-get($bb-breakpoints, small) + 1px ) and ( max-width: map-get($bb-breakpoints, medium) ) { @content; }
+  } @else if $size == medium_small and $scope == up {
+    @media only screen and ( min-width: map-get($bb-breakpoints, small) + 1px ) { @content; }
+  } @else if $size == medium and $scope == down {
+    @media only screen and ( max-width: map-get($bb-breakpoints, medium) ) { @content; }
+  } @else if $size == medium and $scope == only {
+    @media only screen and ( min-width: map-get($bb-breakpoints, medium_small) + 1px ) and ( max-width: map-get($bb-breakpoints, medium) ) { @content; }
+  } @else if $size == medium and $scope == up {
+    @media only screen and ( min-width: map-get($bb-breakpoints, medium_small) + 1px ) { @content; }
+  } @else if $size == tablet and $scope == down {
+    @media only screen and ( max-width: map-get($bb-breakpoints, tablet) ) { @content; }
+  } @else if $size == tablet and $scope == only {
+    @media only screen and ( min-width: map-get($bb-breakpoints, above_tablet) + 1px ) and ( max-width: map-get($bb-breakpoints, tablet) ) { @content; }
+  } @else if $size == tablet and $scope == up {
+    @media only screen and ( min-width: map-get($bb-breakpoints, above_tablet) + 1px ) { @content; }
+  } @else if $size == above_tablet and $scope == down {
+    @media only screen and ( max-width: map-get($bb-breakpoints, above_tablet) ) { @content; }
+  } @else if $size == above_tablet and $scope == only {
+    @media only screen and ( min-width: map-get($bb-breakpoints, medium) + 1px ) and ( max-width: map-get($bb-breakpoints, above_tablet) ) { @content; }
+  } @else if $size == above_tablet and $scope == up {
+    @media only screen and ( min-width: map-get($bb-breakpoints, medium) + 1px ) { @content; }
+  } @else if $size == large and $scope == down {
+    @media only screen and ( max-width: map-get($bb-breakpoints, large) ) { @content; }
+  } @else if $size == large and $scope == only {
+    @media only screen and ( min-width: map-get($bb-breakpoints, medium) + 1px ) and ( max-width: map-get($bb-breakpoints, large) ) { @content; }
+  } @else if $size == large and $scope == up {
+    @media only screen and ( min-width: map-get($bb-breakpoints, medium) + 1px ) { @content; }
+  } @else if $size == mlarge and $scope == down {
+    @media only screen and ( max-width: map-get($bb-breakpoints, mlarge) ) { @content; }
+  } @else if $size == mlarge and $scope == only {
+    @media only screen and ( min-width: map-get($bb-breakpoints, large) + 1px ) and ( max-width: map-get($bb-breakpoints, mlarge) ) { @content; }
+  } @else if $size == mlarge and $scope == up {
+    @media only screen and ( min-width: map-get($bb-breakpoints, large) + 1px ) { @content; }
+  } @else if $size == xlarge and ($scope == only or $scope == up) {
+    @media only screen and ( min-width: map-get($bb-breakpoints, xlarge) + 1px ) { @content; }
+  } @else if $size == xlarge and $scope == down {
+    @media only screen and ( max-width: map-get($bb-breakpoints, xlarge) ) { @content; }
+  } @else if $size == xxlarge and ($scope == only or $scope == up) {
+    @media only screen and ( min-width: map-get($bb-breakpoints, xxlarge) + 1px ) { @content; }
+  } @else if $size == xxlarge and $scope == down {
+    @media only screen and ( max-width: map-get($bb-breakpoints, xxlarge) ) { @content; }
+  } @else {
+    @error "The value `" + $val + "` is unexpected, the breakpoint mixin does not know how to handle this.";
+  }
+}

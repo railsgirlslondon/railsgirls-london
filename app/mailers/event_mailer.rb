@@ -35,11 +35,17 @@ class EventMailer < ActionMailer::Base
     send_email(subject, registration.email)
   end
 
+  def ask_for_feedback event, registration
+    setup_for_feedback event, registration
+    subject = "Rails Girls London - Feedback"
+    send_email(subject, registration.email)
+  end
+
   def confirm_feedback event, registration, invitation
     setup event, registration, invitation
 
     subject = "RGL - Thank you for your feedback for #{@event.title} #{@event.dates}!"
-    send_email(subject)
+    send_email(subject, registration.email)
   end
 
   private
@@ -65,5 +71,11 @@ class EventMailer < ActionMailer::Base
     @event = event
 
     super()
+  end
+
+  def setup_for_feedback event, registration
+    @event = event
+    @registration = registration
+    load_attachments
   end
 end

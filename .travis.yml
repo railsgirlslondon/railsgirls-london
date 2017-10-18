@@ -3,9 +3,9 @@ bundler_args: --without development
 script:
   - bundle exec rake db:create
   - bundle exec rake db:schema:load
-  - bundle exec rspec
+  - bundle exec rspec -fd
 rvm:
-  - 2.2.2
+  - 2.3.3
 notifications:
   email:
     - rgl-organisers@googlegroups.com

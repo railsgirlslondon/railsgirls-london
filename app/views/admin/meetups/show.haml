@@ -1,0 +1,18 @@
+%h2= @meetup.title
+%h3= @meetup.starts_on
+
+=link_to "Edit", edit_admin_meetup_path(@meetup)
+
+%div
+  %p= @meetup.description.html_safe
+  %p= @meetup.short_blurb
+  %p= @meetup.address
+  %p= @meetup.postcode
+  %p= @meetup.available_slots
+  %p= @meetup.location_name
+  %p= @meetup.location_website
+
+%div
+  %ul
+  - @meetup.sponsors.each do |sponsor|
+    %li= sponsor.name

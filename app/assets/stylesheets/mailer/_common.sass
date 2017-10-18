@@ -1,0 +1,93 @@
+html, body
+  height: 100%
+  margin: 0
+
+*, *:before, *:after
+  box-sizing: border-box
+
+.main
+  margin: 0 auto
+  padding: 0
+
+.main > section
+  padding: 0 $site-padding
+
+.main-content
+  padding: 3rem 0 4rem
+
+.container
+  @include outer-container
+
+.content
+  padding: 2rem $site-padding/2 2rem
+
+.content-title
+  padding: 4rem $site-padding/2
+
+a
+  color: $default-link-color
+  text-decoration: none
+  font-weight: 500
+  &:hover
+    color: red
+    text-decoration: underline
+  img
+    border: 0
+
+
+figure
+  margin: 1.6rem 0
+  figcaption
+    font-size: 1.25rem
+    font-style: italic
+    line-height: 1em
+    color: #666
+  img
+    max-width: 100%
+    display: block
+    height: auto
+    margin-left: auto
+    margin-right: auto
+
+.thumbnail__image
+  padding: 4px
+  margin-bottom: 2rem
+  background-color: white
+  border: 1px solid $border-color
+
+article
+  ul
+    list-style: disc
+  ol
+    list-style: decimal
+
+pre
+  border-radius: 2px
+
+.separator
+  border-bottom: 1px solid #f2f2f2
+
+.social-media--block
+  .social-media--item
+    display: inline-block
+    padding: 3px
+    img
+      height: 30px
+
+.sponsors--block
+  padding: 5px 0 40px
+  .sponsor--item
+    display: inline-block
+    padding: 10px
+    width: 30%
+    min-width: 140px
+    max-width: 175px
+    img
+      width: 100%
+      +breakpoint(tablet down)
+        height: 130px
+
+.important-info
+  background-color: #fde8e8
+  padding: 2rem
+  color: #056565

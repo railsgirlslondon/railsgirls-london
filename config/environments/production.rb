@@ -20,7 +20,7 @@ RailsgirlsLondon::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_files = true
+  config.public_file_server.enabled = false
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -68,11 +68,12 @@ RailsgirlsLondon::Application.configure do
 
   config.action_mailer.smtp_settings = {
     :port =>           '587',
-    :address =>        'smtp.mandrillapp.com',
-    :user_name =>      ENV['MANDRILL_USERNAME'],
-    :password =>       ENV['MANDRILL_APIKEY'],
+    :address =>        'smtp.sendgrid.net',
+    :user_name =>      ENV['SENDGRID_USERNAME'],
+    :password =>       ENV['SENDGRID_PASSWORD'],
     :domain =>         'heroku.com',
-    :authentication => :plain
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
   ActionMailer::Base.delivery_method = :smtp
 

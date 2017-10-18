@@ -12,7 +12,7 @@
 
     %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
       Please remember to bring with you
-      %b your laptop, ID that will show a proof of your age and a printed or a digital copy of this confirmation to verify your place.
+      %b your laptop, ID (to prove you are over 18, Attendees under 18 must be accompanied by an adult) and a printed or a digital copy of this confirmation to verify your place.
 
   .right.inline{ style: "width: 100%; min-width: 180px; margin-top: 25px; display: inline-block;" }
     =image_tag attachments['london-girl.png'].url, width: '180px'
@@ -21,12 +21,4 @@
     %p.lead{ style: "font-size: 15px; color: #4E5563; margin-top: 25px;" }
       %strong See you at the workshop!
 
-  .bottom{ style: "width: 100%; padding: 50px 0 0 0px; display: block;" }
-    %strong Gold & Platinum sponsors:
-    %br
-    = image_tag attachments["skype.jpg"].url, width: '180px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments["skyscanner.png"].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['shutl.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['cake.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['friday.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
-    = image_tag attachments['which.png'].url, width: '150px', style: "display: inline-block; padding-right: 10px"
+  = render 'sponsor/email_logos'

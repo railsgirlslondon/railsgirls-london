@@ -1,54 +1,27 @@
-.row
-  .col-md-8
-    %h1 Sponsor's info
+%section.separator#sponsors
+  .container
+    %h1.block-title
+      Sponsor's info
+
+%section.separator.next_event
+  .container
+    %h3
+      Helping us with the workshop financially
     %p
-      Running our workshops and weekly meetings requires certain things to be arranged, as well as incurring a number of extra costs.
-      We rely on the generosity of our sponsors to provide us a venue and catering, or otherwise to cover the cost of making the experience memorable for our attendees.
-      Without sponsorship, we would be unable to make as big an impact in the community, or even run our workshops and meetings at all. Sponsorships or contributions at any level are welcomed.
+      We rely on the generosity of our sponsors to provide us with a venue, catering and refreshments, while also covering the costs of making the whole experience memorable for our attendees. Without this, we would be unable to continue to make such a big impact in the community. Sponsorships and contributions at any level are most welcome. We have several
+      = link_to "https://s3-us-west-2.amazonaws.com/railsgirlslondon/rails_girls_london_sponsorship.pdf", target: "_blank" do
+        %b sponsorship packs that can be viewed here.
 
-  .col-md-4
     %br
-      = mail_to "railsgirlslondon@gmail.com", "Become a sponsor!", class: "btn btn-primary btn-lg pull-right btn-hero"
+      = mail_to "railsgirlslondon@gmail.com", "Become a sponsor", class: "btn btn-primary"
 
-.row
-  .col-md-4
-    %h3.text-center
-      Silver
-      %br
-      £500
-    %ul
-      %li Feature your logo on our website
-      %li Do social media shout outs - thank you
-      %li Distribute any swag you'd like our participants and coaches to take home
-  .col-md-4
-    %h3.text-center
-      Golden
-      %br
-      £700
-    %ul
-      %li Feature your logo on our website
-      %li Do social media shout outs - thank you
-      %li Distribute any swag you'd like our participants and coaches to take home
-      %li Give you 5 minutes talk time at the event
-      %li Add your logo to all event emails
-  .col-md-4
-    %h3.text-center
-      Platinum
-      %br
-      £1000
-    %ul
-      %li Feature your logo on our website
-      %li Do social media shout outs - thank you
-      %li Distribute any swag you'd like our participants and coaches to take home
-      %li Give you 5 minutes talk time at the event
-      %li Add your logo to all event emails
-      %li Print out your logo on tote bags
-
-
-.row
-  .col-md-12
     %h3
       Hosting Rails Girls
     %p
-      Another way to sponsor Rails Girls London is to provide the venue and catering for a future event. We currently run large Workshops for 170-180 people.
-      If you're interested in doing this, please get in touch at railsgirlslondon@gmail.com, and we'll be happy to arrange something.
+      Another way to sponsor Rails Girls London is to provide the venue and catering for a future event.
+      %br
+      We currently run workshops for 250-300 people.
+
+      %br
+        %b Lets talk:
+        = mail_to "rgl-organisers@googlegroups.com", "rgl-organisers@googlegroups.com"
