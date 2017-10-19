@@ -15,7 +15,21 @@
       %a{ href: "http://www.facebook.com/#{city_facebook}" } Facebook
       %h4
         Get excited and make things!
-
+        .col-md-1
+        = mail_to "railsgirlslondon@gmail.com", target: :_blank do
+          = image_tag "social_media_icons/email.svg", class: "social-icon"
+        = link_to "http://slack.railsgirls.london/", target: :_blank do
+          = image_tag "social_media_icons/slack.png", class: "social-icon"
+        = link_to "http://facebook.com/railsgirlslondon", target: :_blank  do
+          = image_tag "social_media_icons/facebook.svg", class: "social-icon"
+        = link_to "http://twitter.com/railsgirls_ldn", target: :_blank do
+          = image_tag "social_media_icons/twitter.svg", class: "social-icon"
+        = link_to "https://www.instagram.com/rails_girls_london", target: :_blank do
+          = image_tag "social_media_icons/instagram.svg", class: "social-icon"
+        = link_to "https://www.linkedin.com/company/11157516", target: :_blank do
+          = image_tag "social_media_icons/linkedin.svg", class: "social-icon"
+        = link_to "https://github.com/railsgirlslondon/railsgirls-london", target: :_blank do
+          = image_tag "social_media_icons/github.svg", class: "social-icon"
 -#
 -# %section
 -#   .container
