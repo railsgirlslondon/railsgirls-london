@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219183339) do
+ActiveRecord::Schema.define(version: 20171021135131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20170219183339) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "phone_number"
+    t.string   "dietary_restrictions"
+    t.string   "notes"
   end
 
   create_table "coachings", force: :cascade do |t|
@@ -234,6 +236,8 @@ ActiveRecord::Schema.define(version: 20170219183339) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "dietary_restrictions"
+    t.string   "notes"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

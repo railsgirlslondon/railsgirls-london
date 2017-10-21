@@ -15,7 +15,12 @@
       %li
         %strong phone
         = @coach.phone_number
-
+      %li
+        %strong dietary
+        = @coach.dietary_restrictions
+      %li
+        %strong notes
+        = @coach.notes
 
   .span3
     .pull-right= image_tag gravatar_url(@coach.email, 90), class: 'img-circle'
