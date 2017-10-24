@@ -15,7 +15,7 @@
       %a{ href: "http://www.facebook.com/#{city_facebook}" } Facebook
       %h4
         Get excited and make things!
-        .col-md-1
+      .social-media--container
         = mail_to "railsgirlslondon@gmail.com", target: :_blank do
           = image_tag "social_media_icons/email.svg", class: "social-icon"
         = link_to "http://slack.railsgirls.london/", target: :_blank do
@@ -30,17 +30,3 @@
           = image_tag "social_media_icons/linkedin.svg", class: "social-icon"
         = link_to "https://github.com/railsgirlslondon/railsgirls-london", target: :_blank do
           = image_tag "social_media_icons/github.svg", class: "social-icon"
--#
--# %section
--#   .container
--#     %h1 Keep in touch with us!
--#     = evil_icon "ei-envelope", size: :m, class: "pull-left ei-icon"
--#     You can #{link_to "email us", "mailto:railsgirlslondon@gmail.com"} at #{link_to "railsgirlslondon@gmail.com", "mailto:railsgirlslondon@gmail.com"}.
--#     = evil_icon "ei-like", size: :m, class: "pull-left ei-icon"
--#     Join the Rails Girls community on
--#     #{link_to "Twitter", "https://twitter.com/railsgirls_ldn"},
--#     #{link_to "Facebook", "http://www.facebook.com/railsgirlslondon"},
--#     #{link_to "Google+", "https://plus.google.com/104252944343767158344/"}
--#     or #{link_to "Slack", "http://slack.railsgirls.london/"}.
--#     = evil_icon "ei-comment", size: :m, class: "pull-left ei-icon"
--#     Join #{link_to "our student mailing list", "https://groups.google.com/forum/#!forum/rails-girls-london"} or #{link_to "our coach mailing list", "https://groups.google.com/forum/#!forum/rails-girls-london-coaches"} to stay up to date about our future events.

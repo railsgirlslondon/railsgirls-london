@@ -5,11 +5,20 @@
   z-index: 9999
   .london-cats
     flex: 1
+    +breakpoint(small only)
+      flex: 1 100%
     img
+      float: right
       width: 100%
       max-width: 20rem
+      +breakpoint(small only)
+        margin: auto
+        float: none
+        display: block
   .copyright
     flex: 2
+    +breakpoint(small only)
+      flex: 1 100%
   .social-icon
     width: 100%
     max-width: 5rem
