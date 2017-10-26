@@ -1,7 +1,7 @@
 .application-received.main-content
   .container.separator
     %h1.header-blurb
-      Thank you for applying for the Rails Girls London Workshop on
+      Thank you for applying for the Rails Girls London Workshop on the
       = @event.dates
   .container.separator
     .content
@@ -13,7 +13,7 @@
         We received your application, and we will be reviewing it soon.
 
         %br
-        You can view more details about workshop
+        You can view details about the workshop
         = link_to 'here', event_url(@event)
         or
         = link_to "http://slack.railsgirls.london/", target: :_blank do
@@ -21,8 +21,8 @@
 
       %p
         %strong
-          We will be sending out a confirmation email
-          to successful applicants on #{invites_to_be_sent_date(@event)}.
+          We will be sending out confirmation emails
+          to successful applicants on the #{invites_to_be_sent_date(@event)}.
         %br
 
       .signature
