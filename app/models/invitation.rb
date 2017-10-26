@@ -2,8 +2,6 @@ class Invitation < ActiveRecord::Base
   belongs_to :invitee, :polymorphic => true
   belongs_to :invitable, :polymorphic => true
 
-  # attr_accessible :invitable_type, :invitable_id, :invitee_id, :invitee_type, :attending, :waiting_list, :invitable, :invitee, :comment
-
   validates :invitee_id, uniqueness: { scope: [:invitee_type, :invitable_id, :invitable_type ] }
 
   before_create :generate_token
@@ -37,6 +35,10 @@ class Invitation < ActiveRecord::Base
 
   def to_param
     self.token
+  end
+
+  def valid_until_date
+    created_at + 7.days
   end
 
   def send_feedback_confirmation

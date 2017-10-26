@@ -9,6 +9,12 @@ class Admin::InvitationsController < ApplicationController
     redirect_to :back
   end
 
+  def resend_invite
+    invitation = Invitation.find(params[:id])
+    invitable.invite_again(invitation)
+    redirect_to :back
+  end
+
   def show
     @invitation = Invitation.find_by_token params[:id]
   end

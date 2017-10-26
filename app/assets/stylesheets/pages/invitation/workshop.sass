@@ -1,0 +1,21 @@
+.invitation-workshop-page
+  .event--container
+    +breakpoint(tablet down)
+      flex-direction: column
+  .rsvp-container.flex--item
+    flex: 2
+    +breakpoint(tablet down)
+      order: 1
+  .event-host--block
+    +breakpoint(tablet down)
+      order: 2
+  .event-host__logo
+    img
+      max-width: 30rem
+      padding: 3rem 0
+  .inline
+    display: inline-block
+    padding: 3rem
+  .controls
+    background-color: whitesmoke
+

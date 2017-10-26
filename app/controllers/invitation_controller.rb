@@ -4,8 +4,8 @@ class InvitationController < ApplicationController
 
   def show
     @invitable = @invitation.invitable
-
-    return render 'invitation/workshop' if @invitable.is_a? Event
+    @attendance_status = params[:attending]
+    return render 'invitation/workshop'
   end
 
   def update

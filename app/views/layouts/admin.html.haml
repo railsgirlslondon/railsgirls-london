@@ -10,33 +10,26 @@
     :javascript
       try{Typekit.load();}catch(e){}
     %script(type="text/javascript" src="http://use.typekit.net/xaz4ocu.js")
-    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "admin", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield(:head)
     %body
-    #page
-      %header.main-navigation
-        .container
-          %h1
-            =link_to root_path do
-              = image_tag "logo.svg", alt: "Rails Girls London"
-          %nav
-            %ul
-              %li{ class: path_active?(admin_dashboard_path) }
-                =link_to "Dashboard", admin_dashboard_path
-              %li{ class: path_active?(admin_events_path) }
-                =link_to "Events", admin_events_path
-              %li{ class: path_active?(admin_coaches_path) }
-                =link_to "Coaches", admin_coaches_path
-              %li{ class: path_active?(admin_sponsors_path) }
-                =link_to "Sponsors", admin_sponsors_path
-              %li{ class: path_active?(admin_meetups_path) }
-                =link_to "Meetups", admin_meetups_path
+      %nav.navbar.navbar-default
+        %ul.nav.navbar-nav
+          %li{ class: "nav-link" }
+            =link_to "Dashboard", admin_dashboard_path
+          %li{ class: "nav-link" }
+            =link_to "Events", admin_events_path
+          %li{ class: "nav-link" }
+            =link_to "Coaches", admin_coaches_path
+          %li{ class: "nav-link" }
+            =link_to "Sponsors", admin_sponsors_path
+          %li{ class: "nav-link" }
+            =link_to "Meetups", admin_meetups_path
 
       %main{:role => "main", class: "#{yield(:main_class)}page" }
         %section
           .container
             = yield
 
-    =render 'layouts/footer'

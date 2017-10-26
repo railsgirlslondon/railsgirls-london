@@ -66,6 +66,10 @@ class Event < ActiveRecord::Base
     selected_applicants.each { |member| invite(member) }
   end
 
+  def invite_again(invitation)
+    EventMailer.send(:invite, self, invitation.invitee, invitation).deliver_now
+  end
+
   def selected_applicants
     registrations.where :selection_state => "accepted"
   end

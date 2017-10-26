@@ -1,62 +1,67 @@
-#rsvp
-  %section.separator.title
-    .container
-      .row
-        .col-md-12
-          #events
-            %h1
-              Rails Girls London,
-              =@invitable.dates
+- content_for :main_class, 'invitation-workshop'
+%section.separator
+  .container
+    %h1.block-title
+      Rails Girls London, #{@invitable.dates}
 
+%section.separator
+  .container.flex--container__column
+    .event--container.flex--container.flex--item
+      .event-host--block.flex--item
+        .event-host
+          %h3
+            Sponsor host
+        .event-host--blurb
+          The venue for Rails Girls London
+          %br
+          #{@invitable.dates}
+          %br
+          is kindly provided by
+          %br
+          #{@invitable.host.name}.
+        .event-host__logo
+          = image_tag @invitable.host.image_url
+        .event-host__address
+          %address
+            Venue address:
+            %br
+            %b
+              #{@invitable.address_line_1},
+              - if @invitable.address_line_2.present?
+                #{@invitable.address_line_2},
+              #{@invitable.address_city},
+              #{@invitable.host.address_postcode}
+        .event-host__url
+          %a{ href: "#{@invitable.host.website}", target: :_blank } 
+            = @invitable.host.website
+        .event-host__map
+          = hidden_field_tag 'address', @invitable.host.address_postcode
+          %div{id: 'map-canvas'}
+      .rsvp-container.flex--item
 
-  %section.separator
-    .container
-      .row
-        .col-md-12
-          = render 'layouts/messages'
-          .hero-unit
-            - if !@invitation.attending.nil? or !@invitable.rsvps_available?
-              .rsvp-status
-                You have RSVPed:
-                %h3
-                  %strong
-                    =@invitation.attending ? "YES" : "NO"
-                %hr
-              - if !@invitation.attending
-                %h4 We are so sorry you can &#x27; t make it :(
-            - if @invitable.rsvps_available? and !@invitation.attending.eql? false
-              %h3
-                %strong= "Will you attend?"
-              =simple_form_for @invitation, html: { class: 'form-inline' } do |f|
-                =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last, required: true
-                =f.input :comment, placeholder: "Anything you want us to know?"
-                %br
+        = render 'layouts/messages'
 
-                =f.submit "RSVP", class: 'btn btn-primary btn-lg btn-hero'
-              - if @invitable.rsvps_available? and !@invitation.attending.eql? false
-                %hr
-                %small
-                  %em You can RSVP until the #{I18n.l(@invitable.rsvp_end_date)}
+        - if !@invitation.attending.nil? or !@invitable.rsvps_available?
+          .rsvp-status
+            You have RSVPed:
+            %h3
+              %strong
+                =@invitation.attending ? "YES" : "NO"
+            %hr
 
+          - if !@invitation.attending
+            %h4 We are so sorry you can &#x27; t make it :(
 
-  %section.separator
-    .container
-      .row
-        .col-md-8
-          - if @invitable.has_host?
-            = hidden_field_tag 'address', @invitable.host.address_postcode
-            .row
-              .col-md-6
-                %div{:class => "span5"}
-                  %div{:id => "map-canvas"}
-              .col-md-6
-                %strong=link_to @invitable.host.name, @invitable.host.website
-                %address
-                  =@invitable.address_line_1
-                  %br
-                  - if @invitable.address_line_2
-                    #{@invitable.address_line_2}
-                    %br
-                  #{@invitable.address_city}, #{@invitable.host.address_postcode}
-                  - unless @invitable.host.image_url.blank?
-                    = image_tag @invitable.host.image_url, class: "img-responsive thumbnail no-border"
+        - if @invitable.rsvps_available? and !@invitation.attending.eql? false
+          %h3
+            %strong= "Will you attend?"
+          =simple_form_for @invitation, html: { class: 'form-inline' } do |f|
+            =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last, required: true, checked: @attendance_status
+            =f.input :comment, placeholder: "Anything you want us to know?"
+            %br
+
+            =f.submit "RSVP", class: 'btn btn-primary btn-lg btn-hero'
+
+        %hr
+        %small
+          %em You can RSVP until the #{@invitation.valid_until_date.strftime("%-d %B  %Y")}.

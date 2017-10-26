@@ -1,6 +1,7 @@
 %legend
   Registrations (#{@event.registrations.count})
-  %small= link_to "Add registration", new_admin_event_registration_path(@event)
+  = link_to "Add registration", new_admin_event_registration_path(@event), class: 'btn btn-info'
+  = link_to "Invite all accepted", admin_event_invitations_path(@event), method: :post, class: 'btn btn-primary'
 
 - if @event.registrations.any?
   .well
