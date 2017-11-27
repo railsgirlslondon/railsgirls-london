@@ -38,7 +38,7 @@ class Invitation < ActiveRecord::Base
   end
 
   def valid_until_date
-    created_at + 7.days
+    created_at + 3.days
   end
 
   def send_feedback_confirmation
