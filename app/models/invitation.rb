@@ -33,6 +33,10 @@ class Invitation < ActiveRecord::Base
     invitable.email :invitation_reminder, self.invitee, self
   end
 
+  def welcome_message
+    invitable.email :welcome_message, self.invitee, self
+  end
+
   def to_param
     self.token
   end

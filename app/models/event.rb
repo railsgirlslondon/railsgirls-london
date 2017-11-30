@@ -70,6 +70,22 @@ class Event < ActiveRecord::Base
     EventMailer.send(:invite, self, invitation.invitee, invitation).deliver_now
   end
 
+  def send_reminder(invitation)
+    EventMailer.send(:invitation_reminder, self, invitation.invitee, invitation).deliver_now
+  end
+
+  def send_welcome(invitation)
+    EventMailer.send(:welcome_message, self, invitation.invitee).deliver_now
+  end
+
+  def send_reminders
+    attending_students.each {|student| send_welcome(student.invitation) }
+  end
+
+  def attending_students
+    selected_applicants.joins(:invitation).where(invitations: { attending: true} )
+  end
+
   def selected_applicants
     registrations.where :selection_state => "accepted"
   end
