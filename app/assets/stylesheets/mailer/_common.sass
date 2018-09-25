@@ -16,7 +16,9 @@ html, body
   padding: 3rem 0 4rem
 
 .container
-  @include outer-container
+  max-width: 121rem
+  +breakpoint(mlarge down)
+    max-width: 102.6rem
 
 .content
   padding: 2rem $site-padding/2 2rem

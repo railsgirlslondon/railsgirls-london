@@ -1,5 +1,6 @@
 .past-events__block
   .thumbnail
-    @include span-columns(3)
+    @include grid-column(3)
     &:nth-child(4n+0)
-      @include omega
+      clear: left
+      margin-right: 0
