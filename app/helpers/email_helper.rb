@@ -11,11 +11,11 @@ module EmailHelper
   end
 
   def image_url_for image, *args
-    host = 'http://railsgirlslondon.s3.amazonaws.com'
+    host = 'https://railsgirlslondon.s3.amazonaws.com'
     image_tag "#{host}/#{image}", *args
   end
 
   def full_url_for path
-    "http://railsgirls.london/#{path}"
+    "https://railsgirls.london/#{path}"
   end
 end
