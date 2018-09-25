@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def gravatar_url(email,size=50)
-    "http://gravatar.com/avatar/#{md5(email)}?s=#{size}&d=https://raw.githubusercontent.com/railsgirlslondon/railsgirls-london/master/app/assets/images/avatar50px.jpg"
+    "https://gravatar.com/avatar/#{md5(email)}?s=#{size}&d=https://raw.githubusercontent.com/railsgirlslondon/railsgirls-london/master/app/assets/images/avatar50px.jpg"
   end
 
   def md5(string)
