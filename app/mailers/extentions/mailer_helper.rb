@@ -16,6 +16,7 @@ module Extentions
     end
 
     def load_attachments
+      # fix this
       # %w{nda.pdf welcome_to_deliveroo.pdf}.each do |image|
       #   attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
       # end
