@@ -16,9 +16,9 @@ module Extentions
     end
 
     def load_attachments
-      %w{nda.pdf welcome_to_deliveroo.pdf}.each do |image|
-        attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
-      end
+      # %w{nda.pdf welcome_to_deliveroo.pdf}.each do |image|
+      #   attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
+      # end
     end
 
     def mail_args(subject, participant_email)
