@@ -2,9 +2,7 @@
 %h5
   IMPORTANT NOTICE:
   %br
-  First round of accepted students will receive emails on #{I18n.l(@event.registration_deadline-1.month)}, please confirm your place as soon as you see the invite, the invite will expire in 3 days.
-  %br
-  If you apply after #{I18n.l(@event.registration_deadline-1.month)}, you should expect your invite by #{I18n.l(@event.registration_deadline+1.day)}.
+  We will be sending out invites by #{I18n.l(@event.registration_deadline+1.day)}, please confirm your place as soon as you receive it. The invite will exprire in 3 days, and your place will be given to a next person on a waiting list.
   We are trying really hard to fit everyone in, but unfortunatelly we have limited amount of places, so if you dont receive the invite, you will be placed on the waiting list. We will be in touch if a place becomes available.
 
 = render 'layouts/messages'
