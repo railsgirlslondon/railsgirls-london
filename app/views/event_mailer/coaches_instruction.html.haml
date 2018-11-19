@@ -1,123 +1,139 @@
-%h3{style: "border-bottom: 1px solid #E5E5E5; color: #434950; font-size: 26px; font-weight: 400; line-height: 30px; padding-bottom: 10px; margin-bottom: 15px;" }
-  Hi
-  #{@coach.name.split(" ")[0]},
+.invite--block.main-content
+  .container.separator
+    %h1.header-blurb
+      Rails Girls London on the
+      = @event.dates
+  .container.separator
+    .content
+      %h3
+        Hi #{@coach.name.split(" ")[0]},
+      %h2
+        Yay! Rails Girls London workshop is less than 2 weeks away!
 
-.content
-  %div{ style: "width: 100%; min-width: 260px; display: inline-block;" }
-    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      Rails Girls London Workshop is now only days away, so we would like to talk you through a couple of things beforehand.
-      %br
-      %b The event will take place on the #{@event.dates} at #{@event.host.name} offices -
-      %br
-      %b
-        =link_to "#{@event.host.address_line_1}, #{@event.host.address_city}, #{@event.host.address_postcode}", "https://goo.gl/maps/Hbt1nLK5dnk", style: "color: #4E5563; text-decoration: none; border-bottom: 1px dotted #4E5563; "
+      %p
+        Thank you for signing up to coach for our event. Without your support, we wouldn’t be able to make it happen.
 
-    %h4{style: "color: #333333; font-size: 16px; margin: 0; padding: 6px 0"} Getting there:
-    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      %b tube:
-      Chancery Lane, Farringdon, Holborn
-      %br
-      %b train:
-      Farringdon
-      %br
-      %b buses:
-      8, 17, 25, 45, 46, 242, 341, 521
-      %br
-
-
-
-  %div{ style: "width: 100%; min-width: 260px; display: inline-block;" }
-    %h3{style: "color: #333333; font-size: 18px;"} Friday:
-
-    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      %span{style: "font-weight: 500; color: red"} Please arrive on #{@event.starts_on.strftime("%A")} the #{@event.starts_on.day.ordinalize } of #{@event.starts_on.strftime("%B")} at 18:30.
-      %br
-      We will have students coming in between 18:30-19:30. We have 120 students, who confirmed attendance, so there will be a lot of people in need of your help.
-      Once you arrive, please sign in with reception, they should have your name on the list. We will be giving out name badges once you get there.
-      Take the lift to the 4th floor.
-      %br
-      %br
-      Friday is an installation party, we dont assign students to you for this evening, so you will need to look out for someone in need of help or looking confused.
-      Sometimes students are shy to ask, so try approaching a few students, introduce yourself and ask if they are doing ok with installation.
-      Please be friendly and if you see anyone who has just arrived and in need of help, give them a hand in setting up everything :)
-      %br
-      Here is the guide we recommend for the installation:
-      %br
-      =link_to "guides.railsgirls.com/install", 'http://guides.railsgirls.com/install', style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
-      %br
-      We will be serving dinner and drinks, so we all can eat, chat & install ruby & rails.
-      %br
-      We will wrap up at about 21:00 on Friday.
-
-  %div{ style: "width: 100%; min-width: 260px; display: inline-block;" }
-    %h3{style: "color: #333333; font-size: 18px;"} Saturday:
-
-    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      %span{style: "font-weight: 500; color: red"} Please arrive on #{@event.starts_on.next.strftime("%A")} the #{@event.starts_on.next.day.ordinalize } of #{@event.starts_on.next.strftime("%B")} at 9:00am.
-      %br
-      The venue is the same as on Friday. Students will be coming at 9:00am as well. We will be serving light breakfast and coffee.
-
-    %h4{style: "color: #333333; font-size: 16px;"} 9:00 -~ 10:15
-    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      Welcome
-      %br
-      Sponsors presentations/intros
-      %br
-      We will then be splitting in groups of 3 people: 1 coach + 2 students. Some coaches might be asked to be floating coaches, to help if anyone gets stuck and needs help.
-
-    %h4{style: "color: #333333; font-size: 16px;"} ~10:15 - 12:45
-    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      Introduction to Ruby. Help students understand the basics with
-      =link_to "tryruby.org", 'http://tryruby.org/', style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
-      %br
-      App design workshop. This is the place where you explain how to start with thinking about you app, what does a simple app require etc.
-      %br
-      The app we will be guiding students through is this:
-      %br
-      =link_to "guides.railsgirls.com/app", 'http://guides.railsgirls.com/app/', style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
-
-    %h4{style: "color: #333333; font-size: 16px;"} 12:45 - 14:00
-    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      Lunch. We will be serving food and drinks.
-
-    %h4{style: "color: #333333; font-size: 16px;"} 14:00 - 14:30
-    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      Some lightning talks from our coaches.
-      %br
+      %p
+        The event will take place on
+        = @event.dates
+        the #{@event.host.name} offices.
+      %p
         %b
-          %span{style: "color: red"}
-            IMPORTANT! :: COACHES
-          who are doing lightning talks,
-          %span{style: "color: red"}
-            PLEASE RESPOND
-          to this email with the title for your presentation.
+          Venue address:
+          =link_to "#{@event.host.address_line_1}, #{@event.host.address_line_2}, #{@event.host.address_city}, #{@event.host.address_postcode}", "https://goo.gl/maps/f4o1EchAyxG2"
 
-    %h4{style: "color: #333333; font-size: 16px;"} 14:30 - 17:30
-    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      Continue with the application.
+      %p
+        Coaches are expected to be around on Friday evening and all day Saturday.
 
-    %h4{style: "color: #333333; font-size: 16px;"} 17:30 -~ 18:30 or till late ---> AFTERPARTY :)
-    %p.lead{ style: "font-size: 16px; color: #4E5563; padding-bottom: 10px; line-height: 22px;"}
-      We will have a couple of drinks in the office and then head to the pub next door.
-
-      %br
-      If you have any questions please let us know.
-
-      %br
-      Could coaches who are unable to make it email us and let us know ASAP.
-      %br
-      For all the others:
-      %br
+      %h2
+        FRIDAY, #{@event.start_date} - The installation party:
+      %p
         %b
-          We can't wait to see you at the event.
+          Please arrive on Friday 30th November by 18:30pm. We will finish around 21:15pm.
+        We will have students arriving between 18:30pm and19:30pm, usually quite a few people are coming late. We are expecting around 200 students & 120 coaches, so there will be a large number of people.
+        %br
+          On your arrival, please sign in at the reception desk. You will also be asked to sing a short NDA, we attached to this email.
+        %br
+          We will be giving out name badges for the event. If you have any problems, please contact the organisers on 07792 142702.
+
+      %p
+        Once you are at the venue:
+        %br
+          There will be food, drinks, DJ, Photobooth and good vibe throughout the evening. Great time to chat with people!
+
+      %p
+        What you are expected to do:
+        %br
+        We don't assign students to coaches this day; it will be more of networking time.
+        Coaches will help students install Ruby and Rails on their computers. 
+        This is the guide we recommend to use for installation:
+        %a{href: 'http://guides.railsgirls.com/install'}
+          guides.railsgirls.com/install
+        Please be friendly and if you see any students who have just arrived and need help, give them a hand.
+        We will wrap up at about 21:15pm.
+
+      %h2
+        SATURDAY, #{@event.end_date} - Workshop:
+      %p
+        %b
+          Please arrive on Saturday 1rst December at 9:00am. We will finish around 17:45pm, and will be having drinks afterward in a near pub.
+
+      %p
+        Students will also be arriving at 9:00am.
+        We will be serving light breakfast & coffee, with a Welcome from the organisers and sponsors presentations.
+        We will then be splitting everyone into groups of 3: 1 coach + 2 students. Some coaches might be asked to be floating coaches and help if anyone is in need of support.
+
+      %p
+        %b
+          9:00 - 11:00
+        Breakfast, Welcome & Sponsors’ presentations.
+
+      %p
+        %b
+          11:00 - 12:30
+        Introduction to Ruby: Help students understand the basics with
+        %a{href: 'https://ruby.github.io/TryRuby'}
+          ruby.github.io/TryRuby
+        %br
+        App design workshop: This is when you explain how to start thinking about an app, what does a simple app require etc.
+        The app we will be showing students is this:
+        %a{href: 'http://guides.railsgirls.com/app'}
+          guides.railsgirls.com/app
+
+      %p
+        %b
+          12:30-13:10
+        Lightning talks by our coaches.
+
+      %p
+        %b
+          13:10-14:30
+        Lunch. We will be serving food and drinks.
+
+      %p
+        %b
+          14:30-17:45
+        Continue working on the app.
+
+      %p
+        %b
+          17:45 - till late
+        Afterparty at a pub
 
 
-  .right.inline{ style: "width: 100%; min-width: 180px; margin-top: 25px; display: inline-block;" }
-    =image_tag attachments['london-girl.png'].url, width: '180px'
-    %div{style: "margin: 15px 0; "}
-      %highlight{ style: "color: #333333; text-align: center; font-weight: 500; font-size: 13px" }
-    %p.lead{ style: "font-size: 15px; color: #4E5563; margin-top: 25px;" }
-      %strong Thank you
-      for volunteering to be a coach at Rails Girls London!
+      %h2
+        A couple of other important things:
 
-  = render 'sponsor/email_logos'
+      %p
+        Our host, #{@event.host.name}, is letting us use their offices, but they have kindly asked us all to sign a short NDA. Everyone will need to sign it on the day. We have attached it to this email, so you can read it before coming on Friday.
+
+      %p
+        If you haven’t already done so, then please join us on slack:
+        %a{href: 'http://slack.railsgirls.london'}
+          slack.railsgirls.london
+        %br
+          There is a closed channel only for #coaches - ask one of the organisers to add you.
+          We will be communicating through slack during the event, so make sure you are on it and please help us keep it awesome :)
+
+      %p
+        If for any reason you can no longer make it to the event, please email and let us know asap.
+
+      %p
+        Thank you for volunteering and we can't wait to see you all at the event.
+
+      %p
+        If you have any questions feel free to get in touch.
+
+      .signature
+        %p
+          Rails Girls London Team  😃
+        = render 'shared/mailers/social_media'
+
+
+.container.separator
+  = render 'shared/mailers/sponsors'
+
+
+
+
+

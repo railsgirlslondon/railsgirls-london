@@ -51,6 +51,14 @@ class Event < ActiveRecord::Base
     starts_on-2.days
   end
 
+  def start_date
+    format_date(starts_on)
+  end
+
+  def end_date
+    format_date(ends_on)
+  end
+
   def dates
     return format_date(starts_on) if starts_on.eql? ends_on
     dates = day(starts_on)
