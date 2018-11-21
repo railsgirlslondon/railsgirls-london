@@ -21,9 +21,9 @@ class AdminMailer < ActionMailer::Base
   end
 
   def load_attachments
-    %w{railsgirls-heart.png  railsgirls-london.png}.each do |image|
-      attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
-    end
+    # %w{railsgirls-heart.png  railsgirls-london.png}.each do |image|
+    #   attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
+    # end
   end
 
   def setup invitation
