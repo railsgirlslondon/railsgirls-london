@@ -9,7 +9,7 @@ class Admin::RegistrationsController < ApplicationController
   end
 
   def create
-    @registration = Registration.new(params[:registration])
+    @registration = Registration.new(new_reg_params)
     @event.registrations << @registration
 
     if @registration.save
@@ -47,6 +47,10 @@ class Admin::RegistrationsController < ApplicationController
 
   def find_registration
     @registration = Registration.find params[:id]
+  end
+
+  def new_reg_params
+    params.require(:registration).permit(:first_name, :last_name, :email, :email_confirmation, :gender, :phone_number, :programming_experience, :reason_for_applying, :how_did_you_hear_about_us, :uk_resident, :os, :os_version, :terms_of_service, :address, :spoken_languages, :preferred_language, :twitter, :dietary_restrictions)
   end
 
   def registration_params

@@ -2,38 +2,37 @@
 = simple_form_for([:admin, @event, @registration], html: {class: "form-horizontal"}) do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :first_name, input_html: {class: "span3"}
-    = f.input :last_name, input_html: {class: "span3"}
-    = f.input :gender, collection: [ "Female", "Male" ], prompt: "Select your gender", input_html: {class: "span3"}
-    %hr
-    = f.input :email, input_html: {class: "span3"}
-    = f.input :email_confirmation, input_html: {class: "span3"}
-    = f.input :phone_number, input_html: {class: "span3"}
+  .flex--container
+    .flex--item.padding-right
+      = f.input :first_name, required: true, input_html: {class: "form--item"}
+      = f.input :last_name, required: true, input_html: {class: "form--item"}
+      = f.input :email, required: true, input_html: {class: "form-control"}
+      = f.input :phone_number, required: true, input_html: {class: "form-control"}
+      = f.input :twitter, input_html: {class: "form-control"}, placeholder: "e.g. @emma_jonson"
 
-    = f.input :twitter, :wrapper => :prepend do
-      = content_tag :span, "@", class: "add-on"
-      = f.input_field :twitter, input_html: {class: "span3"}
-    = f.input :address, input_html: { class: "span3"}, placeholder: "eg. 3/4, 5 Oxford Crescent, W2 7FD"
-    %hr
+    .flex--item
+      = f.input :gender, required: true, collection: [ "Female", "Male", "Other", "I prefer not to say" ], prompt: "Select your gender"
+      %hr
+      = f.input :address, required: true, input_html: { class: "form-control"}, placeholder: "eg. 3/4, 5 Oxford Crescent, W2 7FD"
+      = f.input :uk_resident, collection: [ "Yes", "No" ], prompt: "Select option", input_html: {class: "form-control"}, label: "UK Resident"
+      %hr
 
-    = f.input :spoken_languages, input_html: {class: "span3"}, placeholder: "eg. English, Spanish"
-    = f.input :preferred_language, input_html: {class: "span3"}
-    = f.input :uk_resident, collection: [ "Yes", "No" ], prompt: "Select option", input_html: {class: "span3"}, label: "UK Resident"
+  .flex--container
+    .flex--item.padding-right
+      = f.input :reason_for_applying, required: true, input_html: {rows: 7, class: "form-control"}, label: "Why are you applying?", placeholder: "Please write a couple of words on why you want to learn to code"
+      = f.input :programming_experience, input_html: {rows: 3, class: "form-control"}
+      = f.input :os, collection: [ "OS X", "Windows", "Linux" ], prompt: "Select operating system", input_html: {class: "form-control"}, label: "Operating System"
+  
+    .flex--item
+      = f.input :how_did_you_hear_about_us, input_html: {rows: 3, class: "form-control"}, label: "How did you hear about us?"
+      = f.input :spoken_languages, input_html: {class: "form-control"}, placeholder: "eg. English, Spanish"
 
-    %hr
-    = f.input :os, collection: [ "OS X", "Windows", "Linux" ], prompt: "Select operating system", input_html: {class: "span3"}, label: "Operating System"
-    = f.input :os_version, input_html: {class: "span3"}, placeholder: "e.g. 10.8 or Windows 7 or Ubuntu 12.04", label: "OS Version"
-    = f.input :programming_experience, input_html: {rows: 3, class: "span5"}
-    = f.input :reason_for_applying, input_html: {rows: 3, class: "span5"}
-    = f.input :dietary_restrictions, input_html: {rows: 3, class: "span5"}
+  .flex--container
+    .flex--item
+      = f.input :dietary_restrictions, input_html: {rows: 3, class: "form-control"}, label: "What are your dietary restrictions (if any)?"
 
+  .flex--container.align-left
+    .checkbox-wrapper
+      = f.input :terms_of_service, as: :boolean, wrapper: :checkbox_inline, label: 'I have read the terms of service'
 
-
-    .pull-left
-      I have read this notice.
-      = f.input :terms_of_service, as: :boolean, label: false, required: false, input_html: {class: 'pull-left'}
-
-
-  .form-actions
-    = f.button :submit, class: 'btn btn-large'
+    = f.button :button, 'Apply', class: "btn btn-primary btn-lg btn-hero btn__full-width", data: { disable_with: "Please wait..." }
