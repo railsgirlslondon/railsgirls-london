@@ -87,3 +87,24 @@
           %a{href: "https://www.linius.com"}
             www.linius.com
 
+%table.mailer--separator
+  %thead
+    %tr
+  %tbody
+    %tr
+      %td
+        %b
+          Carwow
+      %td{align: 'right'}
+        = image_tag @event.sponsors.find_by(name: "Carwow").image_url, class: 'sponsor-logo--item'
+    %tr
+      %td{colspan: "2", align: 'left', valign: 'middle'}
+        %p
+          A big hello from everyone here at carwow.
+          %br
+          To those who don't know who or what carwow do. carwow makes choosing and buying your perfect car easy and enjoyable. By comparing the best offers from our top local and national dealers, you get the car you want, from the dealer you like best, at a price that’s right for you.
+          %br
+          We’re a driven, energetic startup with a team of 200+ based in London (Victoria), Munich and Madrid. We are backed by some of Europe’s leading VCs and have raised over £48m in funding since we launched, so we’re growing fast. We've just been ranked 6th in the 
+          %a{href: "https://workable.com/nr?l=https%3A%2F%2Fig.ft.com%2Fft-1000%2F2018%2F"}
+            Financial Times' Top 1000 Fastest Growing Companies in Europe.
+
