@@ -1,0 +1,89 @@
+%h2.mailer--separator
+  A couple of words from our sponsors:
+
+%table.mailer--separator
+  %thead
+    %tr
+  %tbody
+    %tr
+      %td
+        %b
+          Deliveroo
+      %td{align: 'right'}
+        = image_tag @event.sponsors.find_by(name: "Deliveroo").image_url, class: 'sponsor-logo--item'
+    %tr
+      %td{colspan: "2", align: 'left', valign: 'middle'}
+        %p
+          Deliveroo is excited to be home to Rails Girls London for the second year in a row 🎉  We enjoyed ourselves so much last year we were really keen to host again! We ❤️  code and food, and we’ll make sure you’ll get plenty of both!
+          %br
+          Thanks to all the participants and to all the coaches: this event would not be possible without each one of you!
+          %br
+          See you soon, and happy coding!
+
+%table.mailer--separator
+  %thead
+    %tr
+  %tbody
+    %tr
+      %td
+        %b
+          Smart Pension
+      %td{align: 'right'}
+        = image_tag @event.sponsors.find_by(name: "Smart Pension").image_url, class: 'sponsor-logo--item'
+    %tr
+      %td{colspan: "2", align: 'left', valign: 'middle'}
+        %p
+          We are a technology lead company, with our lead developers having over 10 years of RoR experience, working in a in industry that previously didn’t welcome technology.   While our competitors may take months to ship new code, with our TDD approach and 96% test coverage, we are continuously releasing new features - we take the time to build it right!  Our high level of code quality means we work on new features instead of bug fixes.
+          %br
+          We believe that a diverse and inclusive workforce, is the most awesome workforce and we work in a collaborative team environment with all members treated equally, no matter their seniority, when it comes to reviewing PR’s and building software.
+
+          %br
+          %a{href: "https://smart-pension-1.workable.com/j/01D15A5580"}
+            https://smart-pension-1.workable.com/j/01D15A5580
+
+
+%table.mailer--separator
+  %thead
+    %tr
+  %tbody
+    %tr
+      %td
+        %b
+          Cookpad
+      %td{align: 'right'}
+        = image_tag @event.sponsors.find_by(name: "Cookpad").image_url, class: 'sponsor-logo--item'
+    %tr
+      %td{colspan: "2", align: 'left', valign: 'middle'}
+        %p
+          Cookpad is the world’s largest recipe sharing platform, where almost 100 million global users, across 70 countries and 25 languages, come to enjoy cooking each month.
+          %br
+          Our mission is to improve people’s lives by making everyday cooking more fun. The more fun it is to cook, the more people can enjoy the benefits to health, family, friendships, environment and sustainability.
+          %br
+          Cookpad love Ruby. Our global team include core Ruby developers, we are major contributors to the open source community, and we sponsor and present at major Ruby events around the globe.
+          %br
+          To find out more go to 
+          %a{href: "https://www.cookpadteam.com/"}
+            https://www.cookpadteam.com
+
+%table.mailer--separator
+  %thead
+    %tr
+  %tbody
+    %tr
+      %td
+        %b
+          Linius
+      %td{align: 'right'}
+        = image_tag @event.sponsors.find_by(name: "Linius").image_url, class: 'sponsor-logo--item'
+    %tr
+      %td{colspan: "2", align: 'left', valign: 'middle'}
+        %p
+          Linius is transforming the world of video, enabling previously impossible hyper-personalized video experiences. With Linius' patented Video Virtualization Engine™, you can now search and analyse the data within video for the first. Programmatically find and stitch together clips or objects, from disparate sources, to create hyper-personalised video streams on-the-fly.
+          %br
+          Interested? Connect with Linius' VP of Engineering, Chris Young (
+          %a{href: "mailto:cyoung@linius.com?Subject=Hello%20Rails%20Girls%20London" }
+            cyoung@linius.com
+          ), at this week's Rails Girls London event
+          %a{href: "https://www.linius.com"}
+            www.linius.com
+

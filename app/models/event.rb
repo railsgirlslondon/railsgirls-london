@@ -90,6 +90,14 @@ class Event < ActiveRecord::Base
     attending_students.each {|student| send_welcome(student.invitation) }
   end
 
+  def welcome_coaches
+    coaches.each {|coach| welcome(coach) }
+  end
+
+  def welcome(coach)
+    EventMailer.send(:welcome_coaches, self, coach).deliver_now
+  end
+
   def attending_students
     selected_applicants.joins(:invitation).where(invitations: { attending: true} )
   end

@@ -28,6 +28,13 @@ class EventMailer < ActionMailer::Base
     send_email(subject, coach.email)
   end
 
+  def welcome_coaches event, coach
+    setup_for_coaches event, coach
+
+    subject = "Rails Girls London - tomorrow!"
+    send_email(subject, coach.email)
+  end
+
   def welcome_message event, registration
     setup_for_welcome_message event, registration
 
