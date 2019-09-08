@@ -55,6 +55,6 @@ class Admin::EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :active, :starts_on, :ends_on, :registration_deadline, :coachable)
+    params.require(:event).permit(:title, :description, :active, :starts_on, :ends_on, :registration_deadline, :registration_deadline_early_bird, :coachable)
   end
 end

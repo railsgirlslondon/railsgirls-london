@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219183339) do
+ActiveRecord::Schema.define(version: 20190901131915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,8 @@ ActiveRecord::Schema.define(version: 20170219183339) do
     t.boolean  "coachable"
     t.string   "image"
     t.integer  "available_slots"
-    t.boolean  "accepting_feedback",    default: false, null: false
+    t.boolean  "accepting_feedback",               default: false, null: false
+    t.date     "registration_deadline_early_bird"
   end
 
   create_table "feedbacks", force: :cascade do |t|

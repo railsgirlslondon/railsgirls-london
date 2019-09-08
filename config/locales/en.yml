@@ -13,6 +13,10 @@ en:
         date: "%d %B %Y"
 
 
+  event:
+    early_bird: "First round of accepted students (apply by %{deadline}) will receive emails on %{confirmation}."
+    final_deadline: "Applications close on %{final_deadline}, we will be sending out invites by %{final_confirmation}."
+
   feedback:
     cancel: "Feedback has been cancelled. Help us improve our workshops by filling in our feedback form!"
     already_cancelled: "Feedback has already been cancelled!"

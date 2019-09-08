@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
   include Extentions::Coachable
   include Extentions::Invitable
 
-  validates :description, :starts_on, :ends_on, presence: true
+  validates :starts_on, :ends_on, presence: true
 
   has_many :registrations
   has_many :feedbacks
@@ -49,6 +49,10 @@ class Event < ActiveRecord::Base
 
   def rsvp_end_date
     starts_on-2.days
+  end
+
+  def early_bird_available?
+    registration_deadline_early_bird >= Date.today
   end
 
   def start_date
