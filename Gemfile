@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.5.1'
+ruby '2.6.3'
 
 gem 'rails', '~> 5.0.0'
 gem 'unicorn'
@@ -42,11 +42,11 @@ group :test, :development do
   gem 'byebug'
   gem 'pry-rails'
   gem 'faker'
+  gem 'factory_bot_rails'
 end
 
 group :test do
   gem 'rails-controller-testing'
-  gem 'fabrication'
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers', '>=0.3.0'
