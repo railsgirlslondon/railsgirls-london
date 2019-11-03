@@ -31,14 +31,14 @@ class EventMailer < ActionMailer::Base
   def welcome_coaches event, coach
     setup_for_coaches event, coach
 
-    subject = "Rails Girls London - tomorrow!"
+    subject = "Rails Girls London - 8/9 November 2019!"
     send_email(subject, coach.email)
   end
 
   def welcome_message event, registration
     setup_for_welcome_message event, registration
 
-    subject = "Rails Girls London - tomorrow!"
+    subject = "Rails Girls London - 8/9 November 2019!"
     send_email(subject, registration.email)
   end
 

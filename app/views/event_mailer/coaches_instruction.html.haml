@@ -8,7 +8,7 @@
       %h3
         Hi #{@coach.name.split(" ")[0]},
       %h2
-        Yay! Rails Girls London workshop is less than 2 weeks away!
+        Yay! Rails Girls London workshop is this friday.
 
       %p
         Thank you for signing up to coach for our event. Without your support, we wouldn’t be able to make it happen.
@@ -20,7 +20,7 @@
       %p
         %b
           Venue address:
-          =link_to "#{@event.host.address_line_1}, #{@event.host.address_line_2}, #{@event.host.address_city}, #{@event.host.address_postcode}", "https://goo.gl/maps/f4o1EchAyxG2"
+          =link_to "#{@event.host.address_line_1}, #{@event.host.address_line_2}, #{@event.host.address_city}, #{@event.host.address_postcode}", "https://goo.gl/maps/DUtg5eFWV2FPnu4b6"
 
       %p
         Coaches are expected to be around on Friday evening and all day Saturday.
@@ -32,7 +32,7 @@
           Please arrive on Friday 30th November by 18:30pm. We will finish around 21:15pm.
         We will have students arriving between 18:30pm and19:30pm, usually quite a few people are coming late. We are expecting around 200 students & 120 coaches, so there will be a large number of people.
         %br
-          On your arrival, please sign in at the reception desk. You will also be asked to sing a short NDA, we attached to this email.
+          On your arrival, please sign in at the reception desk.
         %br
           We will be giving out name badges for the event. If you have any problems, please contact the organisers on 07792 142702.
 
@@ -105,9 +105,6 @@
         A couple of other important things:
 
       %p
-        Our host, #{@event.host.name}, is letting us use their offices, but they have kindly asked us all to sign a short NDA. Everyone will need to sign it on the day. We have attached it to this email, so you can read it before coming on Friday.
-
-      %p
         If you haven’t already done so, then please join us on slack:
         %a{href: 'http://slack.railsgirls.london'}
           slack.railsgirls.london
@@ -117,6 +114,9 @@
 
       %p
         If for any reason you can no longer make it to the event, please email and let us know asap.
+
+      %p
+        We try cater food for everyone, but in case you have any food allergies, please bring along your own food, to avoid any allergic reactions.
 
       %p
         Thank you for volunteering and we can't wait to see you all at the event.
@@ -129,9 +129,11 @@
           Rails Girls London Team  😃
         = render 'shared/mailers/social_media'
 
+  .container.separator
+    = render 'shared/mailers/word_from_sponsors'
 
-.container.separator
-  = render 'shared/mailers/sponsors'
+  .container.separator
+    = render 'shared/mailers/sponsors'
 
 
 

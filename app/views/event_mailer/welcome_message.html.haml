@@ -10,19 +10,19 @@
         #{@registration.first_name},
 
       %h2
-        We cant wait to see you at the workshop tomorrow :)
+        We cant wait to see you at the workshop on friday :)
       %p
         =link_to "View details & Timetable", event_url(@event), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
       %p
-        Since Deliveroo  is letting us use their offices, we've been kindly asked to sign a short NDA. Everyone will need to sign it on the day. We have attached it to this email, so you can read it before coming on Friday.
-      %p
         Please remember to bring with you
         %b a printed or digital version of the confirmation email, your laptop, and your ID (to prove you are over 18). Attendees under 18 must be accompanied by an adult.
-      %p.mailer--separator
+      %p
         During the event, we will be communicating through our slack, so make sure to join it:
         %a{href: 'http://slack.railsgirls.london/'}
           slack.railsgirls.london
-      = render 'shared/mailers/word_from_sponsors'
+      %p.mailer--separator
+        We try cater food for everyone, but in case you have any food allergies, please bring along your own food, to avoid any allergic reactions.
+      = render 'shared/mailers/word_from_sponsors_students'
 
       %p
         %strong See you at the workshop!
