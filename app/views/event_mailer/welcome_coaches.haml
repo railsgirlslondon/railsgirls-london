@@ -10,18 +10,18 @@
         #{@coach.name.split(" ")[0]},
 
       %h2
-        We cant wait to see you at the workshop on friday :)
+        We cant wait to see you at the workshop on Friday :)
       %p
         =link_to "View details & Timetable", event_url(@event), style: "color: #E0330C; text-decoration: none; border-bottom: 1px dotted #E0330C; "
       %p
-        Please remember to bring with you your ID.
+        Please remember to bring your ID.
       %p
         Thank you for signing up to coach for our event. Without your support, we wouldn’t be able to make it happen.
 
       %p
         The event will take place on
         = @event.dates
-        the #{@event.host.name} offices.
+        at the #{@event.host.name} offices.
       %p
         %b
           Venue address:
