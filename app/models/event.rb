@@ -110,6 +110,18 @@ class Event < ActiveRecord::Base
     registrations.where :selection_state => "accepted"
   end
 
+  def send_post_event_feedback
+    all_attendees.each {|participant| post_event_feedback(participant) }
+  end
+
+  def all_attendees
+    attending_students + coaches
+  end
+
+  def post_event_feedback(participant)
+    EventMailer.send(:ask_for_feedback, self, participant).deliver_now
+  end
+
   def attendees
     (selected_applicants + coachings).sort_by(&:name)
   end

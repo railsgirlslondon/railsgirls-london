@@ -12,6 +12,10 @@ class Coach < ActiveRecord::Base
     end
   end
 
+  def forename
+    name.split[0]
+  end
+
   def is_organiser?
     coachings.where(organiser: true).any?
   end

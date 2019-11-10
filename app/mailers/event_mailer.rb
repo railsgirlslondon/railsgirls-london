@@ -49,10 +49,10 @@ class EventMailer < ActionMailer::Base
     send_email(subject, registration.email)
   end
 
-  def ask_for_feedback event, registration
-    setup_for_feedback event, registration
+  def ask_for_feedback event, participant
+    setup_for_feedback event, participant
     subject = "Rails Girls London - Feedback"
-    send_email(subject, registration.email)
+    send_email(subject, participant.email)
   end
 
   def confirm_feedback event, registration, invitation
