@@ -26,7 +26,9 @@ module RailsgirlsLondon
     #config.active_record.whitelist_attributes = true
 
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+    config.assets.precompile << ["*.svg", "*.eot", "*.woff", "*.ttf"]
+
+    # config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     config.assets.precompile += %w( admin.css application_mailer.css )
 
     # invoke router when an exceptino occurs

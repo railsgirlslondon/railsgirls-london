@@ -7,7 +7,7 @@
   .container.flex--container
     - @past_events.each_slice(3) do |events|
       - events.each do |event|
-        %figure.thumbnail
+        %figure.thumbnail.flex--item
           = link_to event_path(event) do
             .thumbnail__image
               = image_tag event.image ? event.image : "thumb-past-event-default.jpg"

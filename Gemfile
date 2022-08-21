@@ -1,25 +1,23 @@
 source 'http://rubygems.org'
 
-ruby '2.6.3'
+ruby '2.7.6'
 
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 6.1.0'
 gem 'unicorn'
 gem 'pg'
-gem 'sass-rails'
+gem 'sassc-rails'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'devise'
 
 gem 'bootstrap-sass'
-gem 'bourbon'
-gem 'neat'
+gem 'bourbon', '7.2.0'
+# gem 'neat'
 gem 'simple_form'
 gem 'evil_icons' # SVG icon set
 gem 'autoprefixer-rails'
 
 gem 'icalendar'
-gem 'ruby-trello', require: false
-gem 'newrelic_rpm'
 
 gem 'premailer-rails'
 gem 'nokogiri'
@@ -46,16 +44,16 @@ group :test, :development do
 end
 
 group :test do
-  gem 'rails-controller-testing'
+  # gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
-  gem 'shoulda-matchers'
-  gem 'shoulda-callback-matchers', '>=0.3.0'
-  gem 'rspec-given'
-  gem 'capybara'
+  # gem 'shoulda-matchers'
+  # gem 'shoulda-callback-matchers', '>=0.3.0'
+  # gem 'rspec-given'
+  # gem 'capybara'
   gem 'vcr'
   gem 'launchy'
   gem 'database_cleaner'
-  gem 'coveralls', require: false
+  # gem 'coveralls', require: false
   gem 'webmock', '< 1.10'
 end
 

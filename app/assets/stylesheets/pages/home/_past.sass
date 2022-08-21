@@ -1,6 +1,15 @@
 .past-events__block
+  .container
+    gap: 1rem
   .thumbnail
-    @include grid-column(3)
     &:nth-child(4n+0)
       clear: left
       margin-right: 0
+    .thumbnail__image
+      width: 21rem
+      img
+        display: block
+        max-width: 100%
+        height: auto
+        margin-left: auto
+        margin-right: auto
