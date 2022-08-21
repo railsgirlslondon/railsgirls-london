@@ -10,12 +10,13 @@ module EmailHelper
     end
   end
 
-  def image_url_for image, *args
-    host = 'https://railsgirlslondon.s3.amazonaws.com'
-    image_tag "#{host}/#{image}", *args
-  end
-
-  def full_url_for path
-    "https://railsgirls.london/#{path}"
-  end
+  # this was breaking the uploaded image sponsor logo
+  # def image_url_for image, *args
+  #   host = 'https://railsgirlslondon.s3.amazonaws.com'
+  #   image_tag "#{host}/#{image}", *args
+  # end
+  #
+  # def full_url_for path
+  #   "https://railsgirls.london/#{path}"
+  # end
 end

@@ -8,7 +8,7 @@
     - sponsors.each do |sponsor|
       .supporters__block--item
         = link_to sponsor.website, target: :_blank, class: "" do
-          - if sponsor&.image_url
-            = image_tag sponsor&.image_url
+          - if sponsor.company_logo.present?
+            =image_tag sponsor.company_logo
           - else
-            = image_tag("london-girl.png")
+            =image_tag sponsor.image_url

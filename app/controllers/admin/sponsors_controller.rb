@@ -2,6 +2,7 @@ class Admin::SponsorsController < ApplicationController
   WHITE_LIST = [:name,
                 :description,
                 :primary_contact_email,
+                :company_logo,
                 :image_url,
                 :sponsorable_id,
                 :sponsoraable_type,
