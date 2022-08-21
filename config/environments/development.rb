@@ -28,6 +28,9 @@ RailsgirlsLondon::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  # Store files locally.
+  config.active_storage.service = :local
+
   # for mailcatcher
   config.action_mailer.smtp_settings = {
     :port =>           '587',

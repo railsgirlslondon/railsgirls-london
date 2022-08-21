@@ -35,7 +35,7 @@ RailsgirlsLondon::Application.configure do
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
 
-  config.action_mailer.default_url_options = { :host => 'railsgirls.london' }
+  # config.action_mailer.default_url_options = { :host => 'railsgirls.london' }
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
@@ -90,4 +90,7 @@ RailsgirlsLondon::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Store files on Amazon S3.
+  config.active_storage.service = :amazon
 end
