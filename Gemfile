@@ -10,6 +10,9 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'devise'
 
+gem 'aws-sdk-s3'
+gem 'rollbar'
+
 gem 'bootstrap-sass'
 gem 'bourbon', '7.2.0'
 # gem 'neat'
