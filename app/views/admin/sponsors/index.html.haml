@@ -9,7 +9,7 @@
     - @sponsors.each do |sponsor|
       %li.row
         .span1
-          = image_tag sponsor.image_url
+          = image_tag (sponsor.company_logo.present? ? sponsor.company_logo : sponsor.image_url)
         .span3
           = link_to sponsor.name, [:admin, sponsor]
           %br

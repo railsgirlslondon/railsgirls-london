@@ -20,6 +20,7 @@ class Sponsor < ActiveRecord::Base
   validates *MANDATORY_ADDRESS_FIELDS, :presence => true, :if => :is_host?
 
   has_many :sponsorships
+  has_one_attached :company_logo
 
   with_options :through => :sponsorships, :source => :sponsorable do |tag|
     tag.has_many :meetings, :source_type => 'Meeting'

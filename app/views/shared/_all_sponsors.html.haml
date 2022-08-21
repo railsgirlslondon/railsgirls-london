@@ -8,7 +8,7 @@
       - sponsors.each do |sponsor|
         %li.sponsor
           =link_to sponsor.website do
-            - if sponsor.image_url.blank?
-              %strong=sponsor.name
+            - if sponsor.company_logo.present?
+              =image_tag sponsor.company_logo
             - else
               =image_tag sponsor.image_url
