@@ -33,7 +33,7 @@ class Member < ActiveRecord::Base
 
   def self.create_from_registration registration
     member = Member.create(permitted_attributes_from(registration))
-    registration.update_attributes(:member => member) if member.save
+    registration.update(:member => member) if member.save
     member
   end
 

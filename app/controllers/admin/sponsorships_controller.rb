@@ -27,7 +27,7 @@ class Admin::SponsorshipsController < ApplicationController
   def update
     sponsorship = Sponsorship.find(params[:id])
 
-    if sponsorship.update_attributes(host_params)
+    if sponsorship.update(host_params)
       flash[:notice] = "#{sponsorship.sponsor.name} sponsorship has been updated.".html_safe
     else
       flash[:error] = sponsorship.errors.full_messages.join("\n")

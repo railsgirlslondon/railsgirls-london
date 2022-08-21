@@ -29,7 +29,7 @@ class Admin::EventsController < ApplicationController
   end
 
   def update
-    if @event.update_attributes(event_params)
+    if @event.update(event_params)
       redirect_to [:admin, @event], :notice => 'Event was successfully updated.'
     else
       render :action => "edit"

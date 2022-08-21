@@ -50,6 +50,10 @@ module ApplicationHelper
     railsgirls_twitter_widget_id
   end
 
+  def slack_invite_url
+    ENV['SLACK_INVITE']
+  end
+
   private
 
   def railsgirls_twitter_widget_id
