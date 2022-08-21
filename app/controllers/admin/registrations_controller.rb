@@ -22,7 +22,7 @@ class Admin::RegistrationsController < ApplicationController
 
   def update
     @registration = Registration.find(params[:id])
-    if @registration.update_attributes(registration_params)
+    if @registration.update(registration_params)
       flash[:notice] = "Registration has been updated."
     else
       flash[:error] = @registration.errors.full_messages.join("\n")

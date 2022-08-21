@@ -35,7 +35,7 @@ module Extentions
     def process_waiting_list
       spots = available_slots - invitations.accepted.count
       invitations.waiting_list.limit(spots).each do |invitation|
-        invitation.update_attributes(attending: true, waiting_list: false)
+        invitation.update(attending: true, waiting_list: false)
       end
     end
   end

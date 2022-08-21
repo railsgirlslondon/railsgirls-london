@@ -18,7 +18,7 @@ class Admin::CoachingsController < ApplicationController
   def update
     coaching = Coaching.find(params[:id])
 
-    if coaching.update_attributes(event_coaching_params)
+    if coaching.update(event_coaching_params)
       flash[:notice] = "#{coaching.coach.name} coaching has been updated.".html_safe
     else
       flash[:error] = coaching.errors.full_messages.join("\n")
