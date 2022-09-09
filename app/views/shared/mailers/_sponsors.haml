@@ -3,4 +3,4 @@
   %br
   - @event.sponsors.shuffle.each do |sponsor|
     .sponsor--item
-      = image_tag sponsor.image_url, alt: sponsor.name
+      = image_tag 'sponsors/' + sponsor.image_url, alt: sponsor.name

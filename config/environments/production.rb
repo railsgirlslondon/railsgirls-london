@@ -69,14 +69,15 @@ RailsgirlsLondon::Application.configure do
   config.action_mailer.smtp_settings = {
     :port =>           '587',
     :address =>        'smtp.sendgrid.net',
-    :user_name =>      ENV['SENDGRID_USERNAME'],
-    :password =>       ENV['SENDGRID_PASSWORD'],
-    :domain =>         'heroku.com',
+    :user_name =>      'apikey',
+    :password =>       ENV['SENDGRID_API_KEY'],
+    :domain =>         'railsgirls.london',
     :authentication => :plain,
     :enable_starttls_auto => true
   }
   ActionMailer::Base.delivery_method = :smtp
 
+  config.action_mailer.asset_host = ENV['MAILER_ASSET_HOST']
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).

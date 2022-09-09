@@ -24,7 +24,6 @@ gem 'icalendar'
 
 gem 'premailer-rails'
 gem 'nokogiri'
-gem 'letter_opener', '~> 1.4'
 
 group :production do
   gem 'rails_12factor'
@@ -33,6 +32,7 @@ end
 group :development do
   gem "better_errors"
   gem 'binding_of_caller'
+  gem 'letter_opener', '~> 1.4'
 end
 
 group :test, :development do

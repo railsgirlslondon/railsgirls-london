@@ -31,16 +31,22 @@ RailsgirlsLondon::Application.configure do
   # Store files locally.
   config.active_storage.service = :local
 
-  # for mailcatcher
-  config.action_mailer.smtp_settings = {
-    :port =>           '587',
-    :address =>        'smtp.sendgrid.net',
-    :user_name =>      ENV['SENDGRID_USERNAME'],
-    :password =>       ENV['SENDGRID_PASSWORD'],
-    :domain =>         'heroku.com',
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
-  ActionMailer::Base.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   :port =>           '587',
+  #   :address =>        'smtp.sendgrid.net',
+  #   :user_name =>      'apikey',
+  #   :password =>       ENV['SENDGRID_API_KEY'],
+  #   :domain =>         'localhost:3000',
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true
+  # }
+  # ActionMailer::Base.delivery_method = :smtp
+
+  # for local browser mail deliveries
+  # ActionMailer::Base.delivery_method = :letter_opener
+  # config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.asset_host = ENV['MAILER_ASSET_HOST']
+
   # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 end
