@@ -8,11 +8,11 @@ class Admin::SponsorshipsController < ApplicationController
 
     if sponsorship.save
       flash[:notice] = "#{sponsorship.sponsor.name} sponsorship has been added to #{sponsorship.sponsorable.to_s}.".html_safe
+      redirect_back(fallback_location: admin_sponsors_url)
     else
       flash[:error] = sponsorship.errors.full_messages.join("\n")
+      redirect_back(fallback_location: admin_sponsors_url, notice: flash[:error])
     end
-
-    redirect_to(:back)
   end
 
   def destroy
@@ -21,7 +21,7 @@ class Admin::SponsorshipsController < ApplicationController
 
     flash[:notice] = "#{sponsorship.sponsor.name} sponsorship has been removed from #{sponsorship.sponsorable.to_s}.".html_safe
 
-    redirect_to(:back)
+    redirect_back(fallback_location: admin_sponsors_url)
   end
 
   def update
