@@ -12,10 +12,10 @@
             %h1
               = @next_event.dates
           .flex--item.next-event-host
-            - if @next_event.host&.image_url
+            - if @next_event.host&.company_logo
               %h3
                 = "#{@next_event.host.name } offices, #{@next_event.host.address_city}"
-              = image_tag(@next_event.host&.image_url, class: 'host-logo')
+              = image_tag(@next_event.host&.company_logo, class: 'host-logo')
             - else
               = image_tag("london-girl.png")
         .flex--container
