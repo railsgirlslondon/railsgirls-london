@@ -10,13 +10,7 @@ module EmailHelper
     end
   end
 
-  # this was breaking the uploaded image sponsor logo
-  # def image_url_for image, *args
-  #   host = 'https://railsgirlslondon.s3.amazonaws.com'
-  #   image_tag "#{host}/#{image}", *args
-  # end
-  #
-  # def full_url_for path
-  #   "https://railsgirls.london/#{path}"
-  # end
+  def slack_invite_url
+    ENV['SLACK_INVITE']
+  end
 end

@@ -23,20 +23,15 @@
       = f.input :last_name, required: true, input_html: {class: "form--item"}
       = f.input :email, required: true, input_html: {class: "form-control"}
       = f.input :phone_number, required: true, input_html: {class: "form-control"}
-      = f.input :twitter, input_html: {class: "form-control"}, placeholder: "e.g. @emma_jonson"
 
     .flex--item
       = f.input :gender, required: true, collection: [ "Female", "Male", "Other", "I prefer not to say" ], prompt: "Select your gender"
-      %hr
-      = f.input :address, required: true, input_html: { class: "form-control"}, placeholder: "eg. 3/4, 5 Oxford Crescent, W2 7FD"
-      = f.input :uk_resident, collection: [ "Yes", "No" ], prompt: "Select option", input_html: {class: "form-control"}, label: "UK Resident"
       %hr
 
   .flex--container
     .flex--item.padding-right
       = f.input :reason_for_applying, required: true, input_html: {rows: 7, class: "form-control"}, label: "Why are you applying?", placeholder: "Please write a couple of words on why you want to learn to code"
       = f.input :programming_experience, input_html: {rows: 3, class: "form-control"}
-      = f.input :os, collection: [ "OS X", "Windows", "Linux" ], prompt: "Select operating system", input_html: {class: "form-control"}, label: "Operating System"
   
     .flex--item
       = f.input :how_did_you_hear_about_us, input_html: {rows: 3, class: "form-control"}, label: "How did you hear about us?"
@@ -56,6 +51,7 @@
           %li Women of all ages are welcome. If you are under 18, you will need to be accompanied by an adult. (Please advise us if this is the case)
           %li In order to ensure a fair process for all applicants, we kindly ask you to submit only one application per event.
           %li We expect a great demand for our workshop and would like to make sure all available spaces are filled. If you receive an invitation, we ask that you confirm your attendance within a few days of it being sent out. If, for any reason, you cannot attend, then please let us know as soon as possible and we will allocate your place to the next person on the waiting list.
+          %li Please let us know if you have any access requirements.
           %li We also ask that you set aside time for all of the events that make up the workshop, including the Installation Party and the Afterparty. We want to get to know you!
 
 

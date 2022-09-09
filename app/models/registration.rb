@@ -9,9 +9,9 @@ class Registration < ActiveRecord::Base
     :email,
     :phone_number,
     :gender,
-    :address,
     :reason_for_applying,
-    :terms_of_service
+    :terms_of_service,
+    :how_did_you_hear_about_us
   ]
 
   validates *REQUIRED_ATTRIBUTES, presence: true
