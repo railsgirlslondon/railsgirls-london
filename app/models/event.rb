@@ -20,6 +20,7 @@ class Event < ActiveRecord::Base
   validates :starts_on, :ends_on, presence: true
 
   has_many :registrations
+  has_many :coach_registrations
   has_many :feedbacks
 
   default_scope { order('events.created_at DESC') }

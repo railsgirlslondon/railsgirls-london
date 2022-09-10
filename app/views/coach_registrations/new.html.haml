@@ -1,4 +1,4 @@
-- content_for :main_class, 'event'
+- content_for :main_class, 'event-coach-registration'
 - content_for :timestamp_media_metatags do
   %meta{property: 'article:published_time', content: @event.created_at}
   %meta{property: 'article:modified_time',  content: @event.updated_at}
@@ -10,8 +10,6 @@
     - if @event.accepting_registrations?
       - if @event.registrations_open?
         .btn-block
-          = link_to "I want to be a student", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
-          = link_to "I want to be a coach", new_event_coach_registration_path(@event), class: 'btn btn-orange'
           %h4
             Applications are open until #{I18n.l(@event.registration_deadline)}
       - else
@@ -23,7 +21,7 @@
 %section.separator
   .container
     %h1.block-title
-      Event Details
+      Coach Application.
 
 %section.separator
   .container.flex--container__column
@@ -58,27 +56,23 @@
         .event-host__map
           = hidden_field_tag 'address', @event.host.address_postcode
           %div{id: 'map-canvas'}
+        = render partial: "shared/sponsors", locals: { sponsors: @event.sponsors.shuffle }
       .event-description--block.flex--item
-        = render 'events/workshop_description'
+        - if @event.registrations_open?
+          %section.separator
+            .container
+              %h1.block-title
+                Volunteer as a coach for Rails Girls London.
+
+          %section#apply-student
+            .container.flex--container
+              .student-form.flex--item
+                = render partial: "coach_form"
+
+                = link_to "Back to event", event_path(@event)
+
       .event-contacts.flex--item
-        = render 'events/sidebar'
+        = render "other_info_for_coaches"
 
-    .timetable--container.flex--container#timetable--anchor
-      = render 'events/timetable'
-
-= render partial: "shared/sponsors", locals: { sponsors: @event.sponsors.shuffle }
 
 = render partial: "shared/coaches", locals: { coaches: @event.coaches.who_attended, title: "Organisers and coaches" }
-
-- if @event.registrations_open?
-  %section.separator
-    .container
-      %h1.block-title
-        Join us at the event
-
-  %section#apply-student
-    .container.flex--container
-      .student-form.flex--item
-        = render "registrations/student_form"
-      .useful-info.flex--item
-        = render "events/other_info"

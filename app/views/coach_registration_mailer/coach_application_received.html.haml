@@ -1,0 +1,44 @@
+.application-received.main-content
+  .container.separator
+    %h1.header-blurb
+      Thank you for applying to be a coach for the Rails Girls London Workshop on the
+      = @event.dates
+  .container.separator
+    .content
+      %h3
+        Hi
+        #{@registration.first_name},
+
+      %p
+        We received your application to be a coach, and we will be reviewing it soon. We will send you an invitation email shortly.
+      %p
+        %strong
+          Once you receive the invitation, you are requested to confirm your participation within 3 days.
+
+      %p
+        Please make sure that there is a
+        %a{ href: 'https://en.gravatar.com/' } gravatar for your email address.
+        This way students can see the coaches who signed up - we display it on the
+        = link_to 'event page.', event_url(@event)
+
+      %p
+        You can view details about the workshop
+        = link_to 'here', event_url(@event)
+        or
+        = link_to slack_invite_url, target: :_blank do
+          join us on Slack.
+
+
+      .signature
+        %p Rails Girls London team :)
+        = render 'shared/mailers/social_media'
+
+
+.container.separator
+  = render 'shared/mailers/sponsors'
+
+.container.separator
+  %p.important-info
+    Important:
+    %br
+      If you can no longer make it we kindly ask you to let us know as soon as possible.

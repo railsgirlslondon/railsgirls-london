@@ -11,16 +11,17 @@ RailsgirlsLondon::Application.routes.draw do
   get "/unsubscribe/:member_uuid" => "unsubscribes#new", as: :unsubscribe
   post "/unsubscribe/:member_uuid" => "unsubscribes#create"
   resources :invitation, only: [:show, :update ], param: :token
+  resources :coach_registrations, only: [:show, :update ], param: :token
 
   resources :events, only: [:show] do
     resources :registrations, only: [:new, :create]
     resources :feedbacks, only: [:new, :show]
+    resources :coach_registrations, only: [:new, :create]
   end
   resources :events do
     resource :feedbacks,  only: [ :create ]
   end
 
-  resources :meetups, only: :show
 
   namespace :admin do
     root :to => 'dashboard#index'
@@ -39,12 +40,16 @@ RailsgirlsLondon::Application.routes.draw do
       resources :registrations, only: [:show, :new, :create, :update, :destroy] do
         resource :attendance, only: [:create, :destroy]
       end
+      resources :coach_registrations, only: [:show, :new, :create, :update, :destroy] do
+        resource :coach_registrations_attendance, only: [:update]
+        resources :suggested_matches, only: [:index, :update]
+      end
     end
-    resources :meetups
     resources :sponsorships, only: [:create, :destroy, :update]
     resources :coachings, only: [:create, :destroy, :update]
     resources :sponsors
     resources :coaches
     resources :members
+    resources :meetings
   end
 end

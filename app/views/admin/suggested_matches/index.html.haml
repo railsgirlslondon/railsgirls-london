@@ -1,0 +1,30 @@
+#admin_coaches
+  .page-header
+    %h1
+      Coaches
+      .pull-right
+        %strong= link_to 'Add Coach', new_admin_coach_path, class: "btn"
+
+  %table.table.table-striped.table-balanced
+    %thead
+      %tr
+        %th.image
+        %th Name
+        %th Email
+        %th.action
+
+    %tbody
+      - @coaches.each do |coach|
+        %tr
+          %td= image_tag gravatar_url(coach.email), class: 'img-circle'
+          %td= link_to coach.name, [:admin, coach]
+          %td= coach.email
+          %td
+
+            =simple_form_for @registration, url: admin_event_coach_registration_suggested_match_path(@event, @registration, coach.id), method: :put, html: { method: :put, class: 'form-inline' } do |f|
+              =f.hidden_field :coach_id, value: coach.id
+              =f.submit "Match", class: 'btn btn-primary btn-lg btn-hero'
+
+          %td
+            = link_to edit_icon, edit_admin_coach_path(coach), class: 'btn btn-small'
+            = link_to delete_icon, [:admin, coach], class: 'btn btn-small btn-danger', method: :delete, data: { confirm: 'Are you sure?' }

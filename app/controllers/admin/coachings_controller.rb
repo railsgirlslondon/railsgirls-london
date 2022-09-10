@@ -6,13 +6,13 @@ class Admin::CoachingsController < ApplicationController
   def create
     coaching = Coaching.create!(event_coaching_params)
     flash[:notice] = "#{coaching.coach.name} has been assigned to #{coaching.coachable.to_s}."
-    redirect_to(:back)
+    redirect_back(fallback_location: admin_coach_path(event_coaching_params[:coach_id]))
   end
 
   def destroy
     coaching = Coaching.find(params[:id]).destroy
     flash[:notice] = "#{coaching.coach.name} has been removed from #{coaching.coachable.to_s}.".html_safe
-    redirect_to(:back)
+    redirect_back(fallback_location: admin_coach_path(coaching.coach.id))
   end
 
   def update
@@ -24,7 +24,7 @@ class Admin::CoachingsController < ApplicationController
       flash[:error] = coaching.errors.full_messages.join("\n")
     end
 
-    redirect_to(:back)
+    redirect_back(fallback_location: admin_coach_path(event_coaching_params[:coach_id]))
   end
 
   private

@@ -1,0 +1,67 @@
+- content_for :main_class, 'invitation-workshop'
+%section.separator
+  .container
+    %h1.block-title
+      Rails Girls London, #{@event.dates}
+
+%section.separator
+  .container.flex--container__column
+    .event--container.flex--container.flex--item
+      .event-host--block.flex--item
+        .event-host
+          %h3
+            Sponsor host
+        .event-host--blurb
+          The venue for Rails Girls London
+          %br
+          #{@event.dates}
+          %br
+          is kindly provided by
+          %br
+          #{@event.host.name}.
+        .event-host__logo
+          = image_tag @event.host.company_logo
+        .event-host__address
+          %address
+            Venue address:
+            %br
+            %b
+              #{@event.address_line_1},
+              - if @event.address_line_2.present?
+                #{@event.address_line_2},
+              #{@event.address_city},
+              #{@event.host.address_postcode}
+        .event-host__url
+          %a{ href: "#{@event.host.website}", target: :_blank } 
+            = @event.host.website
+        .event-host__map
+          = hidden_field_tag 'address', @event.host.address_postcode
+          %div{id: 'map-canvas'}
+      .rsvp-container.flex--item
+
+        = render 'layouts/messages'
+
+        - if !@registration.attending.nil? or !@event.rsvps_available?
+          .rsvp-status
+            You have RSVPed:
+            %h3
+              %strong
+                =@registration.attending ? "YES" : "NO"
+            %hr
+
+          - if !@registration.attending
+            %h4 We are so sorry you won &#x27; t make it :(
+
+        - if @event.rsvps_available? and !@registration.attending.eql? false
+          %h3
+            %strong= "Will you attend?"
+          =simple_form_for @registration, url: coach_registration_path(@registration.token), method: :put, html: { method: :put, class: 'form-inline' } do |f|
+            =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last, required: true, checked: @attendance_status
+            =f.input :comment, placeholder: "Anything you want us to know? #{@registration.token}"
+            %br
+
+            =f.submit "RSVP", class: 'btn btn-primary btn-lg btn-hero'
+
+        %hr
+        %small
+          %em You can RSVP until the #{@registration.valid_until_date.strftime("%-d %B  %Y")}.

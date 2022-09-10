@@ -20,5 +20,6 @@
   =render partial: "admin/shared/invitations", locals:  { invitable: @event,  invitations: @event.invitations } unless @event.invitations.empty?
 
   =render partial: "admin/shared/registrations", locals:  { registrations: @event.registrations }
+  =render partial: "admin/shared/coach_registrations", locals:  { registrations: @event.coach_registrations}
 
   =render partial: "admin/shared/attendances", locals: { event: @event }

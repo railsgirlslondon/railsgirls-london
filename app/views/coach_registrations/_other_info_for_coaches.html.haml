@@ -1,0 +1,18 @@
+%aside
+  %h3 Important info
+  %li You will need to bring in an ID to confirm you are over 18.
+  %li
+    Please make sure that there is a
+    %a{ href: 'https://en.gravatar.com/' } gravatar for your email address.
+    This way students can see the coaches who signed up.
+  %li
+    We post a lot of useful info on our slack channel, please join
+    %a{ href: slack_invite_url} Rails Girls London Slack.
+    We will also be communicating a lot through slack during the event, so make sure you are on it.
+  %li
+    If you have any questions about the application process, please
+    =mail_to "railsgirlslondon@gmail.com", "contact the Rails Girls London organisers"
+    or ask us on
+    %a{ href: slack_invite_url} slack.
+  .social-media
+    = render 'events/sidebar'

@@ -1,22 +1,11 @@
-%h3 Student application form
 %h5
   IMPORTANT NOTICE:
-  %br
-  - if @event.early_bird_available?
-    = I18n.t('event.early_bird', deadline: I18n.l(@event.registration_deadline_early_bird), confirmation: I18n.l(@event.registration_deadline_early_bird+1.day))
 
   %br
-  = I18n.t('event.final_deadline', final_deadline: I18n.l(@event.registration_deadline), final_confirmation: I18n.l(@event.registration_deadline+1.day))
-
-  %br
-  Please confirm your place as soon as you see the invite, the invite will expire in 3 days.
-  The invite will exprire in 3 days, and your place will be given to a next person on a waiting list.
-
-  %br
-  We are trying really hard to fit everyone in, but unfortunatelly we have limited amount of places, so if you dont receive the invite, you will be placed on the waiting list. We will be in touch if a place becomes available.
+  We will send out an invite shortly after you apply. Please confirm your place as soon as you see the invite. The invite will expire in 3 days, and your place will be given to the next person on a waiting list.
 
 = render 'layouts/messages'
-= simple_form_for @registration, url: event_registrations_path(@event, anchor: 'apply-student'), html: { class: 'form-horizontal' } do |f|
+= simple_form_for @registration, url: event_coach_registrations_path(@event), html: { class: 'form-horizontal' } do |f|
   .flex--container
     .flex--item.padding-right
       = f.input :first_name, required: true, input_html: {class: "form--item"}
@@ -25,17 +14,13 @@
       = f.input :phone_number, required: true, input_html: {class: "form-control"}
 
     .flex--item
-      = f.input :gender, required: true, collection: [ "Female", "Male", "Other", "I prefer not to say" ], prompt: "Select your gender"
+      = f.input :twitter, required: false, input_html: {class: "form-control"}
+      = f.input :how_did_you_hear_about_us, input_html: {rows: 3, class: "form-control"}, label: "How did you hear about us?"
       %hr
 
   .flex--container
     .flex--item.padding-right
-      = f.input :reason_for_applying, required: true, input_html: {rows: 7, class: "form-control"}, label: "Why are you applying?", placeholder: "Please write a couple of words on why you want to learn to code"
-      = f.input :programming_experience, input_html: {rows: 3, class: "form-control"}
-  
-    .flex--item
-      = f.input :how_did_you_hear_about_us, input_html: {rows: 3, class: "form-control"}, label: "How did you hear about us?"
-      = f.input :spoken_languages, input_html: {class: "form-control"}, placeholder: "eg. English, Spanish"
+      = f.input :details, required: true, input_html: {rows: 7, class: "form-control"}, label: "Why do you want to be a coach?", placeholder: "Please write a couple of words about yourself and why you would like to be a coach."
 
   .flex--container
     .flex--item
@@ -48,16 +33,15 @@
 
         %ul.unstyled
           %li We never share your information with anyone.
-          %li Women of all ages are welcome. If you are under 18, you will need to be accompanied by an adult. (Please advise us if this is the case)
-          %li In order to ensure a fair process for all applicants, we kindly ask you to submit only one application per event.
+          %li In order to ensure a fair process for all volunteer coaches, we kindly ask you to submit only one application per event.
           %li We expect a great demand for our workshop and would like to make sure all available spaces are filled. If you receive an invitation, we ask that you confirm your attendance within a few days of it being sent out. If, for any reason, you cannot attend, then please let us know as soon as possible and we will allocate your place to the next person on the waiting list.
           %li Please let us know if you have any access requirements.
-          %li We also ask that you set aside time for all of the events that make up the workshop, including the Installation Party and the Afterparty. We want to get to know you!
+          %li We also ask that you set aside time for all of the events that make up the workshop, including the Installation Party and the Afterparty.
           %li We will be taking pictures & recording videos during the workshop. We are reserving the right to use any recorded material from the workshop for Rails Girls London promotional needs. e.g. It can be uploaded on the site, used on social media etc.
-
           %li
             Rails Girls London is dedicated to providing a harassment-free experience for everyone attending our workshops. We do not tolerate harassment of workshop participants in any form. Any participants violating these rules may be sanctioned or expelled from the workshop at the discretion of the workshop organizers. Please read our
             = link_to "Code of Conduct", code_of_conduct_path
+
 
     .checkbox-wrapper
       = f.input :terms_of_service, as: :boolean, wrapper: :checkbox_inline, label: 'I have read the terms of service'

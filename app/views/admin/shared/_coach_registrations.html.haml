@@ -1,0 +1,40 @@
+%legend
+  Coach Registrations (#{@event.registrations.count})
+  = link_to "Add registration", new_admin_event_coach_registration_path(@event), class: 'btn btn-info'
+
+- if @event.registrations.any?
+  .well
+    .span3
+      Registrations
+      %span.badge.badge-important= registrations.count
+    .span3
+      Accepted
+      %span.badge.badge-success= registrations.select(&:accepted).count
+    .span3
+      Attending
+      %span.badge.badge-success= registrations.select(&:attending).count
+    .span3
+      Waiting for response
+      %span.badge.badge-success= registrations.select {|r| r.attending.nil? }.count
+
+  %table.table.table-striped.table-balanced.table-condensed
+    %thead
+      %tr
+        %td Name
+        %td Email
+        %td Attending?
+        %td Selected Coach name
+
+    %tbody
+      - registrations.each do |registration|
+        %tr{ class: registration.accepted? ? "success" : "" }
+          %td= link_to registration.fullname, admin_event_registration_path(@event, registration)
+          %td= mail_to registration.email
+          %td= registration.attending.nil? ? '?' : registration.attending
+          %td= registration.coach ?  registration.coach.name : '-'
+
+          - if @event.active
+            %td= link_to 'Accept', admin_event_coach_registration_coach_registrations_attendance_path(@event, registration), method: :put, class: "btn btn-success"
+
+          - if registration.coach.nil?
+            %td= link_to 'Suggested coaches', admin_event_coach_registration_suggested_matches_path(@event, registration)
