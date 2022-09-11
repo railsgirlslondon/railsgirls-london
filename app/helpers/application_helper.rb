@@ -50,6 +50,10 @@ module ApplicationHelper
     ENV['SLACK_INVITE']
   end
 
+  def geocode_full_address(host)
+    host.address_line_2 + "," + host.address_postcode
+  end
+
   private
 
   def railsgirls_twitter_widget_id

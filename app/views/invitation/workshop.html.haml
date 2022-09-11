@@ -35,7 +35,7 @@
           %a{ href: "#{@invitable.host.website}", target: :_blank } 
             = @invitable.host.website
         .event-host__map
-          = hidden_field_tag 'address', @invitable.host.address_postcode
+          = hidden_field_tag 'address', geocode_full_address(@invitable.host)
           %div{id: 'map-canvas'}
       .rsvp-container.flex--item
 

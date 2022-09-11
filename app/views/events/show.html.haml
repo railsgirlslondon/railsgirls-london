@@ -56,7 +56,7 @@
           %a{ href: "#{@event.host.website}", target: :_blank } 
             = @event.host.website
         .event-host__map
-          = hidden_field_tag 'address', @event.host.address_postcode
+          = hidden_field_tag 'address', geocode_full_address(@event.host)
           %div{id: 'map-canvas'}
       .event-description--block.flex--item
         = render 'events/workshop_description'
