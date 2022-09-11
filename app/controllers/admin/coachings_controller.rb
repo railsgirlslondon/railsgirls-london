@@ -24,7 +24,7 @@ class Admin::CoachingsController < ApplicationController
       flash[:error] = coaching.errors.full_messages.join("\n")
     end
 
-    redirect_back(fallback_location: admin_coach_path(event_coaching_params[:coach_id]))
+    redirect_back(fallback_location: admin_coach_path(coaching.coach))
   end
 
   private
