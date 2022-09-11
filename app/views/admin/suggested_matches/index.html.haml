@@ -5,6 +5,10 @@
       .pull-right
         %strong= link_to 'Add Coach', new_admin_coach_path, class: "btn"
 
+    %td
+      =simple_form_for @registration, url: admin_event_coach_registration_suggested_matches_path(@event, @registration), method: :post, html: { class: 'form-inline' } do |f|
+        =f.submit "Create from registration", class: 'btn btn-primary btn-lg btn-hero'
+
   %table.table.table-striped.table-balanced
     %thead
       %tr
@@ -24,6 +28,7 @@
             =simple_form_for @registration, url: admin_event_coach_registration_suggested_match_path(@event, @registration, coach.id), method: :put, html: { method: :put, class: 'form-inline' } do |f|
               =f.hidden_field :coach_id, value: coach.id
               =f.submit "Match", class: 'btn btn-primary btn-lg btn-hero'
+
 
           %td
             = link_to edit_icon, edit_admin_coach_path(coach), class: 'btn btn-small'

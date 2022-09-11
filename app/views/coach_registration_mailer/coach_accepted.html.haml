@@ -9,16 +9,18 @@
         Hi
         #{@registration.first_name},
 
-      %h4 Please let us know:
+      %h4
+        Great news! We would love for you to be a coach at the Rails Girls London Workshop on the
+        = @event.dates
+        ❤️
+
+      %p
+        In order to secure your place, we kindly ask you to confirm your attendance. If you can no longer make it, we would appreciate if you could let us know by pressing the 'No, I can no longer make it' button. We require this so we can re-allocate your place and give someone else the opportunity to join us.
+
+      %h4 Please confirm your attendance:
       .btn-group
         =link_to "Yes, I will be attending, please secure my place", coach_registration_url(@registration.token, attending: true), class: "btn btn-green"
         =link_to "No, I can no longer make it", coach_registration_url(@registration.token, attending: false), class: "btn btn-blue"
-
-      %p
-        We received your application to be a coach, and we will be reviewing it soon. We will send you an invitation email shortly.
-      %p
-        %strong
-          Once you receive the invitation, you are requested to confirm your participation within 3 days.
 
       %p
         Please make sure that there is a

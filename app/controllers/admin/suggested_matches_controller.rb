@@ -9,6 +9,12 @@ class Admin::SuggestedMatchesController < ApplicationController
     @coaches = Coach.where(email: @registration.email).or(Coach.where("name like ?", "%#{@registration.last_name}%"))
   end
 
+  def create
+    @registration = CoachRegistration.find(params[:coach_registration_id])
+    Coach.create!(name: @registration.fullname, twitter: @registration.twitter, phone_number: @registration.phone_number, email: @registration.email)
+    redirect_back(fallback_location: admin_event_path(@registration.event))
+  end
+
   def update
     @registration = CoachRegistration.find(params[:coach_registration_id])
     @coach = Coach.find_by(id: params[:id])

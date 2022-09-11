@@ -57,11 +57,13 @@
             %strong= "Will you attend?"
           =simple_form_for @registration, url: coach_registration_path(@registration.token), method: :put, html: { method: :put, class: 'form-inline' } do |f|
             =f.input :attending, as: :radio_buttons, label: false, item_wrapper_class: 'inline', label_method: :first, value_method: :last, required: true, checked: @attendance_status
-            =f.input :comment, placeholder: "Anything you want us to know? #{@registration.token}"
+            =f.input :comment, placeholder: "Anything you want us to know?"
             %br
 
             =f.submit "RSVP", class: 'btn btn-primary btn-lg btn-hero'
-
         %hr
         %small
           %em You can RSVP until the #{@registration.valid_until_date.strftime("%-d %B  %Y")}.
+
+        = render partial: "shared/sponsors", locals: { sponsors: @event.sponsors.shuffle }
+

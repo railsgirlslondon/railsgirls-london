@@ -28,7 +28,7 @@
     %tbody
       - registrations.each do |registration|
         %tr{ class: registration.accepted? ? "success" : "" }
-          %td= link_to registration.fullname, admin_event_registration_path(@event, registration)
+          %td= link_to registration.fullname, admin_event_coach_registration_path(@event, registration)
           %td= mail_to registration.email
           %td= registration.attending.nil? ? '?' : registration.attending
           %td= registration.coach ?  registration.coach.name : '-'
@@ -38,3 +38,8 @@
 
           - if registration.coach.nil?
             %td= link_to 'Suggested coaches', admin_event_coach_registration_suggested_matches_path(@event, registration)
+
+          - if registration.accepted?
+            %td= registration.comment
+
+          %td= registration.details

@@ -42,7 +42,7 @@ RailsgirlsLondon::Application.routes.draw do
       end
       resources :coach_registrations, only: [:show, :new, :create, :update, :destroy] do
         resource :coach_registrations_attendance, only: [:update]
-        resources :suggested_matches, only: [:index, :update]
+        resources :suggested_matches, only: [:index, :create, :update]
       end
     end
     resources :sponsorships, only: [:create, :destroy, :update]

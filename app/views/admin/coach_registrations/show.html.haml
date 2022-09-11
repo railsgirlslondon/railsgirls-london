@@ -1,0 +1,40 @@
+%legend
+  %h3
+    Coach Registration
+
+.row
+  .span4
+    %h4
+      = @registration.fullname
+
+.row
+  .span7
+    %p
+      Twitter:
+      = @registration.twitter
+    %p
+      Phone number:
+      = @registration.phone_number
+    %p
+      Details:
+      = @registration.details
+    %p
+      Accepted: 
+      = @registration.accepted
+    %p
+      Attending: 
+      = @registration.attending
+    %p
+      Comments:
+      = @registration.comment
+    %p
+      Dietary:
+      = @registration.dietary_restrictions
+    %p
+      How did you hear about us:
+      = @registration.how_did_you_hear_about_us
+
+
+    %br
+      = @registration.invitation_sent_at
+
