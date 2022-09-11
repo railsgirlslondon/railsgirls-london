@@ -38,5 +38,5 @@
     - if @event.registrations_open?
       %div
         = link_to 'I want to become a student, take me to the application now', '#apply-student', class: 'btn btn-primary'
-  %div
-    = mail_to 'railsgirlslondon@gmail.com', 'I want to be a coach', subject: "I want to coach @ Rails Girls London #{@event.dates}", body: 'My name is ___________ <br><br> My twitter is ___________ <br><br> My phone number is ___________ <br> <br> I would love to coach because ___________', class: 'btn btn-orange'
+    %div
+      = link_to "I want to be a coach", new_event_coach_registration_path(@event), class: 'btn btn-orange'

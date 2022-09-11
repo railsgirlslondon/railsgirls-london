@@ -1,14 +1,14 @@
-=splash($image, $background, $border)
-  +tinted-image-background($image, $background)
+=splash($image, $background, $border, $bg-opacity: .6)
+  +tinted-image-background($image, $background, $bg-opacity)
   border-bottom: 9px solid $border
 
-=tinted-image-background($image, $colour, $opacity: 0.6)
+=tinted-image-background($image, $colour, $opacity)
   background: url($image) center center no-repeat
   background-size: cover
   position: relative
   &:after
     content: ""
-    background: transparentize($colour, $opacity)
+    background: rgba($colour, $opacity)
     display: block
     position: absolute
     top: 0

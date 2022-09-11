@@ -6,6 +6,9 @@ class Coach < ActiveRecord::Base
   validates :name, :email, presence: true
   validates :phone_number, :presence => true, :if => :is_organiser?
 
+  validates :email, uniqueness: true
+
+
   def self.sorted_by_name
     all.sort do |coach_a, coach_b|
       coach_a.name.split(' ').last <=> coach_b.name.split(' ').last

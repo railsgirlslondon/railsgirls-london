@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_21_085335) do
+ActiveRecord::Schema.define(version: 2022_09_10_191751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,28 @@ ActiveRecord::Schema.define(version: 2022_08_21_085335) do
     t.string "coaches_mailing_list", limit: 255
     t.string "twitter_widget_id", limit: 255
     t.index ["slug"], name: "index_cities_on_slug"
+  end
+
+  create_table "coach_registrations", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "twitter"
+    t.string "phone_number"
+    t.text "details"
+    t.string "dietary_restrictions"
+    t.text "how_did_you_hear_about_us"
+    t.bigint "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "accepted"
+    t.string "token"
+    t.boolean "attending"
+    t.text "comment"
+    t.datetime "invitation_sent_at"
+    t.bigint "coach_id"
+    t.index ["coach_id"], name: "index_coach_registrations_on_coach_id"
+    t.index ["event_id"], name: "index_coach_registrations_on_event_id"
   end
 
   create_table "coaches", id: :serial, force: :cascade do |t|
@@ -270,4 +292,5 @@ ActiveRecord::Schema.define(version: 2022_08_21_085335) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "coach_registrations", "events"
 end

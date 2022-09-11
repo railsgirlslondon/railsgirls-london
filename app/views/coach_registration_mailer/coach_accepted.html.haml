@@ -1,0 +1,51 @@
+.application-received.main-content
+  .container.separator
+    %h1.header-blurb
+      You are invited to coach at the Rails Girls London Workshop on the
+      = @event.dates
+  .container.separator
+    .content
+      %h3
+        Hi
+        #{@registration.first_name},
+
+      %h4
+        Great news! We would love for you to be a coach at the Rails Girls London Workshop on the
+        = @event.dates
+        ❤️
+
+      %p
+        In order to secure your place, we kindly ask you to confirm your attendance. If you can no longer make it, we would appreciate if you could let us know by pressing the 'No, I can no longer make it' button. We require this so we can re-allocate your place and give someone else the opportunity to join us.
+
+      %h4 Please confirm your attendance:
+      .btn-group
+        =link_to "Yes, I will be attending, please secure my place", coach_registration_url(@registration.token, attending: true), class: "btn btn-green"
+        =link_to "No, I can no longer make it", coach_registration_url(@registration.token, attending: false), class: "btn btn-blue"
+
+      %p
+        Please make sure that there is a
+        %a{ href: 'https://en.gravatar.com/' } gravatar for your email address.
+        This way students can see the coaches who signed up - we display it on the
+        = link_to 'event page.', event_url(@event)
+
+      %p
+        You can view details about the workshop
+        = link_to 'here', event_url(@event)
+        or
+        = link_to slack_invite_url, target: :_blank do
+          join us on Slack.
+
+
+      .signature
+        %p Rails Girls London team :)
+        = render 'shared/mailers/social_media'
+
+
+.container.separator
+  = render 'shared/mailers/sponsors'
+
+.container.separator
+  %p.important-info
+    Important:
+    %br
+      If you can no longer make it we kindly ask you to let us know as soon as possible.
