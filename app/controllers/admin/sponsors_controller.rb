@@ -25,7 +25,6 @@ class Admin::SponsorsController < ApplicationController
   def show
     @sponsorships = @sponsor.sponsorships
     @non_sponsored = Event.all - @sponsorships.map(&:sponsorable)
-    @non_sponsored_meetups = Meetup.all - @sponsorships.map(&:sponsorable)
   end
 
   def new
@@ -35,7 +34,6 @@ class Admin::SponsorsController < ApplicationController
   def edit
     @sponsorships = @sponsor.sponsorships
     @non_sponsored = Event.all - @sponsorships.map(&:sponsorable)
-    @non_sponsored_meetups = Meetup.all - @sponsorships.map(&:sponsorable)
   end
 
   def create

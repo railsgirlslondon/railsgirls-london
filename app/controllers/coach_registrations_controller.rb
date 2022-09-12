@@ -15,15 +15,18 @@ class CoachRegistrationsController < ApplicationController
   def create
     @registration = @event.coach_registrations.build(registration_params)
 
-    if @registration.save!
+    if @registration.valid?(:coach_registration)
+      @registration.save!
       CoachRegistrationMailer.coach_application_received(@event, @registration).deliver_now
       flash[:notice] = "Thanks for applying to our workshop. You should receive a confirmation email soon!"
+    redirect_back(fallback_location: new_event_coach_registration_path(@event))
     else
       error_messages = @registration.errors.full_messages.join(', ')
       flash[:alert] = "Please correct the errors: #{error_messages}"
+      render template: 'coach_registrations/new'
+
     end
 
-    redirect_back(fallback_location: new_event_coach_registration_path(@event))
   end
 
 
