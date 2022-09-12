@@ -19,7 +19,7 @@ class CoachRegistrationsController < ApplicationController
       @registration.save!
       CoachRegistrationMailer.coach_application_received(@event, @registration).deliver_now
       flash[:notice] = "Thanks for applying to our workshop. You should receive a confirmation email soon!"
-    redirect_back(fallback_location: new_event_coach_registration_path(@event))
+      redirect_to new_event_coach_registration_path(@event), notice: flash[:notice]
     else
       error_messages = @registration.errors.full_messages.join(', ')
       flash[:alert] = "Please correct the errors: #{error_messages}"
