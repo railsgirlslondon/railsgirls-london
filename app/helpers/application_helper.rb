@@ -51,7 +51,7 @@ module ApplicationHelper
   end
 
   def geocode_full_address(host)
-    host.address_line_2 + "," + host.address_postcode
+    [host.address_line_2, host.address_postcode].join(',')
   end
 
   private

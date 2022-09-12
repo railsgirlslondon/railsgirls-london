@@ -35,7 +35,4 @@
 - if @non_sponsored.any?
   =render partial: "admin/shared/non_sponsorships", locals: { non_sponsored: @non_sponsored }
 
-- if @non_sponsored_meetups.any?
-  =render partial: "admin/shared/non_sponsorships", locals: { non_sponsored: @non_sponsored_meetups }
-
 = link_to 'Back', admin_sponsors_path

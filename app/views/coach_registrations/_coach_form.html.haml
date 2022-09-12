@@ -44,6 +44,6 @@
 
 
     .checkbox-wrapper
-      = f.input :terms_of_service, as: :boolean, wrapper: :checkbox_inline, label: 'I have read the terms of service'
+      = f.input :terms_of_service, required: true, as: :boolean, wrapper: :checkbox_inline, label: 'I have read the terms of service'
 
     = f.button :button, 'Apply', class: "btn btn-primary btn-lg btn-hero btn__full-width", data: { disable_with: "Please wait..." }

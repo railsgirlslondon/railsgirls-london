@@ -5,17 +5,18 @@ class CoachRegistration < ActiveRecord::Base
     :last_name,
     :email,
     :phone_number,
-    :details,
+    :details
   ]
 
   validates *REQUIRED_ATTRIBUTES, presence: true
+  validates :terms_of_service, presence: true, on: :new
 
   before_create :generate_token
 
   belongs_to :event
   belongs_to :coach
 
-  validates :terms_of_service, :acceptance => true, on: :create
+  validates :terms_of_service, :acceptance => true
   # validates :email, confirmation: true
   validates :email, uniqueness: { scope: :event_id, message: "You've already registered for this event! Sit tight, you'll hear from us soon." }
 
