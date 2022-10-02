@@ -16,7 +16,7 @@ class EventMailer < ActionMailer::Base
 
     subject = "RGL - You are confirmed for #{event.title} #{event.dates}"
 
-    attach_ical_file(event)
+    IcalAttachment::Event::TYPES_OF_EVENTS.each { |e| attach_ical_file(event, e) }
 
     send_email(subject, registration.email)
   end
@@ -64,9 +64,9 @@ class EventMailer < ActionMailer::Base
 
   private
 
-  def attach_ical_file event
-    ical_file = IcalAttachment::Event.new(event).to_temp_file
-    attachments["#{event.title}-#{event.starts_on}.ics"] = ical_file.read
+  def attach_ical_file event, type_of_event
+    ical_file = IcalAttachment::Event.new(event).to_temp_file(type_of_event)
+    attachments["#{event.title}-#{type_of_event}.ics"] = ical_file.read
   ensure
     ical_file.close!
   end

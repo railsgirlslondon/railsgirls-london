@@ -14,8 +14,8 @@ module IcalAttachment
       @cal = Calendar.new
     end
 
-    def to_temp_file
-      to_event
+    def to_temp_file(event_kind)
+      send(event_kind)
       Tempfile.new("ical-#{model.class.name}").tap do |f|
         f.write @cal.to_ical
         f.rewind
