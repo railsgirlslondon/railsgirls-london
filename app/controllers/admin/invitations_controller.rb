@@ -6,13 +6,13 @@ class Admin::InvitationsController < ApplicationController
   def create
     invitable.invite_members
 
-    redirect_to :back
+    redirect_back(fallback_location: events_path(params[:event_id]))
   end
 
   def resend_invite
     invitation = Invitation.find(params[:id])
     invitable.invite_again(invitation)
-    redirect_to :back
+    redirect_back(fallback_location: events_path(params[:event_id]))
   end
 
   def show
