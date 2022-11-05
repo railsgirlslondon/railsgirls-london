@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find params[:id]
-    if @event.registrations_open?
+    if @event.accepting_registrations?
       @registration = @event.registrations.build
     end
   end

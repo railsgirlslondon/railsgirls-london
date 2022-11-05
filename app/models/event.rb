@@ -33,7 +33,7 @@ class Event < ActiveRecord::Base
   end
 
   def accepting_registrations?
-    registration_deadline.present?
+    ends_on > Date.today
   end
 
   def registrations_open?

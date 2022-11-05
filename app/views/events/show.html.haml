@@ -8,15 +8,11 @@
     %h1
       = @event.dates
     - if @event.accepting_registrations?
-      - if @event.registrations_open?
-        .btn-block
-          = link_to "I want to be a student", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
-          = link_to "I want to be a coach", new_event_coach_registration_path(@event), class: 'btn btn-orange'
-          %h4
-            Applications are open until #{I18n.l(@event.registration_deadline)}
-      - else
+      .btn-block
+        = link_to "I want to be a student", "#apply-student", id: "apply-student-btn", class: "btn btn-primary btn-lg btn-hero"
+        = link_to "I want to be a coach", new_event_coach_registration_path(@event), class: 'btn btn-orange'
         %h4
-          Applications are now closed.
+          = event_application_button_text(@event)
     - else
       Applications are not available for this event.
 
@@ -70,7 +66,7 @@
 
 = render partial: "shared/coaches", locals: { coaches: @event.coaches.who_attended, title: "Organisers and coaches" }
 
-- if @event.registrations_open?
+- if @event.accepting_registrations?
   %section.separator
     .container
       %h1.block-title

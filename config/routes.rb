@@ -37,7 +37,7 @@ RailsgirlsLondon::Application.routes.draw do
           put 'resend_invite'
         end
       end
-      resources :registrations, only: [:show, :new, :create, :update, :destroy] do
+      resources :registrations, only: [:show, :new, :create, :edit, :update, :destroy] do
         resource :attendance, only: [:create, :destroy]
       end
       resources :coach_registrations, only: [:show, :new, :create, :update, :destroy] do
