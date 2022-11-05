@@ -8,13 +8,9 @@
     %h1
       = @event.dates
     - if @event.accepting_registrations?
-      - if @event.registrations_open?
-        .btn-block
-          %h4
-            Applications are open until #{I18n.l(@event.registration_deadline)}
-      - else
+      .btn-block
         %h4
-          Applications are now closed.
+          Applications are open until #{I18n.l(@event.starts_on)}
     - else
       Applications are not available for this event.
 
@@ -58,7 +54,7 @@
           %div{id: 'map-canvas'}
         = render partial: "shared/sponsors", locals: { sponsors: @event.sponsors.shuffle }
       .event-description--block.flex--item
-        - if @event.registrations_open?
+        - if @event.accepting_registrations?
           %section.separator
             .container
               %h1.block-title

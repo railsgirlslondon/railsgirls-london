@@ -1,0 +1,20 @@
+%p
+  We received your application to join the waiting list.
+
+%p
+  We will let you know as soon as a place becomes available by sending you an invite. In order to secure your place please make sure to accept the invite as soon as possible, otherwise your place will be automatically given to the next person on the waiting list in 24 hours.
+
+%p
+  You can view details about the workshop
+  = link_to 'here', event_url(@event)
+  or
+  = link_to slack_invite_url, target: :_blank do
+    join us on Slack.
+
+  .signature
+    %p Rails Girls London team :)
+    = render 'shared/mailers/social_media'
+
+
+.container.separator
+  = render 'shared/mailers/sponsors'

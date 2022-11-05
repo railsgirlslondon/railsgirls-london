@@ -44,6 +44,6 @@
     %td How did they hear about us?
     %td= @registration.how_did_you_hear_about_us
 
-= link_to 'Edit', edit_admin_event_path(@event)
+= link_to 'Edit', edit_admin_event_registration_path(@event, @registration)
 \|
-= link_to 'Back', admin_events_path
+= link_to 'Back', admin_event_path(@event)

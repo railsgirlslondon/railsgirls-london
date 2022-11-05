@@ -35,7 +35,7 @@
           %p.gutter-right
             Join us for the upcoming Rails Girls London event. A free 1.5-day workshop where participants will discover the exciting world of web development through Ruby on Rails.
             With the help and guidance of our experienced coaches, attendees will create a real web application in a fun and relaxed atmosphere.
-          = link_to "Apply as a student", event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
+          = link_to application_button_text(@next_event), event_path(@next_event), class: "btn btn-primary btn-lg btn-hero"
         %div
           %p.gutter-right
             We are also always looking for coaches. You don't need to have any previous teaching experience, we'll show you everything you need to know.

@@ -3,7 +3,7 @@ class RegistrationsController < ApplicationController
   before_action :setup_properties
 
   def new
-    if @event.registrations_open?
+    if @event.accepting_registrations?
       @registration = @event.registrations.build
     else
       redirect_to event_path(@event)

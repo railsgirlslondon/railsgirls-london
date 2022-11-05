@@ -16,6 +16,7 @@ en:
   event:
     early_bird: "First round of accepted students (apply by %{deadline}) will receive emails on %{confirmation}."
     final_deadline: "Applications close on %{final_deadline}, we will be sending out invites by %{final_confirmation}."
+    waiting_list: "Applications are now closed, but you can join the waiting list and we will send you an invite if the place becomes available. We are trying really hard to fit everyone in, but unfortunatelly we have limited amount of places. If you are invited, please make sure to confirm your place as soon as possible, otherwise your place would be allocated to the next person on the waiting list within 24 hours."
 
   feedback:
     cancel: "Feedback has been cancelled. Help us improve our workshops by filling in our feedback form!"

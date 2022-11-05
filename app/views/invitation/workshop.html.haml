@@ -64,4 +64,7 @@
 
         %hr
         %small
-          %em You can RSVP until the #{@invitation.valid_until_date.strftime("%-d %B  %Y")}.
+          - if @invitation.invitable.registrations_open?
+            %em You can RSVP until the #{@invitation.valid_until_date.strftime("%-d %B  %Y")}.
+          - else
+            %em You can RSVP until the #{(@invitation.created_at+1.day).strftime("%-d %B  %Y")}.

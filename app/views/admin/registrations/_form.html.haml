@@ -12,10 +12,6 @@
 
     .flex--item
       = f.input :gender, required: true, collection: [ "Female", "Male", "Other", "I prefer not to say" ], prompt: "Select your gender"
-      %hr
-      = f.input :address, required: true, input_html: { class: "form-control"}, placeholder: "eg. 3/4, 5 Oxford Crescent, W2 7FD"
-      = f.input :uk_resident, collection: [ "Yes", "No" ], prompt: "Select option", input_html: {class: "form-control"}, label: "UK Resident"
-      %hr
 
   .flex--container
     .flex--item.padding-right
@@ -35,4 +31,4 @@
     .checkbox-wrapper
       = f.input :terms_of_service, as: :boolean, wrapper: :checkbox_inline, label: 'I have read the terms of service'
 
-    = f.button :button, 'Apply', class: "btn btn-primary btn-lg btn-hero btn__full-width", data: { disable_with: "Please wait..." }
+    = f.button :button, 'Save', class: "btn btn-primary btn-lg btn-hero btn__full-width", data: { disable_with: "Please wait..." }

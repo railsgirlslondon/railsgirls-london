@@ -1,19 +1,28 @@
-%h3 Student application form
-%h5
-  IMPORTANT NOTICE:
-  %br
-  - if @event.early_bird_available?
-    = I18n.t('event.early_bird', deadline: I18n.l(@event.registration_deadline_early_bird), confirmation: I18n.l(@event.registration_deadline_early_bird+1.day))
+- if @event.registrations_open?
+  %h3 Student application form
+  %h5
+    IMPORTANT NOTICE:
+    %br
+    - if @event.early_bird_available?
+      = I18n.t('event.early_bird', deadline: I18n.l(@event.registration_deadline_early_bird), confirmation: I18n.l(@event.registration_deadline_early_bird+1.day))
 
-  %br
-  = I18n.t('event.final_deadline', final_deadline: I18n.l(@event.registration_deadline), final_confirmation: I18n.l(@event.registration_deadline+1.day))
+    - else
+      %br
+      = I18n.t('event.final_deadline', final_deadline: I18n.l(@event.registration_deadline), final_confirmation: I18n.l(@event.registration_deadline+1.day))
 
-  %br
-  Please confirm your place as soon as you see the invite, the invite will expire in 3 days.
-  The invite will exprire in 3 days, and your place will be given to a next person on a waiting list.
+    %br
+    Please confirm your place as soon as you see the invite, the invite will expire in 3 days.
+    The invite will exprire in 3 days, and your place will be given to a next person on a waiting list.
 
-  %br
-  We are trying really hard to fit everyone in, but unfortunatelly we have limited amount of places, so if you dont receive the invite, you will be placed on the waiting list. We will be in touch if a place becomes available.
+    %br
+    We are trying really hard to fit everyone in, but unfortunatelly we have limited amount of places, so if you dont receive the invite, you will be placed on the waiting list. We will be in touch if a place becomes available.
+
+- else
+  %h3 Student waiting list application form
+  %h5
+    IMPORTANT NOTICE:
+    %br
+    = I18n.t('event.waiting_list')
 
 = render 'layouts/messages'
 = simple_form_for @registration, url: event_registrations_path(@event, anchor: 'apply-student'), html: { class: 'form-horizontal' } do |f|

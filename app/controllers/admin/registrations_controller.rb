@@ -2,7 +2,7 @@ class Admin::RegistrationsController < ApplicationController
   layout 'admin'
 
   before_action :authenticate_user!, :find_event
-  before_action :find_registration, only: [:show, :destroy]
+  before_action :find_registration, only: [:show, :edit, :update, :destroy]
 
   def new
     @registration = Registration.new
@@ -20,15 +20,17 @@ class Admin::RegistrationsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
-    @registration = Registration.find(params[:id])
-    if @registration.update(registration_params)
+    if @registration.update(new_reg_params)
       flash[:notice] = "Registration has been updated."
     else
       flash[:error] = @registration.errors.full_messages.join("\n")
     end
 
-    redirect_to(:back)
+    redirect_to [:admin, @event, @registration]
   end
 
   def show

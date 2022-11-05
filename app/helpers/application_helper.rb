@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def application_button_text(next_event)
+    next_event.registrations_open? ? 'Apply as a student' : 'Join the student waiting list'
+  end
+
   def landing_page_anchor_link(anchor)
     "#{root_path}##{anchor}"
   end
