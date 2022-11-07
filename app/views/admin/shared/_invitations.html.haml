@@ -14,6 +14,7 @@
     %thead
       %tr
         %td Name
+        %td Email
         %td State
         %td
 
@@ -23,6 +24,8 @@
           %td
             =link_to [ :admin, invitable, invitation] do
               = invitation.invitee.name
+          %td
+            = invitation.invitee.email
           %td
             - if invitation.attending.nil?
               \----

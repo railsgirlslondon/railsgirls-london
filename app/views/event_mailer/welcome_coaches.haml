@@ -25,7 +25,7 @@
       %p
         %b
           Venue address:
-          =link_to "#{@event.host.address_line_1}, #{@event.host.address_line_2}, #{@event.host.address_city}, #{@event.host.address_postcode}", "https://goo.gl/maps/DUtg5eFWV2FPnu4b6"
+          =link_to "#{@event.host.address_line_1}, #{@event.host.address_line_2}, #{@event.host.address_city}, #{@event.host.address_postcode}", "https://goo.gl/maps/5rTpGR9dQGMWBKXMA"
 
       %p
         Coaches are expected to be around on Friday evening and all day Saturday.
@@ -34,8 +34,8 @@
         FRIDAY, #{@event.start_date} - The installation party:
       %p
         %b
-          Please arrive on Friday 30th November by 18:30pm. We will finish around 21:15pm.
-        We will have students arriving between 18:30pm and19:30pm, usually quite a few people are coming late. We are expecting around 200 students & 120 coaches, so there will be a large number of people.
+          Please arrive on Friday #{@event.start_date} by 18:30pm. We will finish around 21:15pm.
+        We will have students arriving between 18:30pm and 19:30pm, usually quite a few people are coming late. We are expecting around 170 students & 120 coaches, so there will be a large number of people.
         %br
           On your arrival, please sign in at the reception desk.
         %br
@@ -44,7 +44,7 @@
       %p
         Once you are at the venue:
         %br
-          There will be food, drinks, DJ, Photobooth and good vibe throughout the evening. Great time to chat with people!
+          There will be food, drinks, DJ and good vibe throughout the evening. Great time to chat with people!
 
       %p
         What you are expected to do:
@@ -61,7 +61,7 @@
         SATURDAY, #{@event.end_date} - Workshop:
       %p
         %b
-          Please arrive on Saturday 1rst December at 9:00am. We will finish around 17:45pm, and will be having drinks afterward in a near pub.
+          Please arrive on Saturday #{@event.end_date} at 9:00am. We will finish around 17:45pm, and will be having drinks afterward in a near pub.
 
       %p
         Students will also be arriving at 9:00am.

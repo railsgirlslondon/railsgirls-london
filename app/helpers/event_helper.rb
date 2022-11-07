@@ -1,7 +1,7 @@
 module EventHelper
 
   def event_application_button_text(event)
-    event.registrations_open? ? "Applications are open until #{I18n.l(event.registration_deadline)}" : "Applications are now closed, but you can join the waiting list"
+    event.registrations_open? ? "Applications are open until #{I18n.l(event.registration_deadline)}" : "Student applications are now closed, but you can join the waiting list"
   end
 
   def accept_reject_invitation_link(event, registration)
