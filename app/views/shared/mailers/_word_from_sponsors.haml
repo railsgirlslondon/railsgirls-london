@@ -10,7 +10,7 @@
         %b
           Smart
       %td{align: 'right'}
-        = image_tag @event.sponsors.find_by(name: "Smart").image_url, class: 'sponsor-logo--item'
+        = image_tag email_sponsor_logo(@event, "Smart"), class: 'sponsor-logo--item'
     %tr
       %td{colspan: "2", align: 'left', valign: 'middle'}
         %p
@@ -36,7 +36,7 @@
         %b
           Cookpad
       %td{align: 'right'}
-        = image_tag @event.sponsors.find_by(name: "Cookpad").image_url, class: 'sponsor-logo--item'
+        = image_tag email_sponsor_logo(@event, "Cookpad"), class: 'sponsor-logo--item'
     %tr
       %td{colspan: "2", align: 'left', valign: 'middle'}
         %p
@@ -63,7 +63,7 @@
         %b
           Generation Home
       %td{align: 'right'}
-        = image_tag @event.sponsors.find_by(name: "Generation Home").image_url, class: 'sponsor-logo--item'
+        = image_tag email_sponsor_logo(@event, "Generation Home"), class: 'sponsor-logo--item'
     %tr
       %td{colspan: "2", align: 'left', valign: 'middle'}
         %p
@@ -106,7 +106,7 @@
         %b
           Cleo
       %td{align: 'right'}
-        = image_tag @event.sponsors.find_by(name: "Cleo").image_url, class: 'sponsor-logo--item'
+        = image_tag email_sponsor_logo(@event, "Cleo"), class: 'sponsor-logo--item'
     %tr
       %td{colspan: "2", align: 'left', valign: 'middle'}
         %p

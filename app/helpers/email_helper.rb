@@ -10,6 +10,10 @@ module EmailHelper
     end
   end
 
+  def email_sponsor_logo(event, sponsor_name)
+    'sponsors/' + event.sponsors.find_by(name: sponsor_name).image_url
+  end
+
   def slack_invite_url
     ENV['SLACK_INVITE']
   end
