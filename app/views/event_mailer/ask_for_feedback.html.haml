@@ -9,10 +9,13 @@
         Hi #{@registration.forename},
 
       %p
-        A massive thank you for attending Rails Girls London this weekend!
-        %br
+        A massive thank you attending Rails Girls London this weekend!
+      %p
+        Thank you to all coaches for volunteering. 🙌
+        Thank you to all sponsors for their massive support for Rails Girls London. 👏
+        Thank you to everyone who helped. 💪
+      %p
         We hope you enjoyed the experience and had a great time at our event :)
-
 
       %p
         We would really appreciate your feedback so we can make the next one even better!
@@ -22,7 +25,7 @@
 
       %p
         If you have any questions ping us on 
-        = link_to "Slack", slack_invite_url
+        = link_to "Slack.", slack_invite_url
 
       = render 'shared/mailers/post_event_word_from_sponsors'
 
