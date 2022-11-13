@@ -54,7 +54,7 @@ class EventMailerPreview < ActionMailer::Preview
   end
 
   def ask_for_feedback
-    event = Event.find(8)
+    event = Event.find(12)
     registration = Registration.find(945)
     EventMailer.ask_for_feedback(event, registration)
   end
