@@ -1,11 +1,11 @@
 module Extentions
   module MailerHelper
 
-    private
-
     def default_email_address
       Rails.application.config.default_email_address
     end
+
+    private
 
     def mail_args(subject, participant_email)
       { :from => default_email_address,
