@@ -17,4 +17,8 @@ module EmailHelper
   def slack_invite_url
     ENV['SLACK_INVITE']
   end
+
+  def info_email
+    Rails.application.config.info_email_address
+  end
 end

@@ -6,7 +6,7 @@
       #{Date.today.year}, Rails Girls London.
       %br
       Contact us
-      %a{ href: "mailto:railsgirlslondon@gmail.com" } via email
+      %a{ href: "mailto:" + info_email } via email
       , join us on
       %a{ href: slack_invite_url } Slack
       or follow us on
@@ -16,7 +16,7 @@
       %h4
         Get excited and make things!
       .social-media--container
-        = mail_to "railsgirlslondon@gmail.com", target: :_blank do
+        = mail_to info_email, target: :_blank do
           = image_tag "social_media_icons/email.svg", class: "social-icon"
         = link_to slack_invite_url, target: :_blank do
           = image_tag "social_media_icons/slack.png", class: "social-icon"

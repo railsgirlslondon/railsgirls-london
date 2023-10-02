@@ -76,15 +76,11 @@ class EventMailer < ActionMailer::Base
     @invitation = invitation
     @invitee = invitation.invitee
     @event = event
-
-    super()
   end
 
   def setup_for_coaches event, coach
     @coach = coach
     @event = event
-
-    super()
   end
 
   def setup_for_feedback event, registration

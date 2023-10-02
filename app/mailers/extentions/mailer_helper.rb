@@ -3,26 +3,12 @@ module Extentions
 
     private
 
-    def setup
-      load_attachments
-    end
-
-    def setup_for_coaches
-      load_attachments
-    end
-
-    def email_name
-      "Rails Girls London <railsgirlslondon@gmail.com>"
-    end
-
-    def load_attachments
-      # %w{nda.pdf}.each do |image|
-      #   attachments.inline[image] = File.read("#{Rails.root.to_s}/app/assets/images/#{image}")
-      # end
+    def default_email_address
+      Rails.application.config.default_email_address
     end
 
     def mail_args(subject, participant_email)
-      { :from => email_name,
+      { :from => default_email_address,
         :to => participant_email,
         :subject => subject }
     end
