@@ -17,7 +17,5 @@ class RegistrationMailer < ActionMailer::Base
   def setup event, registration
     @registration = registration
     @event = event
-
-    super()
   end
 end
