@@ -80,10 +80,8 @@ RailsgirlsLondon::Application.configure do
 
   config.action_mailer.asset_host = ENV['MAILER_ASSET_HOST']
 
-  config.after_initialize do
-    config.default_email_address = ENV['EMAIL_SENDER']
-    config.info_email_address = ENV['INFO_EMAIL']
-  end
+  config.default_email_address = ENV['EMAIL_SENDER']
+  config.info_email_address = ENV['INFO_EMAIL']
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
