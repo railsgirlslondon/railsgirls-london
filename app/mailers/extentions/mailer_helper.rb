@@ -2,7 +2,7 @@ module Extentions
   module MailerHelper
 
     def default_email_address
-      Rails.application.config.default_email_address
+      'Rails Girls London <' + Rails.application.config.default_email_address + '>'
     end
 
     private
