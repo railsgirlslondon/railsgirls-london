@@ -29,3 +29,9 @@ en:
 
     error:
       cannot_find_user: "Hm.. We can't seem to find you. Are you sure you filled in your email address correctly?<br/> If you keep having trouble send us an email at <b><a href='mailto:%{email}'>%{email}</a><?b>"
+
+  validations:
+    errors:
+      models:
+        user:
+          invalid_email:  "Please enter a valid email address."

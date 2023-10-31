@@ -9,6 +9,7 @@ gem 'sassc-rails'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'devise'
+gem 'valid_email'
 
 gem 'aws-sdk-s3'
 gem 'rollbar'
@@ -27,6 +28,7 @@ gem 'nokogiri'
 
 group :production do
   gem 'rails_12factor'
+  gem 'rack-cloudflare'
 end
 
 group :development do

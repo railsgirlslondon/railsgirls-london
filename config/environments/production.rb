@@ -1,3 +1,5 @@
+require 'rack/cloudflare'
+
 RailsgirlsLondon::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -98,4 +100,11 @@ RailsgirlsLondon::Application.configure do
 
   # Store files on Amazon S3.
   config.active_storage.service = :amazon
+
+  config.middleware.use Rack::Cloudflare::Middleware::AccessControl
+  config.middleware.unshift Rack::Cloudflare::Middleware::AccessControl
+  # Configure custom blocked message (defaults to "Forbidden")
+  Rack::Cloudflare::Middleware::AccessControl.message = "You don't belong here..."
+  Rack::Cloudflare::IPs.update!
+  Rack::Cloudflare.logger = Logger.new(STDOUT)
 end

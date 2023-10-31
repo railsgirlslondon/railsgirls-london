@@ -19,6 +19,11 @@ class CoachRegistration < ActiveRecord::Base
   validates :terms_of_service, :acceptance => true
   # validates :email, confirmation: true
   validates :email, uniqueness: { scope: :event_id, message: "You've already registered for this event! Sit tight, you'll hear from us soon." }
+  validates :email,
+          email: {
+            mx: true,
+            message: I18n.t('validations.errors.models.user.invalid_email')
+          }
 
   scope :pending, -> { where(accepted: nil) }
   default_scope { order('created_at DESC') }

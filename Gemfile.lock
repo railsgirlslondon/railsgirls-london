@@ -219,6 +219,7 @@ GEM
     public_suffix (3.0.3)
     racc (1.7.1)
     rack (2.2.8)
+    rack-cloudflare (1.0.5)
     rack-test (2.0.2)
       rack (>= 1.3)
     rails (6.1.6.1)
@@ -300,6 +301,8 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    simpleidn (0.2.1)
+      unf (~> 0.1.4)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -314,9 +317,16 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.1.19)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.2)
     unicorn (5.4.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    valid_email (0.2.0)
+      activemodel
+      mail (>= 2.6.1)
+      simpleidn
     vcr (4.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -357,6 +367,7 @@ DEPENDENCIES
   pg
   premailer-rails
   pry-rails
+  rack-cloudflare
   rails (~> 6.1.0)
   rails_12factor
   rollbar
@@ -366,6 +377,7 @@ DEPENDENCIES
   simple_form
   uglifier
   unicorn
+  valid_email
   vcr
   webmock (< 1.10)
 
