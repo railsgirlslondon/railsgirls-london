@@ -28,6 +28,7 @@ gem 'nokogiri'
 
 group :production do
   gem 'rails_12factor'
+  gem 'rack-cloudflare'
 end
 
 group :development do

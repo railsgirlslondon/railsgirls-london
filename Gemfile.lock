@@ -219,6 +219,7 @@ GEM
     public_suffix (3.0.3)
     racc (1.7.1)
     rack (2.2.8)
+    rack-cloudflare (1.0.5)
     rack-test (2.0.2)
       rack (>= 1.3)
     rails (6.1.6.1)
@@ -366,6 +367,7 @@ DEPENDENCIES
   pg
   premailer-rails
   pry-rails
+  rack-cloudflare
   rails (~> 6.1.0)
   rails_12factor
   rollbar
