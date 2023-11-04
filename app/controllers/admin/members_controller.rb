@@ -22,7 +22,7 @@ class Admin::MembersController < ApplicationController
     @member = Member.create(member_params)
 
     if @member.save
-      redirect_to admin_members_path, notice: 'Member was successfully created.'
+      redirect_to admin_members_path, admin_notice: 'Member was successfully created.'
     else
       render action: 'new'
     end
@@ -30,7 +30,7 @@ class Admin::MembersController < ApplicationController
 
   def update
     if @member.update(member_params)
-      redirect_to admin_members_path, notice: 'Member was successfully updated.'
+      redirect_to admin_members_path, admin_notice: 'Member was successfully updated.'
     else
       render action: 'edit'
     end

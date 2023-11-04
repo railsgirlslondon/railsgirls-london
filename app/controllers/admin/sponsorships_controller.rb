@@ -7,11 +7,11 @@ class Admin::SponsorshipsController < ApplicationController
     sponsorship = Sponsorship.new(sponsor_params)
 
     if sponsorship.save
-      flash[:notice] = "#{sponsorship.sponsor.name} sponsorship has been added to #{sponsorship.sponsorable.to_s}.".html_safe
+      flash[:admin_notice] = "#{sponsorship.sponsor.name} sponsorship has been added to #{sponsorship.sponsorable.to_s}.".html_safe
       redirect_back(fallback_location: admin_sponsors_url)
     else
       flash[:error] = sponsorship.errors.full_messages.join("\n")
-      redirect_back(fallback_location: admin_sponsors_url, notice: flash[:error])
+      redirect_back(fallback_location: admin_sponsors_url, admin_notice: flash[:error])
     end
   end
 
@@ -19,7 +19,7 @@ class Admin::SponsorshipsController < ApplicationController
     sponsorship = Sponsorship.find(params[:id])
     sponsorship.destroy
 
-    flash[:notice] = "#{sponsorship.sponsor.name} sponsorship has been removed from #{sponsorship.sponsorable.to_s}.".html_safe
+    flash[:admin_notice] = "#{sponsorship.sponsor.name} sponsorship has been removed from #{sponsorship.sponsorable.to_s}.".html_safe
 
     redirect_back(fallback_location: admin_sponsors_url)
   end
@@ -28,7 +28,7 @@ class Admin::SponsorshipsController < ApplicationController
     sponsorship = Sponsorship.find(params[:id])
 
     if sponsorship.update(host_params)
-      flash[:notice] = "#{sponsorship.sponsor.name} sponsorship has been updated.".html_safe
+      flash[:admin_notice] = "#{sponsorship.sponsor.name} sponsorship has been updated.".html_safe
     else
       flash[:error] = sponsorship.errors.full_messages.join("\n")
     end

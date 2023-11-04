@@ -13,7 +13,7 @@ class Admin::CoachRegistrationsController < ApplicationController
     @event.coach_registrations << @registration
 
     if @registration.save
-      flash[:notice] = "Registration created."
+      flash[:admin_notice] = "Registration created."
       redirect_to admin_event_path(@event)
     else
       render :new
@@ -23,7 +23,7 @@ class Admin::CoachRegistrationsController < ApplicationController
   def update
     @registration = CoachRegistration.find(params[:id])
     if @registration.update(registration_params)
-      flash[:notice] = "Registration has been updated."
+      flash[:admin_notice] = "Registration has been updated."
     else
       flash[:error] = @registration.errors.full_messages.join("\n")
     end
@@ -36,7 +36,7 @@ class Admin::CoachRegistrationsController < ApplicationController
 
   def destroy
     @registration.destroy
-    redirect_to [:admin, @event], :notice => 'Registration was deleted'
+    redirect_back(fallback_location: admin_event_path(@event), :admin_notice => 'Registration was deleted')
   end
 
   private

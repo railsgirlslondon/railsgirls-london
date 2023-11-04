@@ -43,3 +43,6 @@
             %td= registration.comment
 
           %td= registration.details
+
+          - unless registration.accepted?
+            %td= link_to 'Destroy', [:admin, @event, registration], class: "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' }

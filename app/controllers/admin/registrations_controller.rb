@@ -13,7 +13,7 @@ class Admin::RegistrationsController < ApplicationController
     @event.registrations << @registration
 
     if @registration.save
-      flash[:notice] = "Registration created."
+      flash[:admin_notice] = "Registration created."
       redirect_to admin_event_path(@event)
     else
       render :new
@@ -25,7 +25,7 @@ class Admin::RegistrationsController < ApplicationController
 
   def update
     if @registration.update(new_reg_params)
-      flash[:notice] = "Registration has been updated."
+      flash[:admin_notice] = "Registration has been updated."
     else
       flash[:error] = @registration.errors.full_messages.join("\n")
     end
@@ -38,7 +38,7 @@ class Admin::RegistrationsController < ApplicationController
 
   def destroy
     @registration.destroy
-    redirect_to [:admin, @event], :notice => 'Registration was deleted'
+    redirect_to [:admin, @event], :admin_notice => 'Registration was deleted'
   end
 
   private
