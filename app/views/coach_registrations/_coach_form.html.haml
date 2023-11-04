@@ -14,8 +14,7 @@
       = f.input :phone_number, required: true, input_html: {class: "form-control"}
 
     .flex--item
-      = f.input :twitter, required: false, input_html: {class: "form-control"}
-      = f.input :how_did_you_hear_about_us, input_html: {rows: 3, class: "form-control"}, label: "How did you hear about us?"
+      = f.input :how_did_you_hear_about_us, required: true, input_html: {rows: 3, class: "form-control"}, label: "How did you hear about us?"
       %hr
 
   .flex--container

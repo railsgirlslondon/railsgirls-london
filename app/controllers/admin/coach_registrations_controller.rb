@@ -50,7 +50,7 @@ class Admin::CoachRegistrationsController < ApplicationController
   end
 
   def new_reg_params
-    params.require(:coach_registration).permit(:accepted, :first_name, :last_name, :email, :phone_number, :details, :how_did_you_hear_about_us, :terms_of_service, :twitter, :dietary_restrictions)
+    params.require(:coach_registration).permit(:accepted, :first_name, :last_name, :email, :phone_number, :details, :how_did_you_hear_about_us, :terms_of_service, :dietary_restrictions)
   end
 
   def registration_params
