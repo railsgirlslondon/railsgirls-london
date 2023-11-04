@@ -40,7 +40,7 @@ class Admin::SponsorsController < ApplicationController
     @sponsor = Sponsor.new(sponsor_params)
 
     if @sponsor.save
-      redirect_to [:admin, @sponsor], :notice => 'Sponsor was successfully created.'
+      redirect_to [:admin, @sponsor], :admin_notice => 'Sponsor was successfully created.'
     else
       render :action => 'new'
     end
@@ -48,7 +48,7 @@ class Admin::SponsorsController < ApplicationController
 
   def update
     if @sponsor.update(sponsor_params)
-      redirect_to [:admin, @sponsor], :notice => 'Sponsor was successfully updated.'
+      redirect_to [:admin, @sponsor], :admin_notice => 'Sponsor was successfully updated.'
     else
       @sponsorships = @sponsor.sponsorships
       @non_sponsored = Event.all - @sponsorships.map(&:sponsorable)
@@ -58,7 +58,7 @@ class Admin::SponsorsController < ApplicationController
 
   def destroy
     @sponsor.destroy
-    redirect_to admin_sponsors_url, :notice => 'Sponsor was successfully destroyed.'
+    redirect_to admin_sponsors_url, :admin_notice => 'Sponsor was successfully destroyed.'
   end
 
   private

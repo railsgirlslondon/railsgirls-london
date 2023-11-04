@@ -18,7 +18,7 @@ class Admin::EventsController < ApplicationController
     @event = Event.create(event_params)
 
     if @event.save
-      redirect_to [:admin, @event], :notice => 'Event was successfully created.'
+      redirect_to [:admin, @event], :admin_notice => 'Event was successfully created.'
     else
       render :action => :new
     end
@@ -29,7 +29,7 @@ class Admin::EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to [:admin, @event], :notice => 'Event was successfully updated.'
+      redirect_to [:admin, @event], :admin_notice => 'Event was successfully updated.'
     else
       render :action => "edit"
     end
@@ -44,7 +44,7 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @members = @event.convert_attendees_to_members!
 
-    redirect_to admin_members_path(@members), :notice => "The following members were created."
+    redirect_to admin_members_path(@members), :admin_notice => "The following members were created."
   end
 
   private

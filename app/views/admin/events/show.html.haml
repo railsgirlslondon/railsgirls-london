@@ -13,6 +13,7 @@
   %br
   %br
 
+  =render 'admin/shared/messages'
   =render partial: "admin/shared/sponsors", locals:  { sponsorable: @event }
 
   =render partial: "admin/shared/coaches", locals:  { coachable: @event } if @event.coachable

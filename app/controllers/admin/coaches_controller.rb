@@ -23,7 +23,7 @@ class Admin::CoachesController < ApplicationController
     @coach = Coach.new(coach_params)
 
     if @coach.save
-      redirect_to [:admin, @coach], notice: 'Coach was successfully created.'
+      redirect_to [:admin, @coach], admin_notice: 'Coach was successfully created.'
     else
       render action: 'new'
     end
@@ -31,7 +31,7 @@ class Admin::CoachesController < ApplicationController
 
   def update
     if @coach.update(coach_params)
-      redirect_to [:admin, @coach], notice: 'Coach was successfully updated.'
+      redirect_to [:admin, @coach], admin_notice: 'Coach was successfully updated.'
     else
       render action: 'edit'
     end
@@ -39,7 +39,7 @@ class Admin::CoachesController < ApplicationController
 
   def destroy
     @coach.destroy
-    redirect_to admin_coaches_url, notice: 'Coach was successfully destroyed.'
+    redirect_to admin_coaches_url, admin_notice: 'Coach was successfully destroyed.'
   end
 
   private
