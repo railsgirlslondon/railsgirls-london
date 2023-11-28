@@ -15,6 +15,14 @@ class Admin::InvitationsController < ApplicationController
     redirect_back(fallback_location: events_path(params[:event_id]))
   end
 
+  def send_welcome_email
+    invitation = Invitation.find(params[:id])
+    event = invitation.invitable
+    event.welcome(:welcome_message, invitation.invitee)
+
+    redirect_back(fallback_location: events_path(params[:event_id]))
+  end
+
   def show
     @invitation = Invitation.find_by_token params[:id]
   end

@@ -34,14 +34,17 @@ RailsgirlsLondon::Application.routes.draw do
       resources :invitations, only: [ :show ], :invitable_type => 'Event', :invitable_id => 'event_id' do
         post 'create', on: :collection
         member do
-          put 'resend_invite'
+          post :resend_invite
+          post :send_welcome_email
         end
       end
       resources :registrations, only: [:show, :new, :create, :edit, :update, :destroy] do
         resource :attendance, only: [:create, :destroy]
       end
       resources :coach_registrations, only: [:show, :new, :create, :update, :destroy] do
-        resource :coach_registrations_attendance, only: [:update]
+        resource :coach_registrations_attendance, only: [:update] do
+          post :send_welcome_email, on: :member
+        end
         resources :suggested_matches, only: [:index, :create, :update]
       end
     end

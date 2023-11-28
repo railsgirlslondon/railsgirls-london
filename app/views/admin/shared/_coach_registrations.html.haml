@@ -41,6 +41,8 @@
 
           - if registration.accepted?
             %td= registration.comment
+            %td
+              = link_to 'Send Welcome', send_welcome_email_admin_event_coach_registration_coach_registrations_attendance_path(@event, registration), method: :post, class: "btn btn-success"
 
           %td= registration.details
 
