@@ -91,6 +91,5 @@ class EventMailer < ActionMailer::Base
   def setup_for_welcome_message event, registration
     @event = event
     @registration = registration
-    load_attachments
   end
 end

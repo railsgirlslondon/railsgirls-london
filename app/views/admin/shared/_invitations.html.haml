@@ -32,4 +32,7 @@
             - else
               -invitation_attendance_label(invitation)
           %td
-            = link_to "Resend Invite", resend_invite_admin_event_invitation_path(invitable, invitation.id), method: :put,  class: "btn btn-primary"
+            = link_to "Resend Invite", resend_invite_admin_event_invitation_path(invitable, invitation.id), method: :post,  class: "btn btn-primary"
+          %td
+            = link_to "Send Welcome", send_welcome_email_admin_event_invitation_path(invitable, invitation.id), method: :post,  class: "btn btn-primary"
+

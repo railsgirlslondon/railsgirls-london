@@ -87,20 +87,16 @@ class Event < ActiveRecord::Base
     EventMailer.send(:invitation_reminder, self, invitation.invitee, invitation).deliver_now
   end
 
-  def send_welcome(invitation)
-    EventMailer.send(:welcome_message, self, invitation.invitee).deliver_now
-  end
-
-  def send_reminders
-    attending_students.each {|student| send_welcome(student.invitation) }
+  def welcome_students
+    attending_students.each {|student| welcome(:welcome_message, student.invitation.invitee) }
   end
 
   def welcome_coaches
-    coaches.each {|coach| welcome(coach) }
+    coaches.each {|coach| welcome(:welcome_coaches, coach) }
   end
 
-  def welcome(coach)
-    EventMailer.send(:welcome_coaches, self, coach).deliver_now
+  def welcome(type_of_message, recipient)
+    EventMailer.send(type_of_message, self, recipient).deliver_now
   end
 
   def attending_students

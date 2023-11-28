@@ -24,12 +24,6 @@ class EventMailerPreview < ActionMailer::Preview
     EventMailer.coaches_instruction(event, coach)
   end
 
-  def welcome_coaches
-    event = Event.next_event
-    coach = event.coaches.first
-    EventMailer.welcome_coaches(event, coach)
-  end
-
   def invitation_reminder
     event = Event.next_event
     invitation = event.invitations.pending_response.first
@@ -37,10 +31,16 @@ class EventMailerPreview < ActionMailer::Preview
     EventMailer.invitation_reminder(event, registration, invitation)
   end
 
+  def welcome_coaches
+    event = Event.next_event
+    coach = event.coaches.first
+    EventMailer.send(:welcome_coaches, event, coach)
+  end
+
   def welcome_message
     event = Event.next_event
-    registration = Registration.find(945)
-    EventMailer.welcome_message(event, registration)
+    student = event.attending_students.first.invitation
+    EventMailer.send(:welcome_message, event, student.invitee)
   end
 
   def newsletter
